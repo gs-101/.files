@@ -8,6 +8,11 @@ system-reconfigure:
 
 .PHONY: system-reconfigure
 
+system-edit:
+	${EDITOR} "${DOTFILES}/guix/systems/`hostname`.scm"
+
+.PHONY: system-edit
+
 home-reconfigure:
 	guix home reconfigure ${DOTFILES}/guix/home/systems/`hostname`.scm
 
