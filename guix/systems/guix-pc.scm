@@ -11,6 +11,20 @@
                      ssh
                      xorg)
 
+(define %gs-101/desktop-services
+  (modify-services %desktop-services
+    (guix-service-type config => (guix-configuration
+                                  (inherit config)
+                                  (substitute-urls
+                                   (append (list "https://substitutes.nonguix.org")
+                                           %default-substitute-urls))
+                                  (authorized-keys
+                                   ;; REFACTOR: Using a plain string like this in a distro that can
+                                   ;; build entire packages from source with code seems a bit silly.
+                                   (append (list (plain-file "non-guix.pub"
+                                                             "(public-key (ecc (curve Ed25519) (q
+#C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))"))))))))
+
 (operating-system
   (kernel linux)
   (initrd microcode-initrd)
@@ -61,10 +75,7 @@
                    (service docker-service-type)
                    (set-xorg-configuration
                     (xorg-configuration (keyboard-layout keyboard-layout)))
-                   (modify-services %desktop-services
-                     (delete gdm-service-type)
-                     (delete sddm-service-type)
-                     (delete screen-locker-service-type))))
+                   %gs-101/desktop-services))
 
   (bootloader (bootloader-configuration
                (bootloader grub-efi-bootloader)
