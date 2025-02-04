@@ -12,7 +12,9 @@
   (let ((DOTFILES ".files/"))
     (cons* (simple-service 'home-variables-service
                            home-environment-variables-service-type
-                           `(("DOTFILES" . "$HOME/.files")))
+                           `(("DOTFILES" . "$HOME/.files")
+                             ("TERM" . "kitty")
+                             ("EDITOR" . "emacs")))
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
