@@ -100,4 +100,7 @@
            (simple-service 'home-mpv-service
                            home-profile-service-type
                            (list (specification->package "mpv")))
+           (simple-service 'home-hyprpicker-service
+                           home-profile-service-type
+                           (list (specification->package "hyprpicker")))
            %base-home-services))))
