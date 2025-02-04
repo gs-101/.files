@@ -1,6 +1,6 @@
 update:
 	guix pull --channels=${DOTFILES}/guix/channels-list.scm
-	guix describe --format=channels > ${DOTFILES}/guix/guix/channels.scm
+	guix describe --format=channels > ${DOTFILES}/guix/channels.scm
 	nix-channel --update
 
 system-reconfigure:
