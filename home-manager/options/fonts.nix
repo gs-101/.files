@@ -1,0 +1,38 @@
+{ ... }:
+{
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      emoji = [
+        "Noto Color Emoji"
+      ];
+      monospace = [
+        "Cascadia Mono"
+        "Noto Sans Mono"
+        "Noto Sans Mono CJK SC"
+        "Noto Sans Mono CJK JP"
+        "Noto Sans Mono CJK KR"
+        "Noto Rashi Hebrew"
+        "Symbols Nerd Font Mono"
+      ];
+      sansSerif = [
+        "Aporetic Sans"
+        "Noto Sans"
+        "Noto Sans CJK SC"
+        "Noto Sans CJK JP"
+        "Noto Sans CJK KR"
+        "Noto Sans Hebrew"
+        "Symbols Nerd Font"
+      ];
+      serif = [
+        "Aporetic Serif"
+        "Noto Sans"
+        "Noto Sans CJK SC"
+        "Noto Sans CJK JP"
+        "Noto Sans CJK KR"
+        "Noto Sans Hebrew"
+        "Symbols Nerd Font"
+      ];
+    };
+  };
+}

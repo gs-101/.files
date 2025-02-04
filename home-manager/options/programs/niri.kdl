@@ -1,0 +1,194 @@
+// Noctalia.
+
+include "./noctalia.kdl"
+
+// Autostart.
+
+spawn-at-startup "noctalia-shell" "--no-duplicate"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+// Misc.
+
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png"
+
+// Look and feel.
+
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+        match namespace="^noctalia-wallpaper*"
+
+        place-within-backdrop true
+}
+
+layout {
+        always-center-single-column
+        default-column-display "tabbed"
+
+        background-color "transparent"
+
+        border {
+                off
+        }
+
+        focus-ring {
+                width 1
+        }
+
+        gaps 5
+
+        shadow {
+                off
+        }
+
+        tab-indicator {
+                hide-when-single-tab
+        }
+}
+
+prefer-no-csd
+
+// Input.
+
+cursor {
+        hide-after-inactive-ms 1000
+        hide-when-typing
+}
+
+input {
+        focus-follows-mouse
+
+        keyboard {
+                xkb {
+                        layout "br"
+
+                        options "ctrl:nocaps"
+                }
+
+                numlock
+
+                repeat-delay 600
+                repeat-rate 25
+        }
+
+        mouse {
+                accel-profile "flat"
+        }
+
+        touchpad {
+                accel-profile "flat"
+
+                disabled-on-external-mouse
+
+                drag true
+                drag-lock
+
+                dwt
+                dwtp
+        }
+
+        trackball {
+                accel-profile "flat"
+        }
+
+        trackpoint {
+                accel-profile "flat"
+        }
+
+        workspace-auto-back-and-forth
+}
+
+// Keybindings.
+
+binds {
+        // Programs.
+        Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn "alacritty"; }
+        Mod+X hotkey-overlay-title="Spawn Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+        Mod+E hotkey-overlay-title="Spawn Editor" { spawn-sh "$VISUAL"; }
+        // See https://codeberg.org/tusharhero/tinee
+        Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+        Mod+Comma hotkey-overlay-title="Spawn Emoji Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+        Mod+N hotkey-overlay-title="Spawn Notification Center" { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
+        Mod+C hotkey-overlay-title="Spawn Color Picker" { spawn "dms" "color" "pick" "--autocopy"; }
+        // Screenshot
+        Print hotkey-overlay-title="Take a Screenshot of the Screen" { screenshot-screen show-pointer=false; }
+        Shift+Print hotkey-overlay-title="Take a Screenshot of the Current Window" { screenshot-window; }
+        // Bar.
+        Mod+B hotkey-overlay-title="Toggle the Bar" { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
+        // Bookmarks.
+        Mod+Ctrl+C hotkey-overlay-title="Copy entry to Bookmarks" { spawn "bookmarks-copy"; }
+        Mod+Ctrl+V hotkey-overlay-title="Paste entry from Bookmarks" { spawn "bookmarks-paste"; }
+
+        // Laptop multimedia keys.
+        XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+        XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+        XF86AudioMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+        XF86AudioMicMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+        XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+        XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+        XF86AudioNext { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
+        XF86AudioPause { spawn "noctalia-shell" "ipc" "call" "media" "pause"; }
+        XF86AudioPlay { spawn "noctalia-shell" "ipc" "call" "media" "play"; }
+        XF86AudioPrev { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
+
+        // Actions, modes.
+        Mod+Escape { quit; }
+        // Windows.
+        Mod+Q { close-window; }
+        Mod+F { toggle-window-floating; }
+        Mod+Left { focus-column-left; }
+        Mod+Shift+Left { move-column-left; }
+        Mod+Right { focus-column-right; }
+        Mod+Shift+Right { move-column-right; }
+        Mod+Up { focus-window-up; }
+        Mod+Shift+Up { move-window-up; }
+        Mod+Down { focus-window-down; }
+        Mod+Shift+Down { move-window-down; }
+        Mod+Tab { toggle-overview; }
+        // Workspaces.
+        Mod+1 { focus-workspace 1; }
+        Mod+2 { focus-workspace 2; }
+        Mod+3 { focus-workspace 3; }
+        Mod+4 { focus-workspace 4; }
+        Mod+5 { focus-workspace 5; }
+        Mod+6 { focus-workspace 6; }
+        Mod+7 { focus-workspace 7; }
+        Mod+8 { focus-workspace 8; }
+        Mod+9 { focus-workspace 9; }
+        Mod+0 { focus-workspace 10; }
+        Mod+Shift+1 { move-column-to-workspace 1; }
+        Mod+Shift+2 { move-column-to-workspace 2; }
+        Mod+Shift+3 { move-column-to-workspace 3; }
+        Mod+Shift+4 { move-column-to-workspace 4; }
+        Mod+Shift+5 { move-column-to-workspace 5; }
+        Mod+Shift+6 { move-column-to-workspace 6; }
+        Mod+Shift+7 { move-column-to-workspace 7; }
+        Mod+Shift+8 { move-column-to-workspace 8; }
+        Mod+Shift+9 { move-column-to-workspace 9; }
+        Mod+Shift+0 { move-column-to-workspace 10; }
+        Mod+WheelScrollUp { focus-workspace-up; }
+        Mod+WheelScrollLeft { focus-column-left; }
+        Mod+WheelScrollRight { focus-column-right; }
+        Mod+WheelScrollDown { focus-workspace-down; }
+        Mod+TouchpadScrollUp { focus-workspace-up; }
+        Mod+TouchpadScrollLeft { focus-column-left; }
+        Mod+TouchpadScrollRight { focus-column-right; }
+        Mod+TouchpadScrollDown { focus-workspace-down; }
+}
+
+switch-events {
+        tablet-mode-on { spawn "sh" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
+        tablet-mode-off { spawn "sh" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
+}
+
+// Window rules.
+
+window-rule {
+        clip-to-geometry true
+        geometry-corner-radius 24
+}
+
+window-rule {
+        match app-id=r#"org.quickshell$"#
+
+        open-floating true
+}
