@@ -18,6 +18,9 @@ home-reconfigure:
 
 .PHONY: home-reconfigure
 
+home-edit:
+	${EDITOR} ${DOTFILES}/guix/home/systems/`hostname`.scm
+
 home-reconfigure-nix:
 	home-manager switch --flake ${DOTFILES}/nix/home/#gabriel
 
