@@ -40,9 +40,3 @@ fi
 
 # Source the system-wide file.
 [ -f /etc/bashrc ] && source /etc/bashrc
-
-# Set up Nix profile.
-source /run/current-system/profile/etc/profile.d/nix.sh
-
-# Keep Home Manager out of shell configuration.
-source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
