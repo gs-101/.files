@@ -17,7 +17,7 @@
   (firmware (list linux-firmware))
   (locale "en_US.utf8")
   (timezone "America/Sao_Paulo")
-  (keyboard-layout (keyboard-layout "br-abnt"
+  (keyboard-layout (keyboard-layout "br"
                                     #:options '("ctrl:nocaps")))
   (host-name "guix-pc")
 
