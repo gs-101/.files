@@ -91,10 +91,13 @@
            (simple-service 'home-gpg-service
                            home-profile-service-type
                            (list (specification->package "gnupg")))
-           (simple-service 'home-make-service
-                           home-profile-service-type
-                           (list (specification->package "make")))
            (simple-service 'home-hyprland-service
                            home-profile-service-type
                            (list (specification->package "hyprland")))
+           (simple-service 'home-make-service
+                           home-profile-service-type
+                           (list (specification->package "make")))
+           (simple-service 'home-mpv-service
+                           home-profile-service-type
+                           (list (specification->package "mpv")))
            %base-home-services))))
