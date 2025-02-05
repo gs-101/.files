@@ -14,12 +14,12 @@ system-edit:
 .PHONY: system-edit
 
 home-reconfigure:
-	guix home reconfigure ${DOTFILES}/guix/home/systems/`hostname`.scm
+	guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
 
 .PHONY: home-reconfigure
 
 home-edit:
-	${EDITOR} ${DOTFILES}/guix/home/systems/`hostname`.scm
+	${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
 
 home-reconfigure-nix:
 	home-manager switch --flake ${DOTFILES}/nix/home/#gabriel
