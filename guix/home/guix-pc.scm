@@ -16,6 +16,8 @@
                              ("TERM" . "kitty")
                              ("EDITOR" . "emacs -nw")
                              ("VISUAL" . "emacs")
+                             ("SHELL" . "bash")
+                             ("BROWSER" . "librewolf")))
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
