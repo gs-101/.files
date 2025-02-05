@@ -14,7 +14,8 @@
                            home-environment-variables-service-type
                            `(("DOTFILES" . "$HOME/.files")
                              ("TERM" . "kitty")
-                             ("EDITOR" . "emacs")))
+                             ("EDITOR" . "emacs -nw")
+                             ("VISUAL" . "emacs")
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
