@@ -33,6 +33,11 @@
                      (pinentry-program
                       (file-append pinentry-emacs "/bin/pinentry-emacs"))
                      (ssh-support? #t)))
+           (simple-service 'home-nix-channel-service
+                           home-files-service-type
+                           (list `(".nix-channels"
+                                   ,(local-file (string-append DOTFILES "nix/.nix-channels")
+                                                "nix-channels"))))
            (simple-service 'home-nix-service
                            home-xdg-configuration-files-service-type
                            (list `("nix/nix.conf"
