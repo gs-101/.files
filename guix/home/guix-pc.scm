@@ -72,6 +72,9 @@
            (simple-service 'home-emacs-master-pgtk-service
                            home-profile-service-type
                            (list (specification->package "emacs-master-pgtk")))
+           (simple-service 'home-neovim-service
+                           home-profile-service-type
+                           (list (specification->package "neovim")))
            (simple-service 'home-password-store-service
                            home-profile-service-type
                            (list (specification->package "password-store")))
