@@ -37,4 +37,6 @@
     #   package = emacs-unstable;
     # };
   };
+
+  targets.genericLinux.enable = true;
 }
