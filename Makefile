@@ -26,8 +26,8 @@ home-reconfigure-nix:
 
 .PHONY: home-reconfigure-nix
 
-garbage-collect:
+gc:
 	guix gc
 	nix-collect-garbage
 
-.PHONY: garbage-collect
+.PHONY: gc
