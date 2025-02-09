@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 
 {
+  fonts.fontconfig.enable = true;
+
   home = {
     username = "gabriel";
     homeDirectory = "/home/gabriel";
