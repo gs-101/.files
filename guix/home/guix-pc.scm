@@ -105,6 +105,11 @@
             (simple-service 'home-hyprland-service
                             home-profile-service-type
                             (list (specification->package "hyprland")))
+            (simple-service 'home-hyprland-configuration-service
+                            home-xdg-configuration-files-service-type
+                            (list `("hypr/hyprland.conf"
+                                    ,(local-file (string-append DOTFILES "hypr/hyprland.conf")
+                                                 "hyprland.conf"))))
             (simple-service 'home-fnott-service
                             home-profile-service-type
                             (list (specification->package "fnott")))
