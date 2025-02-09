@@ -4,7 +4,7 @@ update:
 	nix-channel --update
 
 system-reconfigure:
-	sudo -E guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
+	sudo guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
 
 .PHONY: system-reconfigure
 
