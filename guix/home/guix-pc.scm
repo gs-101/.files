@@ -105,6 +105,9 @@
            (simple-service 'home-hyprland-service
                            home-profile-service-type
                            (list (specification->package "hyprland")))
+           (simple-service 'home-fnott-service
+                           home-profile-service-type
+                           (list (specification->package "fnott")))
            (simple-service 'home-make-service
                            home-profile-service-type
                            (list (specification->package "make")))
