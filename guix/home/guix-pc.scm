@@ -108,6 +108,9 @@
             (simple-service 'home-fnott-service
                             home-profile-service-type
                             (list (specification->package "fnott")))
+            (simple-service 'home-polkit-kde-agent-service
+                            home-profile-service-type
+                            (list (specification->package "polkit-kde-agent")))
             (simple-service 'home-make-service
                             home-profile-service-type
                             (list (specification->package "make")))
