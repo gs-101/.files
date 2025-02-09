@@ -11,8 +11,9 @@
                      ssh
                      xorg)
 
-(define %gs-101/desktop-services
+(define %gs-101/desktop-services  
   (modify-services %desktop-services
+    (delete gdm-service-type)
     (guix-service-type config => (guix-configuration
                                   (inherit config)
                                   (substitute-urls
@@ -23,7 +24,8 @@
                                    ;; build entire packages from source with code seems a bit silly.
                                    (append (list (plain-file "non-guix.pub"
                                                              "(public-key (ecc (curve Ed25519) (q
-#C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))"))))))))
+#C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))"))
+                                           %default-authorized-guix-keys))))))
 
 (operating-system
   (kernel linux)
@@ -73,8 +75,6 @@
                    (service nix-service-type)
                    (service containerd-service-type)
                    (service docker-service-type)
-                   (set-xorg-configuration
-                    (xorg-configuration (keyboard-layout keyboard-layout)))
                    %gs-101/desktop-services))
 
   (bootloader (bootloader-configuration
