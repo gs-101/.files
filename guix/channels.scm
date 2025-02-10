@@ -20,18 +20,29 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "9b05acf92bb6cd927e6bf41de31f9d4570a71af6")
+          "82c360ffa9a2934accce6f886dd83f5efbea49a7")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
             (openpgp-fingerprint
               "3049 BF6C 0829 94E4 38ED  4A15 3033 E0E9 F7E2 5FE4"))))
       (channel
+        (name 'selected-guix-works)
+        (url "https://github.com/gs-101/selected-guix-works.git")
+        (branch "main")
+        (commit
+          "dc206d5d4663259bece5a893fc470272893ca112")
+        (introduction
+          (make-channel-introduction
+            "5d1270d51c64457d61cd46ec96e5599176f315a4"
+            (openpgp-fingerprint
+              "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
+      (channel
         (name 'guix)
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "dd1f05edab0a375a53bb489173489025498a38cb")
+          "5e6f30831105557cc9fc0bf131e35e3c0e9d8e34")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
