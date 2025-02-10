@@ -19,6 +19,7 @@
                              ("SHELL" . "bash")
                              ("BROWSER" . "librewolf")
                              ("FILE_MANAGER" . "tv")
+                             ("BAR" . "waybar")))
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
@@ -117,6 +118,9 @@
            (simple-service 'home-polkit-kde-agent-service
                            home-profile-service-type
                            (list (specification->package "polkit-kde-agent")))
+           (simple-service 'home-waybar-service
+                           home-profile-service-type
+                           (list (specification->package "waybar")))
            (simple-service 'home-make-service
                            home-profile-service-type
                            (list (specification->package "make")))
