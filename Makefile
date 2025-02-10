@@ -15,16 +15,14 @@ system-edit:
 
 home-reconfigure:
 	guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
+	home-manager switch --flake ${DOTFILES}/nix/home/#gabriel
 
 .PHONY: home-reconfigure
 
 home-edit:
 	${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
 
-home-reconfigure-nix:
-	home-manager switch --flake ${DOTFILES}/nix/home/#gabriel
-
-.PHONY: home-reconfigure-nix
+.PHONY: home-edit
 
 gc:
 	guix gc
