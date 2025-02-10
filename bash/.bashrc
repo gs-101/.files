@@ -38,3 +38,6 @@ fi
 
 # Source the system-wide file.
 [ -f /etc/bashrc ] && source /etc/bashrc
+
+# Docker and Podman have similar command structure.
+alias docker="podman"
