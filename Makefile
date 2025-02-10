@@ -15,7 +15,7 @@ system-edit:
 
 home-reconfigure:
 	guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
-	home-manager switch --flake ${DOTFILES}/nix/home/#gabriel
+	home-manager switch --no-write-lock-file
 
 .PHONY: home-reconfigure
 
