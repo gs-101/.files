@@ -130,4 +130,7 @@
            (simple-service 'home-hyprpicker-service
                            home-profile-service-type
                            (list (specification->package "hyprpicker")))
+           (simple-service 'home-dolphin-service
+                           home-profile-service-type
+                           (list (specification->package "dolphin")))
            %base-home-services))))
