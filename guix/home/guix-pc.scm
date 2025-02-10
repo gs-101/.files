@@ -18,7 +18,7 @@
                              ("VISUAL" . "emacs")
                              ("SHELL" . "bash")
                              ("BROWSER" . "librewolf")
-                             ("FILE_MANAGER" . "television")))
+                             ("FILE_MANAGER" . "tv")
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
