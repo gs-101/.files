@@ -20,4 +20,13 @@
           "568579841d0ca41a9d222a2cfcad9a7367f9073b"
           (openpgp-fingerprint
            "3049 BF6C 0829 94E4 38ED  4A15 3033 E0E9 F7E2 5FE4"))))
+       (channel
+        (name 'selected-guix-works)
+        (url "https://github.com/gs-101/selected-guix-works.git")
+        (branch "main")
+        (introduction
+         (make-channel-introduction
+          "5d1270d51c64457d61cd46ec96e5599176f315a4"
+          (openpgp-fingerprint
+           "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
        %default-channels)
