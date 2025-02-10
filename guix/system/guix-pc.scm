@@ -1,15 +1,12 @@
 (use-modules (gnu)
-             (gnu packages shellutils)
              (nongnu packages linux)
              (nongnu system linux-initrd))
 
 (use-service-modules cups
                      desktop
-                     docker
-                     networking
                      nix
-                     ssh
-                     xorg)
+                     xorg
+                     containers)
 
 (define %gs-101/desktop-services  
   (modify-services %desktop-services
@@ -45,16 +42,13 @@
                  (supplementary-groups '("wheel"
                                          "netdev"
                                          "audio"
-                                         "video"
-                                         "docker")))
+                                         "video")))
                 %base-user-accounts))
 
   (packages (append
              (map specification->package+output
                   '("git"
                     "nix"
-                    "containerd"
-                    "docker"
                     "direnv"))
              %base-packages))
 
@@ -73,8 +67,7 @@
 
   (services (cons* (service cups-service-type)
                    (service nix-service-type)
-                   (service containerd-service-type)
-                   (service docker-service-type)
+                   (service rootless-podman-service-type)
                    %gs-101/desktop-services))
 
   (bootloader (bootloader-configuration
