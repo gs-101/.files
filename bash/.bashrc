@@ -5,8 +5,7 @@
 # honor it and otherwise use /bin/sh.
 export SHELL
 
-if [[ $- != *i* ]]
-then
+if [[ $- != *i* ]]; then
     # We are being invoked from a non-interactive shell.  If this
     # is an SSH session (as in "ssh host command"), source
     # /etc/profile so we get PATH and other essential variables.
@@ -27,8 +26,7 @@ PS1='\u@\h \w${GUIX_ENVIRONMENT:+ [env]}\$ '
 # honor it and otherwise use /bin/sh.
 export SHELL
 
-if [[ $- != *i* ]]
-then
+if [[ $- != *i* ]]; then
     # We are being invoked from a non-interactive shell.  If this
     # is an SSH session (as in "ssh host command"), source
     # /etc/profile so we get PATH and other essential variables.
