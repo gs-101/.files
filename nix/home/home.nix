@@ -21,6 +21,7 @@
       # waybar
       # gnupg
       # gnumake
+      television
     ];
 
     file = {
