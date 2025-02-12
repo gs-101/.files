@@ -133,4 +133,7 @@
            (simple-service 'home-dolphin-service
                            home-profile-service-type
                            (list (specification->package "dolphin")))
+           (simple-service 'home-selected-guix-works-backgrounds-service
+                           home-profile-service-type
+                           (list (specification->package "selected-guix-works-backgrounds")))
            %base-home-services))))
