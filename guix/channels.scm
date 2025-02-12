@@ -3,7 +3,7 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "1df78871489a343f9a9cb4b292b407c30d16f77d")
+          "bd2f475ac64b3c7e2b4f12fa90f617cbee1028e2")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -20,7 +20,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "82c360ffa9a2934accce6f886dd83f5efbea49a7")
+          "fe378c5b5b0ba0b7361d0276b96e29833a018faa")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -34,7 +34,7 @@
           "dc206d5d4663259bece5a893fc470272893ca112")
         (introduction
           (make-channel-introduction
-            "5d1270d51c64457d61cd46ec96e5599176f315a4"
+            "61105ca7d49b3e39243cc41aee397aaef6c9c58d"
             (openpgp-fingerprint
               "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
       (channel
@@ -45,6 +45,6 @@
           "5e6f30831105557cc9fc0bf131e35e3c0e9d8e34")
         (introduction
           (make-channel-introduction
-            "9edb3f66fd807b096b48283debdcddccfea34bad"
+            "d59a13b6401e7494d8d5c9c9f66df3318451be79"
             (openpgp-fingerprint
               "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))
