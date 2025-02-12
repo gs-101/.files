@@ -89,9 +89,9 @@
            (simple-service 'home-ripgrep-service
                            home-profile-service-type
                            (list (specification->package "ripgrep")))
-           (simple-service 'home-font-fira-code-service
+           (simple-service 'home-font-microsoft-cascadia-next-service
                            home-profile-service-type
-                           (list (specification->package "font-fira-code")))
+                           (list (specification->package "font-microsoft-cascadia-next")))
            (simple-service 'home-rofi-service
                            home-profile-service-type
                            (list (specification->package "rofi")))
