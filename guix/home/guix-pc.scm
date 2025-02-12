@@ -136,4 +136,15 @@
            (simple-service 'home-selected-guix-works-backgrounds-service
                            home-profile-service-type
                            (list (specification->package "selected-guix-works-backgrounds")))
+           (simple-service 'home-hyprpaper-service
+                           home-profile-service-type
+                           (list (specification->package "hyprpaper")))
+           (simple-service 'home-hyprpaper-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("hypr/hyprpaper.conf"
+                                   ,(plain-file "hyprpaper.conf"
+                                                "
+preload = /run/current-system/profile/share/backgrounds/guix/guix-nix-checkered-16-9.svg
+wallpaper = , /run/current-system/profile/share/backgrounds/guix/guix-nix-checkered-16-9.svg
+"))))
            %base-home-services))))
