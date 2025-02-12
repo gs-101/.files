@@ -5,7 +5,8 @@
              (gnu services)
              (guix gexp)
              (gnu home services shells)
-             (gnu home services gnupg))
+             (gnu home services gnupg)
+             (gnu home services syncthing))
 
 (home-environment
  (services
@@ -38,6 +39,10 @@
                      (pinentry-program
                       (file-append pinentry-emacs "/bin/pinentry-emacs"))
                      (ssh-support? #t)))
+           (service home-syncthing-service-type
+                    (for-home
+                     (syncthing-configuration
+                      (user "gabriel"))))
            (simple-service 'home-nix-channel-service
                            home-files-service-type
                            (list `(".nix-channels"
