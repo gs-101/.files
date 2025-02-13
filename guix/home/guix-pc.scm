@@ -20,7 +20,8 @@
                              ("SHELL" . "bash")
                              ("BROWSER" . "librewolf")
                              ("FILE_MANAGER" . "tv")
-                             ("BAR" . "waybar")))
+                             ("BAR" . "waybar")
+                             ("MENU" . "fuzzel")))
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
@@ -92,9 +93,9 @@
            (simple-service 'home-font-microsoft-cascadia-next-service
                            home-profile-service-type
                            (list (specification->package "font-microsoft-cascadia-next")))
-           (simple-service 'home-rofi-service
+           (simple-service 'home-fuzzel-service
                            home-profile-service-type
-                           (list (specification->package "rofi")))
+                           (list (specification->package "fuzzel")))
            (simple-service 'home-kitty-service
                            home-profile-service-type
                            (list (specification->package "kitty")))
