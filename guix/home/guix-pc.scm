@@ -150,4 +150,7 @@
 preload = /run/current-system/profile/share/backgrounds/guix/guix-nix-checkered-16-9.svg
 wallpaper = , /run/current-system/profile/share/backgrounds/guix/guix-nix-checkered-16-9.svg
 "))))
+           (simple-service 'home-clipman-service
+                           home-profile-service-type
+                           (list (specification->package "clipman")))
            %base-home-services))))
