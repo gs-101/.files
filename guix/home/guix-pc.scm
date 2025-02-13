@@ -41,7 +41,7 @@
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration
                      (pinentry-program
-                      (file-append pinentry-emacs "/bin/pinentry-emacs"))
+                      (file-append pinentry-qt "/bin/pinentry-qt"))
                      (ssh-support? #t)))
            (service home-syncthing-service-type
                     (for-home
