@@ -43,6 +43,9 @@
                      (pinentry-program
                       (file-append pinentry-qt "/bin/pinentry-qt"))
                      (ssh-support? #t)))
+           (simple-service 'home-openssh-service
+                           home-profile-service-type
+                           (list (specification->package "openssh")))
            (service home-syncthing-service-type
                     (for-home
                      (syncthing-configuration
