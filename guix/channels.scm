@@ -20,7 +20,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "fe378c5b5b0ba0b7361d0276b96e29833a018faa")
+          "caf0fdf59de2e6ae4ef919bdfe3b12cfd7b69e4f")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -31,10 +31,10 @@
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "dc206d5d4663259bece5a893fc470272893ca112")
+          "89074834a1df570de061f7d731f28d4506a611d7")
         (introduction
           (make-channel-introduction
-            "61105ca7d49b3e39243cc41aee397aaef6c9c58d"
+            "5d1270d51c64457d61cd46ec96e5599176f315a4"
             (openpgp-fingerprint
               "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
       (channel
@@ -42,9 +42,9 @@
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "5e6f30831105557cc9fc0bf131e35e3c0e9d8e34")
+          "c9abfacd9f58f7365668b67a8125640b7497932a")
         (introduction
           (make-channel-introduction
-            "d59a13b6401e7494d8d5c9c9f66df3318451be79"
+            "9edb3f66fd807b096b48283debdcddccfea34bad"
             (openpgp-fingerprint
               "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))
