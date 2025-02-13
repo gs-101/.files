@@ -156,4 +156,7 @@ wallpaper = , /run/current-system/profile/share/backgrounds/guix/guix-nix-checke
            (simple-service 'home-clipman-service
                            home-profile-service-type
                            (list (specification->package "clipman")))
+           (simple-service 'home-udiskie-service
+                           home-profile-service-type
+                           (list (specification->package "udiskie")))
            %base-home-services))))
