@@ -1,5 +1,4 @@
 (use-modules (gnu)
-             (nongnu packages linux)
              (nongnu system linux-initrd))
 
 (use-service-modules cups
@@ -25,9 +24,10 @@
                                            %default-authorized-guix-keys))))))
 
 (operating-system
- (kernel linux)
+ (kernel (specification->package "linux"))
  (initrd microcode-initrd)
- (firmware (list linux-firmware))
+ (firmware (map specification->package
+                '("linux-firmware")))
  (locale "en_US.utf8")
  (timezone "America/Sao_Paulo")
  (keyboard-layout (keyboard-layout "br"
