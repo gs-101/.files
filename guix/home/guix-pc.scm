@@ -150,8 +150,8 @@
                            (list `("hypr/hyprpaper.conf"
                                    ,(plain-file "hyprpaper.conf"
                                                 "
-preload = /run/current-system/profile/share/backgrounds/guix/guix-nix-checkered-16-9.svg
-wallpaper = , /run/current-system/profile/share/backgrounds/guix/guix-nix-checkered-16-9.svg
+preload = /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
+wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 "))))
            (simple-service 'home-clipman-service
                            home-profile-service-type
