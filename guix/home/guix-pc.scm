@@ -6,7 +6,8 @@
              (guix gexp)
              (gnu home services shells)
              (gnu home services gnupg)
-             (gnu home services syncthing))
+             (gnu home services syncthing)
+             (gnu home services sound))
 
 (home-environment
  (services
@@ -44,6 +45,7 @@
                     (for-home
                      (syncthing-configuration
                       (user "gabriel"))))
+           (service home-pipewire-service-type)
            (simple-service 'home-nix-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("nix/nix.conf"
