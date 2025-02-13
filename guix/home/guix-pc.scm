@@ -44,7 +44,7 @@
                     (for-home
                      (syncthing-configuration
                       (user "gabriel"))))
-           (simple-service 'home-nix-service
+           (simple-service 'home-nix-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("nix/nix.conf"
                                    ,(plain-file "nix.conf"
