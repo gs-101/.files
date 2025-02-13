@@ -7,7 +7,8 @@
              (gnu home services shells)
              (gnu home services gnupg)
              (gnu home services syncthing)
-             (gnu home services sound))
+             (gnu home services sound)
+             (gnu home services desktop))
 
 (home-environment
  (services
@@ -46,6 +47,7 @@
                     (for-home
                      (syncthing-configuration
                       (user "gabriel"))))
+           (service home-dbus-service-type)
            (service home-pipewire-service-type)
            (simple-service 'home-nix-configuration-service
                            home-xdg-configuration-files-service-type
