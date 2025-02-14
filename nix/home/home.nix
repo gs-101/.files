@@ -25,14 +25,6 @@
       wakatime-cli
       zotero-beta
     ];
-
-    file = {
-      
-    };
-
-    sessionVariables = {
-
-    };
   };
 
   programs = with pkgs; {
