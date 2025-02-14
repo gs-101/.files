@@ -22,6 +22,7 @@
       # gnupg
       # gnumake
       television
+      wakatime-cli
     ];
 
     file = {
