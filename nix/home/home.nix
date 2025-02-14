@@ -23,6 +23,7 @@
       # gnumake
       television
       wakatime-cli
+      zotero-beta
     ];
 
     file = {
