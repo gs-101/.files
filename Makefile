@@ -1,6 +1,9 @@
 update:
 	guix pull --channels=${DOTFILES}/guix/channels-list.scm
 	guix describe --format=channels > ${DOTFILES}/guix/channels.scm
+    nix flake \update ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
+
+.PHONY: update
 
 system-reconfigure:
 	sudo guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
