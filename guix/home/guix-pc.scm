@@ -8,7 +8,8 @@
              (gnu home services gnupg)
              (gnu home services syncthing)
              (gnu home services sound)
-             (gnu home services desktop))
+             (gnu home services desktop)
+             (gnu home services fontutils))
 
 (home-environment
  (services
@@ -43,6 +44,25 @@
                      (pinentry-program
                       (file-append pinentry-qt "/bin/pinentry-qt"))
                      (ssh-support? #t)))
+           (simple-service 'home-fontconfig-service
+                           home-fontconfig-service-type
+                           (list "~/.guix-home/profile/share/fonts/"
+                                 '(alias
+                                   (family "monospace")
+                                   (prefer
+                                    (family "Cascadia Mono NF")))
+                                 '(alias
+                                   (family "serif")
+                                   (prefer
+                                    (family "Aporetic Serif")))
+                                 '(alias
+                                   (family "sans-serif")
+                                   (prefer
+                                    (family "Cascadia Code NF")))
+                                 '(alias
+                                   (family "emoji")
+                                   (prefer
+                                    (family "Noto Color Emoji")))))
            (simple-service 'home-openssh-service
                            home-profile-service-type
                            (list (specification->package "openssh")))
