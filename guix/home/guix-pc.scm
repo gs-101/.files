@@ -104,6 +104,9 @@
            (simple-service 'home-font-google-noto-emoji-service
                            home-profile-service-type
                            (list (specification->package "font-google-noto-emoji")))
+           (simple-service 'home-font-aporetic-service
+                           home-profile-service-type
+                           (list (specification->package "font-aporetic")))
            (simple-service 'home-fuzzel-service
                            home-profile-service-type
                            (list (specification->package "fuzzel")))
