@@ -64,6 +64,10 @@ shopt -s histappend
 # Recursive globbing.
 shopt -s globstar
 ")))))
+           (service home-inputrc-service-type
+                    (home-inputrc-configuration
+                     (variables
+                      '(("editing-mode" . "emacs")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration
                      (pinentry-program
