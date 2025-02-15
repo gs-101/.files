@@ -17,7 +17,3 @@ fi
 
 # Source the system-wide file.
 [ -f /etc/bashrc ] && source /etc/bashrc
-
-# gpg-agent frustratingly doesn't seem to update on startup.
-# This restarts it so SSH keys can be used.
-gpg-connect-agent updatestartuptty /bye > /dev/null
