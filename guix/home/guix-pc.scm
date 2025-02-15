@@ -18,8 +18,8 @@
                            home-environment-variables-service-type
                            `(("DOTFILES" . "$HOME/.files")
                              ("TERM" . "kitty")
-                             ("EDITOR" . "emacs -nw")
-                             ("VISUAL" . "emacs")
+                             ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
+                             ("VISUAL" . "emacsclient --create-frame -a 'emacs'")
                              ("SHELL" . "bash")
                              ("BROWSER" . "librewolf")
                              ("FILE_MANAGER" . "tv")
