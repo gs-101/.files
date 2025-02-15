@@ -40,6 +40,30 @@
                                                "bashrc")))
                      (bash-profile (list (local-file (string-append DOTFILES "bash/.bash_profile")
                                                      "bash_profile")))))
+           (simple-service 'home-bash-extension-service
+                           home-bash-service-type
+                           (home-bash-extension
+                            (bash-profile (list (plain-file "bash_profile"
+                                                            "
+# Set up Nix profile.
+source /run/current-system/profile/etc/profile.d/nix.sh
+
+# Keep Home Manager out of shell configuration.
+if [ -f ~/.nix-profile/bin/home-manager ]; then source ~/.nix-profile/etc/profile.d/hm-session-vars.sh; fi
+")))
+                            (bashrc (list (plain-file "bashrc"
+                                                      "
+# gpg-agent frustratingly doesn't seem to update on startup.
+# This restarts it so SSH keys can be used.
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# Save commands in history on a single line.
+shopt -s cmdhist
+# Do not overwrite history.
+shopt -s histappend
+# Recursive globbing.
+shopt -s globstar
+")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration
                      (pinentry-program
