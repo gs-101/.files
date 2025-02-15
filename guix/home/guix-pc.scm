@@ -27,6 +27,7 @@
                              ("MENU" . "fuzzel")))
            (service home-bash-service-type
                     (home-bash-configuration
+                     (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))
                      (aliases '(("grep" . "grep --color=auto")
                                 (".." . "cd ..")
                                 ("cat" . "bat --color auto --decorations auto --paging never")
