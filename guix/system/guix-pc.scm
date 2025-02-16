@@ -46,10 +46,10 @@
                 %base-user-accounts))
 
   (packages (append
-             (map specification->package+output
-                  '("git"
-                    "nix"
-                    "direnv"))
+             (specifications->packages
+              '("git"
+                "nix"
+                "direnv"))
              %base-packages))
 
   (issue "
