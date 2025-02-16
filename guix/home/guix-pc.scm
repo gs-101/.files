@@ -13,47 +13,47 @@
              (selected-guix-works utils))
 
 (home-environment
- (services
-  (let ((DOTFILES ".files/"))
-    (cons* (simple-service 'home-variables-service
-                           home-environment-variables-service-type
-                           `(("DOTFILES" . "$HOME/.files")
-                             ("TERM" . "kitty")
-                             ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
-                             ("VISUAL" . "emacsclient --create-frame -a 'emacs'")
-                             ("SHELL" . "bash")
-                             ("BROWSER" . "librewolf")
-                             ("FILE_MANAGER" . "tv")
-                             ("BAR" . "waybar")
-                             ("MENU" . "fuzzel")))
-           (service home-bash-service-type
-                    (home-bash-configuration
-                     (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))
-                     (aliases '(("grep" . "grep --color=auto")
-                                (".." . "cd ..")
-                                ("cat" . "bat --color auto --decorations auto --paging never")
-                                ("ls" . "eza -l -X --color auto --icons auto --hyperlink -a --group-directories-first --smart-group -h --changed --git")
-                                ("ip" . "ip -color=auto")
-                                ("df" . "df -H")
-                                ("free" . "free -m -h --si")
-                                ("docker" . "podman")))
-                     (bashrc (list (local-file (string-append DOTFILES "bash/.bashrc")
-                                               "bashrc")))
-                     (bash-profile (list (local-file (string-append DOTFILES "bash/.bash_profile")
-                                                     "bash_profile")))))
-           (simple-service 'home-bash-extension-service
-                           home-bash-service-type
-                           (home-bash-extension
-                            (bash-profile (list (plain-file "bash_profile"
-                                                            "
+  (services
+   (let ((DOTFILES ".files/"))
+     (cons* (simple-service 'home-variables-service
+                            home-environment-variables-service-type
+                            `(("DOTFILES" . "$HOME/.files")
+                              ("TERM" . "kitty")
+                              ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
+                              ("VISUAL" . "emacsclient --create-frame -a 'emacs'")
+                              ("SHELL" . "bash")
+                              ("BROWSER" . "librewolf")
+                              ("FILE_MANAGER" . "tv")
+                              ("BAR" . "waybar")
+                              ("MENU" . "fuzzel")))
+            (service home-bash-service-type
+                     (home-bash-configuration
+                      (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))
+                      (aliases '(("grep" . "grep --color=auto")
+                                 (".." . "cd ..")
+                                 ("cat" . "bat --color auto --decorations auto --paging never")
+                                 ("ls" . "eza -l -X --color auto --icons auto --hyperlink -a --group-directories-first --smart-group -h --changed --git")
+                                 ("ip" . "ip -color=auto")
+                                 ("df" . "df -H")
+                                 ("free" . "free -m -h --si")
+                                 ("docker" . "podman")))
+                      (bashrc (list (local-file (string-append DOTFILES "bash/.bashrc")
+                                                "bashrc")))
+                      (bash-profile (list (local-file (string-append DOTFILES "bash/.bash_profile")
+                                                      "bash_profile")))))
+            (simple-service 'home-bash-extension-service
+                            home-bash-service-type
+                            (home-bash-extension
+                             (bash-profile (list (plain-file "bash_profile"
+                                                             "
 # Set up Nix profile.
 source /run/current-system/profile/etc/profile.d/nix.sh
 
 # Keep Home Manager out of shell configuration.
 if [ -f ~/.nix-profile/bin/home-manager ]; then source ~/.nix-profile/etc/profile.d/hm-session-vars.sh; fi
 ")))
-                            (bashrc (list (plain-file "bashrc"
-                                                      "
+                             (bashrc (list (plain-file "bashrc"
+                                                       "
 # gpg-agent frustratingly doesn't seem to update on startup.
 # This restarts it so SSH keys can be used.
 gpg-connect-agent updatestartuptty /bye >/dev/null
