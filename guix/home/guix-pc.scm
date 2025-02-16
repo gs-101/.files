@@ -167,6 +167,7 @@ shopt -s globstar
 preload = /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 "))))
-           (home-profile-package-service "clipman")
-           (home-profile-package-service "udiskie")
-           %base-home-services))))
+            (home-profile-package-service "wl-clipboard")
+            (home-profile-package-service "clipman")
+            (home-profile-package-service "udiskie")
+            %base-home-services))))
