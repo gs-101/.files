@@ -9,7 +9,8 @@
              (gnu home services syncthing)
              (gnu home services sound)
              (gnu home services desktop)
-             (gnu home services fontutils))
+             (gnu home services fontutils)
+             (selected-guix-works utils))
 
 (home-environment
  (services
@@ -129,80 +130,34 @@ shopt -s globstar
                            (list `(".wakatime.cfg"
                                    ,(local-file (string-append DOTFILES "wakatime/.wakatime.cfg")
                                                 "wakatime.cfg"))))
-           (simple-service 'home-emacs-master-pgtk-service
-                           home-profile-service-type
-                           (list (specification->package "emacs-master-pgtk")))
-           (simple-service 'home-neovim-service
-                           home-profile-service-type
-                           (list (specification->package "neovim")))
-           (simple-service 'home-password-store-service
-                           home-profile-service-type
-                           (list (specification->package "password-store")))
-           (simple-service 'home-bat-service
-                           home-profile-service-type
-                           (list (specification->package "bat")))
-           (simple-service 'home-eza-service
-                           home-profile-service-type
-                           (list (specification->package "eza")))
-           (simple-service 'home-ripgrep-service
-                           home-profile-service-type
-                           (list (specification->package "ripgrep")))
-           (simple-service 'home-font-microsoft-cascadia-next-service
-                           home-profile-service-type
-                           (list (specification->package "font-microsoft-cascadia-next")))
-           (simple-service 'home-font-google-noto-emoji-service
-                           home-profile-service-type
-                           (list (specification->package "font-google-noto-emoji")))
-           (simple-service 'home-font-aporetic-service
-                           home-profile-service-type
-                           (list (specification->package "font-aporetic")))
-           (simple-service 'home-fuzzel-service
-                           home-profile-service-type
-                           (list (specification->package "fuzzel")))
-           (simple-service 'home-kitty-service
-                           home-profile-service-type
-                           (list (specification->package "kitty")))
-           (simple-service 'home-librewolf-service
-                           home-profile-service-type
-                           (list (specification->package "librewolf")))
-           (simple-service 'home-gpg-service
-                           home-profile-service-type
-                           (list (specification->package "gnupg")))
-           (simple-service 'home-hyprland-service
-                           home-profile-service-type
-                           (list (specification->package "hyprland")))
+           (home-profile-package-service "emacs-master-pgtk")
+           (home-profile-package-service "neovim")
+           (home-profile-package-service "password-store")
+           (home-profile-package-service "bat")
+           (home-profile-package-service "eza")
+           (home-profile-package-service "ripgrep")
+           (home-profile-package-service "font-microsoft-cascadia-next")
+           (home-profile-package-service "font-google-noto-emoji")
+           (home-profile-package-service "font-aporetic")
+           (home-profile-package-service "fuzzel")
+           (home-profile-package-service "kitty")
+           (home-profile-package-service "librewolf")
+           (home-profile-package-service "gnupg")
+           (home-profile-package-service "hyprland")
            (simple-service 'home-hyprland-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("hypr/hyprland.conf"
                                    ,(local-file (string-append DOTFILES "hypr/hyprland.conf")
                                                 "hyprland.conf"))))
-           (simple-service 'home-fnott-service
-                           home-profile-service-type
-                           (list (specification->package "fnott")))
-           (simple-service 'home-polkit-kde-agent-service
-                           home-profile-service-type
-                           (list (specification->package "polkit-kde-agent")))
-           (simple-service 'home-waybar-service
-                           home-profile-service-type
-                           (list (specification->package "waybar")))
-           (simple-service 'home-make-service
-                           home-profile-service-type
-                           (list (specification->package "make")))
-           (simple-service 'home-mpv-service
-                           home-profile-service-type
-                           (list (specification->package "mpv")))
-           (simple-service 'home-hyprpicker-service
-                           home-profile-service-type
-                           (list (specification->package "hyprpicker")))
-           (simple-service 'home-dolphin-service
-                           home-profile-service-type
-                           (list (specification->package "dolphin")))
-           (simple-service 'home-selected-guix-works-backgrounds-service
-                           home-profile-service-type
-                           (list (specification->package "selected-guix-works-backgrounds")))
-           (simple-service 'home-hyprpaper-service
-                           home-profile-service-type
-                           (list (specification->package "hyprpaper")))
+           (home-profile-package-service "fnott")
+           (home-profile-package-service "polkit-kde-agent")
+           (home-profile-package-service "waybar")
+           (home-profile-package-service "make")
+           (home-profile-package-service "mpv")
+           (home-profile-package-service "hyprpicker")
+           (home-profile-package-service "dolphin")
+           (home-profile-package-service "selected-guix-works-backgrounds")
+           (home-profile-package-service "hyprpaper")
            (simple-service 'home-hyprpaper-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("hypr/hyprpaper.conf"
@@ -211,10 +166,6 @@ shopt -s globstar
 preload = /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 "))))
-           (simple-service 'home-clipman-service
-                           home-profile-service-type
-                           (list (specification->package "clipman")))
-           (simple-service 'home-udiskie-service
-                           home-profile-service-type
-                           (list (specification->package "udiskie")))
+           (home-profile-package-service "clipman")
+           (home-profile-package-service "udiskie")
            %base-home-services))))
