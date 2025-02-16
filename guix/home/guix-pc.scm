@@ -144,6 +144,7 @@ shopt -s globstar
            (home-profile-package-service "librewolf")
            (home-profile-package-service "gnupg")
            (home-profile-package-service "hyprland")
+           (home-profile-package-service "xdg-desktop-portal-hyprland")
            (simple-service 'home-hyprland-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("hypr/hyprland.conf"
