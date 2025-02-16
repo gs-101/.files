@@ -21,6 +21,10 @@ home-reconfigure:
 
 .PHONY: home-reconfigure
 
+reconfigure-all: system-reconfigure home-reconfigure
+
+.PHONY: reconfigure-all
+
 home-edit:
 	${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
 
