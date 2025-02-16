@@ -170,4 +170,5 @@ wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-w
             (home-profile-package-service "wl-clipboard")
             (home-profile-package-service "clipman")
             (home-profile-package-service "udiskie")
+            (home-profile-package-service "bibata-cursor-theme")
             %base-home-services))))
