@@ -20,7 +20,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "7ab2caf5ba732d10ba882452bc3bd941ec598d27")
+          "7ef5c03e7f571066396cb440567f3c820ef3925b")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -31,7 +31,7 @@
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "23f5af034b202e2dabe3f1e80da2e169ff2c6ed7")
+          "618b4ff7a9af872f94190ca0949fd7358501ea00")
         (introduction
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
@@ -42,7 +42,7 @@
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "93551174af7a96d61f22f013ad1b9935106bf040")
+          "73d74032d580212e7b59644d3324677926e4339b")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
