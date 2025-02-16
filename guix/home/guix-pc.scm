@@ -151,7 +151,7 @@ shopt -s globstar
                                    ,(local-file (string-append DOTFILES "hypr/hyprland.conf")
                                                 "hyprland.conf"))))
            (home-profile-package-service "fnott")
-           (home-profile-package-service "polkit-kde-agent")
+           (home-profile-package-service "hyprpolkitagent")
            (home-profile-package-service "waybar")
            (home-profile-package-service "make")
            (home-profile-package-service "mpv")
