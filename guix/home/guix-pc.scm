@@ -70,8 +70,11 @@ shopt -s globstar
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration
                      (pinentry-program
-                      (file-append pinentry-qt "/bin/pinentry-qt"))
+                      (file-append pinentry-emacs "/bin/pinentry-emacs"))
                      (ssh-support? #t)))
+           (home-profile-package-service "font-microsoft-cascadia-next")
+           (home-profile-package-service "font-google-noto-emoji")
+           (home-profile-package-service "font-aporetic")
            (simple-service 'home-fontconfig-service
                            home-fontconfig-service-type
                            (list "~/.guix-home/profile/share/fonts/"
@@ -134,29 +137,21 @@ shopt -s globstar
            (home-profile-package-service "bat")
            (home-profile-package-service "eza")
            (home-profile-package-service "ripgrep")
-           (home-profile-package-service "font-microsoft-cascadia-next")
-           (home-profile-package-service "font-google-noto-emoji")
-           (home-profile-package-service "font-aporetic")
            (home-profile-package-service "fuzzel")
            (home-profile-package-service "kitty")
            (home-profile-package-service "librewolf")
            (home-profile-package-service "gnupg")
-           (home-profile-package-service "hyprland")
-           (home-profile-package-service "xdg-desktop-portal-hyprland")
-           (simple-service 'home-hyprland-configuration-service
-                           home-xdg-configuration-files-service-type
-                           (list `("hypr/hyprland.conf"
-                                   ,(local-file (string-append DOTFILES "hypr/hyprland.conf")
-                                                "hyprland.conf"))))
-           (home-profile-package-service "fnott")
-           (home-profile-package-service "hyprpolkitagent")
-           (home-profile-package-service "waybar")
-           (home-profile-package-service "make")
-           (home-profile-package-service "mpv")
-           (home-profile-package-service "hyprpicker")
-           (home-profile-package-service "dolphin")
+           (home-profile-package-service '("hyprland"
+                                           "xdg-desktop-portal-hyprland"
+                                           "hyprpolkitagent"
+                                           "hyprpicker"
+                                           "hyprpaper"
+                                           ;; For hyprshot
+                                           "slurp"
+                                           "grim"
+                                           "libnotify"
+                                           "hyprshot"))
            (home-profile-package-service "selected-guix-works-backgrounds")
-           (home-profile-package-service "hyprpaper")
            (simple-service 'home-hyprpaper-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("hypr/hyprpaper.conf"
@@ -165,9 +160,18 @@ shopt -s globstar
 preload = /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
 "))))
-           (home-profile-package-service "wl-clipboard")
-           (home-profile-package-service "clipman")
+           (simple-service 'home-hyprland-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("hypr/hyprland.conf"
+                                   ,(local-file (string-append DOTFILES "hypr/hyprland.conf")
+                                                "hyprland.conf"))))
+           (home-profile-package-service "fnott")
+           (home-profile-package-service "waybar")
+           (home-profile-package-service "make")
+           (home-profile-package-service "mpv")
+           (home-profile-package-service "dolphin")
+           (home-profile-package-service '("wl-clipboard"
+                                           "clipman"))
            (home-profile-package-service "udiskie")
            (home-profile-package-service "bibata-cursor-theme")
-           (home-profile-package-service "hyprshot")
            %base-home-services))))
