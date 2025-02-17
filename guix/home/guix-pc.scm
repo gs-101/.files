@@ -104,6 +104,11 @@ shopt -s globstar
                       (user "gabriel"))))
            (service home-dbus-service-type)
            (service home-pipewire-service-type)
+           (simple-service 'home-waybar-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("waybar/config.jsonc"
+                                   ,(local-file (string-append DOTFILES "waybar/config.jsonc")
+                                                "config.jsonc"))))
            (simple-service 'home-nix-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("nix/nix.conf"
