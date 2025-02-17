@@ -29,7 +29,7 @@
            (service home-bash-service-type
                     (home-bash-configuration
                      (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))
-                     (aliases '(("grep" . "grep --color=auto")
+                     (aliases '(("grep" . "grep -P -i -n -H -q -R --devices=read --color=auto")
                                 (".." . "cd ..")
                                 ("cat" . "bat --color auto --decorations auto --paging never")
                                 ("ls" . "eza -l -X --color auto --icons auto --hyperlink -a --group-directories-first --smart-group -h --changed --git")
