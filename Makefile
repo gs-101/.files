@@ -35,3 +35,8 @@ gc:
 	nix-collect-garbage
 
 .PHONY: gc
+
+ares:
+	guix shell guile-next guile-ares-rs -- guile -L ${DOTFILES}/guix -c "(begin (use-modules (guix gexp)) ((@ (ares server) run-nrepl-server)))"
+
+.PHONY: ares
