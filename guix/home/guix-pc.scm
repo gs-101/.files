@@ -71,7 +71,7 @@ shopt -s globstar
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration
                      (pinentry-program
-                      (file-append pinentry-emacs "/bin/pinentry-emacs"))
+                      (file-append pinentry-qt "/bin/pinentry-qt"))
                      (ssh-support? #t)))
            (home-profile-package-service "font-microsoft-cascadia-next")
            (home-profile-package-service "font-google-noto-emoji")
