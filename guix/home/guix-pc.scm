@@ -36,7 +36,8 @@
                                 ("ip" . "ip -color=auto")
                                 ("df" . "df -H")
                                 ("free" . "free -m -h --si")
-                                ("docker" . "podman")))
+                                ("docker" . "podman")
+                                ("find" . "fd")))
                      (bash-profile (list (local-file (string-append DOTFILES "bash/.bash_profile")
                                                      "bash_profile")))))
            (simple-service 'home-bash-extension-service
@@ -174,4 +175,5 @@ wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-w
                                            "clipman"))
            (home-profile-package-service "udiskie")
            (home-profile-package-service "bibata-cursor-theme")
+           (home-profile-package-service "fd")
            %base-home-services))))
