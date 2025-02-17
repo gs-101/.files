@@ -33,11 +33,5 @@
           modules = [ ./home.nix ];
         };
       };
-      devShell.x86_64-linux =
-        mkShellNoCC {
-          buildInputs = [
-            nixd
-          ];
-      };
     };
 }
