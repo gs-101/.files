@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";    
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -8,7 +8,7 @@
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-    };    
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,12 +26,18 @@
           emacs-overlay.overlays.default
         ];
       };
-    in {
+    in with pkgs; {
       homeConfigurations = {
         gabriel = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
         };
+      };
+      devShell.x86_64-linux =
+        mkShellNoCC {
+          buildInputs = [
+            nixd
+          ];
       };
     };
 }
