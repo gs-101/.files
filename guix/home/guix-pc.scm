@@ -190,6 +190,12 @@ wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-w
                             (list `("hypr/hyprland.conf"
                                     ,(local-file (string-append DOTFILES "hypr/hyprland.conf")
                                                  "hyprland.conf"))))
+            (simple-service 'home-gtk-2-configuration-service
+                            home-files-service-type
+                            (list `(".gtkrc-2.0"
+                                    ,(plain-file "gtkrc-2.0"
+                                                 "gtk-cursor-theme-name = \"Bibata-Modern-Classic\"
+gtk-font-name = \"Cascadia Code NF\""))))
             (home-profile-package-service "fnott")
             (home-profile-package-service "waybar")
             (home-profile-package-service "make")
