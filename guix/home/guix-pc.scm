@@ -195,7 +195,13 @@ wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-w
                             (list `(".gtkrc-2.0"
                                     ,(plain-file "gtkrc-2.0"
                                                  "gtk-cursor-theme-name = \"Bibata-Modern-Classic\"
-gtk-font-name = \"Cascadia Code NF\""))))
+gtk-font-name = \"Cascadia Code NF\"
+gtk-key-theme-name = \"Emacs\""))))
+            (simple-service 'home-gtk-3-configuration-service
+                            home-xdg-configuration-files-service-type
+                            (list `("gtk-3.0/settings.ini"
+                                    ,(local-file (string-append DOTFILES "gtk/settings.ini")
+                                                 "settings.ini"))))
             (home-profile-package-service "fnott")
             (home-profile-package-service "waybar")
             (home-profile-package-service "make")
