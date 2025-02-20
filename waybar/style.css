@@ -8,9 +8,7 @@
     /* color: @theme_text_color; */
 }
 
-#workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
+#workspaces button.active {
     border-top: 3px solid rgba(0, 202, 255, 1);
     /* border-top: 3px solid @theme_text_color; */
 }
