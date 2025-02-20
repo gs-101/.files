@@ -3,10 +3,9 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/media"
+    "sway/workspaces",
+    "hyprland/workspaces",
+    "custom/media"
     ],
     "modules-center": [
         "sway/window"
