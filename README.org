@@ -1,3 +1,4 @@
 #+title: .files
 
-To be worked on.
+#+caption: Hyprland Desktop Environment with Waybar
+[[file:./screenshots/hyprland.png]]
