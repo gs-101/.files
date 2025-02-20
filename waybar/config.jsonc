@@ -114,16 +114,6 @@
     "default": ["󰕿", "󰖀", "󰕾"]
     }
     },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "default": "󰝚"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-        },
     "custom/power": {
         "format" : "⏻ ",
 		"tooltip": false,
