@@ -8,7 +8,9 @@
     "custom/media"
     ],
     "modules-center": [
-        "sway/window"
+    "sway/window",
+    "hyprland/window",
+    "river/window"
     ],
     "modules-right": [
         "mpd",
