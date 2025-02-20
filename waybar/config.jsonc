@@ -35,9 +35,7 @@
                     }
     },
     "hyprland/workspaces": {
-    "disable-scroll": false,
     "all-outputs": true,
-    "warp-on-scroll": true,
     "format": "{icon}",
     "format-icons": {
                    "1": "󰆍",
