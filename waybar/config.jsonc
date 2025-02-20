@@ -102,6 +102,15 @@
         }
         // "on-click": "pavucontrol"
     },
+    "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-source": "{volume}%",
+    "format-icons": {
+    "headphone": "󰋋",
+    "default": ["󰕿", "󰖀", "󰕾"]
+    }
+    },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
