@@ -22,6 +22,11 @@
     margin-right: 8px;
 }
 
+#battery.warning {
+    border-top: 3px solid rgba(255, 129, 0, 1);
+    color: rgba(255, 129, 0, 1);
+}
+
 #pulseaudio.muted,#wireplumber.muted,#network.disconnected,#battery.critical {
     border-top: 3px solid rgba(255, 109, 168, 1);
     color: rgba(255, 109, 168, 1);
