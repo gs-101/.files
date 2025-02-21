@@ -37,7 +37,8 @@
                                 ("df" . "df -H")
                                 ("free" . "free -m -h --si")
                                 ("docker" . "podman")
-                                ("find" . "fd")))
+                                ("find" . "fd")
+                                ("rg" . "rg -z --engine=auto -S -L --hidden --hyperlink-format=default")))
                      (bash-profile (list (local-file (string-append DOTFILES "bash/.bash_profile")
                                                      "bash_profile")))))
            (simple-service 'home-bash-extension-service
