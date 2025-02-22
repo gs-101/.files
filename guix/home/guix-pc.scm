@@ -31,7 +31,8 @@
                              ("BROWSER" . "librewolf")
                              ("FILE_MANAGER" . "tv")
                              ("BAR" . "waybar")
-                             ("MENU" . "fuzzel")))
+                             ("MENU" . "fuzzel")
+                             ("RIPGREP_CONFIG_PATH" . "$XDG_CONFIG_HOME/ripgrep/ripgrep.conf")))
            (service home-bash-service-type
                     (home-bash-configuration
                      (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))
@@ -43,8 +44,7 @@
                                 ("df" . "df -H")
                                 ("free" . "free -m -h --si")
                                 ("docker" . "podman")
-                                ("find" . "fd")
-                                ("rg" . "rg -z --engine=auto -S -L --hidden --hyperlink-format=default")))
+                                ("find" . "fd")))
                      (bash-profile (list (local-file (string-append DOTFILES "bash/.bash_profile")
                                                      "bash_profile")))))
            (simple-service 'home-bash-extension-service
@@ -211,6 +211,11 @@ gtk-key-theme-name = \"Emacs\""))))
                            (list `("gtk-3.0/settings.ini"
                                    ,(local-file (string-append DOTFILES "gtk/settings.ini")
                                                 "settings.ini"))))
+           (simple-service 'home-ripgrep-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("ripgrep/ripgrep.conf"
+                                   ,(local-file (string-append DOTFILES "ripgrep/ripgrep.conf")
+                                                "ripgrep.conf"))))
            (home-profile-package-service "fnott")
            (home-profile-package-service "waybar")
            (home-profile-package-service "make")
