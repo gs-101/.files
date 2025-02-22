@@ -15,6 +15,11 @@
 (home-environment
  (services
   (let ((DOTFILES ".files/"))
+    ;; HACK: This is used to make local-file find files relative to the current
+    ;; directory, which in a regular shell would be $HOME.
+    ;; Without this, local-file always tries to find files relative to its origin
+    ;; file, so, for example, in bash-profile it would look for the profile under
+    ;; .files/guix/home/.bash_profile
     (cons* (simple-service 'home-variables-service
                            home-environment-variables-service-type
                            `(("DOTFILES" . "$HOME/.files")
