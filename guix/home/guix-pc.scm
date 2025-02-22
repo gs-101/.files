@@ -24,6 +24,7 @@
                            home-environment-variables-service-type
                            `(("DOTFILES" . "$HOME/.files")
                              ("TERM" . "kitty")
+                             ("TERMINAL" . "kitty")
                              ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
                              ("VISUAL" . "emacsclient --create-frame -a 'emacs'")
                              ("SHELL" . "bash")
