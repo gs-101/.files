@@ -5,3 +5,6 @@ ipc_socket = true
 [colors]
 [colors.primary]
 background = "#23292b"
+
+[selection]
+save_to_clipboard = true
