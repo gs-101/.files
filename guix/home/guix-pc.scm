@@ -221,6 +221,11 @@ gtk-key-theme-name = \"Emacs\""))))
                            (list `("fuzzel/fuzzel.ini"
                                    ,(local-file (string-append DOTFILES "fuzzel/fuzzel.ini")
                                                 "fuzzel.ini"))))
+           (simple-service 'home-alacritty-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("alacritty/alacritty.toml"
+                                   ,(local-file (string-append DOTFILES "alacritty/alacritty.toml")
+                                                "alacritty.toml"))))
            (home-profile-package-service "fnott")
            (home-profile-package-service "waybar")
            (home-profile-package-service "make")
