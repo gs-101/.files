@@ -1,3 +1,7 @@
 [general]
 live_config_reload = true
 ipc_socket = true
+
+[colors]
+[colors.primary]
+background = "#23292b"
