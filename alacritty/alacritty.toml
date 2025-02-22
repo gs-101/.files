@@ -8,3 +8,8 @@ background = "#23292b"
 
 [selection]
 save_to_clipboard = true
+
+[cursor]
+# Always blinking cursor.
+style = { shape = "Block", blinking = "Always" }
+vi_mode_style = { shape = "Block", blinking = "Always" }
