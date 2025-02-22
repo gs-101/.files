@@ -227,6 +227,11 @@ gtk-key-theme-name = \"Emacs\""))))
                             (list `("alacritty/alacritty.toml"
                                     ,(local-file (string-append DOTFILES "alacritty/alacritty.toml")
                                                  "alacritty.toml"))))
+            (simple-service 'home-fnott-configuration-service
+                            home-xdg-configuration-files-service-type
+                            (list `("fnott/fnott.ini"
+                                    ,(local-file (string-append DOTFILES "fnott/fnott.ini")
+                                                 "fnott.ini"))))
             (home-profile-package-service "fnott")
             (home-profile-package-service "waybar")
             (home-profile-package-service "make")
