@@ -216,6 +216,11 @@ gtk-key-theme-name = \"Emacs\""))))
                            (list `("ripgrep/ripgrep.conf"
                                    ,(local-file (string-append DOTFILES "ripgrep/ripgrep.conf")
                                                 "ripgrep.conf"))))
+           (simple-service 'home-fuzzel-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("fuzzel/fuzzel.ini"
+                                   ,(local-file (string-append DOTFILES "fuzzel/fuzzel.ini")
+                                                "fuzzel.ini"))))
            (home-profile-package-service "fnott")
            (home-profile-package-service "waybar")
            (home-profile-package-service "make")
