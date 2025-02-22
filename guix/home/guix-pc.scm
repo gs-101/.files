@@ -23,8 +23,8 @@
     (cons* (simple-service 'home-variables-service
                            home-environment-variables-service-type
                            `(("DOTFILES" . "$HOME/.files")
-                             ("TERM" . "kitty")
-                             ("TERMINAL" . "kitty")
+                             ("TERM" . "alacritty")
+                             ("TERMINAL" . "alacritty")
                              ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
                              ("VISUAL" . "emacsclient --create-frame -a 'emacs'")
                              ("SHELL" . "bash")
@@ -174,7 +174,7 @@ shopt -s globstar
            (home-profile-package-service "eza")
            (home-profile-package-service "ripgrep")
            (home-profile-package-service "fuzzel")
-           (home-profile-package-service "kitty")
+           (home-profile-package-service "alacritty")
            (home-profile-package-service "librewolf")
            (home-profile-package-service "gnupg")
            (home-profile-package-service '("hyprland"
