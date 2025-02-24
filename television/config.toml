@@ -1,0 +1,20 @@
+tick_rate = 24
+
+[ui]
+use_nerd_font_icons = true
+show_preview_panel = false
+
+[previewers.file]
+# Default theme for bat.
+theme = "Monokai Extended"
+
+# Television already has some pretty Emacsy keybinds.
+# This just makes them even more emacsier.
+[keybindings.Channel]
+scroll_preview_half_page_down = "alt-v"
+scroll_preview_half_page_up = "ctrl-v"
+toggle_remote_control = "alt-x"
+toggle_help = "ctrl-h"
+
+[keybindings.SendToChannel]
+toggle_help = "ctrl-h"
