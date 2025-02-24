@@ -13,5 +13,6 @@ shopt -s histappend
 # Recursive globbing.
 shopt -s globstar
 
-# Enable starship prompt.
-eval "$(starship init bash)"
+# Enable starship prompt only in graphical environments,
+# as I like to hang out in the kernel terminal sometimes.
+if [ -n "$DISPLAY" ]; then eval "$(starship init bash)"; fi
