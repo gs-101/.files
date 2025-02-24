@@ -232,6 +232,12 @@ gtk-key-theme-name = \"Emacs\""))))
                            (list `("fnott/fnott.ini"
                                    ,(local-file (string-append DOTFILES "fnott/fnott.ini")
                                                 "fnott.ini"))))
+           (simple-service 'home-television-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("television"
+                                   ,(local-file (string-append DOTFILES "television/")
+                                                "television"
+                                                #:recursive? #t))))
            (home-profile-package-service "fnott")
            (home-profile-package-service "waybar")
            (home-profile-package-service "make")
