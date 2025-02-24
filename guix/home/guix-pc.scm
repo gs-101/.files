@@ -58,7 +58,7 @@
                      (pinentry-program
                       (file-append pinentry-qt "/bin/pinentry-qt"))
                      (ssh-support? #t)))
-           (home-profile-package-service "font-microsoft-cascadia-next")
+           (home-profile-package-service "font-microsoft-cascadia")
            (home-profile-package-service "font-google-noto-emoji")
            (home-profile-package-service "font-aporetic")
            (simple-service 'home-fontconfig-service
