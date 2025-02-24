@@ -12,3 +12,6 @@ shopt -s cmdhist
 shopt -s histappend
 # Recursive globbing.
 shopt -s globstar
+
+# Enable starship prompt.
+eval "$(starship init bash)"
