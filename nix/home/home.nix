@@ -22,6 +22,7 @@
       # gnupg
       # gnumake
       television
+      nix-search-tv
       wakatime-cli
       zotero-beta
     ];
