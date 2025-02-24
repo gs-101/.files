@@ -29,7 +29,6 @@
                              ("VISUAL" . "emacsclient --create-frame -a 'emacs'")
                              ("SHELL" . "bash")
                              ("BROWSER" . "librewolf")
-                             ("FILE_MANAGER" . "tv")
                              ("BAR" . "waybar")
                              ("MENU" . "fuzzel")
                              ("RIPGREP_CONFIG_PATH" . "$XDG_CONFIG_HOME/ripgrep/ripgrep.conf")
