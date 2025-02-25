@@ -403,7 +403,7 @@ disabled = false
 ssh_only = true
 ssh_symbol = '󰣀 '
 trim_at = '.'
-format = '[$ssh_symbol$hostname]($style)'
+format = '[$ssh_symbol]($style) on [$hostname]($style) '
 style = 'bold white'
 
 [java]
@@ -442,7 +442,7 @@ kotlin_binary = 'kotlin'
 [kubernetes]
 # Requires additional configuration.
 disabled = true
-format = '[$symbol$context( \($namespace\))]($style)'
+format = 'on [$symbol($user on )($cluster in )$context \($namespace\)]($style)'
 # Color of the logo.
 style = 'bold #316ce6'
 symbol = '󱃾 '
