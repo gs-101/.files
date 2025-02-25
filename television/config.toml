@@ -22,3 +22,45 @@ toggle_help = "ctrl-h"
 [keybindings.RemoteControl]
 toggle_remote_control = "alt-x"
 toggle_help = "ctrl-h"
+
+[shell_integration.channel_triggers]
+"alias" = ["alias", "unalias"]
+"env" = ["export", "unset"]
+"dirs" = ["cd", "ls", "eza", "rmdir"]
+"files" = [
+  "cat",
+  "less",
+  "head",
+  "tail",
+  "vim",
+  "nano",
+  "bat",
+  "cp",
+  "mv",
+  "rm",
+  "touch",
+  "chmod",
+  "chown",
+  "ln",
+  "tar",
+  "zip",
+  "unzip",
+  "gzip",
+  "gunzip",
+  "xz",
+  "emacs",
+]
+"git-diff" = ["git add", "git restore"]
+"git-branch" = [
+  "git checkout",
+  "git branch",
+  "git merge",
+  "git rebase",
+  "git pull",
+  "git push",
+]
+"podman-images" = ["podman run"]
+
+[shell_integration.keybindings]
+"smart_autocomplete" = "ctrl-t"
+"command_history" = "ctrl-r"
