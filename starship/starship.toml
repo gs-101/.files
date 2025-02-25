@@ -13,7 +13,7 @@ format = '$all$directory$character '
 
 [aws]
 disabled = false
-format = '[$symbol($profile )(\($region\) )]($style) '
+format = 'on [$symbol($profile )(\($region\) )]($style) '
 expiration_symbol = '󰚭 '
 force_display = false
 # Amazon logo color.
@@ -22,7 +22,7 @@ symbol = '󰸏 '
 
 [azure]
 disabled = false
-format = '[$symbol($username)]($style) '
+format = 'on [$symbol($username)]($style) '
 # Azure logo color.
 style = 'bold #2173b9'
 symbol = '󰠅 '
@@ -71,7 +71,7 @@ style = 'bold green'
 # Has a vague description, probably enterprise software.
 [buf]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'with [$symbol($version )]($style)'
 # Darkest color of the logo.
 style = 'bold #0e5df5'
 symbol = '󰚉 '
@@ -79,7 +79,7 @@ version_format = '${raw}'
 
 [bun]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Main color of the logo.
 style = 'bold #fbf0df'
 symbol = ' '
@@ -87,7 +87,7 @@ version_format = '${raw}'
 
 [c]
 disabled = false
-format = '[$symbol($version(-$name) )]($style)'
+format = 'via [$symbol($version(-$name) )]($style)'
 # Darkest color of the logo.
 style = 'bold #004283'
 symbol = ' '
@@ -105,7 +105,7 @@ vimcmd_visual_symbol = '[](bold white)'
 
 [cmake]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Blue color of the logo text.
 style = 'bold #003764'
 symbol = ' '
@@ -113,7 +113,7 @@ version_format = '${raw}'
 
 [cobol]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 style = 'bold blue'
 symbol = '󰒓 '
 version_format = '${raw}'
@@ -131,7 +131,7 @@ style = 'bold #00caff'
 # Disabled as I'll probaly not remember to disable the Conda prompt
 # if I end up using it.
 disabled = true
-format = '[$symbol$environment]($style) '
+format = 'via [$symbol$environment]($style) '
 ignore_base = true
 # Try to avoid truncation as much as possible.
 truncation_length = 10
@@ -147,14 +147,14 @@ symbol = ''
 
 [crystal]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 style = 'bold black'
 symbol = ' '
 version_format = '${raw}'
 
 [daml]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Darkest color of the logo.
 style = 'bold #21356a'
 symbol = 'A '
@@ -162,7 +162,7 @@ version_format = '${raw}'
 
 [dart]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Darkest color of the logo.
 style = 'bold #04599c'
 symbol = ' '
@@ -170,7 +170,7 @@ version_format = '${raw}'
 
 [deno]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 symbol = ' '
 style = 'bold black'
 version_format = '${raw}'
@@ -219,7 +219,7 @@ unloaded_msg = '󰕒'
 
 [docker_context]
 disabled = false
-format = '[$symbol$context]($style) '
+format = 'via [$symbol$context]($style) '
 only_with_files = true
 # Color of the logo.
 style = 'bold #0092e6'
@@ -227,7 +227,7 @@ symbol = '󰡨 '
 
 [dotnet]
 disabled = false
-format = '[$symbol($version )(󰓾 $tfm )]($style)'
+format = 'via [$symbol($version )(󰓾 $tfm )]($style)'
 # Faster detection.
 heuristic = true
 # Color of the logo.
@@ -237,7 +237,7 @@ version_format = '${raw}'
 
 [elixir]
 disabled = false
-format = '[$symbol($version \(OTP $otp_version\) )]($style)'
+format = 'via [$symbol($version \(OTP $otp_version\) )]($style)'
 # Darkest color of the logo.
 style = 'bold #481e5e'
 symbol = ' '
@@ -245,7 +245,7 @@ version_format = '${raw}'
 
 [elm]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Blue color of the logo.
 style = 'bold #60b5cc'
 symbol = ' '
@@ -253,7 +253,7 @@ version_format = '${raw}'
 
 [erlang]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Color of the logo.
 style = 'bold #a40531'
 symbol = ' '
@@ -261,7 +261,7 @@ version_format = '${raw}'
 
 [fennel]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 # Main color of the logo.
 style = 'bold #fff3d7'
 symbol = ' '
@@ -270,7 +270,7 @@ version_format = '${raw}'
 # Fossil
 [fossil_branch]
 disabled = false
-format = '[$symbol$branch]($style )'
+format = 'on [$symbol$branch]($style )'
 # Main color of the logo.
 style = 'bold #5c8294'
 symbol = '󰘬 '
@@ -283,7 +283,7 @@ only_nonzero_diffs = true
 
 [gcloud]
 disabled = false
-format = '[$symbol$account(@$domain)(\($project))]($style) '
+format = 'on [$symbol$account(@$domain)(\($project))]($style) '
 # Red of the Google logo.
 style = 'bold #ea4335'
 symbol = '󱇶 '
@@ -291,7 +291,7 @@ symbol = '󱇶 '
 # Git
 [git_branch]
 disabled = false
-format = '[$symbol$branch]($style )'
+format = 'on [$symbol$branch]($style )'
 always_show_remote = false
 symbol = '󰘬 '
 # Color of the logo.
@@ -342,7 +342,7 @@ ignore_submodules = true
 
 [gleam]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰓎 '
 # Color of the logo.
@@ -350,7 +350,7 @@ style = 'bold #ffaff3'
 
 [golang]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # (Guile) Scheme files compile down to .go.
@@ -360,14 +360,14 @@ style = 'bold #6ad7e5'
 
 [guix_shell]
 disabled = false
-format = '[$symbol]($style) '
+format = 'via [$symbol]($style) '
 symbol = ' '
 # Blue color to match my theme.
 style = 'bold #00caff'
 
 [gradle]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Main color of the blue logo.
@@ -377,14 +377,14 @@ recursive = false
 
 [haskell]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 symbol = '󰲒 '
 # Darkest color of the logo.
 style = 'bold #433762'
 
 [haxe]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Darkest color of the logo.
@@ -392,7 +392,7 @@ style = 'bold #f25c19'
 
 [helm]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Color of the logo.
@@ -408,7 +408,7 @@ style = 'bold white'
 
 [java]
 disabled = false
-format = '[${symbol}(${version} )]($style)'
+format = 'via [${symbol}(${version} )]($style)'
 version_format = '${raw}'
 symbol = '󰬷 '
 # of the orange logo.
@@ -424,7 +424,7 @@ style = 'bold yellow'
 
 [julia]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Purple of the logo.
@@ -432,7 +432,7 @@ style = 'bold #aa79c1'
 
 [kotlin]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󱈙 '
 # Darkest color of the logo.
@@ -456,7 +456,7 @@ style = 'bold green'
 
 [lua]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰢱 '
 # Color of the logo.
@@ -467,27 +467,28 @@ style = 'bold #00007c'
 # This data can be viewed from something like btop.
 disabled = true
 threshold = 100
-format = '$symbol[${ram}( | ${swap})]($style) '
+format = 'via [$symbol${ram}( | ${swap})]($style) '
 symbol = '󰍛 '
 style = 'bold yellow'
 
 [meson]
 disabled = false
-format = '[$symbol$project]($style) '
+format = 'via [$symbol$project]($style) '
 symbol = '󰔶 '
 # Color of the logo.
 style = 'bold #39207c'
 
+# Mercurial
 [hg_branch]
 disabled = false
-format = '[$symbol$branch(:$topic)]($style) '
+format = 'on [$symbol$branch(:$topic)]($style) '
 symbol = '󰘬 '
 # Main color of the logo.
 style = 'bold #999999'
 
 [mojo]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'with [$symbol($version )]($style)'
 symbol = '󰬔 '
 style = 'bold black'
 
@@ -500,7 +501,7 @@ style = 'bold #c75c93'
 
 [nim]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Darkest color of the logo.
@@ -508,7 +509,7 @@ style = 'bold #f3d400'
 
 [nix_shell]
 disabled = false
-format = '[$symbol$state( \($name\))]($style) '
+format = 'via [$symbol$state( \($name\))]($style) '
 symbol = '󱄅 '
 # Blue color from my theme.
 style = 'bold #00caff'
@@ -519,7 +520,7 @@ heuristic = false
 
 [nodejs]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰎙 '
 # Darkest color of the logo.
@@ -529,7 +530,7 @@ detect_files = ['package.json', '.node-version', '!bun.lock', '!bun.lockb', '!bu
 
 [ocaml]
 disabled = false
-format = '[$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
+format = 'via [$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Darkest color of the logo.
@@ -537,7 +538,7 @@ style = 'bold #ed6806'
 
 [odin]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 show_commit = false
 # My font doesn't support runes...
 symbol = 'ø '
@@ -546,7 +547,7 @@ style = 'bold #3882d2'
 
 [opa]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰡘 '
 # Color from the header in the homepage.
@@ -554,7 +555,7 @@ style = 'bold #566366'
 
 [openstack]
 disabled = false
-format = '[$symbol$cloud(\($project\))]($style) '
+format = 'on [$symbol$cloud(\($project\))]($style) '
 symbol = ' '
 # Color of the logo.
 style = 'bold #f20b4b'
@@ -567,7 +568,7 @@ style = 'bold white'
 
 [package]
 disabled = false
-format = '[$symbol$version]($style) '
+format = 'is [$symbol$version]($style) '
 symbol = '󰆦 '
 version_format = '${raw}'
 # Color from a random image of a cardboard box.
@@ -576,7 +577,7 @@ display_private = false
 
 [perl]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Color from the O'Reilly book.
@@ -584,7 +585,7 @@ style = 'bold #009bcb'
 
 [php]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰌟 '
 # Color from the regular logo, not the elephant.
@@ -592,13 +593,13 @@ style = 'bold #7377ad'
 
 [pijul_channel]
 disabled = false
-format = '[$symbol$channel]($style) '
+format = 'on [$symbol$channel]($style) '
 symbol = '󰘬 '
 style = 'bold black'
 
 [pulumi]
 disabled = false
-format = '[$symbol($username@)$stack]($style) '
+format = 'via [$symbol($username@)$stack]($style) '
 version_format = '${raw}'
 symbol = ' '
 # Purple color of the logo.
@@ -607,14 +608,14 @@ search_upwards = true
 
 [purescript]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 style = 'bold white'
 
 [python]
 disabled = false
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = '${raw}'
 symbol = '󰌠 '
 # Yellow color of the logo.
@@ -624,7 +625,7 @@ pyenv_prefix = 'env'
 
 [quarto]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '⨁ '
 # Color from this banner:
@@ -633,7 +634,7 @@ style = 'bold #3e79a1'
 
 [rlang]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Main color of the logo.
@@ -641,7 +642,7 @@ style = 'bold #1c61b0'
 
 [raku]
 disabled = false
-format = '[$symbol($version-$vm_version )]($style)'
+format = 'via [$symbol($version-$vm_version )]($style)'
 version_format = '${raw}'
 symbol = '󱖉 '
 # Yellow color of the logo.
@@ -649,7 +650,7 @@ style = 'bold #fefe01'
 
 [red]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰔶 '
 # Darkest color of the logo.
@@ -657,7 +658,7 @@ style = 'bold #811b1e'
 
 [ruby]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰴭 '
 # Darkest color of the logo.
@@ -665,7 +666,7 @@ style = 'bold #83150c'
 
 [rust]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󱘗 '
 # Color of the logo.
@@ -673,7 +674,7 @@ style = 'bold #000000'
 
 [scala]
 disabled = false
-format = '[${symbol}(${version} )]($style)'
+format = 'via [${symbol}(${version} )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Darkest color of the logo.
@@ -709,7 +710,7 @@ style = 'bold #174283'
 
 [solidity]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Color of the logo.
@@ -717,7 +718,7 @@ style = 'bold #2b247c'
 
 [spack]
 disabled = false
-format = '[$symbol$environment]($style) '
+format = 'via [$symbol$environment]($style) '
 # Try to avoid truncation as much as possible.
 truncation_length = 10
 symbol = ' '
@@ -743,7 +744,7 @@ style = 'bold #00caff'
 
 [swift]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = '󰛥 '
 # Color of the logo.
@@ -751,7 +752,7 @@ style = 'bold #f05138'
 
 [terraform]
 disabled = false
-format = '[$symbol$workspace]($style) '
+format = 'via [$symbol$workspace]($style) '
 version_format = '${raw}'
 symbol = '󱁢 '
 # Color of the logo.
@@ -767,7 +768,7 @@ style = 'bold #00caff'
 
 [typst]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Color from the corner of the homepage.
@@ -779,11 +780,11 @@ style = 'bold #05afc4'
 disabled = true
 style_root = 'bold #ff6da8'
 style_user = 'bold #00caff'
-format = '[$user]($style)'
+format = '[$user]($style) in '
 
 [vagrant]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Color of the logo.
@@ -791,7 +792,7 @@ style = 'bold #18b8f2'
 
 [vlang]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Darkest color of the logo.
@@ -806,7 +807,7 @@ style = 'bold #f05133'
 
 [zig]
 disabled = false
-format = '[$symbol($version )]($style)'
+format = 'via [$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 # Color of the logo.
