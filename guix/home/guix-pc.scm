@@ -222,4 +222,9 @@ gtk-key-theme-name = \"Emacs\""))))
            (home-profile-package-service "fd")
            (home-profile-package-service "hicolor-icon-theme")
            (home-profile-package-service "starship")
+           (simple-service 'home-starship-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("starship.toml"
+                                   ,(local-file (string-append DOTFILES "starship/starship.toml")
+                                                "starship.toml"))))
            %base-home-services))))
