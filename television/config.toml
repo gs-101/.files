@@ -49,6 +49,8 @@ toggle_help = "ctrl-h"
   "gunzip",
   "xz",
   "emacs",
+  "$VISUAL",
+  "$EDITOR",
 ]
 "git-diff" = ["git add", "git restore"]
 "git-branch" = [
