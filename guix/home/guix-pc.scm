@@ -227,4 +227,6 @@ gtk-key-theme-name = \"Emacs\""))))
                            (list `("starship.toml"
                                    ,(local-file (string-append DOTFILES "starship/starship.toml")
                                                 "starship.toml"))))
+           (home-profile-package-service "git")
+           (home-profile-package-service "direnv")
            %base-home-services))))
