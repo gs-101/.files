@@ -180,7 +180,7 @@ disabled = false
 format = '[$path$read_only]($style) '
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path$read_only]($style) '
 home_symbol = '󰋜'
-read_only = '󰂽'
+read_only = ' 󰂽'
 style = 'bold #00caff'
 # Try to avoid truncation as much as possible.
 truncation_length = 10
