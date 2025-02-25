@@ -18,3 +18,7 @@ toggle_help = "ctrl-h"
 
 [keybindings.SendToChannel]
 toggle_help = "ctrl-h"
+
+[keybindings.RemoteControl]
+toggle_remote_control = "alt-x"
+toggle_help = "ctrl-h"
