@@ -360,7 +360,7 @@ style = 'bold #6ad7e5'
 
 [guix_shell]
 disabled = false
-format = 'via [$symbol]($style) '
+format = 'via [$symbol]($style)'
 symbol = ' '
 # Blue color to match my theme.
 style = 'bold #00caff'
