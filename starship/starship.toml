@@ -516,7 +516,8 @@ style = 'bold #00caff'
 impure_msg = '󱎶'
 pure_msg = ''
 unknown_msg = '󰞋'
-heuristic = false
+# Enables support for the "nix shel" command.
+heuristic = true
 
 [nodejs]
 disabled = false
