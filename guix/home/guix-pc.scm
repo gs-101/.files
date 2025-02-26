@@ -185,6 +185,11 @@ gtk-key-theme-name = \"Emacs\""))))
                            (list `("gtk-3.0/settings.ini"
                                    ,(local-file (string-append DOTFILES "gtk/settings.ini")
                                                 "settings.ini"))))
+           (simple-service 'home-gtk-4-configuration-service
+                           home-xdg-configuration-files-service-type
+                           (list `("gtk-4.0/settings.ini"
+                                   ,(local-file (string-append DOTFILES "gtk/settings.ini")
+                                                "settings.ini"))))
            (simple-service 'home-ripgrep-configuration-service
                            home-xdg-configuration-files-service-type
                            (list `("ripgrep/ripgrep.conf"
