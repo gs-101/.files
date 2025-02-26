@@ -62,6 +62,7 @@ toggle_help = "ctrl-h"
   "git push",
 ]
 "podman-images" = ["podman run"]
+"nixpkgs" = ["nix shell"]
 
 [shell_integration.keybindings]
 "smart_autocomplete" = "ctrl-t"
