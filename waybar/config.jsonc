@@ -18,7 +18,7 @@
     "battery",
     "network",
     "clock",
-    "tray",
+    "tray"
     ],
     // Module configuration
     "sway/workspaces": {
@@ -27,22 +27,24 @@
     "warp-on-scroll": true,
     "format": "{icon}",
     "format-icons": {
-                    "1": "󰆍",
-                    "2": "󰅴",
-                    "3": "󰖟",
-                    "4": "󱉟",
-                    "5": "󰝚"
+                    "1": "I",
+                    "2": "II",
+                    "3": "III",
+                    "4": "IV",
+                    "5": "V",
+                    "6": "VI"
                     }
     },
     "hyprland/workspaces": {
     "all-outputs": true,
     "format": "{icon}",
     "format-icons": {
-                   "1": "󰆍",
-                   "2": "󰅴",
-                   "3": "󰖟",
-                   "4": "󱉟",
-                   "5": "󰝚"
+                   "1": "I",
+                   "2": "II",
+                   "3": "III",
+                   "4": "IV",
+                   "5": "V",
+                   "6": "VI"
                    }
     },
     "hyprland/window": {
