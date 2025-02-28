@@ -177,6 +177,7 @@
             (home-profile-package-service "fuzzel")
             (home-profile-package-service "alacritty")
             (home-profile-package-service "librewolf")
+            (home-profile-package-service "torbrowser")
             (home-profile-package-service "gnupg")
             (home-profile-package-service '("hyprland"
                                             "hyprpolkitagent"
