@@ -10,6 +10,7 @@
              (gnu home services sound)
              (gnu home services desktop)
              (gnu home services fontutils)
+             (gnu home services mail)
              (selected-guix-works utils))
 
 (home-environment
@@ -58,6 +59,22 @@
                       (pinentry-program
                        (file-append pinentry-qt "/bin/pinentry-qt"))
                       (ssh-support? #t)))
+            (service home-msmtp-service-type
+                     (home-msmtp-configuration
+                      (defaults (msmtp-configuration
+                                 (auth? #t)
+                                 (tls? #t)
+                                 (tls-starttls? #f)))
+                      (accounts (list
+                                 (msmtp-account
+                                  (name "default")
+                                  (configuration
+                                   (msmtp-configuration
+                                    (host "disroot.org")
+                                    (port 465)
+                                    (user "gabrielsantosdesouza")
+                                    (password-eval "pass gabrielsantosdesouza@disroot.org")
+                                    (extra-content "from gabrielsantosdesouza@disroot.org"))))))))
             (home-profile-package-service "font-microsoft-cascadia")
             (home-profile-package-service "font-google-noto-emoji")
             (home-profile-package-service "font-aporetic")
