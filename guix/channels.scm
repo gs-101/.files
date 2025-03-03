@@ -20,7 +20,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "e985a3968df6d2464d8d6a61e4fd098b3aa561bd")
+          "2bcfd870479d95cf02c171bffb42238d9dc0c855")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
