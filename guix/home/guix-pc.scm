@@ -14,6 +14,42 @@
              (selected-guix-works utils))
 
 (home-environment
+  (packages (specifications->packages '("alacritty"
+                                        "bat"
+                                        "bibata-cursor-theme"
+                                        "clipman"
+                                        "direnv"
+                                        "emacs-master-pgtk"
+                                        "eza"
+                                        "fd"
+                                        "fnott"
+                                        "font-aporetic"
+                                        "font-google-noto-emoji"
+                                        "font-microsoft-cascadia"
+                                        "font-nerd-fonts-m-plus"
+                                        "fuzzel"
+                                        "git"
+                                        "gnupg"
+                                        "hicolor-icon-theme"
+                                        "hyprland"
+                                        "hyprpaper"
+                                        "hyprpicker"
+                                        "hyprpolkitagent"
+                                        "hyprshot"
+                                        "librewolf"
+                                        "make"
+                                        "mpv"
+                                        "neovim"
+                                        "openssh"
+                                        "password-store"
+                                        "ripgrep"
+                                        "selected-guix-works-backgrounds"
+                                        "starship"
+                                        "torbrowser"
+                                        "waybar"
+                                        "xdg-desktop-portal-gtk"
+                                        "xdg-desktop-portal-hyprland"
+                                        "xdg-desktop-portal-wlr")))
   (services
    (let ((DOTFILES ".files/"))
      ;; HACK: This is used to make local-file find files relative to the current
@@ -75,10 +111,6 @@
                                     (user "gabrielsantosdesouza")
                                     (password-eval "pass gabrielsantosdesouza@disroot.org")
                                     (extra-content "from gabrielsantosdesouza@disroot.org"))))))))
-            (home-profile-package-service "font-microsoft-cascadia")
-            (home-profile-package-service "font-google-noto-emoji")
-            (home-profile-package-service "font-aporetic")
-            (home-profile-package-service "font-nerd-fonts-m-plus")
             (simple-service 'home-fontconfig-service
                             home-fontconfig-service-type
                             ;; Includes suggestions from
@@ -123,11 +155,7 @@
                                 (test (@ (name "family"))
                                       (string "sans-serif"))
                                 (edit (@ (name "family") (mode "prepend"))
-                                      (string "M+1 Nerd Font Propo")))
-                             ))
-            (simple-service 'home-openssh-service
-                            home-profile-service-type
-                            (list (specification->package "openssh")))
+                                      (string "M+1 Nerd Font Propo")))))
             (service home-syncthing-service-type
                      (for-home
                       (syncthing-configuration
@@ -168,26 +196,6 @@
                             (list `(".wakatime.cfg"
                                     ,(local-file (string-append DOTFILES "wakatime/.wakatime.cfg")
                                                  "wakatime.cfg"))))
-            (home-profile-package-service "emacs-master-pgtk")
-            (home-profile-package-service "neovim")
-            (home-profile-package-service "password-store")
-            (home-profile-package-service "bat")
-            (home-profile-package-service "eza")
-            (home-profile-package-service "ripgrep")
-            (home-profile-package-service "fuzzel")
-            (home-profile-package-service "alacritty")
-            (home-profile-package-service "librewolf")
-            (home-profile-package-service "torbrowser")
-            (home-profile-package-service "gnupg")
-            (home-profile-package-service '("hyprland"
-                                            "hyprpolkitagent"
-                                            "hyprpicker"
-                                            "hyprpaper"
-                                            "hyprshot"))
-            (home-profile-package-service '("xdg-desktop-portal-gtk"
-                                            "xdg-desktop-portal-hyprland"
-                                            "xdg-desktop-portal-wlr"))
-            (home-profile-package-service "selected-guix-works-backgrounds")
             (simple-service 'home-hyprpaper-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("hypr/hyprpaper.conf"
@@ -244,22 +252,10 @@ gtk-key-theme-name = \"Emacs\""))))
                                     ,(local-file (string-append DOTFILES "television/")
                                                  "television"
                                                  #:recursive? #t))))
-            (home-profile-package-service "fnott")
-            (home-profile-package-service "waybar")
-            (home-profile-package-service "make")
-            (home-profile-package-service "mpv")
             (home-profile-package-service "dolphin")
-            (home-profile-package-service '("wl-clipboard"
-                                            "clipman"))
-            (home-profile-package-service "bibata-cursor-theme")
-            (home-profile-package-service "fd")
-            (home-profile-package-service "hicolor-icon-theme")
-            (home-profile-package-service "starship")
             (simple-service 'home-starship-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("starship.toml"
                                     ,(local-file (string-append DOTFILES "starship/starship.toml")
                                                  "starship.toml"))))
-            (home-profile-package-service "git")
-            (home-profile-package-service "direnv")
             %base-home-services))))
