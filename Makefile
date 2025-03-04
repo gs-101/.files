@@ -1,3 +1,5 @@
+# Updating.
+
 update:
 	guix pull --channels=${DOTFILES}/guix/channels-list.scm
 	guix describe --format=channels > ${DOTFILES}/guix/channels.scm
@@ -5,6 +7,23 @@ update:
 	nix flake \update ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
 
 .PHONY: update
+
+# Cleaning.
+
+gc:
+	guix gc
+	nix-collect-garbage
+
+.PHONY: gc
+
+# REPL.
+
+ares:
+	guix shell guile-next guile-ares-rs -- guile -L ${DOTFILES}/guix -c "(begin (use-modules (guix gexp)) ((@ (ares server) run-nrepl-server)))"
+
+.PHONY: ares
+
+# System.
 
 system-reconfigure:
 	sudo guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
@@ -16,6 +35,8 @@ system-edit:
 
 .PHONY: system-edit
 
+# Home.
+
 home-reconfigure:
 	guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
 	home-manager switch --no-write-lock-file
@@ -26,22 +47,13 @@ home-reconfigure:
 
 .PHONY: home-reconfigure
 
-reconfigure-all: system-reconfigure home-reconfigure
-
-.PHONY: reconfigure-all
-
 home-edit:
 	${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
 
 .PHONY: home-edit
 
-gc:
-	guix gc
-	nix-collect-garbage
+# General.
 
-.PHONY: gc
+reconfigure-all: system-reconfigure home-reconfigure
 
-ares:
-	guix shell guile-next guile-ares-rs -- guile -L ${DOTFILES}/guix -c "(begin (use-modules (guix gexp)) ((@ (ares server) run-nrepl-server)))"
-
-.PHONY: ares
+.PHONY: reconfigure-all
