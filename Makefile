@@ -19,6 +19,10 @@ system-edit:
 home-reconfigure:
 	guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
 	home-manager switch --no-write-lock-file
+	# Reload Hyprland environment.
+	if [ ${XDG_CURRENT_DESKTOP} = Hyprland ]; then \
+		hyprctl reload; \
+	fi
 
 .PHONY: home-reconfigure
 
