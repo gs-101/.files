@@ -54,6 +54,6 @@ home-edit:
 
 # General.
 
-reconfigure-all: system-reconfigure home-reconfigure
+all: update system-reconfigure home-reconfigure
 
-.PHONY: reconfigure-all
+.PHONY: all
