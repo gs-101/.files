@@ -252,7 +252,6 @@ gtk-key-theme-name = \"Emacs\""))))
                                     ,(local-file (string-append DOTFILES "television/")
                                                  "television"
                                                  #:recursive? #t))))
-            (home-profile-package-service "dolphin")
             (simple-service 'home-starship-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("starship.toml"
