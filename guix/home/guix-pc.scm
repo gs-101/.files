@@ -11,7 +11,7 @@
              (gnu home services desktop)
              (gnu home services fontutils)
              (gnu home services mail)
-             (selected-guix-works utils))
+             (selected-guix-works home services rust-apps))
 
 (home-environment
   (packages (specifications->packages '("alacritty"
@@ -42,7 +42,6 @@
                                         "neovim"
                                         "openssh"
                                         "password-store"
-                                        "ripgrep"
                                         "selected-guix-works-backgrounds"
                                         "starship"
                                         "torbrowser"
@@ -68,7 +67,6 @@
                               ("BROWSER" . "librewolf")
                               ("BAR" . "waybar")
                               ("MENU" . "fuzzel")
-                              ("RIPGREP_CONFIG_PATH" . "$XDG_CONFIG_HOME/ripgrep/ripgrep.conf")
                               ("HYPRSHOT_DIR" . "$HOME/Pictures/screenshots")))
             (service home-bash-service-type
                      (home-bash-configuration
@@ -162,6 +160,18 @@
                        (user "gabriel"))))
             (service home-dbus-service-type)
             (service home-pipewire-service-type)
+            (service home-ripgrep-service-type
+                     (home-ripgrep-configuration
+                      (search-zip? #t)
+                      ;; Search case-insensitively when all text is lowercase.
+                      (smart-case? #t)
+                      ;; Follow symbolic links. Useful in this "software in a store" model.
+                      (follow? #t)
+                      ;; Automatically switch to Perl Compatible Regular Expressions
+                      ;; if functionality specific to them is used.
+                      (engine "auto")
+                      ;; Enable hyperlinks on output.
+                      (hyperlink-format "default")))
             (simple-service 'home-waybar-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("waybar"
@@ -226,11 +236,6 @@ gtk-key-theme-name = \"Emacs\""))))
                             (list `("gtk-4.0/settings.ini"
                                     ,(local-file (string-append DOTFILES "gtk/settings.ini")
                                                  "settings.ini"))))
-            (simple-service 'home-ripgrep-configuration-service
-                            home-xdg-configuration-files-service-type
-                            (list `("ripgrep/ripgrep.conf"
-                                    ,(local-file (string-append DOTFILES "ripgrep/ripgrep.conf")
-                                                 "ripgrep.conf"))))
             (simple-service 'home-fuzzel-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("fuzzel/fuzzel.ini"
