@@ -13,3 +13,8 @@ save_to_clipboard = true
 # Always blinking cursor.
 style = { shape = "Block", blinking = "Always" }
 vi_mode_style = { shape = "Block", blinking = "Always" }
+
+[[keyboard.bindings]]
+  action = "ToggleFullscreen"
+  key = "F11"
+  mods = "None"
