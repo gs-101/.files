@@ -11,6 +11,8 @@
              (gnu home services desktop)
              (gnu home services fontutils)
              (gnu home services mail)
+             ;; Home modules with "home-services" come from rde
+             (gnu home-services password-utils)
              (selected-guix-works home services rust-apps))
 
 (home-environment
@@ -41,7 +43,6 @@
                                         "mpv"
                                         "neovim"
                                         "openssh"
-                                        "password-store"
                                         "selected-guix-works-backgrounds"
                                         "starship"
                                         "torbrowser"
@@ -172,6 +173,9 @@
                       (engine "auto")
                       ;; Enable hyperlinks on output.
                       (hyperlink-format "default")))
+            (service home-password-store-service-type
+                     (home-password-store-configuration
+                      (directory "~/.password-store")))
             (simple-service 'home-waybar-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("waybar"
