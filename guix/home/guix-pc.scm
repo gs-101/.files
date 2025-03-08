@@ -11,8 +11,9 @@
              (gnu home services desktop)
              (gnu home services fontutils)
              (gnu home services mail)
-             ;; Home modules with "home-services" come from rde
+             ;; Home modules with "home-services" come from rde.
              (gnu home-services password-utils)
+             (gnu home-services version-control)
              (selected-guix-works home services rust-apps))
 
 (home-environment
@@ -30,7 +31,6 @@
                                         "font-microsoft-cascadia"
                                         "font-nerd-fonts-m-plus"
                                         "fuzzel"
-                                        "git"
                                         "gnupg"
                                         "hicolor-icon-theme"
                                         "hyprland"
@@ -176,6 +176,12 @@
             (service home-password-store-service-type
                      (home-password-store-configuration
                       (directory "~/.password-store")))
+            (service home-git-service-type
+                     (home-git-configuration
+                      (ignore '("*.elc"
+                                "*-autoloads.el"
+                                "*-pkg.el"
+                                "*.DS_Store"))))
             (simple-service 'home-waybar-configuration-service
                             home-xdg-configuration-files-service-type
                             (list `("waybar"
@@ -198,13 +204,6 @@
                             (list `("Makefile"
                                     ,(local-file (string-append DOTFILES "Makefile")
                                                  "Makefile"))))
-            (simple-service 'home-gitignore-service
-                            home-files-service-type
-                            (list `(".gitignore"
-                                    ,(plain-file "gitignore" "*.elc
-*-autoloads.el
-*-pkg.el
-*.DS_Store"))))
             (simple-service 'home-wakatime-service
                             home-files-service-type
                             (list `(".wakatime.cfg"
