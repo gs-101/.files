@@ -23,3 +23,6 @@ eval "$(tv init bash)"
 
 # Enable shell integration for pay-respects.
 eval "$(pay-respects bash --alias)"
+
+# Disable flow control keybinds (that freeze your terminal).
+stty -ixon
