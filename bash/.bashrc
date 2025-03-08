@@ -20,3 +20,6 @@ if [ -n "$DISPLAY" ]; then eval "$(starship init bash)"; fi
 
 # Enable shell integration for television.
 eval "$(tv init bash)"
+
+# Enable shell integration for pay-respects.
+eval "$(pay-respects bash --alias)"

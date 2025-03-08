@@ -42,6 +42,7 @@
                                         "make"
                                         "mpv"
                                         "neovim"
+                                        "pay-respects"
                                         "openssh"
                                         "selected-guix-works-backgrounds"
                                         "starship"
