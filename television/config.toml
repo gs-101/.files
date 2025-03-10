@@ -48,9 +48,6 @@ toggle_help = "ctrl-h"
   "gzip",
   "gunzip",
   "xz",
-  "emacs",
-  "$VISUAL",
-  "$EDITOR",
 ]
 "git-diff" = ["git add", "git restore"]
 "git-branch" = [
@@ -60,6 +57,12 @@ toggle_help = "ctrl-h"
   "git rebase",
   "git pull",
   "git push",
+]
+"git-repos" = [
+  "nvim",
+  "emacs",
+  "$EDITOR",
+  "$VISUAL",
 ]
 "podman-images" = ["podman run"]
 "nixpkgs" = ["nix shell"]
