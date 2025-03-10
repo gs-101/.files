@@ -3,6 +3,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
+    "hyprland/submap",
     "sway/workspaces",
     "hyprland/workspaces",
     "custom/media"
@@ -21,6 +22,10 @@
     "tray"
     ],
     // Module configuration
+    "hyprland/submap": {
+    "format": "󰌌 {}",
+    "tooltip": false
+    },
     "sway/workspaces": {
     "disable-scroll": false,
     "all-outputs": true,
