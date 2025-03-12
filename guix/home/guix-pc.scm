@@ -31,6 +31,7 @@
                                        "font-microsoft-cascadia"
                                        "font-nerd-fonts-m-plus"
                                        "fuzzel"
+                                       "git:send-email"
                                        "gnupg"
                                        "hicolor-icon-theme"
                                        "hyprland"
@@ -179,6 +180,9 @@
                      (directory "~/.password-store")))
            (service home-git-service-type
                     (home-git-configuration
+                     (config
+                      `((sendmail
+                         ((sendmailCmd . ,(file-append (specification->package "msmtp") "/bin/msmtp"))))))
                      (ignore '("*.elc"
                                "*-autoloads.el"
                                "*-pkg.el"
