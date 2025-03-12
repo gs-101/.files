@@ -110,7 +110,7 @@
                                    (port 465)
                                    (user "gabrielsantosdesouza")
                                    (password-eval "pass gabrielsantosdesouza@disroot.org")
-                                   (extra-content "from gabrielsantosdesouza@disroot.org"))))))))
+                                   (from "gabrielsantosdesouza@disroot.org"))))))))
            (simple-service 'home-fontconfig-service
                            home-fontconfig-service-type
                            ;; Includes suggestions from
