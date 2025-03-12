@@ -1,7 +1,6 @@
 (use-modules (gnu home)
              (gnu home services)
              (gnu packages)
-             (gnu packages gnupg)
              (gnu services)
              (guix gexp)
              (gnu home services shells)
@@ -94,7 +93,7 @@
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration
                      (pinentry-program
-                      (file-append pinentry-qt "/bin/pinentry-qt"))
+                      (file-append (specification->package "pinentry-qt") "/bin/pinentry-qt"))
                      (ssh-support? #t)))
            (service home-msmtp-service-type
                     (home-msmtp-configuration
