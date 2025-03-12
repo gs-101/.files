@@ -174,9 +174,7 @@
                      (engine "auto")
                      ;; Enable hyperlinks on output.
                      (hyperlink-format "default")))
-           (service home-password-store-service-type
-                    (home-password-store-configuration
-                     (directory "~/.password-store")))
+           (service home-password-store-service-type)
            (service home-git-service-type
                     (home-git-configuration
                      (config
