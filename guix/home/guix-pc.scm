@@ -179,7 +179,11 @@
                      (home-git-configuration
                       (config
                        `((sendemail
-                          ((sendmailCmd . ,(file-append (specification->package "msmtp") "/bin/msmtp"))))))
+                          ((annotate . #t)
+                           (sendmailCmd . ,(file-append (specification->package "msmtp") "/bin/msmtp"))))
+                         (user
+                          ((name . "Gabriel Santos")
+                           (email . "gabrielsantosdesouza@disroot.org")))))
                       (ignore '("*.elc"
                                 "*-autoloads.el"
                                 "*-pkg.el"
