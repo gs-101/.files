@@ -3,24 +3,18 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "944619c1947ba59823f4ad6d8b13842b7e162d76")
+          "ac1f7b074ea47e8a330e3475732c2e905928df35")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
             (openpgp-fingerprint
               "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5"))))
       (channel
-        (name 'ollama-guix)
-        (url "https://codeberg.org/tusharhero/ollama-guix.git")
-        (branch "master")
-        (commit
-          "7a73edd21a71ca0a7ad43f491e2754537acbb8d6"))
-      (channel
         (name 'emacs-master)
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "2ae9404dc246b0466c7232ab409c9f1ffe791c7e")
+          "26a8d372d76a2a956f376f80ec472b6f010adaa8")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -42,7 +36,7 @@
         (url "https://git.sr.ht/~abcdw/rde")
         (branch "master")
         (commit
-          "8600655bbdc399b6fc682755d4d63f3709f562be")
+          "08b963f50005023d5ec35bc828d0c2510221c83d")
         (introduction
           (make-channel-introduction
             "257cebd587b66e4d865b3537a9a88cccd7107c95"
@@ -53,7 +47,7 @@
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "dec40dd50f3490d5b96d19d98d54782ee2fb02a9")
+          "678b3dddfe442e643fe5cff7730d4f9690c3e2c2")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
