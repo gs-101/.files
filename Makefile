@@ -1,7 +1,7 @@
 # Updating.
 
 update:
-	guix pull --channels=${DOTFILES}/guix/channels-list.scm
+	guix pull --channels=${DOTFILES}/guix/channels-list.scm || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror"
 	guix describe --format=channels > ${DOTFILES}/guix/channels.scm
 	cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
 	nix flake \update ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
