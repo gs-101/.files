@@ -25,6 +25,12 @@
   source_command = "git --no-pager branch --all --format=\"%(refname:short)\""
   preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
 
+  # Guix
+[[cable_channel]]
+  name = "guix"
+  source_command = "guix package --list-available=.*"
+  preview_command = "guix package --show={0}"
+
   # Nix
 [[cable_channel]]
   name = "nixpkgs"
