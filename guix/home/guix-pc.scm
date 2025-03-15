@@ -31,6 +31,7 @@
                                         "font-nerd-fonts-m-plus"
                                         "fuzzel"
                                         "git:send-email"
+                                        "gitu"
                                         "gnupg"
                                         "hicolor-icon-theme"
                                         "hyprland"
@@ -271,4 +272,9 @@ gtk-key-theme-name = \"Emacs\""))))
                             (list `("starship.toml"
                                     ,(local-file (string-append DOTFILES "starship/starship.toml")
                                                  "starship.toml"))))
+            (simple-service 'home-gitu-configuration-service
+                            home-xdg-configuration-files-service-type
+                            (list `("gitu/config.toml"
+                                    ,(local-file (string-append DOTFILES "gitu/config.toml")
+                                                 "config.toml"))))
             %base-home-services))))
