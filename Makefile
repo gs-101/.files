@@ -1,18 +1,28 @@
 # Updating.
 
 update:
-	guix pull --channels=${DOTFILES}/guix/channels-list.scm || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror"
-	guix describe --format=channels > ${DOTFILES}/guix/channels.scm
-	cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
-	nix flake \update ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
+	@echo "-------------"
+	@echo "Updating Guix"
+	@guix pull --channels=${DOTFILES}/guix/channels-list.scm || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror"
+	@guix describe --format=channels > ${DOTFILES}/guix/channels.scm
+	@cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
+	@echo "-------------"
+	@echo "Updating Nix"
+	@nix flake \update ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
+	@echo "-------------"
 
 .PHONY: update
 
 # Cleaning.
 
 gc:
-	guix gc
-	nix-collect-garbage
+	@echo "-----------------------"
+	@echo "Collecting Guix Garbage"
+	@guix gc
+	@echo "-----------------------"
+	@echo "Collecting Nix Garbage"
+	@nix-collect-garbage
+	@echo "-----------------------"
 
 .PHONY: gc
 
@@ -26,29 +36,37 @@ ares:
 # System.
 
 system-reconfigure:
-	sudo guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
+	@echo "--------------------"
+	@echo "Reconfiguring System"
+	@sudo guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
+	@echo "--------------------"
 
 .PHONY: system-reconfigure
 
 system-edit:
-	${EDITOR} "${DOTFILES}/guix/system/`hostname`.scm"
+	@${EDITOR} "${DOTFILES}/guix/system/`hostname`.scm"
 
 .PHONY: system-edit
 
 # Home.
 
 home-reconfigure:
-	guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
-	home-manager switch --no-write-lock-file
+	@echo "-----------------------"
+	@echo "Reconfiguring Guix Home"
+	@guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
+	@echo "-----------------------"
+	@echo "Reconfiguring Nix Home"
+	@home-manager switch --no-write-lock-file
 	# Reload Hyprland environment.
 	if [ ${XDG_CURRENT_DESKTOP} = Hyprland ]; then \
 		hyprctl reload; \
 	fi
+	@echo "-----------------------"
 
 .PHONY: home-reconfigure
 
 home-edit:
-	${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
+	@${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
 
 .PHONY: home-edit
 
