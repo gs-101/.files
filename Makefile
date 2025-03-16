@@ -26,6 +26,17 @@ gc:
 
 .PHONY: gc
 
+nuke:
+	@echo "-----------------"
+	@echo "Nuking Guix Store"
+	@guix gc -d
+	@echo "-----------------"
+	@echo "Nuking Nix Store"
+	@nix-collect-garbage -d
+	@echo "-----------------"
+
+.PHONY: nuke
+
 # REPL.
 
 ares:
