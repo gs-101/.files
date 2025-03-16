@@ -6,7 +6,8 @@
                      desktop
                      nix
                      xorg
-                     containers)
+                     containers
+                     virtualization)
 
 (define %gs-101/desktop-services
   (modify-services %desktop-services
@@ -59,6 +60,9 @@
 
   (services (cons* (service cups-service-type)
                    (service nix-service-type)
+                   (service qemu-binfmt-service-type
+                            (qemu-binfmt-configuration
+                             (platforms (lookup-qemu-platforms "arm" "aarch64"))))
                    (service rootless-podman-service-type)
                    %gs-101/desktop-services))
 
