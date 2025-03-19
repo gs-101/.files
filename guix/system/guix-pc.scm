@@ -40,7 +40,7 @@
                                      'fat32))
                        (type "vfat"))
                       %base-file-systems))
- (firmware (specifications->packages '("linux-firmware")))
+ (firmware (map specification->package '("linux-firmware")))
  (host-name "guix-pc")
  (initrd microcode-initrd)
  (issue (colorize-string "
