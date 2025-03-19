@@ -4,4 +4,6 @@ if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then
 fi
 
 # Keep Home Manager out of shell configuration.
-if [ -f ~/.nix-profile/bin/home-manager ]; then source ~/.nix-profile/etc/profile.d/hm-session-vars.sh; fi
+if [ -f ~/.nix-profile/bin/home-manager ]; then
+    source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi
