@@ -49,7 +49,8 @@
                                         "starship"
                                         "torbrowser"
                                         "waybar"
-                                        "xdg-desktop-portal-hyprland")))
+                                        "xdg-desktop-portal-hyprland"
+                                        "zoxide")))
   (services
    (let ((DOTFILES ".files/"))
      ;; HACK: This is used to make local-file find files relative to the current
