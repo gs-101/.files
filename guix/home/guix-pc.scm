@@ -99,7 +99,13 @@
                       (variables
                        `(("colored-stats" . #t)
                          ("colored-completion-prefix" . #t)
-                         ("editing-mode" . "emacs")))))
+                         ("editing-mode" . "emacs")
+                         ;; Complete AND show other additional completion
+                         ;; options with a single tab press.
+                         ("show-all-if-ambiguous" . #t)
+                         ;; With colours enabled, this colours the
+                         ;; prefix in menu-complete.
+                         ("menu-complete-display-prefix" . #t)))))
             (service home-msmtp-service-type
                      (home-msmtp-configuration
                       (accounts
