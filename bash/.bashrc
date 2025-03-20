@@ -27,5 +27,11 @@ eval "$(pay-respects bash --alias)"
 # Enable shell integration for zoxide.
 eval "$(zoxide init bash)"
 
+# I don't use fzf. This replaces zoxide's fzf integration with
+# television, my preferred fuzzy finder.
+function __zoxide_zi() {
+    result="$(zoxide query -l -- "$@" | tv)" && cd "$result"
+}
+
 # Disable flow control keybinds (that freeze your terminal).
 stty -ixon
