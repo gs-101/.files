@@ -77,7 +77,9 @@
             (service home-git-service-type
                      (home-git-configuration
                       (config
-                       `((sendemail
+                       `((init
+                          ((defaultBranch . "main")))
+                         (sendemail
                           ((annotate . #t)
                            (sendmailCmd . ,(file-append (specification->package "msmtp") "/bin/msmtp"))))
                          (user
