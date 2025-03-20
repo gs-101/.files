@@ -24,5 +24,8 @@ eval "$(tv init bash)"
 # Enable shell integration for pay-respects.
 eval "$(pay-respects bash --alias)"
 
+# Enable shell integration for zoxide.
+eval "$(zoxide init bash)"
+
 # Disable flow control keybinds (that freeze your terminal).
 stty -ixon
