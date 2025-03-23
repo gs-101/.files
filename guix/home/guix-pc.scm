@@ -41,6 +41,7 @@
                                         "hyprpicker"
                                         "hyprpolkitagent"
                                         "hyprshot"
+                                        "inkscape"
                                         "librewolf"
                                         "make"
                                         "mpv"
