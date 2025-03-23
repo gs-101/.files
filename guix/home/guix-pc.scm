@@ -16,7 +16,8 @@
              (selected-guix-works home services rust-apps))
 
 (home-environment
-  (packages (specifications->packages '("alacritty"
+  (packages (specifications->packages '("adwaita-icon-theme"
+                                        "alacritty"
                                         "bat"
                                         "bibata-cursor-theme"
                                         "clipman"
