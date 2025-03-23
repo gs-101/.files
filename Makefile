@@ -1,3 +1,9 @@
+# General.
+
+all: update system-reconfigure home-reconfigure
+
+.PHONY: all
+
 # Updating.
 
 update:
@@ -80,9 +86,3 @@ home-edit:
 	@${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
 
 .PHONY: home-edit
-
-# General.
-
-all: update system-reconfigure home-reconfigure
-
-.PHONY: all
