@@ -54,6 +54,7 @@ toggle_help = "ctrl-h"
 "git-repos" = [
   "nvim",
   "emacs",
+  "emacsclient",
   "$EDITOR",
   "$VISUAL",
 ]
