@@ -10,16 +10,9 @@ theme = "Monokai Extended"
 
 # Television already has some pretty Emacsy keybinds.
 # This just makes them even more emacsier.
-[keybindings.Channel]
+[keybindings]
 scroll_preview_half_page_down = "alt-v"
 scroll_preview_half_page_up = "ctrl-v"
-toggle_remote_control = "alt-x"
-toggle_help = "ctrl-h"
-
-[keybindings.SendToChannel]
-toggle_help = "ctrl-h"
-
-[keybindings.RemoteControl]
 toggle_remote_control = "alt-x"
 toggle_help = "ctrl-h"
 
