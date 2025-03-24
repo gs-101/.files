@@ -60,6 +60,7 @@ toggle_help = "ctrl-h"
 ]
 "podman-images" = ["podman run"]
 "nixpkgs" = ["nix shell"]
+"guix" = ["guix"]
 
 [shell_integration.keybindings]
 "smart_autocomplete" = "ctrl-t"
