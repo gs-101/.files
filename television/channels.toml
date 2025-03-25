@@ -28,7 +28,7 @@
   # Guix
 [[cable_channel]]
   name = "guix"
-  source_command = "guix package --list-available=.*"
+  source_command = "guix package --list-available=.* | cut -f 1 | tr -d [:blank:]"
   preview_command = "guix package --show={0}"
 
   # Nix
