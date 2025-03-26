@@ -10,16 +10,19 @@
                      xorg)
 
 (define %gs-101/desktop-services
+  (let ((DOTFILES ".files/")))
+  ;; HACK: This is the same hack originally used in the home
+  ;; configuration to make local-file use absolute references.
   (modify-services %desktop-services
-    (delete gdm-service-type)
-    (guix-service-type config => (guix-configuration
-                                  (inherit config)
-                                  (authorized-keys
-                                   (append (list (local-file "../substitute-keys/nonguix.pub"))
-                                           %default-authorized-guix-keys))
-                                  (substitute-urls
-                                   (append (list "https://substitutes.nonguix.org")
-                                           %default-substitute-urls))))))
+                   (delete gdm-service-type)
+                   (guix-service-type config => (guix-configuration
+                                                 (inherit config)
+                                                 (authorized-keys
+                                                  (cons* (local-file (string-append DOTFILES "guix/substitute-keys/nonguix.pub"))
+                                                         %default-authorized-guix-keys))
+                                                 (substitute-urls
+                                                  (cons* "https://substitutes.nonguix.org"
+                                                         %default-substitute-urls))))))
 
 (operating-system
  (keyboard-layout (keyboard-layout "br" #:options '("ctrl:nocaps")))

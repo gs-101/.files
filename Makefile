@@ -53,13 +53,13 @@ ares:
 system-reconfigure:
 	@echo "--------------------"
 	@echo "Reconfiguring System"
-	@sudo guix system reconfigure ${DOTFILES}/guix/system/`hostname`.scm --fallback
+	@sudo guix system reconfigure ${DOTFILES}/guix/gs-101/system/`hostname`.scm --fallback
 	@echo "--------------------"
 
 .PHONY: system-reconfigure
 
 system-edit:
-	@${EDITOR} "${DOTFILES}/guix/system/`hostname`.scm"
+	@${EDITOR} "${DOTFILES}/guix/gs-101/system/`hostname`.scm"
 
 .PHONY: system-edit
 
@@ -68,7 +68,7 @@ system-edit:
 home-reconfigure:
 	@echo "-----------------------"
 	@echo "Reconfiguring Guix Home"
-	@guix home reconfigure ${DOTFILES}/guix/home/`hostname`.scm --fallback
+	@guix home reconfigure ${DOTFILES}/guix/gs-101/home/`hostname`.scm --fallback
 	@echo "-----------------------"
 	@echo "Reconfiguring Nix Home"
 	@home-manager switch --no-write-lock-file
@@ -81,6 +81,6 @@ home-reconfigure:
 .PHONY: home-reconfigure
 
 home-edit:
-	@${EDITOR} ${DOTFILES}/guix/home/`hostname`.scm
+	@${EDITOR} ${DOTFILES}/guix/gs-101/home/`hostname`.scm
 
 .PHONY: home-edit
