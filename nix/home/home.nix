@@ -10,6 +10,7 @@
 
     packages = with pkgs; [
       nix-search-tv
+      rust-stakeholder
       television
       wakatime-cli
       zotero
