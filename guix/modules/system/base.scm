@@ -2,7 +2,8 @@
   #:use-module (gnu)
   #:use-module (guix colors)
   #:use-module (utils)
-  #:export (base-system))
+  #:export (base-system
+            %base-desktop-services))
 
 (use-service-modules containers
                      cups
@@ -11,17 +12,17 @@
                      virtualization
                      xorg)
 
-(define desktop-services
+(define %base-desktop-services
   (modify-services %desktop-services
-    (delete gdm-service-type)
-    (guix-service-type config => (guix-configuration
-                                  (inherit config)
-                                  (authorized-keys
-                                   (cons* (dotfiles-file "guix/substitute-keys/nonguix.pub")
-                                          %default-authorized-guix-keys))
-                                  (substitute-urls
-                                   (cons* "https://substitutes.nonguix.org"
-                                          %default-substitute-urls))))))
+                   (delete gdm-service-type)
+                   (guix-service-type config => (guix-configuration
+                                                 (inherit config)
+                                                 (authorized-keys
+                                                  (cons* (dotfiles-file "guix/substitute-keys/nonguix.pub")
+                                                         %default-authorized-guix-keys))
+                                                 (substitute-urls
+                                                  (cons* "https://substitutes.nonguix.org"
+                                                         %default-substitute-urls))))))
 (define base-system
   (operating-system
    (keyboard-layout (keyboard-layout "br" #:options '("ctrl:nocaps")))
@@ -55,7 +56,7 @@
                              (qemu-binfmt-configuration
                               (platforms (lookup-qemu-platforms "arm" "aarch64"))))
                     (service rootless-podman-service-type)
-                    desktop-services))
+                    %base-desktop-services))
    (timezone "America/Sao_Paulo")
    (users (cons* (user-account
                   (name "gabriel")
