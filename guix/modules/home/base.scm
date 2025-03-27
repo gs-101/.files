@@ -16,49 +16,53 @@
   #:use-module (guix gexp)
   #:use-module (selected-guix-works home services rust-apps)
   #:use-module (utils)
-  #:export (base-home))
+  #:export (base-home
+            %base-home-packages))
+
+(define %base-home-packages
+  (specifications->packages '("adwaita-icon-theme"
+                              "alacritty"
+                              "bat"
+                              "bibata-cursor-theme"
+                              "clipman"
+                              "cryptsetup"
+                              "direnv"
+                              "emacs-master-pgtk"
+                              "eza"
+                              "fd"
+                              "fnott"
+                              "font-aporetic"
+                              "font-google-noto-emoji"
+                              "font-microsoft-cascadia"
+                              "font-nerd-fonts-m-plus"
+                              "fuzzel"
+                              "gimp-next"
+                              "git:send-email"
+                              "gitu"
+                              "gnupg"
+                              "hicolor-icon-theme"
+                              "hyprland"
+                              "hyprpaper"
+                              "hyprpicker"
+                              "hyprpolkitagent"
+                              "hyprshot"
+                              "inkscape"
+                              "librewolf"
+                              "make"
+                              "mpv"
+                              "neovim"
+                              "openssh"
+                              "pay-respects"
+                              "selected-guix-works-backgrounds"
+                              "starship"
+                              "torbrowser"
+                              "waybar"
+                              "xdg-desktop-portal-hyprland"
+                              "zoxide")))
 
 (define base-home
   (home-environment
-   (packages (specifications->packages '("adwaita-icon-theme"
-                                         "alacritty"
-                                         "bat"
-                                         "bibata-cursor-theme"
-                                         "clipman"
-                                         "cryptsetup"
-                                         "direnv"
-                                         "emacs-master-pgtk"
-                                         "eza"
-                                         "fd"
-                                         "fnott"
-                                         "font-aporetic"
-                                         "font-google-noto-emoji"
-                                         "font-microsoft-cascadia"
-                                         "font-nerd-fonts-m-plus"
-                                         "fuzzel"
-                                         "gimp-next"
-                                         "git:send-email"
-                                         "gitu"
-                                         "gnupg"
-                                         "hicolor-icon-theme"
-                                         "hyprland"
-                                         "hyprpaper"
-                                         "hyprpicker"
-                                         "hyprpolkitagent"
-                                         "hyprshot"
-                                         "inkscape"
-                                         "librewolf"
-                                         "make"
-                                         "mpv"
-                                         "neovim"
-                                         "openssh"
-                                         "pay-respects"
-                                         "selected-guix-works-backgrounds"
-                                         "starship"
-                                         "torbrowser"
-                                         "waybar"
-                                         "xdg-desktop-portal-hyprland"
-                                         "zoxide")))
+   (packages %base-home-packages)
    (services
     (cons* (service home-bash-service-type
                     (home-bash-configuration
