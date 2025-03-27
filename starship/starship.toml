@@ -552,7 +552,7 @@ format = '[$symbol ]($style)'
 style = 'bold white'
 
 [package]
-disabled = false
+disabled = true
 format = 'is [$symbol ($version )]($style)'
 symbol = '󰆦'
 version_format = '${raw}'
