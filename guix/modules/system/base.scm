@@ -3,7 +3,8 @@
   #:use-module (guix colors)
   #:use-module (utils)
   #:export (base-system
-            %base-desktop-services))
+            %base-desktop-services)
+  #:re-export (keyboard-layout))
 
 (use-service-modules containers
                      cups
@@ -23,14 +24,17 @@
                                                  (substitute-urls
                                                   (cons* "https://substitutes.nonguix.org"
                                                          %default-substitute-urls))))))
+(define keyboard-layout
+  (keyboard-layout "br" #:options '("ctrl:nocaps")))
+
 (define base-system
   (operating-system
-   (keyboard-layout (keyboard-layout "br" #:options '("ctrl:nocaps")))
    (bootloader
     (bootloader-configuration
      (bootloader grub-efi-bootloader)
      (keyboard-layout keyboard-layout)
      (targets (list "/boot/efi"))))
+   (keyboard-layout keyboard-layout)
    (file-systems (cons* (file-system
                          (mount-point "/")
                          (device "/dev/sda1")
