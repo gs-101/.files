@@ -1,4 +1,79 @@
 #+title: .files
+#+OPTIONS: t
 
 #+caption: Hyprland Desktop Environment with Waybar
 [[file:./screenshots/hyprland.png]]
+
+* Notes
+
+** Encrypting a USB Drive with LUKS on Linux
+
+[fn:1]
+
+*** Encryption Process
+
+1. Identify the disk with =fdisk=
+
+#+begin_src sh
+  sudo fdisk -l
+#+end_src
+
+2. Encrypt the device
+
+#+begin_src sh
+  sudo cryptsetup luksFormat --type luks2 /dev/sdSOMETHING
+#+end_src
+
+3. Unlock the device with:
+
+#+begin_src sh
+  sudo cryptsetup luksOpen /dev/sdSOMETHING NAME
+#+end_src
+
+4. Write a filesystem in it
+
+#+begin_src sh
+  # Choose any filesytem you'd like. ext4 is often enough.
+  sudo mkfs -t ext4 -V /dev/mapper/DEVICE
+#+end_src
+
+#+begin_quote
+[!NOTE]
+
+Consider making a smaller, non-encrypted partition to leave a note such as "return to" information.
+#+end_quote
+
+4. Mount the device
+
+#+begin_src sh
+  # /mnt/DEVICE seems to be the preferred mount location.
+  sudo mount /dev/mapper/DEVICE /where/you/want/it/to/be
+#+end_src
+
+#+begin_quote
+[!NOTE]
+
+Don't forget to =umount= before removing the device!
+#+end_quote
+
+*** Usage
+
+- Mounting ::
+
+  #+begin_src sh
+    sudo cryptsetup luksOpen /dev/sdSOMETHING DEVICE
+    sudo mount /dev/mapper/DEVICE /where/you/want/it/to/be
+  #+end_src
+
+- Unmounting ::
+
+  #+begin_src sh
+    sudo umount /where/you/want/it/to/be
+    sudo cryptsetup luksClose DEVICE
+  #+end_src
+
+-----
+
+* References
+
+[fn:1] Thoss, S. (2021) Encrypt a usb drive with luks on linux. Stefandroid Blog. Available at: https://blog.stefandroid.com/2021/02/08/encrypt-usb-drive-with-luks.html (Accessed: March 31, 2025).
