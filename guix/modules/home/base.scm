@@ -11,7 +11,6 @@
   #:use-module (gnu home services sound)
   #:use-module (gnu home services syncthing)
   ;; Home modules with "home-services" come from rde.
-  #:use-module (gnu home-services password-utils)
   #:use-module (gnu home-services version-control)
   #:use-module (guix gexp)
   #:use-module (selected-guix-works home services rust-apps)
@@ -47,6 +46,7 @@
                               "hyprpicker"
                               "hyprpolkitagent"
                               "hyprshot"
+                              "keepassxc"
                               "inkscape"
                               "librewolf"
                               "make"
@@ -121,14 +121,13 @@
                         (host "disroot.org")
                         (port 465)
                         (user "gabrielsantosdesouza")
-                        (password-eval "pass disroot.org")
+                        (password-eval "keepass show -sa password $KEEPASSXC_MAIN_DB Disroot")
                         (from "gabrielsantosdesouza@disroot.org"))))))
                    (defaults
                      (msmtp-configuration
                       (auth? #t)
                       (tls? #t)
                       (tls-starttls? #f)))))
-         (service home-password-store-service-type)
          (service home-pipewire-service-type)
          (service home-ripgrep-service-type
                   (home-ripgrep-configuration
@@ -263,6 +262,7 @@ wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-w
                            ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
                            ("HYPRSHOT_DIR" . "$HOME/Pictures/screenshots")
                            ("MENU" . "fuzzel")
+                           ("KEEPASSXC_MAIN_DB" . "$XDG_STATE_HOME/keepassxc/keepass.kdbx")
                            ("SHELL" . "bash")
                            ("TERM" . "alacritty")
                            ("TERMINAL" . "alacritty")
