@@ -96,8 +96,8 @@ version_format = '${raw}'
 # Regular prompt symbol.
 [character]
 disabled = false
-error_symbol = '[λ](bold #ff6da8)'
-success_symbol = '[λ](bold #00caff)'
+error_symbol = '[λ](bold red)'
+success_symbol = '[λ](bold blue)'
 vimcmd_symbol = '[](bold #019331)'
 vimcmd_replace_one_symbol = '[](bold #019331)'
 vimcmd_replace_symbol = '[](bold #019331)'
@@ -125,7 +125,7 @@ min_time = 2_000
 min_time_to_notify = 45_000
 show_milliseconds = false
 show_notifications = false
-style = 'bold #00caff'
+style = 'bold blue'
 
 [conda]
 # Disabled as I'll probaly not remember to disable the Conda prompt
@@ -180,7 +180,7 @@ disabled = false
 format = '[$path ($read_only )]($style)'
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path ($read_only _]($style)'
 read_only = '󰂽'
-style = 'bold #00caff'
+style = 'bold blue'
 # Try to avoid truncation as much as possible.
 truncation_length = 10
 # But allow it for repositories.
@@ -347,7 +347,7 @@ disabled = false
 format = 'via [$symbol ]($style)'
 symbol = ''
 # Blue color to match my theme.
-style = 'bold #00caff'
+style = 'bold blue'
 
 [gradle]
 disabled = false
@@ -495,8 +495,7 @@ style = 'bold #f3d400'
 disabled = false
 format = 'via [$symbol ]($style)'
 symbol = '󱄅'
-# Blue color from my theme.
-style = 'bold #00caff'
+style = 'bold blue'
 impure_msg = '󱎶'
 pure_msg = ''
 unknown_msg = '󰞋'
@@ -726,7 +725,7 @@ style = 'bold #ff6da8'
 disabled = true
 format = '[as $symbol ]($style)'
 symbol = '󰞄'
-style = 'bold #00caff'
+style = 'bold blue'
 
 [swift]
 disabled = false
@@ -750,7 +749,7 @@ disabled = true
 format = '[󰥔 $time ]($style)'
 # My preferred format.
 use_12hr = true
-style = 'bold #00caff'
+style = 'bold blue'
 
 [typst]
 disabled = false
@@ -765,7 +764,7 @@ style = 'bold #05afc4'
 # I know who I am.
 disabled = true
 style_root = 'bold #ff6da8'
-style_user = 'bold #00caff'
+style_user = 'bold blue'
 format = '[$user]($style) in '
 
 [vagrant]

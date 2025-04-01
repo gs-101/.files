@@ -9,6 +9,7 @@
     stateVersion = "24.11";
 
     packages = with pkgs; [
+      matugen
       nix-search-tv
       rust-stakeholder
       swww

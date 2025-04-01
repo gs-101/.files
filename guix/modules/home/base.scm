@@ -67,7 +67,7 @@
                   (home-bash-configuration
                    (aliases '(("grep" . "grep -P -i -n -H -q -R --devices=read --color=auto")
                               (".." . "cd ..")
-                              ("bat" . "bat --color auto --decorations auto --paging never")
+                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16")
                               ("eza" . "eza -l -X --color auto --icons auto --hyperlink -a --group-directories-first --smart-group -h --changed --git")
                               ("ip" . "ip -color=auto")
                               ("df" . "df -H")
@@ -229,6 +229,10 @@ gtk-key-theme-name = \"Emacs\""))))
                          home-files-service-type
                          (list `("Makefile"
                                  ,(dotfiles-file "Makefile"))))
+         (simple-service 'home-matugen-configuration-service
+                         home-xdg-configuration-files-service-type
+                         (list `("matugen"
+                                 ,(dotfiles-file "matugen" #:recursive? #t))))
          (simple-service 'home-nix-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("nix/nix.conf"
@@ -265,8 +269,10 @@ gtk-key-theme-name = \"Emacs\""))))
                                  ,(dotfiles-file "wakatime/.wakatime.cfg"))))
          (simple-service 'home-waybar-configuration-service
                          home-xdg-configuration-files-service-type
-                         (list `("waybar"
-                                 ,(dotfiles-file "waybar" #:recursive? #t))))
+                         (list `("waybar/config.jsonc"
+                                 ,(dotfiles-file "waybar/config.jsonc"))
+                               `("waybar/style.css"
+                                 ,(dotfiles-file "waybar/style.css"))))
          %base-home-services))
 
 (define base-home
