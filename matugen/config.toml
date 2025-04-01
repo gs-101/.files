@@ -1,0 +1,24 @@
+[config]
+version_check = false
+
+[config.wallpaper]
+command = "swww"
+arguments = ["img", "--transition-type", "random"]
+set = true
+
+[templates.alacritty]
+input_path = 'templates/alacritty.toml'
+output_path = '~/.config/alacritty/matugen.toml'
+
+[templates.hyprland]
+input_path = 'templates/hyprland.conf'
+output_path = '~/.config/hypr/matugen.conf'
+post_hook = 'hyprctl reload'
+
+# Currently, Starship has no concept of sourcing/including a separate
+# configuration file, so it's template will not be used.
+
+[templates.waybar]
+input_path = 'templates/colors.css'
+output_path = '~/.config/waybar/matugen.css'
+post_hook = 'pkill -SIGUSR2 waybar'
