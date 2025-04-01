@@ -24,7 +24,7 @@
                               "alacritty"
                               "bat"
                               "bibata-cursor-theme"
-                              "clipman"
+                              "cliphist"
                               "cryptsetup"
                               "direnv"
                               "emacs-master-pgtk"
