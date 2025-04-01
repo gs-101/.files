@@ -60,6 +60,7 @@
                               "torbrowser"
                               "waybar"
                               "xdg-desktop-portal-hyprland"
+                              "xdg-utils"
                               "zoxide")))
 
 (define %base-home-services
