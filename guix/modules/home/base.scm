@@ -42,7 +42,6 @@
                               "gnupg"
                               "hicolor-icon-theme"
                               "hyprland"
-                              "hyprpaper"
                               "hyprpicker"
                               "hyprpolkitagent"
                               "hyprshot"
@@ -226,14 +225,6 @@ gtk-key-theme-name = \"Emacs\""))))
                          home-xdg-configuration-files-service-type
                          (list `("hypr/hyprland.conf"
                                  ,(dotfiles-file "hypr/hyprland.conf"))))
-         (simple-service 'home-hyprpaper-configuration-service
-                         home-xdg-configuration-files-service-type
-                         (list `("hypr/hyprpaper.conf"
-                                 ,(plain-file "hyprpaper.conf"
-                                              "
-preload = /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
-wallpaper = , /home/gabriel/.guix-home/profile/share/backgrounds/selected-guix-works/guix/guix-nix-checkered-16-9.png
-"))))
          (simple-service 'home-makefile-service
                          home-files-service-type
                          (list `("Makefile"
