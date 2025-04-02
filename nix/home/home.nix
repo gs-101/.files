@@ -11,7 +11,6 @@
     packages = with pkgs; [
       matugen
       nix-search-tv
-      rust-stakeholder
       swww
       television
       wakatime-cli

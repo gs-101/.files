@@ -54,6 +54,7 @@
                               "neovim"
                               "openssh"
                               "pay-respects"
+                              "rust-stakeholder"
                               "selected-guix-works-backgrounds"
                               "starship"
                               "torbrowser"
