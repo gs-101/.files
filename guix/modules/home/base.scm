@@ -57,6 +57,7 @@
                               "selected-guix-works-backgrounds"
                               "starship"
                               "torbrowser"
+                              "unzip"
                               "waybar"
                               "xdg-desktop-portal-hyprland"
                               "xdg-utils"
