@@ -253,8 +253,7 @@ gtk-key-theme-name = \"Emacs\""))))
                                  ,(dotfiles-file "television" #:recursive? #t))))
          (simple-service 'home-variables-service
                          home-environment-variables-service-type
-                         `(("BAR" . "waybar")
-                           ("BROWSER" . "librewolf")
+                         `(("BROWSER" . "librewolf")
                            ("DOTFILES" . "$HOME/.files")
                            ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
                            ("HYPRSHOT_DIR" . "$HOME/Pictures/screenshots")
