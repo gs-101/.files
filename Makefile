@@ -9,7 +9,7 @@ all: update system-reconfigure home-reconfigure
 update:
 	@echo "-------------"
 	@echo "Updating Guix"
-	@guix pull --channels=${DOTFILES}/guix/channels-list.scm || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror"
+	@guix pull --channels=${DOTFILES}/guix/channels-list.scm --news || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror" --news
 	@guix describe --format=channels > ${DOTFILES}/guix/channels.scm
 	@cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
 	@echo "-------------"
