@@ -74,7 +74,6 @@
                               ("ip" . "ip -color=auto")
                               ("df" . "df -H")
                               ("free" . "free -m -h --si")
-                              ("docker" . "podman")
                               ("fd" . "fd --follow --hyperlink=auto")))
                    (bash-profile (list (dotfiles-file "bash/.bash_profile")))
                    (bashrc (list (dotfiles-file "bash/.bashrc")))
