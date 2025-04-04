@@ -73,9 +73,7 @@ home-reconfigure:
 	@echo "Reconfiguring Nix Home"
 	@home-manager switch --no-write-lock-file
 	# Reload Hyprland environment.
-	if [ ${XDG_CURRENT_DESKTOP} = Hyprland ]; then \
-		hyprctl reload; \
-	fi
+	@if [ ${XDG_CURRENT_DESKTOP} = Hyprland ]; then hyprctl reload; fi
 	@echo "-----------------------"
 
 .PHONY: home-reconfigure
