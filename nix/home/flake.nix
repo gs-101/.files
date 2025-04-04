@@ -15,9 +15,15 @@
     };
   };
 
-  outputs = { nixpkgs, nur, emacs-overlay, home-manager, ... }:
+  outputs =
+    {
+      nixpkgs,
+      nur,
+      emacs-overlay,
+      home-manager,
+      ...
+    }:
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -26,7 +32,8 @@
           emacs-overlay.overlays.default
         ];
       };
-    in with pkgs; {
+    in
+    {
       homeConfigurations = {
         gabriel = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
