@@ -59,7 +59,7 @@ toggle_help = "ctrl-h"
   "$VISUAL",
 ]
 "podman-images" = ["podman run"]
-"nixpkgs" = ["nix shell"]
+"nixpkgs" = ["nix"]
 "guix" = ["guix"]
 
 [shell_integration.keybindings]
