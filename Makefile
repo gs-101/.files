@@ -9,7 +9,7 @@ all: update system-reconfigure home-reconfigure
 update:
 	@echo "-------------"
 	@echo "Updating Guix"
-	@guix pull --channels=${DOTFILES}/guix/channels-list.scm --news || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror" --news
+	@guix pull --channels=${DOTFILES}/guix/channels-list.scm --news -c `nproc` -M `nproc` || guix pull --channels=${DOTFILES}/guix/channels-list.scm --url="https://codeberg.org/guix/guix-mirror" --news -c `nproc` -M `nproc`
 	@guix describe --format=channels > ${DOTFILES}/guix/channels.scm
 	@cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
 	@echo "-------------"
@@ -55,7 +55,7 @@ ares:
 system-reconfigure:
 	@echo "--------------------"
 	@echo "Reconfiguring System"
-	@sudo guix system reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/system/`hostname`.scm --fallback
+	@sudo guix system reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/system/`hostname`.scm --fallback -c `nproc` -M `nproc`
 	@echo "--------------------"
 
 .PHONY: system-reconfigure
@@ -70,7 +70,7 @@ system-edit:
 home-reconfigure:
 	@echo "-----------------------"
 	@echo "Reconfiguring Guix Home"
-	@guix home reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/home/`hostname`.scm --fallback
+	@guix home reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/home/`hostname`.scm --fallback -c `nproc` -M `nproc`
 	@echo "-----------------------"
 	@echo "Reconfiguring Nix Home"
 	@home-manager switch --no-write-lock-file
