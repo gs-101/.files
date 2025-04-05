@@ -1,0 +1,2 @@
+[Default Associations]
+x-scheme-handler/mailto=emacsclient-mail.desktop;
