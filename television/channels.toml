@@ -33,9 +33,11 @@
 
   # Nix
 [[cable_channel]]
-  name = "nixpkgs"
-  source_command = "nix-search-tv print"
-  preview_command = "nix-search-tv preview {}"
+  name = "nix"
+  # Replace "nixpkgs/ " with "nixpkgs#".
+  source_command = "nix-search-tv print | sed \"s/\\/ /#/\""
+  # Preview is broken for now.
+  # preview_command = "nix-search-tv preview {}"
 
   # Podman
 [[cable_channel]]
