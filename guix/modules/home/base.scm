@@ -217,11 +217,15 @@ gtk-key-theme-name = \"Emacs\""))))
          (simple-service 'home-gtk-3-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("gtk-3.0/settings.ini"
-                                 ,(dotfiles-file "gtk/settings.ini"))))
+                                 ,(dotfiles-file "gtk/settings.ini"))
+                               `("gtk-3.0/colors.css"
+                                 ,(dotfiles-file "gtk/colors.css"))))
          (simple-service 'home-gtk-4-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("gtk-4.0/settings.ini"
-                                 ,(dotfiles-file "gtk/settings.ini"))))
+                                 ,(dotfiles-file "gtk/settings.ini"))
+                               `("gtk-4.0/colors.css"
+                                 ,(dotfiles-file "gtk/colors.css"))))
          (simple-service 'home-hyprland-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("hypr/hyprland.conf"
