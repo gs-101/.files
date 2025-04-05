@@ -44,7 +44,7 @@ nuke:
 # REPL.
 
 ares:
-	guix shell guile-next guile-ares-rs -- guile -L ${DOTFILES}/guix -c "(begin (use-modules (guix gexp)) ((@ (ares server) run-nrepl-server)))"
+	guix shell guile-next guile-ares-rs -- guile -L ${DOTFILES}/guix/modules -c "(begin (use-modules (guix gexp)) ((@ (ares server) run-nrepl-server)))"
 
 .PHONY: ares
 
