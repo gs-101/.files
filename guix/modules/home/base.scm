@@ -238,6 +238,10 @@ gtk-key-theme-name = \"Emacs\""))))
                          home-xdg-configuration-files-service-type
                          (list `("matugen"
                                  ,(dotfiles-file "matugen" #:recursive? #t))))
+         (simple-service 'home-mime-configuration-service
+                         home-xdg-configuration-files-service-type
+                         (list `("mimeapps.list"
+                                 ,(dotfiles-file "mime/mimeapps.list"))))
          (simple-service 'home-nix-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("nix/nix.conf"
