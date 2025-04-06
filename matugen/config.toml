@@ -10,6 +10,10 @@ set = true
 input_path = 'templates/alacritty.toml'
 output_path = '~/.config/alacritty/matugen.toml'
 
+[templates.fuzzel]
+input_path = 'templates/fuzzel.ini'
+output_path = '~/.config/fuzzel/matugen.ini'
+
 [templates.gtk3]
 input_path = 'templates/gtk.css'
 output_path = '~/.config/gtk-3.0/matugen.css'
