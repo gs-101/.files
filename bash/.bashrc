@@ -22,7 +22,7 @@ if [ -n "$DISPLAY" ]; then eval "$(starship init bash)"; fi
 eval "$(tv init bash)"
 
 # Enable shell integration for pay-respects.
-eval "$(pay-respects bash --alias)"
+eval "$(pay-respects bash)"
 
 # Enable shell integration for zoxide.
 eval "$(zoxide init bash)"
