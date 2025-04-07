@@ -1,5 +1,5 @@
 #+title: .files
-#+OPTIONS: t
+#+OPTIONS: f:t
 
 #+caption: Hyprland Desktop Environment with Waybar
 [[file:./screenshots/hyprland.png]]
