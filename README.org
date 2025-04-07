@@ -6,9 +6,7 @@
 
 * Notes
 
-** Encrypting a USB Drive with LUKS on Linux
-
-[fn:1]
+** Encrypting a USB Drive with LUKS on Linux[fn:1]
 
 *** Encryption Process
 
