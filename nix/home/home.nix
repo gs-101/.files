@@ -14,7 +14,6 @@
       swww
       television
       wakatime-cli
-      zotero
     ];
   };
 

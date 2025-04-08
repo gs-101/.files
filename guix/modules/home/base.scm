@@ -61,6 +61,7 @@
                               "waybar"
                               "xdg-desktop-portal-hyprland"
                               "xdg-utils"
+                              "zotero"
                               "zoxide")))
 
 (define %base-home-services
