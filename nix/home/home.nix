@@ -11,7 +11,6 @@
     packages = with pkgs; [
       matugen
       nix-search-tv
-      swww
       television
       wakatime-cli
     ];

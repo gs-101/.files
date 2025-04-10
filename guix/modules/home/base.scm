@@ -57,6 +57,7 @@
      "pay-respects"
      "rust-stakeholder"
      "starship"
+     "swww-next"
      "torbrowser"
      "unzip"
      "waybar"
