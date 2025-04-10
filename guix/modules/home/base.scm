@@ -10,6 +10,7 @@
   #:use-module (gnu home services shells)
   #:use-module (gnu home services sound)
   #:use-module (gnu home services syncthing)
+  #:use-module (gnu home services xdg)
   ;; Home modules with "home-services" come from rde.
   #:use-module (gnu home-services version-control)
   #:use-module (guix gexp)
@@ -148,6 +149,11 @@
                   (for-home
                    (syncthing-configuration
                     (user "gabriel"))))
+         (service home-xdg-mime-applications-service-type
+                  (home-xdg-mime-applications-configuration
+                   (default
+                     '((inode/directory . emacsclient.desktop)
+                       (x-scheme-handler/mailto . emacsclient-mail.desktop)))))
          (simple-service 'home-alacritty-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("alacritty/alacritty.toml"
@@ -240,10 +246,6 @@ gtk-key-theme-name = \"Emacs\""))))
                          home-xdg-configuration-files-service-type
                          (list `("matugen"
                                  ,(dotfiles-file "matugen" #:recursive? #t))))
-         (simple-service 'home-mime-configuration-service
-                         home-xdg-configuration-files-service-type
-                         (list `("mimeapps.list"
-                                 ,(dotfiles-file "mime/mimeapps.list"))))
          (simple-service 'home-nix-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("nix/nix.conf"
