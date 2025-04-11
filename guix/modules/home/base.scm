@@ -60,7 +60,6 @@
      "starship"
      "swww-next"
      "torbrowser"
-     "unzip"
      "waybar"
      "wl-clipboard"
      "xdg-desktop-portal-hyprland"
