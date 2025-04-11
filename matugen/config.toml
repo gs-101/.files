@@ -10,6 +10,11 @@ set = true
 input_path = 'templates/alacritty.toml'
 output_path = '~/.config/alacritty/matugen.toml'
 
+[templates.emacs]
+input_path = 'templates/emacs.el'
+output_path = '~/.emacs.d/var/matugen/matugen.el'
+post_hook = "emacsclient --eval (load-theme 'modus-vivendi t)"
+
 [templates.fuzzel]
 input_path = 'templates/fuzzel.ini'
 output_path = '~/.config/fuzzel/matugen.ini'
