@@ -1,5 +1,4 @@
-;; Modus Themes Colors
-;; Generated with Matugen
+;;; Modus Themes Colors --- Generated with Matugen -*- lexical-binding: t; -*-
 
 (use-package modus-themes
   :custom
