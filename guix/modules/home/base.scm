@@ -38,7 +38,7 @@
      "font-microsoft-cascadia"
      "font-nerd-fonts-m-plus"
      "fuzzel"
-     "gimp-next"
+     "gimp"
      "git:send-email"
      "gitu"
      "gnupg"
