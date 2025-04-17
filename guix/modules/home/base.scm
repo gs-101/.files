@@ -155,6 +155,7 @@
                    (default
                      '((inode/directory . emacsclient.desktop)
                        (x-scheme-handler/mailto . emacsclient-mail.desktop)))))
+         (service home-xdg-user-directories-service-type)
          (simple-service 'home-alacritty-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("alacritty/alacritty.toml"
@@ -269,7 +270,6 @@ gtk-key-theme-name = \"Emacs\""))))
                          `(("BROWSER" . "librewolf")
                            ("DOTFILES" . "$HOME/.files")
                            ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
-                           ("HYPRSHOT_DIR" . "$HOME/Pictures/screenshots")
                            ("MENU" . "fuzzel")
                            ("SHELL" . "bash")
                            ("TERM" . "alacritty")
