@@ -257,6 +257,12 @@ gtk-key-theme-name = \"Emacs\""))))
                          home-xdg-configuration-files-service-type
                          (list `("home-manager"
                                  ,(dotfiles-file "nix/home" #:recursive? #t))))
+         (simple-service 'home-qt-configuration-service
+                         home-xdg-configuration-files-service-type
+                         (list `("qt5ct/qt5ct.conf"
+                                 ,(dotfiles-file "qt/settings.conf"))
+                               `("qt6ct/qt6ct.conf"
+                                 ,(dotfiles-file "qt/settings.conf"))))
          (simple-service 'home-starship-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("starship.toml"
