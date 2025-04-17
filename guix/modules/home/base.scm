@@ -125,7 +125,7 @@
                         (host "disroot.org")
                         (port 465)
                         (user "gabrielsantosdesouza")
-                        (password-eval "keepass show -sa password $KEEPASSXC_MAIN_DB Disroot")
+                        (password-eval "keepassxc-cli show -sa password $KEEPASSXC_MAIN_DB Disroot")
                         (from "gabrielsantosdesouza@disroot.org"))))))
                    (defaults
                      (msmtp-configuration
