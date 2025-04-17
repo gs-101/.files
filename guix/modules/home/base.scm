@@ -125,7 +125,8 @@
                         (host "disroot.org")
                         (port 465)
                         (user "gabrielsantosdesouza")
-                        (password-eval "keepassxc-cli show -sa password $KEEPASSXC_MAIN_DB Disroot")
+                        (password-eval
+                         "keepassxc-cli show -sa password $XDG_STATE_HOME/keepassxc/keepass.kdbx Disroot")
                         (from "gabrielsantosdesouza@disroot.org"))))))
                    (defaults
                      (msmtp-configuration
@@ -270,7 +271,6 @@ gtk-key-theme-name = \"Emacs\""))))
                            ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
                            ("HYPRSHOT_DIR" . "$HOME/Pictures/screenshots")
                            ("MENU" . "fuzzel")
-                           ("KEEPASSXC_MAIN_DB" . "$XDG_STATE_HOME/keepassxc/keepass.kdbx")
                            ("SHELL" . "bash")
                            ("TERM" . "alacritty")
                            ("TERMINAL" . "alacritty")
