@@ -224,15 +224,13 @@
                                               "gtk-cursor-theme-name = \"Bibata-Modern-Classic\"
 gtk-font-name = \"Cascadia Code NF\"
 gtk-key-theme-name = \"Emacs\""))))
-         (simple-service 'home-gtk-3-configuration-service
+         (simple-service 'home-gtk-configuration-service
                          home-xdg-configuration-files-service-type
                          (list `("gtk-3.0/settings.ini"
                                  ,(dotfiles-file "gtk/settings.ini"))
                                `("gtk-3.0/gtk.css"
-                                 ,(dotfiles-file "gtk/colors.css"))))
-         (simple-service 'home-gtk-4-configuration-service
-                         home-xdg-configuration-files-service-type
-                         (list `("gtk-4.0/settings.ini"
+                                 ,(dotfiles-file "gtk/colors.css"))
+                               `("gtk-4.0/settings.ini"
                                  ,(dotfiles-file "gtk/settings.ini"))
                                `("gtk-4.0/gtk.css"
                                  ,(dotfiles-file "gtk/colors.css"))))
