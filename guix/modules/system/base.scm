@@ -79,3 +79,5 @@
                                            "video"
                                            "wheel")))
                   %base-user-accounts))))
+
+base-system
