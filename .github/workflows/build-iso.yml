@@ -1,0 +1,22 @@
+name: Build ISO
+
+on: workflow_dispatch
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Install Guix
+      uses: PromyLOPh/guix-install-action@40615e98e5c16a451aec10fe01c214ed07cbaa77
+    - name: Build ISO
+      run: |
+        guix time-machine --channels=guix/channels.scm || guix time-machine --channels=guix/channels.scm --url="https://codeberg.org/guix/guix-mirror"
+        cp $(guix system image -L guix/modules guix/modules/system/base.scm -t iso9660)
+        mv *-image.iso image.iso
+    - name: Upload Artefact
+      uses: actions/upload-artifact@6027e3dd177782cd8ab9af838c04fd81a07f1d47
+      with:
+        name: ISO
+        path: image.iso
