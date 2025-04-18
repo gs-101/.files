@@ -126,7 +126,14 @@
                         (port 465)
                         (user "gabrielsantosdesouza")
                         (password-eval
-                         "keepassxc-cli show -sa password $XDG_STATE_HOME/keepassxc/keepass.kdbx Disroot")
+                         ;; keepassxc-cli doesn't work well with msmtp.
+                         ;; What I have to do is to set a enviroment variable
+                         ;; with the value of:
+                         ;; keepassxc-cli show -a password DATABASE ENTRY
+                         ;; for msmtp to be able to use it.
+                         ;; Like this:
+                         ;; export MSMTP_PASSWORD=$(keepassxc-cli show -a password DATABASE ENTRY)
+                         "echo $MSMTP_PASSWORD")
                         (from "gabrielsantosdesouza@disroot.org"))))))
                    (defaults
                      (msmtp-configuration
