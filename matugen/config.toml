@@ -13,7 +13,7 @@ output_path = '~/.config/alacritty/matugen.toml'
 [templates.emacs]
 input_path = 'templates/emacs.el'
 output_path = '~/.emacs.d/var/matugen/matugen.el'
-post_hook = "emacsclient --eval \"(load-theme 'modus-vivendi t)\""
+post_hook = "emacsclient --eval (let ((matugen \"~/.emacs.d/var/matugen/matugen.el\")) (when (file-exists-p matugen) (load-file matugen)))"
 
 [templates.fuzzel]
 input_path = 'templates/fuzzel.ini'
