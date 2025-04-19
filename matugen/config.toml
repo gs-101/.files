@@ -3,7 +3,7 @@ version_check = false
 
 [config.wallpaper]
 command = "swww"
-arguments = ["img", "--transition-type", "random"]
+arguments = ["img", "--transition-type", "random", "--resize", "stretch"]
 set = true
 
 [templates.alacritty]
