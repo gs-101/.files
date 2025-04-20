@@ -26,6 +26,7 @@
                                   (authorized-keys
                                    (cons* (dotfiles-file "guix/substitute-keys/nonguix.pub")
                                           %default-authorized-guix-keys))
+                                  (privileged? #f)
                                   (substitute-urls
                                    (cons* "https://substitutes.nonguix.org"
                                           %default-substitute-urls))))))
