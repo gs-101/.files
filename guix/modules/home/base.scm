@@ -50,6 +50,7 @@
      "keepassxc"
      "inkscape"
      "librewolf"
+     "libsecret" ; TODO: Make the executable a separate output.
      "make"
      "mpv"
      "mumi"
@@ -126,14 +127,11 @@
                         (port 465)
                         (user "gabrielsantosdesouza")
                         (password-eval
-                         ;; keepassxc-cli doesn't work well with msmtp.
-                         ;; What I have to do is to set a enviroment variable
-                         ;; with the value of:
-                         ;; keepassxc-cli show -a password DATABASE ENTRY
-                         ;; for msmtp to be able to use it.
-                         ;; Like this:
-                         ;; export MSMTP_PASSWORD=$(keepassxc-cli show -a password DATABASE ENTRY)
-                         "echo $MSMTP_PASSWORD")
+                         ;; secret-tool can be used with KeePassXC to
+                         ;; comfortably get passwords for scripts.
+                         ;; See:
+                         ;; <https://redlib.freedit.eu/r/linux/comments/ehfhud/keyring_alternative_access_keepassxc_entries_of/>
+                         "secret-tool lookup msmtp password")
                         (from "gabrielsantosdesouza@disroot.org"))))))
                    (defaults
                      (msmtp-configuration
