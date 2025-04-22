@@ -14,7 +14,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "797cca587f7c01d74d63781dec66c2333927ea79")
+          "ab4ab29fab7396cb479e03c568dc1757698aabfb")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -47,7 +47,7 @@
         (url "https://codeberg.org/guix/guix-mirror")
         (branch "master")
         (commit
-          "ba53ff9cc403c7f0388e2dc932cb46e665e81be7")
+          "c6ee7b0f79632d50ad491b75c240547be8f40c31")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
