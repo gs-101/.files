@@ -73,7 +73,7 @@
                   (home-bash-configuration
                    (aliases '(("grep" . "grep -P -i -n -H -q -R --devices=read --color=auto")
                               (".." . "cd ..")
-                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16")
+                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
                               ("eza" . "eza -l -X --color auto --icons auto --hyperlink -a --group-directories-first --smart-group -h --changed --git")
                               ("ip" . "ip -color=auto")
                               ("df" . "df -H")
