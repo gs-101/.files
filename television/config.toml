@@ -1,6 +1,7 @@
 [ui]
-use_nerd_font_icons = true
 show_preview_panel = false
+theme = "matugen"
+use_nerd_font_icons = true
 
 [previewers.file]
 # Default theme for bat.
