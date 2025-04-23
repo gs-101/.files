@@ -278,8 +278,10 @@ gtk-key-theme-name = \"Emacs\""))))
                                 ,(dotfiles-file "starship/starship.toml"))))
         (simple-service 'home-television-configuration-service
                         home-xdg-configuration-files-service-type
-                        (list `("television"
-                                ,(dotfiles-file "television" #:recursive? #t))))
+                        (list `("television/config.toml"
+                                ,(dotfiles-file "television/config.toml"))
+                              `("television/channels.toml"
+                                ,(dotfiles-file "television/channels.toml"))))
         (simple-service 'home-variables-service
                         home-environment-variables-service-type
                         `(("BROWSER" . "librewolf")

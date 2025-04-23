@@ -43,6 +43,10 @@ output_path = '~/.config/qt6ct/colors/matugen.conf'
 # Currently, Starship has no concept of sourcing/including a separate
 # configuration file, so it's template will not be used.
 
+[templates.television]
+input_path = 'templates/television.toml'
+output_path = '~/.config/television/themes/matugen.toml'
+
 [templates.waybar]
 input_path = 'templates/colors.css'
 output_path = '~/.config/waybar/matugen.css'
