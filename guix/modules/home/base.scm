@@ -55,6 +55,7 @@
      "mpv"
      "mumi"
      "neovim"
+     "nyxt" ; TODO: Use browser instead of Librewolf.
      "openssh"
      "pay-respects"
      "rust-stakeholder"
