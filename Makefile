@@ -85,3 +85,9 @@ home-edit:
 	@${EDITOR} ${DOTFILES}/guix/modules/home/`hostname`.scm
 
 .PHONY: home-edit
+
+reload:
+	@guix home reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/home/`hostname`.scm --fallback -c `nproc` -M `nproc` --no-substitutes
+	@home-manager switch --no-write-lock-file  --cores `nproc` --max-jobs `nproc` --no-substitute
+
+.PHONY: reload
