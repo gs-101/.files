@@ -74,7 +74,7 @@ home-reconfigure:
 	@guix home reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/home/`hostname`.scm --fallback -c `nproc` -M `nproc`
 	@echo "-----------------------"
 	@echo "Reconfiguring Nix Home"
-	@home-manager switch --no-write-lock-file
+	@home-manager switch --no-write-lock-file --cores `nproc` --max-jobs `nproc`
 	# Reload Hyprland environment.
 	@if [ ${XDG_CURRENT_DESKTOP} = Hyprland ]; then hyprctl reload; fi
 	@echo "-----------------------"
