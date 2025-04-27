@@ -61,6 +61,7 @@
      "nyxt" ; TODO: Use browser instead of Librewolf.
      "openssh"
      "pay-respects"
+     "qt5ct"
      "rust-stakeholder"
      "starship"
      "swww-next"
@@ -288,6 +289,7 @@ gtk-key-theme-name = \"Emacs\""))))
                         `(("BROWSER" . "librewolf")
                           ("DOTFILES" . "$HOME/.files")
                           ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
+                          ("QT_QPA_PLATFORMTHEME" . "qt5ct")
                           ("SHELL" . "bash")
                           ("TERM" . "alacritty")
                           ("TERMINAL" . "alacritty")
