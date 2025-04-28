@@ -14,12 +14,11 @@
     "river/window"
     ],
     "modules-right": [
-    "pulseaudio",
+    "wireplumber",
     "backlight",
     "battery",
     "network",
-    "clock",
-    "tray"
+    "clock"
     ],
     // Module configuration
     "hyprland/submap": {
@@ -100,25 +99,6 @@
         "format-linked": "󰌷 {ifname}",
         "format-disconnected": " Disconnected"
         },
-    "pulseaudio": {
-        "scroll-step": 1.0,
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon}󰂯 {volume}% {format_source}",
-        "format-bluetooth-muted": "󰝟",
-        "format-muted": "󰝟",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭",
-        "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󱡏",
-            "headset": "󰋎",
-            "phone": "󰏲",
-            "portable": "󰄜",
-            "car": "󰄋",
-            "default": ["󰕿", "󰖀", "󰕾"]
-        }
-        // "on-click": "pavucontrol"
-    },
     "wireplumber": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟",
