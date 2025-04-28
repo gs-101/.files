@@ -3,7 +3,7 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "e899121adbaa13cfcaeae7a5c24921bffa645771")
+          "f05b33d75491a6418e7f0b3575207c5c2b2ef8f1")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -14,7 +14,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "c683458089665a65313c7d7df208119818e64e45")
+          "ffed76a89b96172e103e5e487f781b7a3c67e91c")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -43,11 +43,22 @@
             (openpgp-fingerprint
               "2841 9AC6 5038 7440 C7E9  2FFA 2208 D209 58C1 DEB0"))))
       (channel
-        (name 'guix)
-        (url "https://codeberg.org/guix/guix-mirror")
+        (name 'guix-xsearch)
+        (url "https://codeberg.org/baleine/guix-xsearch")
         (branch "master")
         (commit
-          "0d3bc50b0cffeae05beb12d0c270c6599186c0d7")
+          "f08df2bb73fb489fee5ad77dcdc5ebd0c0a17523")
+        (introduction
+          (make-channel-introduction
+            "8035a2599cb94fca558e518c8e592cae646f5966"
+            (openpgp-fingerprint
+              "5D54 CF25 57B2 38E8 8DC1  80A2 2D22 3241 0AB7 4043"))))
+      (channel
+        (name 'guix)
+        (url "https://git.savannah.gnu.org/git/guix.git")
+        (branch "master")
+        (commit
+          "881d46eb386c2de8bc6f1405972ee1e115eeb3a1")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
