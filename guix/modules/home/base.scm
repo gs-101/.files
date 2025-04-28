@@ -45,6 +45,7 @@
      "git:send-email"
      "gitu"
      "gnupg"
+     "guix-xsearch"
      "hicolor-icon-theme"
      "hyprland"
      "hyprpicker"
