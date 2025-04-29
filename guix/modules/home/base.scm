@@ -54,7 +54,7 @@
      "keepassxc"
      "inkscape"
      "librewolf"
-     "libsecret" ; TODO: Make the executable a separate output.
+     "libsecret"
      "make"
      "mpv"
      "mumi"
