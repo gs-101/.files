@@ -19,3 +19,11 @@
                     (string-drop name 1)
                     name)
                 #:recursive? recursive?)))
+
+;; Turn string TEXT into a comment in the given language.
+;; If there are multiple comments, it's to predefine INDICATOR and use a lambda
+;; with let:
+;; (let ((comment (lambda (text) (comment ";; " text))))
+;;   (comment "this is a comment."))
+(define (comment indicator text)
+  (string-append indicator text))
