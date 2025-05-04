@@ -1,6 +1,8 @@
 (define-module (utils)
   #:use-module (guix gexp)
-  #:export (dotfiles-file))
+  #:export (dotfiles-file
+            comment
+            string-append-n))
 
 ;; Return a file from the dotfiles directory.
 ;; This function was created because local-file doesn't support the use
