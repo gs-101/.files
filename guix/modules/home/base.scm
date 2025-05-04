@@ -123,7 +123,7 @@
                            "eval \"$(zoxide init bash)\""
                            "# I don't use fzf. This replaces zoxide's fzf integration with"
                            "# television, my preferred fuzzy finder."
-                           "function __zoxide_zi() {"
+                           "function __zoxide_zi() {" ; TODO: define-bash-function procedure?
                            "  result=\"$(zoxide query -l -- \"$@\" | tv)\" && cd \"$result\""
                            "}"
                            "# Disable flow control keybinds (that freeze your terminal)."
