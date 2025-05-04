@@ -84,8 +84,52 @@
                              ("df" . "df -H")
                              ("free" . "free -m -h --si")
                              ("fd" . "fd --follow --hyperlink=auto")))
-                  (bash-profile (list (dotfiles-file "bash/.bash_profile")))
-                  (bashrc (list (dotfiles-file "bash/.bashrc")))
+                  (bash-profile
+                   (list (plain-file
+                          "bash-profile"
+                          (let ((comment (lambda (text) (comment "# " text))))
+                            (string-append-n
+                             (comment "Set up Nix profile.")
+                             "if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then"
+                             "source /run/current-system/profile/etc/profile.d/nix.sh"
+                             "fi"
+                             (comment "Source home-manager.")
+                             "if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then"
+                             "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
+                             "fi")))))
+                  (bashrc
+                   (list (plain-file
+                          "bashrc"
+                          (let ((comment (lambda (text) (comment "# " text))))
+                            (string-append-n
+                             (comment "Define the GPG_TTY as the one being currently used.")
+                             (comment "This fixes so many issues that it should be a default.")
+                             "export GPG_TTY=$(tty)"
+                             (comment "gpg-agent frustratingly doesn't seem to update on startup.")
+                             (comment "This restarts it so SSH keys can be used.")
+                             "gpg-connect-agent updatestartuptty /bye >/dev/null"
+                             (comment "Do not overwrite history.")
+                             "shopt -s histappend"
+                             (comment "Recursive globbing.")
+                             "shopt -s globstar"
+                             (comment "Enable shell integration for direnv.")
+                             "eval \"$(direnv hook bash)\""
+                             (comment "Enable starship prompt only in graphical environments,")
+                             (comment "as I like to hang out in the kernel terminal sometimes.")
+                             "if [ -n \"$DISPLAY\" ]; then eval \"$(starship init bash)\"; fi"
+                             (comment "Enable shell integration for television.")
+                             "eval \"$(tv init bash)\""
+                             (comment "Enable shell integration for pay-respects.")
+                             "eval \"$(pay-respects bash)\""
+                             (comment "Enable shell integration for zoxide.")
+                             "eval \"$(zoxide init bash)\""
+                             (comment "I don't use fzf. This replaces zoxide's fzf integration with")
+                             (comment "television, my preferred fuzzy finder.")
+                             "function __zoxide_zi() {"
+                             "result=\"$(zoxide query -l -- \"$@\" | tv)\" && cd \"$result\""
+                             "}"
+                             (comment "Disable flow control keybinds (that freeze your terminal).")
+                             "stty -ixon")))))
                   (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))))
         (service home-dbus-service-type)
         (service home-git-service-type
