@@ -27,3 +27,9 @@
 ;;   (comment "this is a comment."))
 (define (comment indicator text)
   (string-append indicator text))
+
+;; Just adds a newline after the string.
+(define (string-append-n . args)
+  (let ((result (map (lambda (arg) (string-append arg "\n"))
+                     args)))
+    (string-join result "")))
