@@ -7,6 +7,7 @@
     stateVersion = "24.11";
 
     packages = with pkgs; [
+      devcontainer
       matugen
       nix-search-tv
       television
