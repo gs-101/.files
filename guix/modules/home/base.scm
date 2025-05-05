@@ -301,11 +301,6 @@ gtk-key-theme-name = \"Emacs\""))))
                         home-xdg-configuration-files-service-type
                         (list `("matugen"
                                 ,(dotfiles-file "matugen" #:recursive? #t))))
-        (simple-service 'home-nix-configuration-service
-                        home-xdg-configuration-files-service-type
-                        (list `("nix/nix.conf"
-                                ,(plain-file "nix.conf"
-                                             "experimental-features = nix-command flakes"))))
         (simple-service 'home-nix-home-manager-service
                         home-xdg-configuration-files-service-type
                         (list `("home-manager"
