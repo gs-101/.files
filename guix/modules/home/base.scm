@@ -24,7 +24,7 @@
 
 (define %base-home-packages
   (specifications->packages
-   '("adw-gtk-theme"
+   '("adw-gtk3-theme"
      "adwaita-icon-theme"
      "alacritty"
      "bat"
