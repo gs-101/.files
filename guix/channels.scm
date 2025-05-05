@@ -3,7 +3,7 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "f05b33d75491a6418e7f0b3575207c5c2b2ef8f1")
+          "b9d3169772b45a2457def49318173f8353bb34f9")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -14,7 +14,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "ffed76a89b96172e103e5e487f781b7a3c67e91c")
+          "98ea17451d3286a521887bf4517e872248ecc018")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -25,7 +25,7 @@
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "7f1772507f7ad94766bd6a76b8bba9e964bde7a4")
+          "cbd00715316f14de3738c6755518903ebb9aaa5b")
         (introduction
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
@@ -36,7 +36,7 @@
         (url "https://git.sr.ht/~abcdw/rde")
         (branch "master")
         (commit
-          "c14082446ee605d93a0b333283160b7684e72bd6")
+          "bfe0605f72161d2648b194316a89de2902217ff7")
         (introduction
           (make-channel-introduction
             "257cebd587b66e4d865b3537a9a88cccd7107c95"
@@ -47,7 +47,7 @@
         (url "https://codeberg.org/baleine/guix-xsearch")
         (branch "master")
         (commit
-          "f08df2bb73fb489fee5ad77dcdc5ebd0c0a17523")
+          "da262a5aac28a2935f7e569e77715ec329b07c09")
         (introduction
           (make-channel-introduction
             "8035a2599cb94fca558e518c8e592cae646f5966"
@@ -55,10 +55,10 @@
               "5D54 CF25 57B2 38E8 8DC1  80A2 2D22 3241 0AB7 4043"))))
       (channel
         (name 'guix)
-        (url "https://git.savannah.gnu.org/git/guix.git")
+        (url "https://codeberg.org/guix/guix-mirror")
         (branch "master")
         (commit
-          "881d46eb386c2de8bc6f1405972ee1e115eeb3a1")
+          "90f0f8713da9cf0dc0bb5c93446a4eba11075352")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
