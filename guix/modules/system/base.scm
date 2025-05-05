@@ -63,7 +63,10 @@
     (locale "en_US.utf8")
     (packages %base-packages)
     (services (cons* (service cups-service-type)
-                     (service nix-service-type)
+                     (service nix-service-type
+                              (nix-configuration
+                               (extra-config
+                                '("experimental-features = nix-command flakes"))))
                      (service qemu-binfmt-service-type
                               (qemu-binfmt-configuration
                                (platforms (lookup-qemu-platforms "arm" "aarch64"))))
