@@ -37,9 +37,9 @@
      "fd"
      "fnott"
      "font-aporetic"
+     "font-google-noto" ; Fallback font, when characters aren't available.
      "font-google-noto-emoji"
      "font-microsoft-cascadia"
-     "font-nerd-fonts-m-plus"
      "fuzzel"
      "gimp"
      "git:send-email"
@@ -243,27 +243,22 @@
                          '(alias
                            (family "monospace")
                            (prefer
-                            (family "Cascadia Mono NF")))
+                            (family "Cascadia Mono NF")
+                            (family "Noto Sans Mono")))
                          '(alias
                            (family "serif")
                            (prefer
-                            (family "Aporetic Serif")))
+                            (family "Aporetic Serif")
+                            (family "Noto Serif")))
                          '(alias
                            (family "sans-serif")
                            (prefer
-                            (family "Cascadia Code NF")))
+                            (family "Cascadia Code NF")
+                            (family "Noto Sans")))
                          '(alias
                            (family "emoji")
                            (prefer
-                            (family "Noto Color Emoji")))
-                         ;; Use the M+ Nerd Font for japanese text.
-                         '(match
-                              (test (@ (name "lang") (compare "contains"))
-                                    (string "ja"))
-                            (test (@ (name "family"))
-                                  (string "sans-serif"))
-                            (edit (@ (name "family") (mode "prepend"))
-                                  (string "M+1 Nerd Font Propo")))))
+                            (family "Noto Color Emoji")))))
         (simple-service 'home-fuzzel-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("fuzzel/fuzzel.ini"
