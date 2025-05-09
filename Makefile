@@ -66,6 +66,13 @@ system-edit:
 
 .PHONY: system-edit
 
+# Run after setting hostname:
+# $ hostname NAME
+init:
+	guix system -L ${DOTFILES}/guix/modules init ${DOTFILES}/guix/modules/system/`hostname`.scm /mnt --fallback -c `nproc` -M `nproc`
+
+.PHONY: init
+
 # Home.
 
 home-reconfigure:
