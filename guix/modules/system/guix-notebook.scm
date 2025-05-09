@@ -1,10 +1,7 @@
 (define-module (system guix-notebook)
   #:use-module (gnu)
   #:use-module (nongnu system linux-initrd)
-  #:use-module (system base)
-  #:export (keyboard-layout))
-
-(use-service-modules networking)
+  #:use-module (system base))
 
 (operating-system
  (inherit base-system)
@@ -32,8 +29,4 @@
                        (device (uuid "1121-4D41"
                                      'fat32))
                        (type "vfat"))
-                      %base-file-systems))
- (services (cons* (service network-manager-service-type)
-                  (service ntp-service-type)
-                  (service wpa-supplicant-service-type)
-                  %base-desktop-services)))
+                      %base-file-systems)))
