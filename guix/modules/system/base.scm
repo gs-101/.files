@@ -4,7 +4,7 @@
   #:use-module (utils)
   #:export (base-system
             %base-desktop-services)
-  #:re-export (keyboard-layout))
+  #:export (keyboard-layout))
 
 (use-service-modules containers
                      cups

@@ -2,9 +2,9 @@
   #:use-module (gnu)
   #:use-module (nongnu system linux-initrd)
   #:use-module (system base)
-  #:re-export (keyboard-layout))
+  #:export (keyboard-layout))
 
-
+(use-service-modules networking)
 
 (define keyboard-layout
   (keyboard-layout "br" "thinkpad" #:options '("ctrl:nocaps")))
@@ -29,4 +29,8 @@
                          (device (uuid "1121-4D41"
                                        'fat32))
                          (type "vfat"))
-                       %base-file-systems)))
+                       %base-file-systems))
+  (services (cons* (service network-manager-service-type)
+                   (service ntp-service-type)
+                   (service wpa-supplicant-service-type)
+                   %base-desktop-services)))
