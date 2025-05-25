@@ -55,7 +55,7 @@
               "5D54 CF25 57B2 38E8 8DC1  80A2 2D22 3241 0AB7 4043"))))
       (channel
         (name 'guix)
-        (url "https://codeberg.org/guix/guix-mirror")
+        (url "https://codeberg.org/guix/guix")
         (branch "master")
         (commit
           "452126f16a2058d10c884f23bfcd5e7775f0f249")
