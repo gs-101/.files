@@ -136,7 +136,7 @@
                       ((defaultBranch . "main")))
                      (sendemail
                       ((annotate . #t)
-                       (sendmailCmd . ,(file-append (specification->package "msmtp") "/bin/msmtp"))))
+                       (sendmailCmd . ,(file-command "msmtp"))))
                      (user
                       ((email . "gabrielsantosdesouza@disroot.org")
                        (name . "Gabriel Santos")))))
@@ -147,7 +147,7 @@
         (service home-gpg-agent-service-type
                  (home-gpg-agent-configuration
                   (pinentry-program
-                   (file-append (specification->package "pinentry-qt") "/bin/pinentry-qt"))
+                   (file-command "pinentry-qt"))
                   (ssh-support? #t)))
         (service home-log-rotation-service-type) ; From the original %base-home-services.
         (service home-inputrc-service-type
