@@ -1,7 +1,9 @@
 (define-module (utils)
+  #:use-module (gnu packages)
   #:use-module (guix gexp)
   #:export (dotfiles-file
             comment
+            file-command
             string-append-n))
 
 ;; Return a file from the dotfiles directory.
@@ -27,3 +29,9 @@
   (let ((result (map (lambda (arg) (string-append arg "\n"))
                      args)))
     (string-join result "")))
+
+;; Use package's PACKAGE binary for a command call.  An optional BINARY argument
+;; can be passed, in case the package's binary has a different name to the
+;; source package.
+(define* (file-command package #:optional (binary package))
+  (file-append (specification->package package) (string-append "/bin/" binary)))
