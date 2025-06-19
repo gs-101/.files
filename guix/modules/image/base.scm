@@ -32,7 +32,7 @@
             "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5"))))
         (channel
          (name 'guix)
-         (url "https://codeberg.org/guix/guix-mirror")
+         (url "https://codeberg.org/guix/guix")
          (branch "master")
          (commit
           "90f0f8713da9cf0dc0bb5c93446a4eba11075352")
