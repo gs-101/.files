@@ -33,12 +33,4 @@
           "257cebd587b66e4d865b3537a9a88cccd7107c95"
           (openpgp-fingerprint
            "2841 9AC6 5038 7440 C7E9  2FFA 2208 D209 58C1 DEB0"))))
-       (channel
-        (name 'guix-xsearch)
-        (url "https://codeberg.org/baleine/guix-xsearch")
-        (introduction
-         (make-channel-introduction
-          "8035a2599cb94fca558e518c8e592cae646f5966"
-          (openpgp-fingerprint
-           "5D54 CF25 57B2 38E8 8DC1  80A2 2D22 3241 0AB7 4043"))))
        %default-channels)
