@@ -12,11 +12,6 @@
                      virtualization
                      xorg)
 
-(define %base-packages
-  ;; Aliases @command{docker} to @command{podman}.
-  (append (specifications->packages '("podman:docker"))
-          %base-packages))
-
 (define %base-desktop-services
   (modify-services %desktop-services
     (delete gdm-service-type)
@@ -58,7 +53,6 @@
               `-....`
 " (color CYAN)))
     (locale "en_US.utf8")
-    (packages %base-packages)
     (services (cons* (service cups-service-type)
                      (service nix-service-type
                               (nix-configuration
