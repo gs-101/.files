@@ -98,3 +98,10 @@ reload:
 	@home-manager switch --no-write-lock-file --no-substitute
 
 .PHONY: reload
+
+# Distribution
+
+image:
+	guix system image --image-type=iso9660 --root='image.iso' -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/image/base.scm --fallback -c `nproc` -M `nproc`
+
+.PHONY: image
