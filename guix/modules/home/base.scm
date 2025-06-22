@@ -36,8 +36,10 @@
     "fd"
     "fnott"
     "font-aporetic"
-    "font-google-noto" ; Fallback font, when characters aren't available.
+    "font-google-noto"
     "font-google-noto-emoji"
+    "font-google-noto-sans-cjk"
+    "font-google-noto-serif-cjk"
     "font-microsoft-cascadia"
     "fuzzel"
     "gimp"
@@ -225,13 +227,13 @@
                         ;; Includes suggestions from
                         ;; https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html
                         (list
-                         ;; Alias deprecated mono to monospace
+                         ;; Alias deprecated mono to monospace.
                          '(match (@ (target "pattern"))
                             (test (@ (qual "any") (name "family"))
                                   (string "mono"))
                             (edit (@ (name "family") (mode "assign"))
                                   (string "monospace")))
-                         ;; Not recognized aliases default to the sans-serif font
+                         ;; Not recognized aliases default to the sans-serif font.
                          '(match (@ (target "pattern"))
                             (test (@ (qual "all") (name "family") (compare "not_eq"))
                                   (string "sans-serif"))
@@ -245,17 +247,38 @@
                            (family "monospace")
                            (prefer
                             (family "Cascadia Mono NF")
-                            (family "Noto Sans Mono")))
+                            ;; General fallback.
+                            (family "Noto Sans Mono")
+                            ;; Simplified Chinese.
+                            (family "Noto Sans Mono CJK SC")
+                            ;; Japanese.
+                            (family "Noto Sans Mono CJK JP")
+                            ;; Korean.
+                            (family "Noto Sans Mono CJK KR")))
                          '(alias
                            (family "serif")
                            (prefer
                             (family "Aporetic Serif")
-                            (family "Noto Serif")))
+                            ;; General fallback.
+                            (family "Noto Serif")
+                            ;; Simplified Chinese.
+                            (family "Noto Serif CJK SC")
+                            ;; Japanese.
+                            (family "Noto Serif CJK JP")
+                            ;; Korean.
+                            (family "Noto Serif CJK KR")))
                          '(alias
                            (family "sans-serif")
                            (prefer
                             (family "Cascadia Code NF")
-                            (family "Noto Sans")))
+                            ;; General fallback.
+                            (family "Noto Sans")
+                            ;; Simplified Chinese.
+                            (family "Noto Sans CJK SC")
+                            ;; Japanese.
+                            (family "Noto Sans CJK JP")
+                            ;; Korean.
+                            (family "Noto Sans CJK KR")))
                          '(alias
                            (family "emoji")
                            (prefer
