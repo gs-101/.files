@@ -44,26 +44,27 @@
 
 (define base-image
   (operating-system
-   (inherit installation-os)
-   (kernel (specification->package "linux"))
-   (firmware (map specification->package '("linux-firmware")))
-   (packages
-    (append (specifications->packages '("curl"
-                                        "git"
-                                        "emacs-no-x"))
-            (operating-system-packages installation-os)))
-   (services
-    (modify-services
-     (operating-system-user-services installation-os)
-     (guix-service-type config => (guix-configuration
-                                   (inherit config)
-                                   (guix (guix-for-channels %channels))
-                                   (authorized-keys
-                                    (cons* %signing-key
-                                           %default-authorized-guix-keys))
-                                   (substitute-urls
-                                    (cons* "https://substitutes.nonguix.org"
-                                           %default-substitute-urls))
-                                   (channels %channels)))))))
+    (inherit installation-os)
+    (kernel (specification->package "linux"))
+    (firmware (map specification->package '("linux-firmware")))
+    (packages
+     (append (specifications->packages '("curl"
+                                         "git"
+                                         "emacs-no-x"))
+             (operating-system-packages installation-os)))
+    (services
+     (modify-services
+         (operating-system-user-services installation-os)
+       (guix-service-type config => (guix-configuration
+                                     (inherit config)
+                                     (guix (guix-for-channels %channels))
+                                     (authorized-keys
+                                      (cons* %signing-key
+                                             %default-authorized-guix-keys))
+                                     (substitute-urls
+                                      (cons* "https://substitutes.nonguix.org"
+                                             "https://nonguix-proxy.ditigal.xyz"
+                                             %default-substitute-urls))
+                                     (channels %channels)))))))
 
 base-image
