@@ -49,6 +49,7 @@
     "hyprpicker"
     "hyprpolkitagent"
     "hyprshot"
+    "kdeconnect"
     "keepassxc"
     "inkscape"
     "librewolf"
