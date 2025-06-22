@@ -301,6 +301,20 @@ gtk-key-theme-name = \"Emacs\""))))
                         home-xdg-configuration-files-service-type
                         (list `("home-manager"
                                 ,(dotfiles-file "nix/home" #:recursive? #t))))
+        (simple-service 'home-pay-respects-service
+                        home-xdg-configuration-files-service-type
+                        (list `("pay-respects/config.toml"
+                                ,(plain-file
+                                  "config.toml"
+                                  (string-append-n
+                                   "# Runs the suggestion in the current shell,"
+                                   "# Allowing one to correct \"exit\" for example."
+                                   "eval_method = \"Shell\""
+                                   "[package_manager]"
+                                   "package_manager = \"guix\""
+                                   "# Spawns a shell with the package instead of"
+                                   "# polluting the profile."
+                                   "install_method = \"Shell\"")))))
         (simple-service 'home-qt-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("qt5ct/qt5ct.conf"
