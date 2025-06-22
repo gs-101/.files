@@ -58,6 +58,7 @@
     "mpv"
     "mumi"
     "neovim"
+    "obs"
     "openssh"
     "pay-respects"
     "qt5ct"
