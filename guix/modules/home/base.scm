@@ -50,6 +50,7 @@
     "hyprpolkitagent"
     "hyprshot"
     "kdeconnect"
+    "kdenlive"
     "keepassxc"
     "inkscape"
     "librewolf"
