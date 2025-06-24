@@ -9,7 +9,7 @@ all: update system-reconfigure home-reconfigure
 update:
 	@echo "-------------"
 	@echo "Updating Guix"
-	@guix pull --channels=${DOTFILES}/guix/channels-list.scm -c `nproc` -M `nproc`
+	@guix pull --channels=${DOTFILES}/guix/channels-list.scm
 	@guix describe --format=channels > ${DOTFILES}/guix/channels.scm
 	@cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
 	@guix pull --news
@@ -56,7 +56,7 @@ ares:
 system-reconfigure:
 	@echo "--------------------"
 	@echo "Reconfiguring System"
-	@sudo guix system reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/system/`hostname`.scm --fallback -c `nproc` -M `nproc`
+	@sudo guix system reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/system/`hostname`.scm --fallback
 	@echo "--------------------"
 
 .PHONY: system-reconfigure
@@ -69,7 +69,7 @@ system-edit:
 # Run after setting hostname:
 # $ hostname NAME
 init:
-	guix system -L ${DOTFILES}/guix/modules init ${DOTFILES}/guix/modules/system/`hostname`.scm /mnt --fallback -c `nproc` -M `nproc`
+	guix system -L ${DOTFILES}/guix/modules init ${DOTFILES}/guix/modules/system/`hostname`.scm /mnt --fallback
 
 .PHONY: init
 
@@ -78,10 +78,10 @@ init:
 home-reconfigure:
 	@echo "-----------------------"
 	@echo "Reconfiguring Guix Home"
-	@guix home reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/home/`hostname`.scm --fallback -c `nproc` -M `nproc`
+	@guix home reconfigure -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/home/`hostname`.scm --fallback
 	@echo "-----------------------"
 	@echo "Reconfiguring Nix Home"
-	@home-manager switch --no-write-lock-file --cores `nproc` --max-jobs `nproc`
+	@home-manager switch --no-write-lock-file
 	# Reload Hyprland environment.
 	@if [ ${XDG_CURRENT_DESKTOP} = Hyprland ]; then hyprctl reload; fi
 	@echo "-----------------------"
@@ -102,6 +102,6 @@ reload:
 # Distribution
 
 image:
-	guix system image --image-type=iso9660 --root='image.iso' -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/image/base.scm --fallback -c `nproc` -M `nproc`
+	guix system image --image-type=iso9660 --root='image.iso' -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/image/base.scm --fallback -c
 
 .PHONY: image
