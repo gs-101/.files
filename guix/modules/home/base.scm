@@ -31,7 +31,7 @@
     "cliphist"
     "cryptsetup"
     "direnv"
-    "emacs-master-pgtk"
+    "emacs-master-pgtk-igc"
     "eza"
     "fd"
     "fnott"
