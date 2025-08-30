@@ -3,7 +3,7 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "bb8dee279a618b18a838c397156d378fc3ca47fd")
+          "60ffd0353e70d5e371c4bfe2201c9d08c1c05e18")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -14,18 +14,29 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "0b0326cbed4b86bc4e3bc0c59554675332a33097")
+          "a2f080d091db8ab036eb7e33c6dbb995f1a9a300")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
             (openpgp-fingerprint
               "3049 BF6C 0829 94E4 38ED  4A15 3033 E0E9 F7E2 5FE4"))))
       (channel
+        (name 'guix-rust-past-crates)
+        (url "https://codeberg.org/guix/guix-rust-past-crates.git")
+        (branch "trunk")
+        (commit
+          "e19b4de994768f66a0d1831a088fc1467e85315e")
+        (introduction
+          (make-channel-introduction
+            "1db24ca92c28255b28076792b93d533eabb3dc6a"
+            (openpgp-fingerprint
+              "F4C2 D1DF 3FDE EA63 D1D3  0776 ACC6 6D09 CA52 8292"))))
+      (channel
         (name 'selected-guix-works)
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "ebf880784372822ba8f144661a999e8b823a7c25")
+          "3bbe8d1338f550cb991be9c94ca8df9bdcb1fe6f")
         (introduction
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
@@ -36,7 +47,7 @@
         (url "https://git.sr.ht/~abcdw/rde")
         (branch "master")
         (commit
-          "875df3f327113977b288bb87f086a475c004e172")
+          "b89e78b863c214b74751352e0e659a5e1d6c955d")
         (introduction
           (make-channel-introduction
             "257cebd587b66e4d865b3537a9a88cccd7107c95"
@@ -47,7 +58,7 @@
         (url "https://git.guix.gnu.org/guix.git")
         (branch "master")
         (commit
-          "ac9c4da0581342bec3fa47a38130ebaabc3735f7")
+          "07f54635ae7fe5bd059b7f6188854a21c0f8dbdd")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
