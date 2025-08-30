@@ -15,7 +15,7 @@ update:
 	@guix pull --news
 	@echo "-------------"
 	@echo "Updating Nix"
-	@nix flake \update ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
+	@nix flake \update --flake ${DOTFILES}/nix/home/ --commit-lock-file --commit-lockfile-summary "chore(flake.lock): update flake"
 	@echo "-------------"
 
 .PHONY: update
