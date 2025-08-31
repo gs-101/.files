@@ -72,6 +72,7 @@
     "torbrowser"
     "waybar"
     "wl-clipboard"
+    "wtype"
     "xdg-desktop-portal-hyprland"
     "xdg-utils"
     "zotero"
