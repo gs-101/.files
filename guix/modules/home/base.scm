@@ -63,6 +63,7 @@
     "neovim"
     "obs"
     "openssh"
+    "ouch"
     "pay-respects"
     "qt5ct"
     "rust-stakeholder"
