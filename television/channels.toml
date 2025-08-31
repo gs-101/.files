@@ -1,7 +1,7 @@
   # Dotfiles
 [[cable_channel]]
   name = "dotfiles"
-  source_command = 'fd -t f . $DOTFILES'
+  source_command = 'fd --type file . $DOTFILES'
   preview_command = ':files:'
 
 # Git
@@ -13,22 +13,22 @@
 [[cable_channel]]
   name = "git-reflog"
   source_command = 'git reflog'
-  preview_command = 'git show -p --stat --pretty=fuller --color=always {0}'
+  preview_command = 'git show --patch --stat --pretty=fuller --color=always {0}'
 
 [[cable_channel]]
   name = "git-log"
   source_command = "git log --oneline --date=short --pretty=\"format:%h %s %an %cd\" \"$@\""
-  preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
+  preview_command = "git show --patch --stat --pretty=fuller --color=always {0}"
 
 [[cable_channel]]
   name = "git-branch"
   source_command = "git --no-pager branch --all --format=\"%(refname:short)\""
-  preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
+  preview_command = "git show --patch --stat --pretty=fuller --color=always {0}"
 
   # Guix
 [[cable_channel]]
   name = "guix"
-  source_command = "guix package --list-available=.* | cut -f 1 | tr -d [:blank:]"
+  source_command = "guix package --list-available=.* | cut --fields=1 | tr --delete [:blank:]"
   preview_command = "guix package --show={0}"
 
   # Nix
@@ -48,7 +48,7 @@
   # Shell history
 [[cable_channel]]
   name = "zsh-history"
-  source_command = "sed '1!G;h;$!d' ${HISTFILE:-${HOME}/.zsh_history} | cut -d\";\" -f 2-"
+  source_command = "sed '1!G;h;$!d' ${HISTFILE:-${HOME}/.zsh_history} | cut --delimiter=\";\" --fields=2-"
 
 [[cable_channel]]
   name = "bash-history"
@@ -56,4 +56,4 @@
 
 [[cable_channel]]
   name = "fish-history"
-  source_command = "fish -c 'history'"
+  source_command = "fish --command='history'"

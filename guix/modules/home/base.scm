@@ -80,13 +80,13 @@
 (define %base-home-services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                  (aliases '(("grep" . "grep -P -i -n -H -q -R --devices=read --color=auto")
+                  (aliases '(("grep" . "grep --perl-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
                              (".." . "cd ..")
                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
-                             ("eza" . "eza -l -X --color auto --icons auto --hyperlink -a --group-directories-first --smart-group -h --changed --git")
+                             ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
                              ("ip" . "ip -color=auto")
-                             ("df" . "df -H")
-                             ("free" . "free -m -h --si")
+                             ("df" . "df --human-readable")
+                             ("free" . "free --mebi --human")
                              ("fd" . "fd --follow --hyperlink=auto")))
                   (bash-profile
                    (list (plain-file
@@ -128,7 +128,7 @@
                            "# I don't use fzf. This replaces zoxide's fzf integration with"
                            "# television, my preferred fuzzy finder."
                            "function __zoxide_zi() {" ; TODO: define-bash-function procedure?
-                           "  result=\"$(zoxide query -l -- \"$@\" | tv)\" && cd \"$result\""
+                           "  result=\"$(zoxide query --list -- \"$@\" | tv)\" && cd \"$result\""
                            "}"
                            "# Disable flow control keybinds (that freeze your terminal)."
                            "stty -ixon"))))
@@ -359,12 +359,12 @@ gtk-key-theme-name = \"Emacs\""))))
                         home-environment-variables-service-type
                         `(("BROWSER" . "librewolf")
                           ("DOTFILES" . "$HOME/.files")
-                          ("EDITOR" . "emacsclient -nw -a 'emacs -nw'")
+                          ("EDITOR" . "emacsclient --create-frame --no-window-system --alternate-editor=''")
                           ("QT_QPA_PLATFORMTHEME" . "qt5ct")
                           ("SHELL" . "bash")
                           ("TERM" . "alacritty")
                           ("TERMINAL" . "alacritty")
-                          ("VISUAL" . "emacsclient --create-frame -a 'emacs'")))
+                          ("VISUAL" . "emacsclient --create-frame --alternate-editor=''")))
         (simple-service 'home-wakatime-configuration-service
                         home-files-service-type
                         (list `(".wakatime.cfg"

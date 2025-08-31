@@ -11,7 +11,7 @@ update:
 	@echo "Updating Guix"
 	@guix pull --channels=${DOTFILES}/guix/channels-list.scm
 	@guix describe --format=channels > ${DOTFILES}/guix/channels.scm
-	@cd ${DOTFILES} && git add guix/channels.scm && git commit -m "chore(channels.scm): update channels"
+	@cd ${DOTFILES} && git add guix/channels.scm && git commit --message="chore(channels.scm): update channels"
 	@guix pull --news
 	@echo "-------------"
 	@echo "Updating Nix"
@@ -102,6 +102,6 @@ reload:
 # Distribution
 
 image:
-	guix system image --image-type=iso9660 --root='image.iso' -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/image/base.scm --fallback -c
+	guix system image --image-type=iso9660 --root='image.iso' -L ${DOTFILES}/guix/modules ${DOTFILES}/guix/modules/image/base.scm --fallback
 
 .PHONY: image
