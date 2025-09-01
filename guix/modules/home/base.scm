@@ -138,7 +138,9 @@
         (service home-git-service-type
                  (home-git-configuration
                   (config
-                   `((init
+                   `((github
+                      ((user . "gs-101")))
+                     (init
                       ((defaultBranch . "main")))
                      (sendemail
                       ((annotate . #t)
