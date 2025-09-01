@@ -9,7 +9,6 @@
     packages = with pkgs; [
       devcontainer
       matugen
-      nix-search-tv
       television
       wakatime-cli
     ];

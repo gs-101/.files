@@ -7,14 +7,6 @@ use_nerd_font_icons = true
 # Default theme for bat.
 theme = "Monokai Extended"
 
-# Television already has some pretty Emacsy keybinds.
-# This just makes them even more emacsier.
-[keybindings]
-scroll_preview_half_page_down = "alt-v"
-scroll_preview_half_page_up = "ctrl-v"
-toggle_remote_control = "alt-x"
-toggle_help = "ctrl-h"
-
 [shell_integration.channel_triggers]
 "alias" = ["alias", "unalias"]
 "env" = ["export", "unset"]

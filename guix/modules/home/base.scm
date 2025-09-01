@@ -353,9 +353,7 @@ gtk-key-theme-name = \"Emacs\""))))
         (simple-service 'home-television-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("television/config.toml"
-                                ,(dotfiles-file "television/config.toml"))
-                              `("television/channels.toml"
-                                ,(dotfiles-file "television/channels.toml"))))
+                                ,(dotfiles-file "television/config.toml"))))
         (simple-service 'home-variables-service
                         home-environment-variables-service-type
                         `(("BROWSER" . "librewolf")
