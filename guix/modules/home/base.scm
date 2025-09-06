@@ -68,7 +68,7 @@
     "qt5ct"
     "rust-stakeholder"
     "starship"
-    "swww-next"
+    "swww"
     "torbrowser"
     "waybar"
     "wl-clipboard"
