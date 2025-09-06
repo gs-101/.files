@@ -12,12 +12,6 @@
   #:use-module (gnu system install)
   #:export (base-image))
 
-;; <https://substitutes.nonguix.org/signing-key.pub>
-(define %signing-key
-  (plain-file "nonguix.pub"
-              "(public-key (ecc (curve Ed25519)
-(q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))"))
-
 (define %channels
   (list (channel
          (name 'nonguix)
@@ -44,27 +38,29 @@
 
 (define base-image
   (operating-system
-    (inherit installation-os)
-    (kernel (specification->package "linux"))
-    (firmware (map specification->package '("linux-firmware")))
-    (packages
-     (append (specifications->packages '("curl"
-                                         "git"
-                                         "emacs-no-x"))
-             (operating-system-packages installation-os)))
-    (services
-     (modify-services
-         (operating-system-user-services installation-os)
-       (guix-service-type config => (guix-configuration
-                                     (inherit config)
-                                     (guix (guix-for-channels %channels))
-                                     (authorized-keys
-                                      (cons* %signing-key
-                                             %default-authorized-guix-keys))
-                                     (substitute-urls
-                                      (cons* "https://substitutes.nonguix.org"
-                                             "https://nonguix-proxy.ditigal.xyz"
-                                             %default-substitute-urls))
-                                     (channels %channels)))))))
+   (inherit installation-os)
+   (kernel (specification->package "linux"))
+   (firmware (map specification->package '("linux-firmware")))
+   (packages
+    (append (specifications->packages '("curl"
+                                        "git"
+                                        "emacs-no-x"))
+            (operating-system-packages installation-os)))
+   (services
+    (modify-services
+     (operating-system-user-services installation-os)
+     (guix-service-type config => (guix-configuration
+                                   (inherit config)
+                                   (guix (guix-for-channels %channels))
+                                   (authorized-keys
+                                    (cons* (dotfiles-file "guix/substitute-keys/nonguix.pub")
+                                           (dotfiles-file "guix/substitute-keys/moe.pub")
+                                           %default-authorized-guix-keys))
+                                   (privileged? #f)
+                                   (substitute-urls
+                                    (cons* "https://substitutes.nonguix.org"
+                                           "https://nonguix-proxy.ditigal.xyz"
+                                           "https://cache-cdn.guix.moe"
+                                           %default-substitute-urls))))))))
 
 base-image

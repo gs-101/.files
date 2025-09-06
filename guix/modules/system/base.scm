@@ -14,17 +14,19 @@
 
 (define %base-desktop-services
   (modify-services %desktop-services
-    (delete gdm-service-type)
-    (guix-service-type config => (guix-configuration
-                                  (inherit config)
-                                  (authorized-keys
-                                   (cons* (dotfiles-file "guix/substitute-keys/nonguix.pub")
-                                          %default-authorized-guix-keys))
-                                  (privileged? #f)
-                                  (substitute-urls
-                                   (cons* "https://substitutes.nonguix.org"
-                                          "https://nonguix-proxy.ditigal.xyz"
-                                          %default-substitute-urls))))))
+                   (delete gdm-service-type)
+                   (guix-service-type config => (guix-configuration
+                                                 (inherit config)
+                                                 (authorized-keys
+                                                  (cons* (dotfiles-file "guix/substitute-keys/nonguix.pub")
+                                                         (dotfiles-file "guix/substitute-keys/moe.pub")
+                                                         %default-authorized-guix-keys))
+                                                 (privileged? #f)
+                                                 (substitute-urls
+                                                  (cons* "https://substitutes.nonguix.org"
+                                                         "https://nonguix-proxy.ditigal.xyz"
+                                                         "https://cache-cdn.guix.moe"
+                                                         %default-substitute-urls))))))
 
 (define base-system
   (operating-system
