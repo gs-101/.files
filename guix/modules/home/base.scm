@@ -41,6 +41,7 @@
     "font-google-noto-sans-cjk"
     "font-google-noto-serif-cjk"
     "font-microsoft-cascadia"
+    "font-nerd-fonts-symbols"
     "fuzzel"
     "gimp"
     "git:send-email"
@@ -82,59 +83,59 @@
 (define %base-home-services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                  (aliases '(("grep" . "grep --perl-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
-                             (".." . "cd ..")
-                             ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
-                             ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
-                             ("ip" . "ip -color=auto")
-                             ("df" . "df --human-readable")
-                             ("free" . "free --mebi --human")
-                             ("fd" . "fd --follow --hyperlink=auto")))
-                  (bash-profile
-                   (list (plain-file
-                          "bash-profile"
-                          (string-append-n
-                           "# Set up Nix profile."
-                           "if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then"
-                           "source /run/current-system/profile/etc/profile.d/nix.sh"
-                           "fi"
-                           "# Source home-manager."
-                           "if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then"
-                           "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
-                           "fi"))))
-                  (bashrc
-                   (list (plain-file
-                          "bashrc"
-                          (string-append-n
-                           "# Define the GPG_TTY as the one being currently used."
-                           "# This fixes so many issues that it should be a default."
-                           "export GPG_TTY=$(tty)"
-                           "# gpg-agent frustratingly doesn't seem to update on startup."
-                           "# This restarts it so SSH keys can be used."
-                           "gpg-connect-agent updatestartuptty /bye >/dev/null"
-                           "# Do not overwrite history."
-                           "shopt -s histappend"
-                           "# Recursive globbing."
-                           "shopt -s globstar"
-                           "# Enable shell integration for direnv."
-                           "eval \"$(direnv hook bash)\""
-                           "# Enable starship prompt only in graphical environments,"
-                           "# as I like to hang out in the kernel terminal sometimes."
-                           "if [ -n \"$DISPLAY\" ]; then eval \"$(starship init bash)\"; fi"
-                           "# Enable shell integration for television."
-                           "eval \"$(tv init bash)\""
-                           "# Enable shell integration for pay-respects."
-                           "eval \"$(pay-respects bash)\""
-                           "# Enable shell integration for zoxide."
-                           "eval \"$(zoxide init bash)\""
-                           "# I don't use fzf. This replaces zoxide's fzf integration with"
-                           "# television, my preferred fuzzy finder."
-                           "function __zoxide_zi() {" ; TODO: define-bash-function procedure?
-                           "  result=\"$(zoxide query --list -- \"$@\" | tv)\" && cd \"$result\""
-                           "}"
-                           "# Disable flow control keybinds (that freeze your terminal)."
-                           "stty -ixon"))))
-                  (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))))
+                   (aliases '(("grep" . "grep --perl-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
+                              (".." . "cd ..")
+                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
+                              ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
+                              ("ip" . "ip -color=auto")
+                              ("df" . "df --human-readable")
+                              ("free" . "free --mebi --human")
+                              ("fd" . "fd --follow --hyperlink=auto")))
+                   (bash-profile
+                    (list (plain-file
+                           "bash-profile"
+                           (string-append-n
+                            "# Set up Nix profile."
+                            "if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then"
+                            "source /run/current-system/profile/etc/profile.d/nix.sh"
+                            "fi"
+                            "# Source home-manager."
+                            "if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then"
+                            "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
+                            "fi"))))
+                   (bashrc
+                    (list (plain-file
+                           "bashrc"
+                           (string-append-n
+                            "# Define the GPG_TTY as the one being currently used."
+                            "# This fixes so many issues that it should be a default."
+                            "export GPG_TTY=$(tty)"
+                            "# gpg-agent frustratingly doesn't seem to update on startup."
+                            "# This restarts it so SSH keys can be used."
+                            "gpg-connect-agent updatestartuptty /bye >/dev/null"
+                            "# Do not overwrite history."
+                            "shopt -s histappend"
+                            "# Recursive globbing."
+                            "shopt -s globstar"
+                            "# Enable shell integration for direnv."
+                            "eval \"$(direnv hook bash)\""
+                            "# Enable starship prompt only in graphical environments,"
+                            "# as I like to hang out in the kernel terminal sometimes."
+                            "if [ -n \"$DISPLAY\" ]; then eval \"$(starship init bash)\"; fi"
+                            "# Enable shell integration for television."
+                            "eval \"$(tv init bash)\""
+                            "# Enable shell integration for pay-respects."
+                            "eval \"$(pay-respects bash)\""
+                            "# Enable shell integration for zoxide."
+                            "eval \"$(zoxide init bash)\""
+                            "# I don't use fzf. This replaces zoxide's fzf integration with"
+                            "# television, my preferred fuzzy finder."
+                            "function __zoxide_zi() {" ; TODO: define-bash-function procedure?
+                            "  result=\"$(zoxide query --list -- \"$@\" | tv)\" && cd \"$result\""
+                            "}"
+                            "# Disable flow control keybinds (that freeze your terminal)."
+                            "stty -ixon"))))
+                   (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))))
         (service home-dbus-service-type)
         (service home-git-service-type
                  (home-git-configuration
@@ -155,45 +156,45 @@
                             "*.DS_Store"))))
         (service home-gpg-agent-service-type
                  (home-gpg-agent-configuration
-                  (pinentry-program
-                   (file-command "pinentry-qt"))
-                  (ssh-support? #t)))
+                   (pinentry-program
+                    (file-command "pinentry-qt"))
+                   (ssh-support? #t)))
         (service home-log-rotation-service-type) ; From the original %base-home-services.
         (service home-inputrc-service-type
                  (home-inputrc-configuration
-                  (variables
-                   `(("colored-stats" . #t)
-                     ("colored-completion-prefix" . #t)
-                     ("editing-mode" . "emacs")
-                     ;; Complete AND show other additional completion
-                     ;; options with a single tab press.
-                     ("show-all-if-ambiguous" . #t)
-                     ;; With colours enabled, this colours the
-                     ;; prefix in menu-complete.
-                     ("menu-complete-display-prefix" . #t)))))
+                   (variables
+                    `(("colored-stats" . #t)
+                      ("colored-completion-prefix" . #t)
+                      ("editing-mode" . "emacs")
+                      ;; Complete AND show other additional completion
+                      ;; options with a single tab press.
+                      ("show-all-if-ambiguous" . #t)
+                      ;; With colours enabled, this colours the
+                      ;; prefix in menu-complete.
+                      ("menu-complete-display-prefix" . #t)))))
         (service home-msmtp-service-type
                  (home-msmtp-configuration
-                  (accounts
-                   (list
-                    (msmtp-account
-                     (name "default")
-                     (configuration
-                      (msmtp-configuration
-                       (host "disroot.org")
-                       (port 465)
-                       (user "gabrielsantosdesouza")
-                       (password-eval
-                        ;; secret-tool can be used with KeePassXC to
-                        ;; comfortably get passwords for scripts.
-                        ;; See:
-                        ;; <https://redlib.freedit.eu/r/linux/comments/ehfhud/keyring_alternative_access_keepassxc_entries_of/>
-                        "secret-tool lookup msmtp password")
-                       (from "gabrielsantosdesouza@disroot.org"))))))
-                  (defaults
-                    (msmtp-configuration
-                     (auth? #t)
-                     (tls? #t)
-                     (tls-starttls? #f)))))
+                   (accounts
+                    (list
+                     (msmtp-account
+                       (name "default")
+                       (configuration
+                        (msmtp-configuration
+                          (host "disroot.org")
+                          (port 465)
+                          (user "gabrielsantosdesouza")
+                          (password-eval
+                           ;; secret-tool can be used with KeePassXC to
+                           ;; comfortably get passwords for scripts.
+                           ;; See:
+                           ;; <https://redlib.freedit.eu/r/linux/comments/ehfhud/keyring_alternative_access_keepassxc_entries_of/>
+                           "secret-tool lookup msmtp password")
+                          (from "gabrielsantosdesouza@disroot.org"))))))
+                   (defaults
+                     (msmtp-configuration
+                       (auth? #t)
+                       (tls? #t)
+                       (tls-starttls? #f)))))
         (service home-pipewire-service-type)
         (service home-ripgrep-service-type
                  (home-ripgrep-configuration
@@ -212,12 +213,12 @@
         (service home-syncthing-service-type
                  (for-home
                   (syncthing-configuration
-                   (user "gabriel"))))
+                    (user "gabriel"))))
         (service home-xdg-mime-applications-service-type
                  (home-xdg-mime-applications-configuration
-                  (default
-                    '((inode/directory . emacsclient.desktop)
-                      (x-scheme-handler/mailto . emacsclient-mail.desktop)))))
+                   (default
+                     '((inode/directory . emacsclient.desktop)
+                       (x-scheme-handler/mailto . emacsclient-mail.desktop)))))
         (service home-xdg-user-directories-service-type)
         (simple-service 'home-alacritty-configuration-service
                         home-xdg-configuration-files-service-type
@@ -251,7 +252,7 @@
                          '(alias
                            (family "monospace")
                            (prefer
-                            (family "Cascadia Mono NF")
+                            (family "Cascadia Mono")
                             ;; General fallback.
                             (family "Noto Sans Mono")
                             ;; Simplified Chinese.
@@ -259,7 +260,9 @@
                             ;; Japanese.
                             (family "Noto Sans Mono CJK JP")
                             ;; Korean.
-                            (family "Noto Sans Mono CJK KR")))
+                            (family "Noto Sans Mono CJK KR")
+                            ;; Nerd Fonts Symbols
+                            (family "Symbols Nerd Font Mono")))
                          '(alias
                            (family "serif")
                            (prefer
@@ -271,11 +274,13 @@
                             ;; Japanese.
                             (family "Noto Serif CJK JP")
                             ;; Korean.
-                            (family "Noto Serif CJK KR")))
+                            (family "Noto Serif CJK KR")
+                            ;; Nerd Fonts Symbols
+                            (family "Symbols Nerd Font")))
                          '(alias
                            (family "sans-serif")
                            (prefer
-                            (family "Cascadia Code NF")
+                            (family "Aporetic Sans")
                             ;; General fallback.
                             (family "Noto Sans")
                             ;; Simplified Chinese.
@@ -283,7 +288,9 @@
                             ;; Japanese.
                             (family "Noto Sans CJK JP")
                             ;; Korean.
-                            (family "Noto Sans CJK KR")))
+                            (family "Noto Sans CJK KR")
+                            ;; Nerd Fonts Symbols
+                            (family "Symbols Nerd Font")))
                          '(alias
                            (family "emoji")
                            (prefer
