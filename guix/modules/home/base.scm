@@ -77,8 +77,7 @@
     "xdg-desktop-portal-gtk"
     "xdg-desktop-portal-hyprland"
     "xdg-utils"
-    "zotero"
-    "zoxide"))
+    "zotero"))
 
 (define %base-home-services
   (list (service home-bash-service-type
@@ -126,15 +125,6 @@
                             "eval \"$(tv init bash)\""
                             "# Enable shell integration for pay-respects."
                             "eval \"$(pay-respects bash)\""
-                            "# Enable shell integration for zoxide."
-                            "eval \"$(zoxide init bash)\""
-                            "# I don't use fzf. This replaces zoxide's fzf integration with"
-                            "# television, my preferred fuzzy finder."
-                            "function __zoxide_zi() {" ; TODO: define-bash-function procedure?
-                            "  result=\"$(zoxide query --list -- \"$@\" | tv)\" && cd \"$result\""
-                            "}"
-                            "# Disable flow control keybinds (that freeze your terminal)."
-                            "stty -ixon"))))
                    (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))))
         (service home-dbus-service-type)
         (service home-git-service-type
@@ -156,45 +146,45 @@
                             "*.DS_Store"))))
         (service home-gpg-agent-service-type
                  (home-gpg-agent-configuration
-                   (pinentry-program
-                    (file-command "pinentry-qt"))
-                   (ssh-support? #t)))
+                  (pinentry-program
+                   (file-command "pinentry-qt"))
+                  (ssh-support? #t)))
         (service home-log-rotation-service-type) ; From the original %base-home-services.
         (service home-inputrc-service-type
                  (home-inputrc-configuration
-                   (variables
-                    `(("colored-stats" . #t)
-                      ("colored-completion-prefix" . #t)
-                      ("editing-mode" . "emacs")
-                      ;; Complete AND show other additional completion
-                      ;; options with a single tab press.
-                      ("show-all-if-ambiguous" . #t)
-                      ;; With colours enabled, this colours the
-                      ;; prefix in menu-complete.
-                      ("menu-complete-display-prefix" . #t)))))
+                  (variables
+                   `(("colored-stats" . #t)
+                     ("colored-completion-prefix" . #t)
+                     ("editing-mode" . "emacs")
+                     ;; Complete AND show other additional completion
+                     ;; options with a single tab press.
+                     ("show-all-if-ambiguous" . #t)
+                     ;; With colours enabled, this colours the
+                     ;; prefix in menu-complete.
+                     ("menu-complete-display-prefix" . #t)))))
         (service home-msmtp-service-type
                  (home-msmtp-configuration
-                   (accounts
-                    (list
-                     (msmtp-account
-                       (name "default")
-                       (configuration
-                        (msmtp-configuration
-                          (host "disroot.org")
-                          (port 465)
-                          (user "gabrielsantosdesouza")
-                          (password-eval
-                           ;; secret-tool can be used with KeePassXC to
-                           ;; comfortably get passwords for scripts.
-                           ;; See:
-                           ;; <https://redlib.freedit.eu/r/linux/comments/ehfhud/keyring_alternative_access_keepassxc_entries_of/>
-                           "secret-tool lookup msmtp password")
-                          (from "gabrielsantosdesouza@disroot.org"))))))
-                   (defaults
-                     (msmtp-configuration
-                       (auth? #t)
-                       (tls? #t)
-                       (tls-starttls? #f)))))
+                  (accounts
+                   (list
+                    (msmtp-account
+                     (name "default")
+                     (configuration
+                      (msmtp-configuration
+                       (host "disroot.org")
+                       (port 465)
+                       (user "gabrielsantosdesouza")
+                       (password-eval
+                        ;; secret-tool can be used with KeePassXC to
+                        ;; comfortably get passwords for scripts.
+                        ;; See:
+                        ;; <https://redlib.freedit.eu/r/linux/comments/ehfhud/keyring_alternative_access_keepassxc_entries_of/>
+                        "secret-tool lookup msmtp password")
+                       (from "gabrielsantosdesouza@disroot.org"))))))
+                  (defaults
+                    (msmtp-configuration
+                     (auth? #t)
+                     (tls? #t)
+                     (tls-starttls? #f)))))
         (service home-pipewire-service-type)
         (service home-ripgrep-service-type
                  (home-ripgrep-configuration
@@ -213,12 +203,12 @@
         (service home-syncthing-service-type
                  (for-home
                   (syncthing-configuration
-                    (user "gabriel"))))
+                   (user "gabriel"))))
         (service home-xdg-mime-applications-service-type
                  (home-xdg-mime-applications-configuration
-                   (default
-                     '((inode/directory . emacsclient.desktop)
-                       (x-scheme-handler/mailto . emacsclient-mail.desktop)))))
+                  (default
+                    '((inode/directory . emacsclient.desktop)
+                      (x-scheme-handler/mailto . emacsclient-mail.desktop)))))
         (service home-xdg-user-directories-service-type)
         (simple-service 'home-alacritty-configuration-service
                         home-xdg-configuration-files-service-type
