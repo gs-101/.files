@@ -82,50 +82,55 @@
 (define %base-home-services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                   (aliases '(("grep" . "grep --perl-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
-                              (".." . "cd ..")
-                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
-                              ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
-                              ("ip" . "ip -color=auto")
-                              ("df" . "df --human-readable")
-                              ("free" . "free --mebi --human")
-                              ("fd" . "fd --follow --hyperlink=auto")))
-                   (bash-profile
-                    (list (plain-file
-                           "bash-profile"
-                           (string-append-n
-                            "# Set up Nix profile."
-                            "if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then"
-                            "source /run/current-system/profile/etc/profile.d/nix.sh"
-                            "fi"
-                            "# Source home-manager."
-                            "if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then"
-                            "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
-                            "fi"))))
-                   (bashrc
-                    (list (plain-file
-                           "bashrc"
-                           (string-append-n
-                            "# Define the GPG_TTY as the one being currently used."
-                            "# This fixes so many issues that it should be a default."
-                            "export GPG_TTY=$(tty)"
-                            "# gpg-agent frustratingly doesn't seem to update on startup."
-                            "# This restarts it so SSH keys can be used."
-                            "gpg-connect-agent updatestartuptty /bye >/dev/null"
-                            "# Do not overwrite history."
-                            "shopt -s histappend"
-                            "# Recursive globbing."
-                            "shopt -s globstar"
-                            "# Enable shell integration for direnv."
-                            "eval \"$(direnv hook bash)\""
-                            "# Enable starship prompt only in graphical environments,"
-                            "# as I like to hang out in the kernel terminal sometimes."
-                            "if [ -n \"$DISPLAY\" ]; then eval \"$(starship init bash)\"; fi"
-                            "# Enable shell integration for television."
-                            "eval \"$(tv init bash)\""
-                            "# Enable shell integration for pay-respects."
-                            "eval \"$(pay-respects bash)\""
-                   (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))))
+                  (aliases '(("grep" . "grep --perl-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
+                             (".." . "cd ..")
+                             ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
+                             ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
+                             ("ip" . "ip -color=auto")
+                             ("df" . "df --human-readable")
+                             ("free" . "free --mebi --human")
+                             ("fd" . "fd --follow --hyperlink=auto")))
+                  (bash-profile
+                   (list (plain-file
+                          "bash-profile"
+                          (string-append-n
+                           "# Set up Nix profile."
+                           "if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then"
+                           "source /run/current-system/profile/etc/profile.d/nix.sh"
+                           "fi"
+                           "# Source home-manager."
+                           "if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then"
+                           "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
+                           "fi"))))
+                  (bashrc
+                   (list (plain-file
+                          "bashrc"
+                          (string-append-n
+                           "# Define the GPG_TTY as the one being currently used."
+                           "# This fixes so many issues that it should be a default."
+                           "export GPG_TTY=$(tty)"
+                           "# gpg-agent frustratingly doesn't seem to update on startup."
+                           "# This restarts it so SSH keys can be used."
+                           "gpg-connect-agent updatestartuptty /bye >/dev/null"
+                           "# Do not overwrite history."
+                           "shopt -s histappend"
+                           "# Recursive globbing."
+                           "shopt -s globstar"
+                           "# Enable shell integration for direnv."
+                           "eval \"$(direnv hook bash)\""
+                           "# Enable starship prompt only in graphical environments,"
+                           "# as I like to hang out in the kernel terminal sometimes."
+                           "# This also disables starship on dumb terminals because the"
+                           "# warning they have is pretty annoying."
+                           "if [ -n \"$DISPLAY\" ] && [[ \"$TERM\" != \"dumb\" ]];"
+                           "then eval \"$(starship init bash)\"; fi"
+                           "# Enable shell integration for television."
+                           "eval \"$(tv init bash)\""
+                           "# Enable shell integration for pay-respects."
+                           "eval \"$(pay-respects bash)\""
+                           "# Disable flow control keybinds (that freeze your terminal)."
+                           "stty -ixon"))))
+                  (environment-variables '(("HISTCONTROL" . "ignoredups:erasedups")))))
         (service home-dbus-service-type)
         (service home-git-service-type
                  (home-git-configuration
