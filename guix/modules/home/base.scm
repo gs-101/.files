@@ -35,6 +35,7 @@
     "eza"
     "fd"
     "fnott"
+    "font-alcarin-tengwar"
     "font-aporetic"
     "font-google-noto"
     "font-google-noto-emoji"
@@ -256,7 +257,9 @@
                             (family "Noto Sans Mono CJK JP")
                             ;; Korean.
                             (family "Noto Sans Mono CJK KR")
-                            ;; Nerd Fonts Symbols
+                            ;; The Lord of the Rings language font.
+                            (family "Alcarin Tengwar")
+                            ;; Nerd Fonts Symbols.
                             (family "Symbols Nerd Font Mono")))
                          '(alias
                            (family "serif")
@@ -270,7 +273,9 @@
                             (family "Noto Serif CJK JP")
                             ;; Korean.
                             (family "Noto Serif CJK KR")
-                            ;; Nerd Fonts Symbols
+                            ;; The Lord of the Rings language font.
+                            (family "Alcarin Tengwar")
+                            ;; Nerd Fonts Symbols.
                             (family "Symbols Nerd Font")))
                          '(alias
                            (family "sans-serif")
@@ -284,7 +289,9 @@
                             (family "Noto Sans CJK JP")
                             ;; Korean.
                             (family "Noto Sans CJK KR")
-                            ;; Nerd Fonts Symbols
+                            ;; The Lord of the Rings language font.
+                            (family "Alcarin Tengwar")
+                            ;; Nerd Fonts Symbols.
                             (family "Symbols Nerd Font")))
                          '(alias
                            (family "emoji")
