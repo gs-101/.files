@@ -83,7 +83,7 @@
 (define %base-home-services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                  (aliases '(("grep" . "grep --perl-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
+                  (aliases '(("grep" . "grep --extended-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
                              (".." . "cd ..")
                              ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
                              ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
