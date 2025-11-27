@@ -77,6 +77,7 @@
     "xdg-desktop-portal-gtk"
     "xdg-desktop-portal-hyprland"
     "xdg-utils"
+    "yt-dlp"
     "zotero"))
 
 (define %base-home-services
