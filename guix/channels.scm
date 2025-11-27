@@ -3,7 +3,7 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "25d7a8091c2c9678a8694f073d846a7001165169")
+          "3f4a1907cae9b0def09d1549c491bb4e307b9097")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -14,7 +14,7 @@
         (url "https://github.com/gs-101/emacs-master.git")
         (branch "main")
         (commit
-          "fbed3651f3dc6709e2101babf2aa0f7be1b452a3")
+          "8a82ea7295fbeae7ca6f7c73dae8dba835a22367")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -25,7 +25,7 @@
         (url "https://codeberg.org/guix/guix-rust-past-crates.git")
         (branch "trunk")
         (commit
-          "e19b4de994768f66a0d1831a088fc1467e85315e")
+          "b8b7ffbd1cec9f56f93fae4da3a74163bbc9c570")
         (introduction
           (make-channel-introduction
             "1db24ca92c28255b28076792b93d533eabb3dc6a"
@@ -47,7 +47,7 @@
         (url "https://git.sr.ht/~abcdw/rde")
         (branch "master")
         (commit
-          "0112e78be148702eadf4c75477b841b145f647b9")
+          "c0694b353d816c8ee95324db979116253b65c571")
         (introduction
           (make-channel-introduction
             "257cebd587b66e4d865b3537a9a88cccd7107c95"
@@ -58,7 +58,7 @@
         (url "https://git.guix.gnu.org/guix.git")
         (branch "master")
         (commit
-          "fd888ddf63f91bcb92d90f5a254b513a3555a694")
+          "8cdc7108c1d5f50dccf719838ea057adf703391e")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
