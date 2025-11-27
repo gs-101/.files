@@ -61,6 +61,7 @@
     "libsecret"
     "make"
     "mpv"
+    "mupdf"
     "neovim"
     "openssh"
     "pay-respects"
