@@ -61,7 +61,6 @@
     "libsecret"
     "make"
     "mpv"
-    "mumi"
     "neovim"
     "openssh"
     "pay-respects"
