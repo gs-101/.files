@@ -1,5 +1,6 @@
 (define-module (system base)
   #:use-module (gnu)
+  #:use-module (gnu system accounts)
   #:use-module (guix colors)
   #:use-module (utils)
   #:export (base-system
@@ -8,6 +9,7 @@
 (use-service-modules containers
                      cups
                      desktop
+                     networking
                      nix
                      virtualization
                      xorg)
@@ -30,19 +32,19 @@
 
 (define base-system
   (operating-system
-    (keyboard-layout (keyboard-layout "br" #:options '("ctrl:nocaps")))
-    (bootloader
-     (bootloader-configuration
-      (bootloader grub-efi-bootloader)
-      (keyboard-layout keyboard-layout)
-      (targets (list "/boot/efi"))))
-    (file-systems (cons* (file-system
-                           (mount-point "/")
-                           (device "/dev/sda1")
-                           (type "ext4"))
-                         %base-file-systems))
-    (host-name "base-system")
-    (issue (colorize-string "
+   (keyboard-layout (keyboard-layout "br" #:options '("ctrl:nocaps")))
+   (bootloader
+    (bootloader-configuration
+     (bootloader grub-efi-bootloader)
+     (keyboard-layout keyboard-layout)
+     (targets (list "/boot/efi"))))
+   (file-systems (cons* (file-system
+                         (mount-point "/")
+                         (device "/dev/sda1")
+                         (type "ext4"))
+                        %base-file-systems))
+   (host-name "base-system")
+   (issue (colorize-string "
  ..                             `.
  `--..```..`           `..```..--`
    .-:///-:::.       `-:::///:-.
@@ -54,25 +56,33 @@
               :+/:::-
               `-....`
 " (color CYAN)))
-    (locale "en_US.utf8")
-    (services (cons* (service cups-service-type)
-                     (service nix-service-type
-                              (nix-configuration
-                               (extra-config
-                                '("experimental-features = nix-command flakes"))))
-                     (service qemu-binfmt-service-type
-                              (qemu-binfmt-configuration
-                               (platforms (lookup-qemu-platforms "arm" "aarch64"))))
-                     (service rootless-podman-service-type)
-                     %base-desktop-services))
-    (timezone "America/Sao_Paulo")
-    (users (cons* (user-account
-                   (name "gabriel")
-                   (comment "Gabriel Santos")
-                   (group "users")
-                   (home-directory "/home/gabriel")
-                   (supplementary-groups '("audio"
-                                           "cgroup" ; For podman
-                                           "video"
-                                           "wheel")))
-                  %base-user-accounts))))
+   (locale "en_US.utf8")
+   (packages (cons* (specification->package "podman-compose")
+                    %base-packages))
+   (services (cons* (service cups-service-type)
+                    (service iptables-service-type)
+                    (service nix-service-type
+                             (nix-configuration
+                              (extra-config
+                               '("experimental-features = nix-command flakes"))))
+                    (service qemu-binfmt-service-type
+                             (qemu-binfmt-configuration
+                              (platforms (lookup-qemu-platforms "arm" "aarch64"))))
+                    (service rootless-podman-service-type
+                             (rootless-podman-configuration
+                              (subgids
+                               (list (subid-range (name "gabriel"))))
+                              (subuids
+                               (list (subid-range (name "gabriel"))))))
+                    %base-desktop-services))
+   (timezone "America/Sao_Paulo")
+   (users (cons* (user-account
+                  (name "gabriel")
+                  (comment "Gabriel Santos")
+                  (group "users")
+                  (home-directory "/home/gabriel")
+                  (supplementary-groups '("audio"
+                                          "cgroup" ; For podman
+                                          "video"
+                                          "wheel")))
+                 %base-user-accounts))))
