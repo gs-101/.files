@@ -10,7 +10,6 @@
 
     packages = with pkgs; [
       devcontainer
-      folo
       matugen
       television
       wakatime-cli
