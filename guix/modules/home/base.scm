@@ -26,6 +26,7 @@
   '("adw-gtk3-theme"
     "adwaita-icon-theme"
     "alacritty"
+    "anki"
     "bat"
     "bibata-cursor-theme"
     "cliphist"
