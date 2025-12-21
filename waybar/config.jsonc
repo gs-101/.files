@@ -68,7 +68,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{calendar}</big>",
-        "format": "󰥔 {:%I:%M %p}",
+        "format": "󰥔 {:%H:%M}",
         "format-alt": "{:%Y-%m-%d}",
         "calendar": {
                     "week-pos": "left"

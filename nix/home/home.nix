@@ -9,7 +9,9 @@
     stateVersion = "24.11";
 
     packages = with pkgs; [
+      anki
       devcontainer
+      hyprlauncher
       matugen
       television
       wakatime-cli

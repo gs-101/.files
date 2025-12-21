@@ -15,10 +15,6 @@ input_path = 'templates/emacs.el'
 output_path = '~/.emacs.d/var/matugen/matugen.el'
 post_hook = "emacsclient --eval '(progn (load-file \"~/.emacs.d/var/matugen/matugen.el\") (load-theme (car custom-enabled-themes) t))'"
 
-[templates.fuzzel]
-input_path = 'templates/fuzzel.ini'
-output_path = '~/.config/fuzzel/matugen.ini'
-
 [templates.gtk3]
 input_path = 'templates/gtk.css'
 output_path = '~/.config/gtk-3.0/matugen.css'

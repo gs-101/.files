@@ -1,5 +1,6 @@
 (define-module (system base)
   #:use-module (gnu)
+  #:use-module (gnu services shepherd)
   #:use-module (gnu system accounts)
   #:use-module (guix colors)
   #:use-module (utils)
@@ -13,6 +14,7 @@
                      nix
                      virtualization
                      xorg)
+
 
 (define %base-desktop-services
   (modify-services %desktop-services

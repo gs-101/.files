@@ -26,11 +26,13 @@
   '("adw-gtk3-theme"
     "adwaita-icon-theme"
     "alacritty"
-    "anki"
     "bat"
     "bibata-cursor-theme"
+    "breeze-icons"
+    "brightnessctl"
     "cliphist"
     "cryptsetup"
+    "darkman"
     "direnv"
     "emacs-master-pgtk-igc"
     "eza"
@@ -44,15 +46,19 @@
     "font-google-noto-serif-cjk"
     "font-microsoft-cascadia"
     "font-nerd-fonts-symbols"
-    "fuzzel"
     "gimp"
     "git:send-email"
     "gitu"
+    "glib:bin" ; For GTK darkman theme switching.
     "gnupg"
+    "gsettings-desktop-schemas" ; For GTK darkman theme switching.
     "hicolor-icon-theme"
+    "hypridle"
     "hyprland"
+    "hyprlock"
     "hyprpicker"
     "hyprpolkitagent"
+    "hyprqt6engine"
     "hyprshot"
     "kdeconnect"
     "kdenlive"
@@ -65,8 +71,6 @@
     "neovim"
     "openssh"
     "pay-respects"
-    "qt5ct"
-    "rust-stakeholder"
     "starship"
     "swww"
     "torbrowser"
@@ -219,6 +223,19 @@
                         home-xdg-configuration-files-service-type
                         (list `("alacritty/alacritty.toml"
                                 ,(dotfiles-file "alacritty/alacritty.toml"))))
+        (simple-service 'home-darkman-configuration-service
+                        home-xdg-configuration-files-service-type
+                        (list `("darkman/config.yaml"
+                                ,(plain-file "config.yaml"
+                                             (string-append-n
+                                              "lat: 0"
+                                              "lng: 0")))))
+        (simple-service 'home-darkman-scripts-service
+                        home-files-service-type
+                        (list `(".local/share/dark-mode.d"
+                                ,(dotfiles-file "darkman/dark-mode" #:recursive? #t))
+                              `(".local/share/light-mode.d"
+                                ,(dotfiles-file "darkman/light-mode" #:recursive? #t))))
         (simple-service 'home-fnott-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("fnott/fnott.ini"
@@ -296,10 +313,6 @@
                            (family "emoji")
                            (prefer
                             (family "Noto Color Emoji")))))
-        (simple-service 'home-fuzzel-configuration-service
-                        home-xdg-configuration-files-service-type
-                        (list `("fuzzel/fuzzel.ini"
-                                ,(dotfiles-file "fuzzel/fuzzel.ini"))))
         (simple-service 'home-gitu-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("gitu/config.toml"
@@ -308,9 +321,10 @@
                         home-files-service-type
                         (list `(".gtkrc-2.0"
                                 ,(plain-file "gtkrc-2.0"
-                                             "gtk-cursor-theme-name = \"Bibata-Modern-Classic\"
-gtk-font-name = \"Cascadia Code NF\"
-gtk-key-theme-name = \"Emacs\""))))
+                                             (string-append-n
+                                              "gtk-cursor-theme-name = \"Bibata-Modern-Classic\""
+                                              "gtk-font-name = \"Aporetic Sans\""
+                                              "gtk-key-theme-name = \"Emacs\"")))))
         (simple-service 'home-gtk-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("gtk-3.0/settings.ini"
@@ -321,10 +335,26 @@ gtk-key-theme-name = \"Emacs\""))))
                                 ,(dotfiles-file "gtk/settings.ini"))
                               `("gtk-4.0/gtk.css"
                                 ,(dotfiles-file "gtk/colors.css"))))
+        (simple-service 'home-hypridle-configuration-service
+                        home-xdg-configuration-files-service-type
+                        (list `("hypr/hypridle.conf"
+                                ,(dotfiles-file "hypr/hypridle.conf"))))
         (simple-service 'home-hyprland-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("hypr/hyprland.conf"
                                 ,(dotfiles-file "hypr/hyprland.conf"))))
+        (simple-service 'home-hyprlock-configuration-service
+                        home-xdg-configuration-files-service-type
+                        (list `("hypr/hyprlock.conf"
+                                ,(dotfiles-file "hypr/hyprlock.conf"))))
+        (simple-service 'home-hyprqt6engine-configuration-service
+                        home-xdg-configuration-files-service-type
+                        (list `("hypr/hyprqt6engine.conf"
+                                ,(dotfiles-file "hypr/hyprqt6engine.conf"))))
+        (simple-service 'home-hyprtoolkit-configuration-service
+                        home-xdg-configuration-files-service-type
+                        (list `("hypr/hyprtoolkit.conf"
+                                ,(dotfiles-file "hypr/hyprtoolkit.conf"))))
         (simple-service 'home-makefile-service
                         home-files-service-type
                         (list `("Makefile"
@@ -351,12 +381,6 @@ gtk-key-theme-name = \"Emacs\""))))
                                    "# Spawns a shell with the package instead of"
                                    "# polluting the profile."
                                    "install_method = \"Shell\"")))))
-        (simple-service 'home-qt-configuration-service
-                        home-xdg-configuration-files-service-type
-                        (list `("qt5ct/qt5ct.conf"
-                                ,(dotfiles-file "qt/settings.conf"))
-                              `("qt6ct/qt6ct.conf"
-                                ,(dotfiles-file "qt/settings.conf"))))
         (simple-service 'home-starship-configuration-service
                         home-xdg-configuration-files-service-type
                         (list `("starship.toml"
@@ -367,10 +391,10 @@ gtk-key-theme-name = \"Emacs\""))))
                                 ,(dotfiles-file "television/config.toml"))))
         (simple-service 'home-variables-service
                         home-environment-variables-service-type
-                        `(("BROWSER" . "librewolf")
-                          ("DOTFILES" . "$HOME/.files")
+                        `(("DOTFILES" . "$HOME/.files")
                           ("EDITOR" . "emacsclient --create-frame --no-window-system --alternate-editor=''")
-                          ("QT_QPA_PLATFORMTHEME" . "qt5ct")
+                          ("QT_PLUGIN_PATH" . "$HOME/.guix-home/profile/lib/qt6/plugins")
+                          ("QT_QPA_PLATFORMTHEME" . "hyprqt6engine")
                           ("SHELL" . "bash")
                           ("TERM" . "alacritty")
                           ("TERMINAL" . "alacritty")

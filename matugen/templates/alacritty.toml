@@ -37,7 +37,6 @@ background = '{{colors.secondary.default.hex}}'
 text = '{{colors.background.default.hex}}'
 background = '{{colors.primary.default.hex}}'
 
-
 [colors.normal]
 black = '#181818'
 red = '{{colors.error.default.hex}}'

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+RANDOM_WALLPAPER=$(fd -a -e png . $HOME/Pictures/wallpapers | shuf -n 1)
+
+matugen image $RANDOM_WALLPAPER -m dark
+
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
