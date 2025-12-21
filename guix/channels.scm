@@ -36,7 +36,7 @@
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "01a87451b05a63afdc04913cdc4485a303c4e8b4")
+          "8fe9d9d0ee76064df79ad38e82a8d4f7f3eb7e8f")
         (introduction
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
@@ -58,7 +58,7 @@
         (url "https://git.guix.gnu.org/guix.git")
         (branch "master")
         (commit
-          "33b0df3b2676545eb2ef5c03842d88c8c7617c2e")
+          "1434b4e6c78cf47ae0611a079098ef392cc2ea92")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
