@@ -12,7 +12,6 @@
       anki
       devcontainer
       hyprlauncher
-      matugen
       television
       wakatime-cli
     ];
