@@ -1,0 +1,16 @@
+#!/usr/bin/env -S guix shell bash coreutils gawk libnotify procps util-linux-with-udev -- bash
+# See https://www.youtube.com/watch?v=YOpeXETS2z0
+# Add hyprlauncher and television as dependencies when they're packaged in Guix.
+
+exclusion_regex="\(/boot\|/home\|/\)$"
+drives=$(lsblk -lp | grep "t /" | grep -v "$exclusion_regex" | awk '{print $1, "(" $4 ")", "on", "$7"}')
+[[ -z "$drives" ]] && exit
+
+if pgrep -x hyprlauncher; then
+  chosen=$(echo "$drives" | hyprlauncher --dmenu | awk '{print $1}')
+  [[ -z "$chosen" ]] && exit
+else
+  chosen=$(echo "$drives" | tv | awk '{print $1}')
+fi
+
+sudo umount $chosen && pgrep -x fnott && notify-send "$chosen unmounted."

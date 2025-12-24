@@ -100,6 +100,9 @@
                             "# Source home-manager."
                             "if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then"
                             "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
+                            "fi"
+                            "if [ -f ~/.local/bin]; then"
+                            "export PATH=\"~/.local/bin:$PATH\""
                             "fi"))))
                    (bashrc
                     (list (plain-file
@@ -350,6 +353,11 @@
                         home-xdg-configuration-files-service-type
                         (list `("hypr/hyprtoolkit.conf"
                                 ,(dotfiles-file "hypr/hyprtoolkit.conf"))))
+        (simple-service 'home-local-bin-service
+                        home-files-service-type
+                        (list `(".local/bin"
+                                ,(dotfiles-file "bin/hyprlauncher-mount")
+                                ,(dotfiles-file "bin/hyprlauncher-umount"))))
         (simple-service 'home-makefile-service
                         home-files-service-type
                         (list `("Makefile"
