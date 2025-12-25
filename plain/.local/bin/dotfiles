@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# See http://blogsh.github.io/2020/03/21/subcommands-in-bash-scripts
+
+dotfiles="$HOME/.files"
+module_files="$dotfiles/gs-101"
+plain_files="$dotfiles/plain"
+guix_home_reconfigure_command="guix home reconfigure -L $dotfiles $module_files/home/$(hostname).scm"
+nix_home_manager_files="$plain_files/.config/home-manager"
+
+usage() {
+  echo "Unknown command:" "$@"
+  echo "Usage: dotfiles all | gc | home | image | nuke | reload | system | update"
+}
+
+update() {
+  channel_file=$plain_files/.config/guix/channels.scm
+  guix_commit_message="chore(channels.scm): update channels"
+  nix_commit_message="chore(flake.lock): update flake"
+
+  guix pull --channels="$plain_files/.config/guix/channels-list.scm"
+  guix describe --format=channels >"$channel_file"
+  cd "$dotfiles" && git add "$channel_file" && git commit --message="$guix_commit_message"
+  guix pull --news
+  nix flake update --flake "$nix_home_manager_files" --commit-lock-file --commit-lockfile-summary "$nix_commit_message"
+}
+
+gc() {
+  guix gc
+  nix-collect-garbage
+}
+
+nuke() {
+  guix gc -d
+  nix-collect-garbage -d
+}
+
+system() {
+  sudo guix system reconfigure -L "$dotfiles" "$module_files/system/$(hostname).scm"
+}
+
+home() {
+  $guix_home_reconfigure_command --fallback
+  home-manager switch --flake "$nix_home_manager_files"
+  [[ $XDG_CURRENT_DESKTOP = "Hyprland" ]] && hyprctl reload
+}
+
+reload() {
+  $guix_home_reconfigure_command --no-substitutes
+  home-manager switch --flake "$nix_home_manager_files" --no-substitute
+  [[ $XDG_CURRENT_DESKTOP = "Hyprland" ]] && hyprctl reload
+}
+
+image() {
+  guix system image --image-type=iso9660 --root="image.iso" -L "$dotfiles" "$module_files/system/image.scm --fallback"
+}
+
+all() {
+  update
+  home
+  system
+}
+
+declare -A commands=(
+  [main]=usage
+  [update]=update
+  [gc]=gc
+  [nuke]=nuke
+  [system]=system
+  [home]=home
+  [reload]=reload
+  [image]=image
+  [all]=all
+)
+
+# Magic line that makes it all work.
+"${commands[${1:-main}]:-${commands[main]}}" "$@"

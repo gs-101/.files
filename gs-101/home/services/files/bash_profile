@@ -1,0 +1,14 @@
+# Set up Nix profile.
+if [ -f /run/current-system/profile/etc/profile.d/nix.sh ]; then
+  source /run/current-system/profile/etc/profile.d/nix.sh
+fi
+
+# Set up home-manager.
+if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+  source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+fi
+
+# Set up local executables.
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi

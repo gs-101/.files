@@ -1,0 +1,26 @@
+# gpg-agent frustratingly doesn't seem to
+# update on startup. This restarts it so SSH keys can be used.
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# Disable flow control keybinds (that freeze your terminal).
+stty -ixon
+
+# Options.
+
+## Recursive globbing.
+shopt -s globstar
+## Do not overwrite history.
+shopt -s histappend
+
+# Integrations.
+
+eval "$(direnv hook bash)"
+## Enable starship prompt only in graphical environments,
+## as I like to hang out in the kernel terminal sometimes.
+## This also disables starship on dumb terminals because the
+## warning they have is pretty annoying.
+if [ -n "$DISPLAY" ] && [[ "$TERM" != "dumb" ]]; then
+  eval "$(starship init bash)"
+fi
+eval "$(tv init bash)"
+eval "$(pay-respects bash)"

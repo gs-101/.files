@@ -1,0 +1,7 @@
+# Runs the suggestion in the current shell.
+eval_method = "Shell"
+
+[package_manager]
+package_manager = "guix"
+# Spawns a shell with the package instead of polluting the profile.
+install_method = "Shell"

@@ -1,0 +1,20 @@
+[general]
+confirm_quit.enabled = true
+mouse_support = true
+mouse_scroll_lines = 3
+
+# Emacsy keybinds.
+[bindings]
+root.copy_hash = ["ctrl+w"]
+root.discard = ["k"]
+root.show_refs = ["y"]
+
+root.move_up = ["p", "up"]
+root.move_down = ["n", "down"]
+root.move_up_line = ["ctrl+p", "ctrl+up"]
+root.move_down_line = ["ctrl+n", "ctrl+down"]
+root.move_prev_section = ["alt+p", "alt+up"]
+root.move_next_section = ["alt+n", "alt+down"]
+root.move_parent_section = ["^"]
+root.half_page_up = ["alt+v"]
+root.half_page_down = ["ctrl+v"]

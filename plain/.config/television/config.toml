@@ -1,0 +1,52 @@
+[ui]
+theme = "matugen"
+
+[previewers.file]
+# Default theme for bat.
+theme = "Monokai Extended"
+
+[shell_integration.channel_triggers]
+"alias" = ["alias", "unalias"]
+"env" = ["export", "unset"]
+"dirs" = ["cd", "ls", "eza", "rmdir"]
+"files" = [
+  "cat",
+  "less",
+  "head",
+  "tail",
+  "vim",
+  "nano",
+  "bat",
+  "cp",
+  "mv",
+  "rm",
+  "touch",
+  "chmod",
+  "chown",
+  "ln",
+  "tar",
+  "zip",
+  "unzip",
+  "gzip",
+  "gunzip",
+  "xz",
+]
+"git-diff" = ["git add", "git restore"]
+"git-branch" = [
+  "git checkout",
+  "git branch",
+  "git merge",
+  "git rebase",
+  "git pull",
+  "git push",
+]
+"git-repos" = [
+  "nvim",
+  "emacs",
+  "emacsclient",
+  "$EDITOR",
+  "$VISUAL",
+]
+"podman-images" = ["podman run"]
+"nix" = ["nix"]
+"guix" = ["guix"]
