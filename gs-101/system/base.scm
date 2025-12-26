@@ -93,6 +93,7 @@
                   (supplementary-groups '("audio"
                                           "cgroup" ; For podman
                                           "video"
+                                          "kvm"
                                           "wheel")))
                  %base-user-accounts))))
 
