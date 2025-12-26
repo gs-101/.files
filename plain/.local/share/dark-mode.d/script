@@ -1,13 +1,3 @@
-#!/usr/bin/env -S guix shell bash coreutils fd glib:bin gsettings-desktop-schemas libnotify matugen swww -- bash
+#!/bin/sh
 
-set -euo pipefail
-
-random_wallpaper=$(fd -a -e png . $HOME/Pictures/wallpapers | shuf -n 1)
-
-matugen image $random_wallpaper -m dark
-
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-
-pgrep -x fnott && notify-send --app-name="darkman" "Good Night" "Switching to
-dark theme and using $(basename $random_wallpaper) as the wallpaper."
+darkman-script dark

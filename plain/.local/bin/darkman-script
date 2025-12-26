@@ -1,0 +1,48 @@
+#!/usr/bin/env -S guix shell coreutils fd glib:bin gsettings-desktop-schemas libnotify matugen swww -- sh
+
+set -eu
+
+usage() {
+  echo "Unknown command: ${1:-}"
+  echo "Usage: darkman-script light | dark"
+  exit 1
+}
+
+set_theme() {
+  theme="$1"
+  random_wallpaper=$(fd -a -e png . "$HOME/Pictures/wallpapers" | shuf -n 1)
+  file_name=$(basename "$random_wallpaper")
+
+  if [ "$theme" = "light" ]; then
+    greeting_time="Morning"
+    gtk_theme="adw-gtk3"
+  elif [ "$theme" = "dark" ]; then
+    greeting_time="Night"
+    gtk_theme="adw-gtk3-dark"
+  else
+    usage "$theme"
+  fi
+
+  matugen image "$random_wallpaper" -m "$theme"
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-$theme"
+  gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+
+  if pgrep -x fnott; then
+    notify-send \
+      --app-name="darkman" \
+      "Good $greeting_time" \
+      "Switching to $theme using \"$file_name\" as the wallpaper."
+  fi
+}
+
+case "${1:-main}" in
+  light)
+    set_theme light
+    ;;
+  dark)
+    set_theme dark
+    ;;
+  *)
+    usage "${1:-}"
+    ;;
+esac
