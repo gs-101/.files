@@ -34,7 +34,8 @@
 (define base-home-services
   (append (list (service home-dotfiles-service-type
                          (home-dotfiles-configuration
-                          (directories '("../../plain"))))
+                          (directories '("../../plain"))
+                          (excluded '(".envrc"))))
                 (service home-emacs-service-type)
                 (service home-syncthing-service-type
                          (for-home
