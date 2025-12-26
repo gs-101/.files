@@ -1,39 +1,70 @@
-#!/usr/bin/env -S guix shell bash coreutils findutils gawk libnotify procps util-linux-with-udev -- bash
+#!/usr/bin/env -S guix shell coreutils fd gawk libnotify procps util-linux-with-udev -- sh
 # See https://www.youtube.com/watch?v=YOpeXETS2z0
-# Add hyprlauncher and television as dependencies when they're packaged in Guix.
+# TODO: Add hyprlauncher and television as dependencies once they're available for Guix.
+
+set -eu
+
+# Helpers.
+
+menu() {
+  prompt="$1"
+
+  if pgrep -x hyprlauncher >/dev/null 2>&1; then
+    # Hyprlauncher doesn't support prompts. :(
+    hyprlauncher --dmenu
+  else
+    tv --input-prompt "$prompt"
+  fi
+}
+
+# Main script.
 
 mountable=$(lsblk -lp | awk '$6 == "part" && $7 == "" {print $1, "(" $4 ")"}')
-[[ -z "$mountable" ]] && exit 1
 
-# Indicates we're in a graphical environment.
-if pgrep -x hyprlauncher; then
-  chosen=$(echo "$mountable" | hyprlauncher --dmenu | awk '{print $1}')
-  [[ -z "$chosen" ]] && exit 0
-  sudo mount "$chosen" && exit 0
+if [ -z "$mountable" ]; then
+  exit 1
+fi
 
-  dirs=$(find /mnt /media /mount /home -type d -empty -maxdepth 3 2>/dev/null)
-  mount_point=$(echo "$dirs" | hyprlauncher --dmenu)
-  [[ -z "$mount_point" ]] && exit 1
-  if [[ ! -d "$mount_point" ]]; then
-    mkdiryn=$(echo -e "No\nYes" | hyprlauncher --dmenu)
-    [[ "$mkdiryn" = Yes ]] && sudo mkdir -p "$mount_point"
-  fi
-else
-  chosen=$(echo "$mountable" | tv | awk '{print $1}')
-  [[ -z "$chosen" ]] && exit 0
-  sudo mount "$chosen" && exit 0
+chosen=$(echo "$mountable" | menu "Mount which drive?" | awk '{print $1}')
 
-  dirs=$(find /mnt /media /mount /home -type d -empty -maxdepth 3 2>/dev/null)
-  mount_point=$(echo "$dirs" | tv)
-  [[ -z "$mount_point" ]] && exit 1
-  if [[ ! -d "$mount_point" ]]; then
-    mkdiryn=$(echo -e "No\nYes" | tv)
-    [[ "$mkdiryn" = Yes ]] && sudo mkdir -p "$mount_point"
+if [ -z "$chosen" ]; then
+  exit 0
+fi
+
+# Try to automatically mount the drive if it's in /etc/fstab.
+if sudo mount "$chosen" 2>/dev/null; then
+  exit 0
+fi
+
+dirs=$(fd .  \
+          /home \
+          /media \
+          /mnt \
+          /mount \
+          --absolute-path \
+          --type directory \
+          --type empty \
+          --max-depth 3 \
+          2>/dev/null)
+mount_point=$(echo "$dirs" | menu "Type in mount point.")
+
+if [ -z "$mount_point" ]; then
+  exit 1
+fi
+
+if [ ! -d "$mount_point" ]; then
+  mkdiryn=$(printf "Yes\nNo\n" | menu "$mount_point does not exist. Create it?")
+
+  if [ "$mkdiryn" = "Yes" ]; then
+    sudo mkdir -p "$mount_point"
+  else
+    exit 1
   fi
 fi
 
-sudo mount $chosen $mount_point
-# fnott is kind of an optional dependency.
-pgrep -x fnott && notify-send "$chosen mounted to $mount_point."
+sudo mount "$chosen" "$mount_point"
 
-# drives=$(lsblk -nlp | awk 'NF > 6 && !/(\/|\/boot|\/home)$/ {print $, "(" $4 ")"}'
+# fnott is kind of an optional dependency.
+if pgrep -x fnott >/dev/null 2>&1; then
+  notify-send "$chosen mounted to $mount_point."
+fi
