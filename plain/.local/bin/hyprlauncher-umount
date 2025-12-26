@@ -1,16 +1,36 @@
-#!/usr/bin/env -S guix shell bash coreutils gawk libnotify procps util-linux-with-udev -- bash
+#!/usr/bin/env -S guix shell coreutils gawk libnotify procps util-linux-with-udev -- sh
 # See https://www.youtube.com/watch?v=YOpeXETS2z0
-# Add hyprlauncher and television as dependencies when they're packaged in Guix.
+# TODO: Add hyprlauncher and television as dependencies once they're available for Guix.
 
-exclusion_regex="\(/boot\|/home\|/\)$"
-drives=$(lsblk -lp | grep "t /" | grep -v "$exclusion_regex" | awk '{print $1, "(" $4 ")", "on", "$7"}')
-[[ -z "$drives" ]] && exit
+set -eu
 
-if pgrep -x hyprlauncher; then
-  chosen=$(echo "$drives" | hyprlauncher --dmenu | awk '{print $1}')
-  [[ -z "$chosen" ]] && exit
-else
-  chosen=$(echo "$drives" | tv | awk '{print $1}')
+# Helpers.
+
+menu() {
+  prompt="$1"
+
+  if pgrep -x hyprlauncher >/dev/null 2>&1; then
+    # Hyprlauncher doesn't support prompts. :(
+    hyprlauncher --dmenu
+  else
+    tv --input-prompt "$prompt"
+  fi
+}
+
+# Main script.
+
+exclusion_regex="(/boot|/home|/)$"
+drives=$(lsblk -lp | awk '$6 == "part" && $7 != ""' | grep -v -E "$exclusion_regex" | awk '{print $1, "(" $4 ")", "on", $7}')
+
+if [ -z "$drives" ]; then
+  exit 1
 fi
 
-sudo umount $chosen && pgrep -x fnott && notify-send "$chosen unmounted."
+chosen=$(echo "$drives" | menu "Unmount which drive?" | awk '{print $1}')
+
+sudo umount "$chosen"
+
+# fnott is kind of an optional dependency.
+if pgrep -x fnott >/dev/null 2>&1; then
+  notify-send "$chosen unmounted."
+fi
