@@ -1,27 +1,47 @@
-#!/usr/bin/env bash
-# See http://blogsh.github.io/2020/03/21/subcommands-in-bash-scripts
+#!/bin/sh
+
+set -eu
 
 dotfiles="$HOME/.files"
 module_files="$dotfiles/gs-101"
 plain_files="$dotfiles/plain"
-guix_home_reconfigure_command="guix home reconfigure -L $dotfiles $module_files/home/$(hostname).scm"
 nix_home_manager_files="$plain_files/.config/home-manager"
+host_name="$(hostname)"
 
 usage() {
-  echo "Unknown command:" "$@"
+  echo "Unknown command: ${1:-}"
   echo "Usage: dotfiles all | gc | home | image | nuke | reload | system | update"
+  exit 1
 }
 
+# Helpers.
+
+run_guix_home() {
+  guix home reconfigure -L "$dotfiles" "$module_files/home/$host_name.scm" "$@"
+}
+
+# Commands.
+
 update() {
-  channel_file=$plain_files/.config/guix/channels.scm
+  channel_file="$plain_files/.config/guix/channels.scm"
   guix_commit_message="chore(channels.scm): update channels"
   nix_commit_message="chore(flake.lock): update flake"
 
   guix pull --channels="$plain_files/.config/guix/channels-list.scm"
-  guix describe --format=channels >"$channel_file"
-  cd "$dotfiles" && git add "$channel_file" && git commit --message="$guix_commit_message"
   guix pull --news
-  nix flake update --flake "$nix_home_manager_files" --commit-lock-file --commit-lockfile-summary "$nix_commit_message"
+  guix describe --format=channels >"$channel_file"
+
+  # Use a subshell so "cd" doesn't affect the rest of the script.
+  (
+    cd "$dotfiles"
+    git add "$channel_file"
+    git commit --message="$guix_commit_message"
+  )
+
+  nix flake update \
+    --flake "$nix_home_manager_files" \
+    --commit-lock-file \
+    --commit-lockfile-summary "$nix_commit_message"
 }
 
 gc() {
@@ -35,23 +55,34 @@ nuke() {
 }
 
 system() {
-  sudo guix system reconfigure -L "$dotfiles" "$module_files/system/$(hostname).scm"
+  sudo guix system reconfigure -L "$dotfiles" "$module_files/system/$host_name.scm"
 }
 
 home() {
-  $guix_home_reconfigure_command --fallback
+  run_guix_home --fallback
   home-manager switch --flake "$nix_home_manager_files"
-  [[ $XDG_CURRENT_DESKTOP = "Hyprland" ]] && hyprctl reload
+
+  if [ "${XDG_CURRENT_DESKTOP:-}" = "Hyprland" ]; then
+    hyprctl reload
+  fi
 }
 
 reload() {
-  $guix_home_reconfigure_command --no-substitutes
+  run_guix_home --no-substitutes
   home-manager switch --flake "$nix_home_manager_files" --no-substitute
-  [[ $XDG_CURRENT_DESKTOP = "Hyprland" ]] && hyprctl reload
+
+  if [ "${XDG_CURRENT_DESKTOP:-}" = "Hyprland" ]; then
+    hyprctl reload
+  fi
 }
 
 image() {
-  guix system image --image-type=iso9660 --root="image.iso" -L "$dotfiles" "$module_files/system/image.scm --fallback"
+  guix system image \
+    --image-type=iso9660 \
+    --root="image.iso" \
+    -L "$dotfiles" \
+    "$module_files/system/image.scm" \
+    --fallback
 }
 
 all() {
@@ -60,17 +91,32 @@ all() {
   system
 }
 
-declare -A commands=(
-  [main]=usage
-  [update]=update
-  [gc]=gc
-  [nuke]=nuke
-  [system]=system
-  [home]=home
-  [reload]=reload
-  [image]=image
-  [all]=all
-)
-
-# Magic line that makes it all work.
-"${commands[${1:-main}]:-${commands[main]}}" "$@"
+case "${1:-main}" in
+update)
+  update
+  ;;
+gc)
+  gc
+  ;;
+nuke)
+  nuke
+  ;;
+system)
+  system
+  ;;
+home)
+  home
+  ;;
+reload)
+  reload
+  ;;
+image)
+  image
+  ;;
+all)
+  all
+  ;;
+*)
+  usage "${1:-}"
+  ;;
+esac
