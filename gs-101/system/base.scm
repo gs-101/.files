@@ -3,6 +3,7 @@
   #:use-module (gnu bootloader grub)
   #:use-module (gnu packages containers)
   #:use-module (gnu packages man)
+  #:use-module (gnu packages virtualization)
   #:use-module (gnu services)
   #:use-module (gnu services base)
   #:use-module (gnu services containers)
@@ -64,8 +65,9 @@
               `-....`
 " (color CYAN)))
    (locale "en_US.utf8")
-   (packages (cons* podman-compose
-                    man-db ; For the "man" command. Important!
+   (packages (cons* man-db ; For the "man" command. Important!
+                    podman-compose
+                    qemu
                     %base-packages))
    (services (cons* (service cups-service-type)
                     (service iptables-service-type) ; Podman requirement.
