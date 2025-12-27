@@ -1,0 +1,47 @@
+#!/usr/bin/env -S guix shell coreutils curl -- sh
+
+set -eu
+
+script_name="${0##*/}"
+
+# Usage.
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $script_name [LOGO]" >&2
+  exit 1
+fi
+
+# Variables.
+
+logo="${1##*/}"
+xdg_cache="${XDG_CACHE_HOME:-$HOME/.cache}"
+cache_dir="$xdg_cache/$script_name"
+cache_file="$cache_dir/$logo.txt"
+
+# Helpers.
+
+fetch_and_cache() {
+  local_file="$1"
+  url="https://raw.githubusercontent.com/fastfetch-cli/fastfetch/refs/heads/dev/src/logo/ascii/$logo.txt"
+  temp_file="${local_file}.tmp"
+
+  if curl --fail --silent --output "$temp_file" "$url"; then
+    mv "$temp_file" "$local_file"
+  else
+    # "-f" makes the command faster in case the file wasn't created.
+    rm -f "$temp_file"
+    echo "$script_name: $logo: Failed to fetch logo" >&2
+    exit 1
+  fi
+}
+
+# Main script.
+
+mkdir -p "$cache_dir"
+
+if [ ! -f "$cache_file" ]; then
+  fetch_and_cache "$cache_file"
+fi
+
+cat "$cache_file"
+printf "\n"
