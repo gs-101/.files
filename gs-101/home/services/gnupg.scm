@@ -31,5 +31,5 @@
         (service home-gpg-agent-service-type
                  (home-gpg-agent-configuration
                    (pinentry-program
-                    (file-command "pinentry-gnome3"))
+                    (file-command "pinentry-qt"))
                    (ssh-support? #t)))))

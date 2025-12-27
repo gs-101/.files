@@ -6,7 +6,6 @@
   #:use-module (gnu packages wm)
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu services)
-  #:use-module (selected-guix-works packages qt)
   #:use-module (selected-guix-works packages wm)
   #:export (home-hyprland-service-type))
 
@@ -16,7 +15,6 @@
         hyprlock
         hyprpicker
         hyprpolkitagent
-        hyprqt6engine
         hyprshot
         waybar
         xdg-desktop-portal-hyprland))
@@ -24,7 +22,6 @@
 (define (home-hyprland-environment-variables-service config)
   '(("HYPRCURSOR_THEME" . "Bibata-Modern-Classic")
     ("HYPRCURSOR_SIZE" . "24")
-    ("QT_QPA_PLATFORMTHEME" . "hyprqt6engine")
     ("XCURSOR_THEME" . "Bibata-Modern-Classic")
     ("XCURSOR_SIZE" . "24")))
 
