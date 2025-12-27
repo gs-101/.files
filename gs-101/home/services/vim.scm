@@ -8,8 +8,8 @@
   (list neovim))
 
 (define (home-vim-environment-variables-service config)
-  '(("EDITOR" . "neovim")
-    ("VISUAL" . "neovim")))
+  '(("EDITOR" . "TERM=alacritty-direct neovim")
+    ("VISUAL" . "TERM=alacritty-direct neovim")))
 
 (define home-vim-service-type
   (service-type (name 'home-vim)

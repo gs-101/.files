@@ -10,7 +10,7 @@
   (list emacs-master-pgtk-igc))
 
 (define (home-emacs-environment-variables-service config)
-  '(("EDITOR" . "emacsclient --create-frame --no-window-system --alternate-editor=''")
+  '(("EDITOR" . "TERM=alacritty-direct emacsclient --create-frame --no-window-system --alternate-editor=''")
     ("VISUAL" . "emacsclient --create-frame --alternate-editor=''")))
 
 (define (home-emacs-xdg-mime-applications-service config)
