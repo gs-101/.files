@@ -2,17 +2,23 @@
 
 set -eu
 
+script_name="${0##*/}"
+
+# Usage.
+
+usage() {
+  echo "Unknown command: ${1:-}" >&2
+  echo "Usage: $script_name all | gc | home | image | nuke | reload | system | update" >&2
+  exit 1
+}
+
+# Variables.
+
 dotfiles="$HOME/.files"
 module_files="$dotfiles/gs-101"
 plain_files="$dotfiles/plain"
 nix_home_manager_files="$plain_files/.config/home-manager"
 host_name="$(hostname)"
-
-usage() {
-  echo "Unknown command: ${1:-}"
-  echo "Usage: dotfiles all | gc | home | image | nuke | reload | system | update"
-  exit 1
-}
 
 # Helpers.
 
