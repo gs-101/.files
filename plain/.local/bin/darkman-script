@@ -2,9 +2,11 @@
 
 set -eu
 
+script_name="${0##*/}"
+
 usage() {
-  echo "Unknown command: ${1:-}"
-  echo "Usage: darkman-script light | dark"
+  echo "Unknown command: ${1:-}" >&2
+  echo "Usage: $script_name light | dark" >&2
   exit 1
 }
 
