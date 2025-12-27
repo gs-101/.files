@@ -2,7 +2,8 @@
   #:use-module (gnu packages)
   #:use-module (guix gexp)
   #:export (string-append-n
-            file-command))
+            file-command
+            file-command*))
 
 ;; Just adds a newline after a string.
 (define (string-append-n . args)
@@ -15,3 +16,8 @@
 ;; source package.
 (define* (file-command package #:optional (binary package))
   (file-append (specification->package package) (string-append "/bin/" binary)))
+
+;; Like file-command, but adds a space after the command so we can comfortably
+;; use commands with subcommands.
+(define* (file-command* package #:optional (binary package))
+  (file-append (specification->package package) (string-append "/bin/" binary " ")))

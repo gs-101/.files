@@ -23,7 +23,7 @@
                            ;; comfortably get passwords for scripts.
                            ;; See:
                            ;; <https://redlib.freedit.eu/r/linux/comments/ehfhud/keyring_alternative_access_keepassxc_entries_of/>
-                           #~(string-append #$(file-command "libsecret" "secret-tool") " lookup msmtp password"))
+                           #~(string-append #$(file-command* "libsecret" "secret-tool") "lookup msmtp password"))
                           (from "gabrielsantosdesouza@disroot.org"))))))
                    (defaults
                      (msmtp-configuration
