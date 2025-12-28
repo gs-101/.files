@@ -10,6 +10,13 @@ usage() {
   exit 1
 }
 
+gsettings_set() {
+  key="$1"
+  value="$2"
+
+  gsettings set org.gnome.desktop.interface "$key" "$value"
+}
+
 set_theme() {
   theme="$1"
   random_wallpaper=$(fd -a -e png . "$HOME/Pictures/wallpapers" | shuf -n 1)
@@ -18,16 +25,19 @@ set_theme() {
   if [ "$theme" = "light" ]; then
     greeting_time="Morning"
     gtk_theme="Breeze"
+    prefer_dark="0"
   elif [ "$theme" = "dark" ]; then
     greeting_time="Night"
     gtk_theme="Breeze-Dark"
+    prefer_dark="1"
   else
     usage "$theme"
   fi
 
   matugen image "$random_wallpaper" -m "$theme"
-  gsettings set org.gnome.desktop.interface color-scheme "prefer-$theme"
-  gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+  gsettings_set "color-scheme" "prefer-$theme"
+  gsettings_set "gtk-theme" "$gtk_theme"
+  gsettings_set "gtk-application-prefer-dark-theme" "$prefer_dark"
 
   if pgrep -x fnott; then
     notify-send \
