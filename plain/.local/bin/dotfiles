@@ -97,7 +97,7 @@ all() {
   system
 }
 
-case "${1:-main}" in
+case "${1:-all}" in
 update)
   update
   ;;
