@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix shell --verbosity=0 coreutils curl -- sh
+#!/usr/bin/env -S guix shell --verbosity=0 coreutils curl jq sed -- sh
 
 set -eu
 
@@ -6,19 +6,27 @@ script_name="${0##*/}"
 
 # Usage.
 
+usage() {
+  echo "Usage: $script_name [-i] [LOGO]" >&2
+}
+
 if [ "$#" -lt 1 ]; then
-  echo "Usage: $script_name [LOGO]" >&2
+  usage
   exit 1
 fi
 
-# Variables.
-
-logo="${1##*/}"
-xdg_cache="${XDG_CACHE_HOME:-$HOME/.cache}"
-cache_dir="$xdg_cache/$script_name"
-cache_file="$cache_dir/$logo.txt"
-
 # Helpers.
+
+menu() {
+  prompt="$1"
+
+  if pgrep -x hyprlauncher >/dev/null 2>&1; then
+    # Hyprlauncher doesn't support prompts. :(
+    hyprlauncher --dmenu
+  else
+    tv --input-prompt "$prompt"
+  fi
+}
 
 fetch_and_cache() {
   local_file="$1"
@@ -34,6 +42,28 @@ fetch_and_cache() {
     exit 1
   fi
 }
+
+# Argument parsing.
+
+if [ "$1" = "-i" ]; then
+  logo=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/contents/src/logo/ascii | \
+           jq -r ".[] | .name" | \
+           sed "s/.txt//" | \
+           menu "Pick a logo"
+      )
+  if [ -z "$logo" ]; then
+    echo "$script_name: No selection made" >&2
+    exit 1
+  fi
+else
+  logo="${1##*/}"
+fi
+
+# Variables.
+
+xdg_cache="${XDG_CACHE_HOME:-$HOME/.cache}"
+cache_dir="$xdg_cache/$script_name"
+cache_file="$cache_dir/$logo.txt"
 
 # Main script.
 
