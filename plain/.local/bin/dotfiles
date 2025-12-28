@@ -93,8 +93,8 @@ image() {
 
 all() {
   update
-  home
   system
+  home
 }
 
 case "${1:-all}" in
