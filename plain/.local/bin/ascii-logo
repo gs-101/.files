@@ -55,6 +55,9 @@ if [ "$1" = "-i" ]; then
     echo "$script_name: No selection made" >&2
     exit 1
   fi
+elif [ "$1" = "-h" ]; then
+  usage
+  exit 0
 else
   logo="${1##*/}"
 fi
