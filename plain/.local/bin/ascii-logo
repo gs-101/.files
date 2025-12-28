@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix shell coreutils curl -- sh
+#!/usr/bin/env -S guix shell --verbosity=0 coreutils curl -- sh
 
 set -eu
 

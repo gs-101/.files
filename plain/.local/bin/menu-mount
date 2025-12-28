@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix shell coreutils fd gawk libnotify procps util-linux-with-udev -- sh
+#!/usr/bin/env -S guix shell --verbosity=0 coreutils fd gawk libnotify procps util-linux-with-udev -- sh
 # See https://www.youtube.com/watch?v=YOpeXETS2z0
 # TODO: Add hyprlauncher and television as dependencies once they're available for Guix.
 
