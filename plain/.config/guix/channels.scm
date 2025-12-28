@@ -14,23 +14,12 @@
         (url "https://git.guix.gnu.org/guix.git")
         (branch "master")
         (commit
-          "aff9ce37616997647e7124edb0b3636ef98be68b")
+          "93e4c03938ae2c161885b615d66c613a544fc8ac")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
             (openpgp-fingerprint
               "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))
-      (channel
-        (name 'guix-rust-past-crates)
-        (url "https://codeberg.org/guix/guix-rust-past-crates.git")
-        (branch "trunk")
-        (commit
-          "b8b7ffbd1cec9f56f93fae4da3a74163bbc9c570")
-        (introduction
-          (make-channel-introduction
-            "1db24ca92c28255b28076792b93d533eabb3dc6a"
-            (openpgp-fingerprint
-              "F4C2 D1DF 3FDE EA63 D1D3  0776 ACC6 6D09 CA52 8292"))))
       (channel
         (name 'nonguix)
         (url "https://gitlab.com/nonguix/nonguix")
@@ -63,4 +52,15 @@
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
             (openpgp-fingerprint
-              "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162")))))
+              "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
+      (channel
+        (name 'guix-rust-past-crates)
+        (url "https://codeberg.org/guix/guix-rust-past-crates.git")
+        (branch "trunk")
+        (commit
+          "b8b7ffbd1cec9f56f93fae4da3a74163bbc9c570")
+        (introduction
+          (make-channel-introduction
+            "1db24ca92c28255b28076792b93d533eabb3dc6a"
+            (openpgp-fingerprint
+              "F4C2 D1DF 3FDE EA63 D1D3  0776 ACC6 6D09 CA52 8292")))))
