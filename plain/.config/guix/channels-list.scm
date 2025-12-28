@@ -17,15 +17,6 @@
           (openpgp-fingerprint
            "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))
       (channel
-        (name 'guix-rust-past-crates)
-        (url "https://codeberg.org/guix/guix-rust-past-crates.git")
-        (branch "trunk")
-        (introduction
-         (make-channel-introduction
-          "1db24ca92c28255b28076792b93d533eabb3dc6a"
-          (openpgp-fingerprint
-           "F4C2 D1DF 3FDE EA63 D1D3  0776 ACC6 6D09 CA52 8292"))))
-      (channel
         (name 'nonguix)
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
