@@ -11,9 +11,7 @@
   #:export (home-hyprland-service-type))
 
 (define (home-hyprland-profile-service config)
-  (list hypridle
-        hyprland
-        hyprlock
+  (list hyprland
         hyprpicker
         hyprpolkitagent
         hyprqt6engine
