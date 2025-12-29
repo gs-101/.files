@@ -14,7 +14,7 @@
         (url "https://git.guix.gnu.org/guix.git")
         (branch "master")
         (commit
-          "cf9a48f6fc9d50d1b62f0f8f8a83e54653d97e7f")
+          "ea031339ff219dff2b1a69c3a036bc9458194e74")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -47,20 +47,9 @@
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "d33af5c914a073970f6bec7f95a4469339809772")
+          "48f7ea291c81e7b7202e500354324066a4671eb9")
         (introduction
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
             (openpgp-fingerprint
-              "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
-      (channel
-        (name 'guix-rust-past-crates)
-        (url "https://codeberg.org/guix/guix-rust-past-crates.git")
-        (branch "trunk")
-        (commit
-          "b8b7ffbd1cec9f56f93fae4da3a74163bbc9c570")
-        (introduction
-          (make-channel-introduction
-            "1db24ca92c28255b28076792b93d533eabb3dc6a"
-            (openpgp-fingerprint
-              "F4C2 D1DF 3FDE EA63 D1D3  0776 ACC6 6D09 CA52 8292")))))
+              "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162")))))
