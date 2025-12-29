@@ -20,7 +20,7 @@ fi
 menu() {
   prompt="$1"
 
-  if pgrep -x hyprlauncher >/dev/null 2>&1; then
+  if pidof hyprlauncher >/dev/null 2>&1; then
     # Hyprlauncher doesn't support prompts. :(
     hyprlauncher --dmenu
   else

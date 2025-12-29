@@ -39,7 +39,7 @@ set_theme() {
   gsettings_set "gtk-theme" "$gtk_theme"
   gsettings_set "gtk-application-prefer-dark-theme" "$prefer_dark"
 
-  if pgrep -x fnott; then
+  if pidof fnott; then
     notify-send \
       --app-name="darkman" \
       "Good $greeting_time" \

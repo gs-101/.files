@@ -9,7 +9,7 @@ set -eu
 menu() {
   prompt="$1"
 
-  if pgrep -x hyprlauncher >/dev/null 2>&1; then
+  if pidof hyprlauncher >/dev/null 2>&1; then
     # Hyprlauncher doesn't support prompts. :(
     hyprlauncher --dmenu
   else
@@ -31,6 +31,6 @@ chosen=$(echo "$drives" | menu "Unmount which drive?" | awk '{print $1}')
 sudo umount "$chosen"
 
 # fnott is kind of an optional dependency.
-if pgrep -x fnott >/dev/null 2>&1; then
+if pidof fnott >/dev/null 2>&1; then
   notify-send "$chosen unmounted."
 fi
