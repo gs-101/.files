@@ -24,11 +24,11 @@ set_theme() {
 
   if [ "$theme" = "light" ]; then
     greeting_time="Morning"
-    gtk_theme="Breeze"
+    gtk_theme="adw-gtk3"
     prefer_dark="0"
   elif [ "$theme" = "dark" ]; then
     greeting_time="Night"
-    gtk_theme="Breeze-Dark"
+    gtk_theme="adw-gtk3-dark"
     prefer_dark="1"
   else
     usage "$theme"

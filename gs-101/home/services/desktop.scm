@@ -8,10 +8,8 @@
   #:use-module (gnu packages gnome)
   #:use-module (gnu packages gnome-xyz)
   #:use-module (gnu packages kde-internet)
-  #:use-module (gnu packages kde-plasma)
   #:use-module (gnu packages librewolf)
   #:use-module (gnu packages linux)
-  #:use-module (gnu packages qt)
   #:use-module (gnu packages tor-browsers)
   #:use-module (gnu packages video)
   #:use-module (gnu packages xdisorg)
@@ -19,23 +17,19 @@
   #:export (home-desktop-services))
 
 (define (home-desktop-profile-service config)
-  (list breeze
-        breeze-gtk
+  (list adw-gtk3-theme
         bibata-cursor-theme
         brightnessctl
         hicolor-icon-theme
         kdeconnect
         librewolf
         mpv
-        qt5ct
-        qt6ct
         torbrowser
         xdg-desktop-portal-gtk
         xdg-utils))
 
 (define (home-desktop-environment-variables-service config)
-  '(("QT_PLUGIN_PATH" . "$HOME/.guix-home/profile/lib/qt6/plugins")
-    ("QT_QPA_PLATFORMTHEME" . "qt6ct")))
+  '(("QT_PLUGIN_PATH" . "$HOME/.guix-home/profile/lib/qt6/plugins")))
 
 (define home-desktop-service-type
   (service-type (name 'home-desktop)
