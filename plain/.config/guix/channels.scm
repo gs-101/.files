@@ -47,7 +47,7 @@
         (url "https://github.com/gs-101/selected-guix-works.git")
         (branch "main")
         (commit
-          "48f7ea291c81e7b7202e500354324066a4671eb9")
+          "40da7ee7d1cf3e4f2e94e00d9d3dcf8298f2b05e")
         (introduction
           (make-channel-introduction
             "5d1270d51c64457d61cd46ec96e5599176f315a4"
