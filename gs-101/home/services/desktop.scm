@@ -29,7 +29,8 @@
         xdg-utils))
 
 (define (home-desktop-environment-variables-service config)
-  '(("QT_PLUGIN_PATH" . "$HOME/.guix-home/profile/lib/qt6/plugins")))
+  '(("GTK_2_RC_FILES" . "$XDG_CONFIG_HOME/gtk-2.0/settings.ini")
+    ("QT_PLUGIN_PATH" . "$HOME/.guix-home/profile/lib/qt6/plugins")))
 
 (define home-desktop-service-type
   (service-type (name 'home-desktop)
