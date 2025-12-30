@@ -7,13 +7,8 @@ script_name="${0##*/}"
 # Usage.
 
 usage() {
-  echo "Usage: $script_name [-i] [LOGO]" >&2
+  echo "Usage: $script_name [-i] [LOGO]"
 }
-
-if [ "$#" -lt 1 ]; then
-  usage
-  exit 1
-fi
 
 # Helpers.
 
@@ -45,12 +40,18 @@ fetch_and_cache() {
 
 # Argument parsing.
 
+if [ "$#" -lt 1 ]; then
+  usage >&2
+  exit 1
+fi
+
 if [ "$1" = "-i" ]; then
-  logo=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/contents/src/logo/ascii | \
-           jq -r ".[] | .name" | \
-           sed "s/.txt//" | \
-           menu "Pick a logo"
-      )
+  logo=$(
+    curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/contents/src/logo/ascii |
+      jq -r ".[] | .name" |
+      sed "s/.txt//" |
+      menu "Pick a logo"
+  )
   if [ -z "$logo" ]; then
     echo "$script_name: No selection made" >&2
     exit 1
