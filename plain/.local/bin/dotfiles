@@ -7,9 +7,7 @@ script_name="${0##*/}"
 # Usage.
 
 usage() {
-  echo "Unknown command: ${1:-}" >&2
   echo "Usage: $script_name all | gc | home | image | nuke | reload | system | update" >&2
-  exit 1
 }
 
 # Variables.
@@ -97,6 +95,8 @@ all() {
   home
 }
 
+# Main script.
+
 case "${1:-all}" in
 update)
   update
@@ -123,6 +123,8 @@ all)
   all
   ;;
 *)
-  usage "${1:-}"
+  echo "Unknown command: ${1:-}" >&2
+  usage >&2
+  exit 1
   ;;
 esac
