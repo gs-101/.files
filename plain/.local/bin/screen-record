@@ -1,0 +1,126 @@
+#!/usr/bin/env -S guix shell ffmpeg libnotify procps slurp wf-recorder -- sh
+# See https://axlefublr.github.io/screen-recording/
+# See https://github.com/ammen99/wf-recorder
+
+set -eu
+
+script_name="${0##*/}"
+
+# Usage.
+
+usage() {
+  echo "Usage: $script_name [-acg] [FILE_NAME]"
+}
+
+# Argument parsing.
+
+audio=false
+compress=false
+geometry=false
+
+while getopts "acg" option; do
+  case $option in
+    a)
+      audio=true;
+      ;;
+    c)
+      compress=true
+      ;;
+    g)
+      geometry=true
+      ;;
+    *)
+      usage >&2
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
+# Variables.
+
+base_name="${1:-video}"
+file_name="${base_name##*/}"
+lock_dir="${XDG_RUNTIME_DIR:-/tmp}"
+lock_file="$lock_dir/$script_name-${file_name}.pid"
+
+# Toggle logic.
+
+if [ -f "$lock_file" ]; then
+  target_pid=$(cat "$lock_file")
+
+  if kill -0 "$target_pid"; then
+    kill -INT "$target_pid"
+    exit 0
+  else
+    # This indicates the lock exists, but the process is dead, so we can
+    # start recording.
+    rm -f "$lock_file"
+  fi
+fi
+
+# Helpers.
+
+copy_link() {
+  file="$1"
+
+  if command -v copy-link >/dev/null; then
+    copy-link "$file"
+  fi
+}
+
+compress() {
+  ffmpeg \
+    -y \
+    -i "$file_name.mp4" \
+    -an \
+    -c:v libx264 \
+    -preset medium \
+    -movflags +faststart \
+    -b:v 3M \
+    -maxrate 4.5M \
+    -bufsize 6M \
+    -vf scale=-1:1080 \
+    "${file_name}_compressed.mp4"
+
+  mv "${file_name}_compressed.mp4" "$file_name.mp4"
+
+  copy_link "$file_name.mp4"
+}
+
+record() {
+  set -- --no-damage --overwrite -f "$file_name.mp4"
+
+  if [ "$audio" = true ]; then
+    set -- "$@" --audio
+  fi
+
+  if [ "$geometry" = true ]; then
+    region=$(slurp)
+
+    set -- "$@" --geometry "$region"
+  fi
+
+  wf-recorder "$@" &
+  rec_pid=$!
+  echo "$rec_pid" > "$lock_file"
+  wait "$rec_pid"
+  # Since wf-recorder runs continuously, this only runs after the toggle.
+  rm -f "$lock_file"
+
+  if [ "$compress" = true ]; then
+    compress
+  else
+    copy_link "$file_name.mp4"
+  fi
+}
+
+# Main script.
+
+record
+
+notify-send \
+  --app-name="$script_name" \
+  "Recording Saved" \
+  "Finished recording \"$file_name.mp4\"."
