@@ -30,7 +30,4 @@ chosen=$(echo "$drives" | menu "Unmount which drive?" | awk '{print $1}')
 
 sudo umount "$chosen"
 
-# fnott is kind of an optional dependency.
-if pidof fnott >/dev/null 2>&1; then
-  notify-send "$chosen unmounted."
-fi
+notify-send "$chosen unmounted."
