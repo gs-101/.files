@@ -10,12 +10,16 @@ usage() {
   echo "Usage: $script_name light | dark"
 }
 
+# Helpers.
+
 gsettings_set() {
   key="$1"
   value="$2"
 
   gsettings set org.gnome.desktop.interface "$key" "$value"
 }
+
+# Main script.
 
 set_theme() {
   theme="$1"
@@ -45,6 +49,8 @@ set_theme() {
       "Switching to $theme using \"$file_name\" as the wallpaper."
   fi
 }
+
+# Argument parsing.
 
 case "${1:-main}" in
   light)
