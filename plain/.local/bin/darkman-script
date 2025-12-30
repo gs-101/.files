@@ -25,19 +25,18 @@ set_theme() {
   if [ "$theme" = "light" ]; then
     greeting_time="Morning"
     gtk_theme="adw-gtk3"
-    prefer_dark="0"
+    color_scheme="default"
   elif [ "$theme" = "dark" ]; then
     greeting_time="Night"
     gtk_theme="adw-gtk3-dark"
-    prefer_dark="1"
+    color_scheme="prefer-dark"
   else
     usage "$theme"
   fi
 
-  matugen image "$random_wallpaper" -m "$theme"
-  gsettings_set "color-scheme" "prefer-$theme"
+  matugen image "$random_wallpaper" --mode "$theme"
   gsettings_set "gtk-theme" "$gtk_theme"
-  gsettings_set "gtk-application-prefer-dark-theme" "$prefer_dark"
+  gsettings_set "color-scheme" "$color_scheme"
 
   if pidof fnott; then
     notify-send \
