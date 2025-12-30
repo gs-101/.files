@@ -1,0 +1,31 @@
+#!/usr/bin/env -S guix shell --verbosity=0 coreutils wl-clipboard -- sh
+
+set -eu
+
+script_name="${0##*/}"
+
+# Usage.
+
+usage() {
+  echo "Usage: $script_name [FILE]"
+}
+
+# Variables.
+
+file="$1"
+
+# Argument parsing.
+
+if [ "$#" -lt 1 ]; then
+  usage >&2
+  exit 1
+fi
+
+if [ ! -e "$file" ]; then
+  echo "$script_name: $file: No such file or directory" >&2
+  exit 1
+fi
+
+# Main script.
+
+echo file://"$(realpath "$file")" | wl-copy  -t text/uri-list
