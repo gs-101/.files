@@ -25,8 +25,7 @@
         librewolf
         mpv
         torbrowser
-        xdg-desktop-portal-gtk
-        xdg-utils))
+        xdg-desktop-portal-gtk))
 
 (define (home-desktop-environment-variables-service config)
   '(("GTK_2_RC_FILES" . "$XDG_CONFIG_HOME/gtk-2.0/settings.ini")
