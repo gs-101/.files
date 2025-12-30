@@ -64,7 +64,4 @@ fi
 
 sudo mount "$chosen" "$mount_point"
 
-# fnott is kind of an optional dependency.
-if pidof fnott >/dev/null 2>&1; then
-  notify-send "$chosen mounted to $mount_point."
-fi
+notify-send "$chosen mounted to $mount_point."
