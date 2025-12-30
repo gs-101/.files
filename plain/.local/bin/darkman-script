@@ -4,10 +4,10 @@ set -eu
 
 script_name="${0##*/}"
 
+# Usage.
+
 usage() {
-  echo "Unknown command: ${1:-}" >&2
-  echo "Usage: $script_name light | dark" >&2
-  exit 1
+  echo "Usage: $script_name light | dark"
 }
 
 gsettings_set() {
@@ -54,6 +54,8 @@ case "${1:-main}" in
     set_theme dark
     ;;
   *)
-    usage "${1:-}"
+    echo "Unknown command: ${1:-}" >&2
+    usage >&2
+    exit 1
     ;;
 esac
