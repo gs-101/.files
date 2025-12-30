@@ -42,12 +42,10 @@ set_theme() {
   gsettings_set "gtk-theme" "$gtk_theme"
   gsettings_set "color-scheme" "$color_scheme"
 
-  if pidof fnott; then
-    notify-send \
-      --app-name="darkman" \
-      "Good $greeting_time" \
-      "Switching to $theme using \"$file_name\" as the wallpaper."
-  fi
+  notify-send \
+    --app-name="darkman" \
+    "Good $greeting_time" \
+    "Switching to $theme using \"$file_name\" as the wallpaper."
 }
 
 # Argument parsing.
