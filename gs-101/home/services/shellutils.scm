@@ -14,7 +14,6 @@
   (list bat
         cryptsetup
         direnv
-        eza
         fd
         pay-respects
         starship
@@ -42,7 +41,6 @@
                     '(("grep" . "grep --extended-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
                       (".." . "cd ..")
                       ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
-                      ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
                       ("ip" . "ip -color=auto")
                       ("df" . "df --human-readable")
                       ("free" . "free --mebi --human")
