@@ -1,0 +1,3 @@
+#!/usr/bin/env -S guix shell coreutils -- sh
+
+tail -f "$XDG_RUNTIME_DIR/waybar-screen-record-indicator"

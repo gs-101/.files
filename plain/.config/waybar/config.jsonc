@@ -5,8 +5,7 @@
     "modules-left": [
     "hyprland/submap",
     "sway/workspaces",
-    "hyprland/workspaces",
-    "custom/media"
+    "hyprland/workspaces"
     ],
     "modules-center": [
     "sway/window",
@@ -14,6 +13,7 @@
     "river/window"
     ],
     "modules-right": [
+    "custom/screen-record",
     "wireplumber",
     "backlight",
     "battery",
@@ -98,7 +98,7 @@
         "tooltip-format": "󰄬 Connected",
         "format-linked": "󰌷 {ifname}",
         "format-disconnected": " Disconnected"
-        },
+    },
     "wireplumber": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟",
@@ -107,5 +107,11 @@
                     "headphone": "󰋋",
                     "default": ["󰕿", "󰖀", "󰕾"]
                     }
+    },
+    "custom/screen-record": {
+    "exec": "/home/gabriel/.config/waybar/waybar-screen-record",
+    "format": "{}",
+    "hide-empty-text": true,
+    "on-click": "screen-record"
     }
 }

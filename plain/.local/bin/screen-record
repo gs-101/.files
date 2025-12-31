@@ -43,22 +43,8 @@ shift $((OPTIND - 1))
 base_name="${1:-video}"
 file_name="${base_name##*/}"
 lock_dir="${XDG_RUNTIME_DIR:-/tmp}"
-lock_file="$lock_dir/$script_name-${file_name}.pid"
-
-# Toggle logic.
-
-if [ -f "$lock_file" ]; then
-  target_pid=$(cat "$lock_file")
-
-  if kill -0 "$target_pid"; then
-    kill -INT "$target_pid"
-    exit 0
-  else
-    # This indicates the lock exists, but the process is dead, so we can
-    # start recording.
-    rm -f "$lock_file"
-  fi
-fi
+lock_file="$lock_dir/$script_name-${file_name}.lock"
+waybar_indicator_file="$lock_dir/waybar-screen-record-indicator"
 
 # Helpers.
 
@@ -118,9 +104,34 @@ record() {
 
 # Main script.
 
+## Toggle logic.
+
+if [ ! -e "$waybar_indicator_file" ]; then
+  mkfifo "$waybar_indicator_file"
+fi
+
+if [ -f "$lock_file" ]; then
+  target_pid=$(cat "$lock_file")
+
+  if kill -0 "$target_pid"; then
+    kill -INT "$target_pid"
+    exit 0
+  else
+    # This indicates the lock exists, but the process is dead, so we can
+    # start recording.
+    rm -f "$lock_file"
+  fi
+fi
+
+## Main logic.
+
+echo "󰑊" > "$waybar_indicator_file"
+
 record
 
 notify-send \
   --app-name="$script_name" \
   "Recording Saved" \
   "Finished recording \"$file_name.mp4\"."
+
+echo > "$waybar_indicator_file"
