@@ -48,6 +48,18 @@ waybar_indicator_file="$lock_dir/waybar-screen-record-indicator"
 
 # Helpers.
 
+waybar_recording() {
+  if [ -e "$waybar_indicator_file" ]; then
+    echo "󰑊" > "$waybar_indicator_file"
+  fi
+}
+
+waybar_stopped_recording() {
+  if [ -e "$waybar_indicator_file" ]; then
+    echo > "$waybar_indicator_file"
+  fi
+}
+
 copy_link() {
   file="$1"
 
@@ -88,6 +100,7 @@ record() {
     set -- "$@" --geometry "$region"
   fi
 
+  waybar_recording
   wf-recorder "$@" &
   rec_pid=$!
   echo "$rec_pid" > "$lock_file"
@@ -106,15 +119,12 @@ record() {
 
 ## Toggle logic.
 
-if [ ! -e "$waybar_indicator_file" ]; then
-  mkfifo "$waybar_indicator_file"
-fi
-
 if [ -f "$lock_file" ]; then
   target_pid=$(cat "$lock_file")
 
   if kill -0 "$target_pid"; then
     kill -INT "$target_pid"
+    waybar_stopped_recording
     exit 0
   else
     # This indicates the lock exists, but the process is dead, so we can
@@ -125,13 +135,9 @@ fi
 
 ## Main logic.
 
-echo "󰑊" > "$waybar_indicator_file"
-
 record
 
 notify-send \
   --app-name="$script_name" \
   "Recording Saved" \
   "Finished recording \"$file_name.mp4\"."
-
-echo > "$waybar_indicator_file"
