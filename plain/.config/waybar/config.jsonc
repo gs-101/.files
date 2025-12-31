@@ -23,7 +23,8 @@
     // Module configuration
     "custom/launcher": {
     "on-click": "hyprlauncher",
-    "format": ""
+    "format": "",
+    "tooltip": false
     },
     "sway/workspaces": {
     "disable-scroll": false,
