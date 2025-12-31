@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-    "hyprland/submap",
+    "custom/launcher",
     "sway/workspaces",
     "hyprland/workspaces"
     ],
@@ -21,9 +21,9 @@
     "clock"
     ],
     // Module configuration
-    "hyprland/submap": {
-    "format": "󰌌 {}",
-    "tooltip": false
+    "custom/launcher": {
+    "on-click": "hyprlauncher",
+    "format": ""
     },
     "sway/workspaces": {
     "disable-scroll": false,

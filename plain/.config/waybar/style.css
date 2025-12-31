@@ -29,6 +29,12 @@
   color: @error;
 }
 
+#custom-launcher {
+  font-size:  18px;
+  padding-left: 8px;
+  margin-right: 8px;
+}
+
 #custom-screen-record {
-  font-size: 24px;
+  font-size: 18px;
 }
