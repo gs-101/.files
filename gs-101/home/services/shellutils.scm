@@ -38,22 +38,24 @@
 (define home-shellutils-services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                  (aliases
-                   '(("grep" . "grep --extended-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
-                     (".." . "cd ..")
-                     ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
-                     ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
-                     ("ip" . "ip -color=auto")
-                     ("df" . "df --human-readable")
-                     ("free" . "free --mebi --human")
-                     ("fd" . "fd --follow --hyperlink=auto")))
-                  (bash-profile
-                   (list (local-file "files/bash_profile")))
-                  (bashrc
-                   (list (local-file "files/bashrc")))
-                  (environment-variables
-                   '(("HISTCONTROL" . "ignoredups:erasedups")
-                     ("HISTFILE" . "$XDG_CACHE_HOME/.bash_history")))))
+                   (aliases
+                    '(("grep" . "grep --extended-regexp --ignore-case --line-number  --with-filename --quiet -R --devices=read --color=auto")
+                      (".." . "cd ..")
+                      ("bat" . "bat --color auto --decorations auto --paging never --theme=base16-256")
+                      ("eza" . "eza --long --dereference --color auto --icons auto --hyperlink --all --group-directories-first --smart-group --header --changed --git")
+                      ("ip" . "ip -color=auto")
+                      ("df" . "df --human-readable")
+                      ("free" . "free --mebi --human")
+                      ("fd" . "fd --follow --hyperlink=auto")
+                      ("ls" . "ls --all --author --color=auto --group-directories-first --human-readable --dereference-command-line --hyperlink=auto -l")
+                      ("mkdir" . "mkdir --parent")))
+                   (bash-profile
+                    (list (local-file "files/bash_profile")))
+                   (bashrc
+                    (list (local-file "files/bashrc")))
+                   (environment-variables
+                    '(("HISTCONTROL" . "ignoredups:erasedups")
+                      ("HISTFILE" . "$XDG_CACHE_HOME/.bash_history")))))
         (service home-shellutils-service-type)
         (service home-ripgrep-service-type
                  (home-ripgrep-configuration
@@ -69,13 +71,13 @@
                   (hyperlink-format "default")))
         (service home-inputrc-service-type
                  (home-inputrc-configuration
-                  (variables
-                   `(("colored-stats" . #t)
-                     ("colored-completion-prefix" . #t)
-                     ("editing-mode" . "emacs")
-                     ;; Complete AND show other additional completion
-                     ;; options with a single tab press.
-                     ("show-all-if-ambiguous" . #t)
-                     ;; With colours enabled, this colours the
-                     ;; prefix in menu-complete.
-                     ("menu-complete-display-prefix" . #t)))))))
+                   (variables
+                    `(("colored-stats" . #t)
+                      ("colored-completion-prefix" . #t)
+                      ("editing-mode" . "emacs")
+                      ;; Complete AND show other additional completion
+                      ;; options with a single tab press.
+                      ("show-all-if-ambiguous" . #t)
+                      ;; With colours enabled, this colours the
+                      ;; prefix in menu-complete.
+                      ("menu-complete-display-prefix" . #t)))))))
