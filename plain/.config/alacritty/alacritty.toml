@@ -3,6 +3,9 @@ live_config_reload = true
 import = ["matugen.toml"]
 ipc_socket = true
 
+[env]
+TERM = "alacritty-direct"
+
 [selection]
 save_to_clipboard = true
 
