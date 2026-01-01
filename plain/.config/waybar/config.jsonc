@@ -10,17 +10,14 @@
     "hyprland/workspaces"
     ],
     "modules-center": [
-    "sway/window",
-    "hyprland/window",
-    "river/window"
+    "clock"
     ],
     "modules-right": [
     "custom/screen-record",
     "wireplumber",
     "backlight",
     "battery",
-    "network",
-    "clock"
+    "network"
     ],
     // Module configuration
     "custom/launcher": {
@@ -62,20 +59,29 @@
                     "10": "X"
                     }
     },
-    "hyprland/window": {
-    "separate-outputs": true
-    },
-    "tray": {
-        // "icon-size": ,
-        "spacing": 10
-    },
     "clock": {
         "tooltip-format": "<big>{calendar}</big>",
-        "format": "󰥔 {:%H:%M}",
+        "format": "{:%H:%M}",
         "format-alt": "{:%Y-%m-%d}",
         "calendar": {
                     "week-pos": "left"
         }
+    },
+    "custom/screen-record": {
+    "exec": "/home/gabriel/.config/waybar/waybar-screen-record",
+    "format": "{}",
+    "hide-empty-text": true,
+    "on-click": "screen-record",
+    "tooltip": false
+    },
+    "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-source": "{volume}%",
+    "format-icons": {
+                    "headphone": "󰋋",
+                    "default": ["󰕿", "󰖀", "󰕾"]
+                    }
     },
     "backlight": {
         // "device": ,
@@ -101,21 +107,5 @@
         "tooltip-format": "󰄬 Connected",
         "format-linked": "󰌷 {ifname}",
         "format-disconnected": " Disconnected"
-    },
-    "wireplumber": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟",
-    "format-source": "{volume}%",
-    "format-icons": {
-                    "headphone": "󰋋",
-                    "default": ["󰕿", "󰖀", "󰕾"]
-                    }
-    },
-    "custom/screen-record": {
-    "exec": "/home/gabriel/.config/waybar/waybar-screen-record",
-    "format": "{}",
-    "hide-empty-text": true,
-    "on-click": "screen-record",
-    "tooltip": false
     }
 }

@@ -2,39 +2,51 @@
 
 * {
   border: none;
+  border-radius: 0;
   font-family: sans-serif;
   font-size: 12px;
-  background: @background;
+  margin: 0;
+  min-height: 0;
+  padding: 0;
+}
+
+window#waybar {
+  background: transparent;
   color: @primary;
 }
 
-#workspaces button.active {
-  border: 2px solid @primary;
-}
+/* Modules with no pill. */
 
-#pulseaudio,#wireplumber,#network,#battery,#clock {
-  border-top: 3px solid @primary;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-/* Material Design seems to have no concept of "warning". */
-#battery.warning {
-  border-top: 3px solid orange;
-  color: orange;
-}
-
-#pulseaudio.muted,#wireplumber.muted,#network.disconnected,#battery.critical {
-  border-top: 3px solid @error;
-  color: @error;
-}
-
-#custom-launcher {
-  font-size:  18px;
-  padding-left: 8px;
-  margin-right: 8px;
-}
-
-#custom-screen-record {
+#clock,#custom-launcher,#custom-screen-record {
+  color: @surface;
   font-size: 18px;
+  margin: 0 5px;
+  padding: 0 5px
+}
+
+/* Modules with pill. */
+
+#workspaces {
+  transition: all 1050ms ease-in-out;
+}
+
+#workspaces button {
+  background: @surface;
+  border-radius: 24px;
+  color: @primary;
+  margin: 0 2px;
+  padding: 0 5px;
+  transition: all 200ms ease-in-out;
+}
+
+#workspaces button.active {
+  border: 1px solid @primary;
+  min-width: 50px;
+}
+
+#wireplumber,#backlight,#battery,#network {
+  background: @surface;
+  border-radius: 24px;
+  margin: 0 5px;
+  padding: 0 5px;
 }
