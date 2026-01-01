@@ -36,25 +36,6 @@
        (accent-2 "{{colors.tertiary.light.hex}}")
        (accent-3 "{{colors.tertiary.light.hex | set_lightness: -20.0}}")
        (fg-line-number-active fg-active)
-       ;; Colors from Catppuccin Mocha.
-       (rainbow-0 "#f2cdcd") ; Flamingo.
-       (rainbow-1 "#f38ba8") ; Red.
-       (rainbow-2 "#eba0ac") ; Maroon.
-       (rainbow-3 "#fab387") ; Peach.
-       (rainbow-4 "#f9e2af") ; Yellow.
-       (rainbow-5 "#a6e3a1") ; Green.
-       (rainbow-6 "#89dceb") ; Sky.
-       (rainbow-7 "#1e66f5") ; Blue.
-       (rainbow-8 "#cba6f7") ; Mauve.
-       (fg-heading-0 rainbow-0)
-       (fg-heading-1 rainbow-1)
-       (fg-heading-2 rainbow-2)
-       (fg-heading-3 rainbow-3)
-       (fg-heading-4 rainbow-4)
-       (fg-heading-5 rainbow-5)
-       (fg-heading-6 rainbow-6)
-       (fg-heading-7 rainbow-7)
-       (fg-heading-8 rainbow-8)
        (bg-paren-match unspecified)))
   (modus-vivendi-palette-overrides
     `((bg-main "{{colors.surface.dark.hex}}")
@@ -90,23 +71,4 @@
        (accent-2 "{{colors.tertiary.dark.hex}}")
        (accent-3 "{{colors.tertiary.dark.hex | set_lightness: -20.0}}")
        (fg-line-number-active fg-active)
-       ;; Colors from Catppuccin Mocha.
-       (rainbow-0 "#f2cdcd") ; Flamingo.
-       (rainbow-1 "#f38ba8") ; Red.
-       (rainbow-2 "#eba0ac") ; Maroon.
-       (rainbow-3 "#fab387") ; Peach.
-       (rainbow-4 "#f9e2af") ; Yellow.
-       (rainbow-5 "#a6e3a1") ; Green.
-       (rainbow-6 "#89dceb") ; Sky.
-       (rainbow-7 "#1e66f5") ; Blue.
-       (rainbow-8 "#cba6f7") ; Mauve.
-       (fg-heading-0 rainbow-0)
-       (fg-heading-1 rainbow-1)
-       (fg-heading-2 rainbow-2)
-       (fg-heading-3 rainbow-3)
-       (fg-heading-4 rainbow-4)
-       (fg-heading-5 rainbow-5)
-       (fg-heading-6 rainbow-6)
-       (fg-heading-7 rainbow-7)
-       (fg-heading-8 rainbow-8)
        (bg-paren-match unspecified))))
