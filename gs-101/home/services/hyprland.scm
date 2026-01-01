@@ -3,6 +3,7 @@
   #:use-module (gnu packages)
   #:use-module (gnu packages freedesktop)
   #:use-module (gnu packages polkit)
+  #:use-module (gnu packages qt)
   #:use-module (gnu packages wm)
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu services)
@@ -12,6 +13,7 @@
 
 (define (home-hyprland-profile-service config)
   (list hyprland
+        hyprland-qt-support
         hyprpicker
         hyprpolkitagent
         hyprqt6engine
@@ -23,6 +25,7 @@
   '(("HYPRCURSOR_THEME" . "Bibata-Modern-Classic")
     ("HYPRCURSOR_SIZE" . "24")
     ("QT_QPA_PLATFORMTHEME" . "hyprqt6engine")
+    ("QT_QUICK_CONTROLS_STYLE" . "org.hyprland.style")
     ("XCURSOR_THEME" . "Bibata-Modern-Classic")
     ("XCURSOR_SIZE" . "24")))
 
