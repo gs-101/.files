@@ -7,6 +7,7 @@
   #:use-module (gnu packages freedesktop)
   #:use-module (gnu packages gnome)
   #:use-module (gnu packages gnome-xyz)
+  #:use-module (gnu packages kde-frameworks)
   #:use-module (gnu packages kde-internet)
   #:use-module (gnu packages librewolf)
   #:use-module (gnu packages linux)
@@ -18,7 +19,9 @@
 
 (define (home-desktop-profile-service config)
   (list adw-gtk3-theme
+        adwaita-icon-theme
         bibata-cursor-theme
+        breeze-icons
         brightnessctl
         hicolor-icon-theme
         kdeconnect
