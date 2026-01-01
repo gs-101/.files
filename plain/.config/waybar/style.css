@@ -15,6 +15,16 @@ window#waybar {
   color: @primary;
 }
 
+tooltip {
+  background: @surface;
+  border: 1px solid @primary;
+  border-radius: 24px;
+}
+
+tooltip label {
+  color: @primary;
+}
+
 /* Modules with no pill. */
 
 #custom-screen-record {
