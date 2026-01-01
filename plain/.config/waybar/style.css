@@ -17,11 +17,10 @@ window#waybar {
 
 /* Modules with no pill. */
 
-#clock,#custom-launcher,#custom-screen-record {
-  color: @surface;
+#custom-screen-record {
   font-size: 18px;
   margin: 0 5px;
-  padding: 0 5px
+  padding: 0 5px;
 }
 
 /* Modules with pill. */
@@ -42,6 +41,14 @@ window#waybar {
 #workspaces button.active {
   border: 1px solid @primary;
   min-width: 50px;
+}
+
+#clock,#custom-launcher {
+  background: @surface;
+  border-radius: 24px;
+  font-size: 18px;
+  margin: 0 5px;
+  padding: 0 5px;
 }
 
 #wireplumber,#backlight,#battery,#network {
