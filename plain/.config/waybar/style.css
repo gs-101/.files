@@ -50,6 +50,7 @@ tooltip label {
 
 #workspaces button.active {
   border: 1px solid @primary;
+  font-weight: bold;
   min-width: 50px;
 }
 
@@ -66,4 +67,14 @@ tooltip label {
   border-radius: 24px;
   margin: 0 5px;
   padding: 0 5px;
+}
+
+/* Material Design seems to have no concept of "warning". */
+#battery.warning {
+    border-top: 3px solid orange;
+    color: orange;
+}
+
+#pulseaudio.muted,#wireplumber.muted,#network.disconnected,#battery.critical {
+    color: @error;
 }
