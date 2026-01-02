@@ -13,6 +13,7 @@
       hyprlauncher
       television
       wakatime-cli
+      wasabiwallet
     ];
   };
 
