@@ -8,6 +8,7 @@
   #:use-module (gnu services)
   #:use-module (gs-101 home services desktop)
   #:use-module (gs-101 home services emacs)
+  #:use-module (gs-101 home services finance)
   #:use-module (gs-101 home services fonts)
   #:use-module (gs-101 home services gnupg)
   #:use-module (gs-101 home services hyprland)
@@ -37,6 +38,7 @@
                           (directories '("../../plain"))
                           (excluded '(".envrc"))))
                 (service home-emacs-service-type)
+                (service home-finance-service-type)
                 (service home-syncthing-service-type
                          (for-home
                           (syncthing-configuration
