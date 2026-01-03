@@ -9,7 +9,7 @@
     stateVersion = "24.11";
 
     packages = with pkgs; [
-      anki
+      anki-bin
       hyprlauncher
       television
       wakatime-cli
