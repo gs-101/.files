@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix shell ffmpeg libnotify procps slurp wf-recorder -- sh
+#!/usr/bin/env -S guix shell ffmpeg libnotify procps slurp wf-recorder wl-clipboard -- sh
 # See https://axlefublr.github.io/screen-recording/
 # See https://github.com/ammen99/wf-recorder
 
@@ -60,14 +60,6 @@ waybar_stopped_recording() {
   fi
 }
 
-copy_link() {
-  file="$1"
-
-  if command -v copy-link >/dev/null; then
-    copy-link "$file"
-  fi
-}
-
 compress() {
   ffmpeg \
     -y \
@@ -84,7 +76,7 @@ compress() {
 
   mv "${file_name}_compressed.mp4" "$file_name.mp4"
 
-  copy_link "$file_name.mp4"
+  wl-copy < "$file_name.mp4"
 }
 
 record() {
@@ -111,7 +103,7 @@ record() {
   if [ "$compress" = true ]; then
     compress
   else
-    copy_link "$file_name.mp4"
+    wl-copy < "$file_name.mp4"
   fi
 }
 
