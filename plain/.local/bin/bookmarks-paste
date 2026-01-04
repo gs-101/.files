@@ -1,0 +1,34 @@
+#!/usr/bin/env -S guix shell coreutils libnotify procps wtype -- sh
+# See https://www.youtube.com/watch?v=d_11QaTlf1I
+
+set -eu
+
+# Variables.
+
+script_name="${0##*/}"
+bookmarks="$HOME/Documents/bookmarks/bookmarks.txt"
+
+# Helpers.
+
+menu() {
+  if pidof hyprlauncher >/dev/null 2>&1; then
+    hyprlauncher --dmenu
+  else
+    tv
+  fi
+}
+
+# Main script.
+
+if [ ! -f "$bookmarks" ]; then
+  echo "$script_name: Bookmark file not found" >&2
+  exit 1
+fi
+
+## 'true' ensures the script doesn't exit if grep finds no matches or the
+## menu is cancelled.
+target=$(grep -v '^#' "$bookmarks" | menu | cut -d ' ' -f1 || true)
+
+if [ -n "$target" ]; then
+  wtype "$target"
+fi

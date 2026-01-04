@@ -1,0 +1,37 @@
+#!/usr/bin/env -S guix shell coreutils libnotify wl-clipboard -- sh
+# See https://www.youtube.com/watch?v=d_11QaTlf1I
+
+set -eu
+
+# Variables.
+
+script_name="${0##*/}"
+bookmarks="$HOME/Documents/bookmarks/bookmarks.txt"
+bookmark="$(wl-paste --primary 2>/dev/null || true)"
+
+# Error handling.
+
+if [ -z "$bookmark" ]; then
+  echo "$script_name: Clipboard is empty" >&2
+  exit 1
+fi
+
+if [ ! -f "$bookmarks" ]; then
+  echo "$script_name: Bookmark file not found" >&2
+  exit 1
+fi
+
+# Main script.
+
+if grep --fixed-strings --line-regexp --quiet -- "$bookmark" "$bookmarks"; then
+  notify-send \
+    --app-name="$script_name" \
+    "Bookmark entry already added."
+  echo "$script_name: Bookmark entry already added" >&2
+  exit 1
+else
+  printf "%s\n" "$bookmark" >> "$bookmarks"
+  notify-send \
+    --app-name="$script_name" \
+    "Bookmark entry added."
+fi
