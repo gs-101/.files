@@ -8,6 +8,10 @@
     homeDirectory = "/home/gabriel";
     stateVersion = "24.11";
 
+    sessionVariables = {
+      ANKI_WAYLAND = 1;
+    };
+
     packages = with pkgs; [
       anki-bin
       hyprlauncher
