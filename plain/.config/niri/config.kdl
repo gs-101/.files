@@ -1,0 +1,200 @@
+// Autostart.
+
+spawn-sh-at-startup "guix shell swww -- swww-daemon"
+spawn-at-startup "waybar"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "~/.guix-home/profile/libexec/hyprpolkitagent"
+spawn-sh-at-startup "guix shell fnott -- fnott"
+spawn-at-startup "kdeconnectd"
+spawn-at-startup "kdeconnect-indicator"
+spawn-at-startup "hyprlauncher" "-d"
+spawn-sh-at-startup "guix shell hypridle -- hypridle"
+spawn-sh-at-startup "guix shell darkman -- darkman run"
+spawn-at-startup "emacs" "--daemon"
+
+// Misc.
+
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png"
+
+// Look and feel.
+
+layout {
+        always-center-single-column
+        default-column-display "tabbed"
+
+        background-color "transparent"
+
+        border {
+                off
+        }
+
+        focus-ring {
+                width 1
+        }
+
+        gaps 5
+
+        shadow {
+                off
+        }
+
+        tab-indicator {
+                hide-when-single-tab
+        }
+}
+
+prefer-no-csd
+
+// Input.
+
+cursor {
+        hide-after-inactive-ms 1000
+        hide-when-typing
+
+        xcursor-theme "Bibata-Modern-Classic"
+        xcursor-size 24
+}
+
+input {
+        focus-follows-mouse
+
+        keyboard {
+                xkb {
+                        layout "br"
+
+                        options "ctrl:nocaps"
+                }
+
+                numlock
+
+                repeat-delay 600
+                repeat-rate 25
+        }
+
+        mouse {
+                accel-profile "flat"
+        }
+
+        touchpad {
+                accel-profile "flat"
+
+                disabled-on-external-mouse
+
+                drag true
+                drag-lock
+
+                dwt
+                dwtp
+        }
+
+        trackball {
+                accel-profile "flat"
+        }
+
+        trackpoint {
+                accel-profile "flat"
+        }
+
+        workspace-auto-back-and-forth
+}
+
+// Keybindings.
+
+binds {
+        // Programs.
+        Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn "alacritty"; }
+        Mod+X hotkey-overlay-title="Spawn Menu" { spawn "hyprlauncher"; }
+        Mod+E hotkey-overlay-title="Spawn Editor" { spawn "emacsclient" "--create-frame" "--alternate-editor=''"; }
+        // See https://codeberg.org/tusharhero/tinee
+        Mod+Backspace hotkey-overlay-title="This is Not Emacs Everywhere" { spawn "emacsclient" "--eval" "'(tinee)'" "--alternate-editor=''"; }
+        Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn-sh "cliphist list | hyprlauncher --dmenu | cliphist decode | wl-copy"; }
+        Mod+C hotkey-overlay-title="Spawn Color Picker" { spawn "hyprpicker" "--autocopy" "--format=hex"; }
+        // Screenshot
+        Print hotkey-overlay-title="Take a Screenshot of the Screen" { screenshot-screen show-pointer=false; }
+        Shift+Print hotkey-overlay-title="Take a Screenshot of the Current Window" { screenshot-window; }
+        // Recording.
+        Mod+Print hotkey-overlay-title="Record the Screen" { spawn "screen-record" "-c"; }
+        // Bar.
+        Mod+B hotkey-overlay-title="Toggle the Bar" { spawn-sh "killall -SIGUSR1 waybar || waybar"; }
+        // Bookmarks.
+        Mod+Ctrl+C hotkey-overlay-title="Copy entry to Bookmarks" { spawn "bookmarks-copy"; }
+        Mod+Ctrl+V hotkey-overlay-title="Paste entry from Bookmarks" { spawn "bookmarks-paste"; }
+
+        // Laptop multimedia keys.
+        XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+        XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+        XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+        XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+        XF86MonBrightnessUp { spawn "brightnessctl" "s" "10%+"; }
+        XF86MonBrightnessDown { spawn "brightnessctl" "s" "10%-"; }
+        XF86AudioNext { spawn "playerctl" "next"; }
+        XF86AudioPause { spawn "playerctl" "play-pause"; }
+        XF86AudioPlay { spawn "playerctl" "play-pause"; }
+        XF86AudioPrev { spawn "playerctl" "previous"; }
+
+        // Actions, modes.
+        Mod+Escape { quit; }
+        // Windows.
+        Mod+Q { close-window; }
+        Mod+F { switch-focus-between-floating-and-tiling; }
+        Mod+Left { focus-column-left; }
+        Mod+Shift+Left { move-column-left; }
+        Mod+Right { focus-column-right; }
+        Mod+Shift+Right { move-column-right; }
+        Mod+Up { focus-window-up; }
+        Mod+Shift+Up { move-window-up; }
+        Mod+Down { focus-window-down; }
+        Mod+Shift+Down { move-window-down; }
+        // Workspaces.
+        Mod+1 { focus-workspace 1; }
+        Mod+2 { focus-workspace 2; }
+        Mod+3 { focus-workspace 3; }
+        Mod+4 { focus-workspace 4; }
+        Mod+5 { focus-workspace 5; }
+        Mod+6 { focus-workspace 6; }
+        Mod+7 { focus-workspace 7; }
+        Mod+8 { focus-workspace 8; }
+        Mod+9 { focus-workspace 9; }
+        Mod+0 { focus-workspace 10; }
+        Mod+Shift+1 { move-column-to-workspace 1; }
+        Mod+Shift+2 { move-column-to-workspace 2; }
+        Mod+Shift+3 { move-column-to-workspace 3; }
+        Mod+Shift+4 { move-column-to-workspace 4; }
+        Mod+Shift+5 { move-column-to-workspace 5; }
+        Mod+Shift+6 { move-column-to-workspace 6; }
+        Mod+Shift+7 { move-column-to-workspace 7; }
+        Mod+Shift+8 { move-column-to-workspace 8; }
+        Mod+Shift+9 { move-column-to-workspace 9; }
+        Mod+Shift+0 { move-column-to-workspace 10; }
+        Mod+WheelScrollUp { focus-workspace-up; }
+        Mod+WheelScrollLeft { focus-column-left; }
+        Mod+WheelScrollRight { focus-column-right; }
+        Mod+WheelScrollDown { focus-workspace-down; }
+        Mod+TouchpadScrollUp { focus-workspace-up; }
+        Mod+TouchpadScrollLeft { focus-column-left; }
+        Mod+TouchpadScrollRight { focus-column-right; }
+        Mod+TouchpadScrollDown { focus-workspace-down; }
+}
+
+switch-events {
+        tablet-mode-on { spawn "sh" "-c" "guix shell glib:bin gsettings-desktop-schemas -- gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
+        tablet-mode-off { spawn "sh" "-c" "guix shell glib:bin gsettings-desktop-schemas -- gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
+}
+
+// Window rules.
+
+window-rule {
+        clip-to-geometry true
+        geometry-corner-radius 24
+}
+
+window-rule {
+        match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+
+        block-out-from "screencast"
+}
+
+// Matugen.
+
+include "./matugen.kdl"

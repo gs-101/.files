@@ -28,6 +28,11 @@ input_path = '~/.config/matugen/templates/hyprland.conf'
 output_path = '~/.config/hypr/matugen.conf'
 post_hook = 'hyprctl reload'
 
+[templates.niri]
+input_path = '~/.config/matugen/templates/niri.kdl'
+output_path = '~/.config/niri/matugen.kdl'
+# pre_hook = 'niri msg action do-screen-transition'
+
 [templates.qt5ct]
 input_path = '~/.config/matugen/templates/qt.conf'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
