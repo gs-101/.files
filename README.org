@@ -1,5 +1,8 @@
 #+title: .files
 #+OPTIONS: f:t
 
-#+caption: Hyprland Desktop Environment with Waybar
+#+caption: Hyprland Window Manager with Waybar
 [[file:./screenshots/hyprland.png]]
+
+#+caption: Niri Window Manager with Waybar
+[[file:./screenshots/niri.png]]
