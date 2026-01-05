@@ -8,6 +8,9 @@
   (list cliphist
         wl-clipboard))
 
+(define (home-wayland-environment-variables-service config)
+  '(("QT_QPA_PLATFORM" . "wayland;xcb")))
+
 (define home-wayland-service-type
   (service-type (name 'home-wayland)
                 (description "Service containing packages that are helpful for
@@ -15,5 +18,8 @@ a Wayland environment.")
                 (extensions
                  (list (service-extension
                         home-profile-service-type
-                        home-wayland-profile-service)))
+                        home-wayland-profile-service)
+                       (service-extension
+                        home-environment-variables-service-type
+                        home-wayland-environment-variables-service)))
                 (default-value #f)))
