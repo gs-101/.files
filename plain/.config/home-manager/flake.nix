@@ -2,15 +2,15 @@
   inputs = {
     nixpkgs.url = "nixpkgs/master";
     nur = {
-      url = "github:nix-community/NUR";
+      url = "nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
+      url = "emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
