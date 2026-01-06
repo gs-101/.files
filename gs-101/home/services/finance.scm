@@ -4,9 +4,8 @@
   #:use-module (gnu services)
   #:export (home-finance-service-type))
 
-;; TODO: use cli instead.
 (define (home-finance-profile-service config)
-  (list monero-gui))
+  (list monero))
 
 (define home-finance-service-type
   (service-type (name 'home-finance)
