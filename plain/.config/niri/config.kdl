@@ -11,7 +11,6 @@ spawn-at-startup "kdeconnect-indicator"
 spawn-at-startup "hyprlauncher" "-d"
 spawn-sh-at-startup "guix shell hypridle -- hypridle"
 spawn-sh-at-startup "guix shell darkman -- darkman run"
-spawn-at-startup "emacs" "--daemon"
 
 // Misc.
 
@@ -105,7 +104,7 @@ binds {
         // Programs.
         Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn "alacritty"; }
         Mod+X hotkey-overlay-title="Spawn Menu" { spawn "hyprlauncher"; }
-        Mod+E hotkey-overlay-title="Spawn Editor" { spawn "emacsclient" "--create-frame" "--alternate-editor=''"; }
+        Mod+E hotkey-overlay-title="Spawn Editor" { spawn-sh "$VISUAL"; }
         // See https://codeberg.org/tusharhero/tinee
         Mod+Backspace hotkey-overlay-title="This is Not Emacs Everywhere" { spawn "emacsclient" "--eval" "'(tinee)'" "--alternate-editor=''"; }
         Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn-sh "cliphist list | hyprlauncher --dmenu | cliphist decode | wl-copy"; }
