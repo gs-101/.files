@@ -113,7 +113,7 @@ binds {
         Print hotkey-overlay-title="Take a Screenshot of the Screen" { screenshot-screen show-pointer=false; }
         Shift+Print hotkey-overlay-title="Take a Screenshot of the Current Window" { screenshot-window; }
         // Recording.
-        Mod+Print hotkey-overlay-title="Record the Screen" { spawn "screen-record" "-c"; }
+        Mod+Print hotkey-overlay-title="Record the Screen" { spawn "screen-record"; }
         // Bar.
         Mod+B hotkey-overlay-title="Toggle the Bar" { spawn-sh "killall -SIGUSR1 waybar || waybar"; }
         // Bookmarks.
