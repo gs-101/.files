@@ -136,7 +136,7 @@ binds {
         Mod+Escape { quit; }
         // Windows.
         Mod+Q { close-window; }
-        Mod+F { switch-focus-between-floating-and-tiling; }
+        Mod+F { toggle-window-floating; }
         Mod+Left { focus-column-left; }
         Mod+Shift+Left { move-column-left; }
         Mod+Right { focus-column-right; }
