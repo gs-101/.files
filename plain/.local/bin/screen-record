@@ -9,22 +9,18 @@ script_name="${0##*/}"
 # Usage.
 
 usage() {
-  echo "Usage: $script_name [-acg] [FILE_NAME]"
+  echo "Usage: $script_name [-ag] [FILE_NAME]"
 }
 
 # Argument parsing.
 
 audio=false
-compress=false
 geometry=false
 
-while getopts "acg" option; do
+while getopts "ag" option; do
   case $option in
     a)
       audio=true;
-      ;;
-    c)
-      compress=true
       ;;
     g)
       geometry=true
@@ -60,25 +56,6 @@ waybar_stopped_recording() {
   fi
 }
 
-compress() {
-  ffmpeg \
-    -y \
-    -i "$file_name.mp4" \
-    -an \
-    -c:v libx264 \
-    -preset medium \
-    -movflags +faststart \
-    -b:v 3M \
-    -maxrate 4.5M \
-    -bufsize 6M \
-    -vf scale=-1:1080 \
-    "${file_name}_compressed.mp4"
-
-  mv "${file_name}_compressed.mp4" "$file_name.mp4"
-
-  wl-copy < "$file_name.mp4"
-}
-
 record() {
   set -- --no-damage --overwrite -f "$file_name.mp4"
 
@@ -99,12 +76,7 @@ record() {
   wait "$rec_pid"
   # Since wf-recorder runs continuously, this only runs after the toggle.
   rm -f "$lock_file"
-
-  if [ "$compress" = true ]; then
-    compress
-  else
-    wl-copy < "$file_name.mp4"
-  fi
+  wl-copy --type text/uri-list "file://$PWD/$file_name.mp4"
 }
 
 # Main script.
