@@ -65,19 +65,11 @@ system() {
 home() {
   run_guix_home --fallback
   home-manager switch --flake "$nix_home_manager_files"
-
-  if [ "${XDG_CURRENT_DESKTOP:-}" = "Hyprland" ]; then
-    hyprctl reload
-  fi
 }
 
 reload() {
   run_guix_home --no-substitutes
   home-manager switch --flake "$nix_home_manager_files" --no-substitute
-
-  if [ "${XDG_CURRENT_DESKTOP:-}" = "Hyprland" ]; then
-    hyprctl reload
-  fi
 }
 
 image() {
