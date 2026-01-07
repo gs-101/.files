@@ -38,6 +38,8 @@ shift $((OPTIND - 1))
 
 base_name="${1:-video}"
 file_name="${base_name##*/}"
+save_dir="${HOME}/Videos"
+full_path="$save_dir/$file_name.mp4"
 lock_dir="${XDG_RUNTIME_DIR:-/tmp}"
 lock_file="$lock_dir/$script_name-${file_name}.lock"
 waybar_indicator_file="$lock_dir/waybar-screen-record-indicator"
@@ -57,7 +59,7 @@ waybar_stopped_recording() {
 }
 
 record() {
-  set -- --no-damage --overwrite -f "$file_name.mp4"
+  set -- --no-damage --overwrite -f "$full_path"
 
   if [ "$audio" = true ]; then
     set -- "$@" --audio
@@ -77,6 +79,11 @@ record() {
   # Since wf-recorder runs continuously, this only runs after the toggle.
   rm -f "$lock_file"
   wl-copy --type text/uri-list "file://$PWD/$file_name.mp4"
+
+  notify-send \
+    --app-name="$script_name" \
+    "Recording Saved" \
+    "Finished recording \"$file_name.mp4\"."
 }
 
 # Main script.
@@ -99,9 +106,6 @@ fi
 
 ## Main logic.
 
-record
+mkdir -p "$save_dir"
 
-notify-send \
-  --app-name="$script_name" \
-  "Recording Saved" \
-  "Finished recording \"$file_name.mp4\"."
+record
