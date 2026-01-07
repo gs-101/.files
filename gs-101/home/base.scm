@@ -13,7 +13,6 @@
   #:use-module (gs-101 home services gnupg)
   #:use-module (gs-101 home services image)
   #:use-module (gs-101 home services mail)
-  #:use-module (gs-101 home services niri)
   #:use-module (gs-101 home services shellutils)
   #:use-module (gs-101 home services sound)
   #:use-module (gs-101 home services terminals)
@@ -43,7 +42,7 @@
                          (for-home
                           (syncthing-configuration
                            (user "gabriel"))))
-                (service home-niri-service-type)
+
                 (service home-image-service-type)
                 (service home-terminals-service-type)
                 (service home-video-service-type)
