@@ -17,7 +17,8 @@
         fd
         pay-respects
         starship
-        unzip))
+        unzip
+        zip))
 
 (define (home-shellutils-environment-variables-service config)
   '(("STARSHIP_CONFIG" . "$XDG_CONFIG_HOME/starship/starship.toml")))
