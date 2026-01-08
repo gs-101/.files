@@ -28,6 +28,7 @@
       (channel
         (name 'rde)
         (url "https://git.sr.ht/~abcdw/rde")
+        (branch "master")
         (introduction
          (make-channel-introduction
           "257cebd587b66e4d865b3537a9a88cccd7107c95"
