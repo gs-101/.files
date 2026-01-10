@@ -33,6 +33,12 @@
 (define (home-desktop-environment-variables-service config)
   '(("GTK_2_RC_FILES" . "$XDG_CONFIG_HOME/gtk-2.0/settings.ini")))
 
+(define (home-desktop-xdg-mime-applications-service config)
+  (home-xdg-mime-applications-configuration
+   (default
+     '((x-scheme-handler/http . librewolf.desktop)
+       (x-scheme-handler/https . librewolf.desktop)))))
+
 (define home-desktop-service-type
   (service-type (name 'home-desktop)
                 (description "Service containing packages specific to a desktop
@@ -43,7 +49,10 @@ environment.")
                         home-desktop-profile-service)
                        (service-extension
                         home-environment-variables-service-type
-                        home-desktop-environment-variables-service)))
+                        home-desktop-environment-variables-service)
+                       (service-extension
+                        home-xdg-mime-applications-service-type
+                        home-desktop-xdg-mime-applications-service)))
                 (default-value #f)))
 
 (define home-desktop-services
