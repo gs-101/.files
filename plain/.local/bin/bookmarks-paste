@@ -5,8 +5,9 @@ set -eu
 
 # Variables.
 
-script_name="${0##*/}"
-bookmarks="$HOME/Documents/bookmarks/bookmarks.txt"
+bookmark_dir="$HOME/Documents/bookmarks"
+bookmark_file="$bookmark_dir/bookmarks.txt"
+later_file="$bookmark_dir/later.txt"
 
 # Helpers.
 
@@ -20,14 +21,14 @@ menu() {
 
 # Main script.
 
-if [ ! -f "$bookmarks" ]; then
-  echo "$script_name: Bookmark file not found" >&2
-  exit 1
-fi
+mkdir -p "$bookmark_dir"
+
+files=$(printf "%s\n%s\n" "$bookmark_file" "$later_file")
+file=$(printf "%s" "$files" | menu)
 
 ## 'true' ensures the script doesn't exit if grep finds no matches or the
 ## menu is cancelled.
-target=$(grep -v '^#' "$bookmarks" | menu | cut -d ' ' -f1 || true)
+target=$(grep -v '^#' "$file" | menu | cut -d ' ' -f1 || true)
 
 if [ -n "$target" ]; then
   wtype "$target"

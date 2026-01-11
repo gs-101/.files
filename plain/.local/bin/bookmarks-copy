@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix shell coreutils libnotify wl-clipboard -- sh
+#!/usr/bin/env -S guix shell coreutils libnotify procps wl-clipboard -- sh
 # See https://www.youtube.com/watch?v=d_11QaTlf1I
 
 set -eu
@@ -6,8 +6,23 @@ set -eu
 # Variables.
 
 script_name="${0##*/}"
-bookmarks="$HOME/Documents/bookmarks/bookmarks.txt"
+bookmark_dir="$HOME/Documents/bookmarks"
+bookmark_file="$bookmark_dir/bookmarks.txt"
+later_file="$bookmark_dir/later.txt"
 bookmark="$(wl-paste --primary 2>/dev/null || true)"
+
+# Helpers.
+
+menu() {
+  prompt="$1"
+
+  if pidof hyprlauncher >/dev/null 2>&1; then
+    # Hyprlauncher doesn't support prompts. :(
+    hyprlauncher --dmenu
+  else
+    tv --input-prompt "$prompt"
+  fi
+}
 
 # Error handling.
 
@@ -16,22 +31,23 @@ if [ -z "$bookmark" ]; then
   exit 1
 fi
 
-if [ ! -f "$bookmarks" ]; then
-  echo "$script_name: Bookmark file not found" >&2
-  exit 1
-fi
-
 # Main script.
 
-if grep --fixed-strings --line-regexp --quiet -- "$bookmark" "$bookmarks"; then
+mkdir -p "$bookmark_dir"
+
+files=$(printf "%s\n%s\n" "$bookmark_file" "$later_file")
+file=$(printf "%s" "$files" | menu "Pick a file")
+file_name=$(basename "$file")
+
+if grep --fixed-strings --line-regexp --quiet -- "$bookmark" "$file"; then
   notify-send \
     --app-name="$script_name" \
-    "Bookmark entry already added."
-  echo "$script_name: Bookmark entry already added" >&2
+    "Bookmark entry already added to \"$file\"."
+  echo "$script_name: Bookmark entry already added to \"$file_name\"" >&2
   exit 1
 else
-  printf "%s\n" "$bookmark" >> "$bookmarks"
+  printf "%s\n" "$bookmark" >> "$file"
   notify-send \
     --app-name="$script_name" \
-    "Bookmark entry added."
+    "Bookmark entry added to \"$file_name\"."
 fi
