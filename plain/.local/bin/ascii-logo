@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix shell --verbosity=0 coreutils curl jq sed -- sh
+#!/usr/bin/env -S guix shell --verbosity=0 coreutils curl jq procps sed -- sh
 
 set -eu
 
