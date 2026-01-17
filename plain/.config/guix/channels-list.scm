@@ -1,6 +1,6 @@
 (list (channel
         (name 'emacs-master)
-        (url "https://github.com/gs-101/emacs-master.git")
+        (url "https://github.com/gs-101/emacs-master")
         (branch "main")
         (introduction
          (make-channel-introduction
@@ -9,7 +9,7 @@
            "3049 BF6C 0829 94E4 38ED  4A15 3033 E0E9 F7E2 5FE4"))))
       (channel
         (name 'guix)
-        (url "https://git.guix.gnu.org/guix.git")
+        (url "https://codeberg.org/guix/guix")
         (branch "master")
         (introduction
          (make-channel-introduction
@@ -36,7 +36,7 @@
            "2841 9AC6 5038 7440 C7E9  2FFA 2208 D209 58C1 DEB0"))))
       (channel
         (name 'selected-guix-works)
-        (url "https://github.com/gs-101/selected-guix-works.git")
+        (url "https://github.com/gs-101/selected-guix-works")
         (branch "main")
         (introduction
          (make-channel-introduction
