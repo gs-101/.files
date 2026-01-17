@@ -1,0 +1,39 @@
+#!/bin/sh
+
+set -eu
+
+script_name="${0##*/}"
+
+# Usage.
+
+usage() {
+  echo "Usage: $script_name on | off"
+}
+
+# Main script.
+
+turn_off() {
+  [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ] && hyprctl dispatch dpms off
+  [ "$XDG_CURRENT_DESKTOP" = "niri" ] && niri msg action power-off-monitors
+}
+
+turn_on() {
+  [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ] && hyprctl dispatch dpms on
+  [ "$XDG_CURRENT_DESKTOP" = "niri" ] && niri msg action power-on-monitors
+}
+
+# Argument parsing.
+
+case "${1:-main}" in
+on)
+  turn_on
+  ;;
+off)
+  turn_off
+  ;;
+*)
+  echo "Unknown command: ${1:-}" >&2
+  usage >&2
+  exit 1
+  ;;
+esac
