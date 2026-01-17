@@ -1,8 +1,8 @@
 (define-module (gs-101 home guix-pc)
   #:use-module (gnu home)
+  #:use-module (gnu home services niri)
   #:use-module (gnu services)
-  #:use-module (gs-101 home base)
-  #:use-module (gs-101 home services niri))
+  #:use-module (gs-101 home base))
 
 (home-environment
  (inherit base-home)
