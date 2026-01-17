@@ -26,12 +26,12 @@ output_path = '~/.config/gtk-4.0/gtk.css'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland.conf'
 output_path = '~/.config/hypr/matugen.conf'
-post_hook = 'hyprctl reload'
+post_hook = '[ $XDG_CURRENT_DESKTOP = "Hyprland" ] && hyprctl reload'
 
 [templates.niri]
 input_path = '~/.config/matugen/templates/niri.kdl'
 output_path = '~/.config/niri/matugen.kdl'
-# pre_hook = 'niri msg action do-screen-transition'
+pre_hook = '[ $XDG_CURRENT_DESKTOP = "niri" ] && niri msg action do-screen-transition'
 
 [templates.qt5ct]
 input_path = '~/.config/matugen/templates/qt.conf'
