@@ -11,7 +11,7 @@
 (define home-version-control-services
   (list (simple-service 'home-git-profile-service
                         home-profile-service-type
-                        (list git
+                        (list (list git "send-email")
                               gitu))
         (service home-git-service-type
                  (home-git-configuration
