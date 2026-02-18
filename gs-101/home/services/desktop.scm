@@ -22,7 +22,6 @@
         adwaita-icon-theme
         bibata-cursor-theme
         breeze-icons
-        brightnessctl
         hicolor-icon-theme
         kdeconnect
         librewolf

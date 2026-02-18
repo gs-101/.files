@@ -14,11 +14,8 @@
 (define (home-hyprland-profile-service config)
   (list hyprland
         hyprland-qt-support
-        hyprpicker
-        hyprpolkitagent
         hyprqt6engine
         hyprshot
-        waybar
         xdg-desktop-portal-hyprland))
 
 (define (home-hyprland-environment-variables-service config)

@@ -14,7 +14,6 @@
 
     packages = with pkgs; [
       anki-bin
-      hyprlauncher
       television
       wakatime-cli
       wasabiwallet

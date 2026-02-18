@@ -42,21 +42,8 @@ save_dir="${HOME}/Videos"
 full_path="$save_dir/$file_name.mp4"
 lock_dir="${XDG_RUNTIME_DIR:-/tmp}"
 lock_file="$lock_dir/$script_name-${file_name}.lock"
-waybar_indicator_file="$lock_dir/waybar-screen-record-indicator"
 
 # Helpers.
-
-waybar_recording() {
-  if [ -e "$waybar_indicator_file" ]; then
-    echo "󰑊" > "$waybar_indicator_file"
-  fi
-}
-
-waybar_stopped_recording() {
-  if [ -e "$waybar_indicator_file" ]; then
-    echo > "$waybar_indicator_file"
-  fi
-}
 
 record() {
   set -- --no-damage --overwrite -f "$full_path"
@@ -71,7 +58,6 @@ record() {
     set -- "$@" --geometry "$region"
   fi
 
-  waybar_recording
   wf-recorder "$@" &
   rec_pid=$!
   echo "$rec_pid" > "$lock_file"
@@ -95,7 +81,6 @@ if [ -f "$lock_file" ]; then
 
   if kill -0 "$target_pid"; then
     kill -INT "$target_pid"
-    waybar_stopped_recording
     exit 0
   else
     # This indicates the lock exists, but the process is dead, so we can
