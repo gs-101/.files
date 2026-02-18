@@ -14,7 +14,7 @@
         (url "https://codeberg.org/guix/guix")
         (branch "master")
         (commit
-          "a29122743a67a453ca74042e00d521fffcbc3310")
+          "0ce2e759b4ee4e2c57b3d17b6b3789b9a51878ee")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -42,6 +42,17 @@
             "257cebd587b66e4d865b3537a9a88cccd7107c95"
             (openpgp-fingerprint
               "2841 9AC6 5038 7440 C7E9  2FFA 2208 D209 58C1 DEB0"))))
+      (channel
+        (name 'rosenthal)
+        (url "https://codeberg.org/hako/rosenthal.git")
+        (branch "trunk")
+        (commit
+          "9d7be1f81c0d6d3b3248082d129f58bcd351f4b5")
+        (introduction
+          (make-channel-introduction
+            "7677db76330121a901604dfbad19077893865f35"
+            (openpgp-fingerprint
+              "13E7 6CD6 E649 C28C 3385  4DF5 5E5A A665 6149 17F7"))))
       (channel
         (name 'selected-guix-works)
         (url "https://github.com/gs-101/selected-guix-works")
