@@ -3,7 +3,7 @@
         (url "https://github.com/gs-101/emacs-master")
         (branch "main")
         (commit
-          "d74759ab2cc71d889583c4ae003df0fb91084ad2")
+          "8ff804d848f45c9a28a3f9b6857921b36dde05e6")
         (introduction
           (make-channel-introduction
             "568579841d0ca41a9d222a2cfcad9a7367f9073b"
@@ -14,7 +14,7 @@
         (url "https://codeberg.org/guix/guix")
         (branch "master")
         (commit
-          "0ce2e759b4ee4e2c57b3d17b6b3789b9a51878ee")
+          "18898ea4e55b9ce705bf5a0bfb4ce76249769f1f")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -25,7 +25,7 @@
         (url "https://gitlab.com/nonguix/nonguix")
         (branch "master")
         (commit
-          "1980960f932063f42f97ad3be4b020f68d24e62b")
+          "890866080923f0208eecfd448d394a0baded9eaa")
         (introduction
           (make-channel-introduction
             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -36,7 +36,7 @@
         (url "https://git.sr.ht/~abcdw/rde")
         (branch "master")
         (commit
-          "ed90f2a60969c2f783a20dcdda4bd252e0c6e63c")
+          "02b114fbae9b2aa9bdfba49356018776a4e5578f")
         (introduction
           (make-channel-introduction
             "257cebd587b66e4d865b3537a9a88cccd7107c95"
@@ -47,7 +47,7 @@
         (url "https://codeberg.org/hako/rosenthal.git")
         (branch "trunk")
         (commit
-          "9d7be1f81c0d6d3b3248082d129f58bcd351f4b5")
+          "5cbca316d9f589b853e7d53e0cbd9c425438443b")
         (introduction
           (make-channel-introduction
             "7677db76330121a901604dfbad19077893865f35"

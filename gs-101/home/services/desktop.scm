@@ -11,10 +11,12 @@
   #:use-module (gnu packages kde-internet)
   #:use-module (gnu packages librewolf)
   #:use-module (gnu packages linux)
+  #:use-module (gnu packages qt)
   #:use-module (gnu packages tor-browsers)
   #:use-module (gnu packages video)
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu services)
+  #:use-module (selected-guix-works packages qt)
   #:export (home-desktop-services))
 
 (define (home-desktop-profile-service config)
@@ -26,11 +28,14 @@
         kdeconnect
         librewolf
         mpv
+        qt6ct
+        qttools ; for qdbus.
         torbrowser
         xdg-desktop-portal-gtk))
 
 (define (home-desktop-environment-variables-service config)
-  '(("GTK_2_RC_FILES" . "$XDG_CONFIG_HOME/gtk-2.0/settings.ini")))
+  '(("GTK_2_RC_FILES" . "$XDG_CONFIG_HOME/gtk-2.0/settings.ini")
+    ("QT_QPA_PLATFORMTHEME" . "qt6ct")))
 
 (define (home-desktop-xdg-mime-applications-service config)
   (home-xdg-mime-applications-configuration
