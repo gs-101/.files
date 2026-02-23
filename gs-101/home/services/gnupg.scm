@@ -30,6 +30,8 @@
   (list (service home-gnupg-service-type)
         (service home-gpg-agent-service-type
                  (home-gpg-agent-configuration
-                   (pinentry-program
-                    (file-command "pinentry-qt"))
-                   (ssh-support? #t)))))
+                  (pinentry-program
+                   (file-command "pinentry-qt"))
+                  (ssh-support? #t)
+                  (extra-content
+                   "allow-loopback-pinentry")))))
