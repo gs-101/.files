@@ -1,0 +1,3 @@
+[templates.television]
+input_path = "~/.config/noctalia/templates/television.toml"
+output_path = "~/.config/television/themes/noctalia.toml"

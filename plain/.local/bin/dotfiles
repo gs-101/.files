@@ -24,6 +24,10 @@ run_guix_home() {
   guix home reconfigure -L "$dotfiles" "$module_files/home/$host_name.scm" "$@"
 }
 
+run_home_manager() {
+  home-manager switch --flake "$nix_home_manager_files" "$@"
+}
+
 # Commands.
 
 update() {
@@ -64,12 +68,12 @@ system() {
 
 home() {
   run_guix_home --fallback
-  home-manager switch --flake "$nix_home_manager_files"
+  run_home_manager
 }
 
 reload() {
   run_guix_home --no-substitutes
-  home-manager switch --flake "$nix_home_manager_files" --no-substitute
+  run_home_manager --no-substitute
 }
 
 image() {

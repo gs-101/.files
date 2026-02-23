@@ -1,6 +1,6 @@
 [general]
 live_config_reload = true
-import = ["matugen.toml"]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
 ipc_socket = true
 
 [env]

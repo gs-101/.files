@@ -1,6 +1,6 @@
 // Autostart.
 
-spawn-at-startup "dms" "run"
+spawn-at-startup "noctalia-shell" "--no-duplicate"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "kdeconnectd"
 spawn-at-startup "kdeconnect-indicator"
@@ -13,7 +13,7 @@ screenshot-path "~/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png"
 
 // Tell niri to place the wallpaper on the overview.
 layer-rule {
-        match namespace="^quickshell$"
+        match namespace="^noctalia-overview*"
 
         place-within-backdrop true
 }
@@ -103,12 +103,13 @@ input {
 binds {
         // Programs.
         Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn "alacritty"; }
-        Mod+X hotkey-overlay-title="Spawn Menu" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+        Mod+X hotkey-overlay-title="Spawn Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
         Mod+E hotkey-overlay-title="Spawn Editor" { spawn-sh "$VISUAL"; }
         // See https://codeberg.org/tusharhero/tinee
         Mod+Backspace hotkey-overlay-title="This is Not Emacs Everywhere" { spawn "emacsclient" "--eval" "'(tinee)'" "--alternate-editor=''"; }
-        Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
-        Mod+N hotkey-overlay-title="Spawn Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+        Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+        Mod+Comma hotkey-overlay-title="Spawn Emoji Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+        Mod+N hotkey-overlay-title="Spawn Notification Center" { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
         Mod+C hotkey-overlay-title="Spawn Color Picker" { spawn "dms" "color" "pick" "--autocopy"; }
         // Screenshot
         Print hotkey-overlay-title="Take a Screenshot of the Screen" { screenshot-screen show-pointer=false; }
@@ -116,22 +117,22 @@ binds {
         // Recording.
         Mod+Print hotkey-overlay-title="Record the Screen" { spawn "screen-record"; }
         // Bar.
-        Mod+B hotkey-overlay-title="Toggle the Bar" { spawn-sh "killall -SIGUSR1 waybar || waybar"; }
+        Mod+B hotkey-overlay-title="Toggle the Bar" { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
         // Bookmarks.
         Mod+Ctrl+C hotkey-overlay-title="Copy entry to Bookmarks" { spawn "bookmarks-copy"; }
         Mod+Ctrl+V hotkey-overlay-title="Paste entry from Bookmarks" { spawn "bookmarks-paste"; }
 
         // Laptop multimedia keys.
-        XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
-        XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
-        XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-        XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-        XF86MonBrightnessUp { spawn "dms" "ipc" "call" "brightness" "increment" "5"; }
-        XF86MonBrightnessDown { spawn "dms" "ipc" "call" "brightness" "decrement" "5"; }
-        XF86AudioNext { spawn "playerctl" "next"; }
-        XF86AudioPause { spawn "playerctl" "play-pause"; }
-        XF86AudioPlay { spawn "playerctl" "play-pause"; }
-        XF86AudioPrev { spawn "playerctl" "previous"; }
+        XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+        XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+        XF86AudioMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+        XF86AudioMicMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+        XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+        XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+        XF86AudioNext { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
+        XF86AudioPause { spawn "noctalia-shell" "ipc" "call" "media" "pause"; }
+        XF86AudioPlay { spawn "noctalia-shell" "ipc" "call" "media" "play"; }
+        XF86AudioPrev { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
 
         // Actions, modes.
         Mod+Escape { quit; }
@@ -202,6 +203,6 @@ window-rule {
         open-floating true
 }
 
-// Matugen.
+// Noctalia.
 
-include "./matugen.kdl"
+include "./noctalia.kdl"

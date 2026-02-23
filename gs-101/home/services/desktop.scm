@@ -29,8 +29,9 @@
         librewolf
         mpv
         qt6ct
+        qtmultimedia
         qttools ; for qdbus.
-        torbrowser
+        ; torbrowser
         xdg-desktop-portal-gtk))
 
 (define (home-desktop-environment-variables-service config)
