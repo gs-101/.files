@@ -6,9 +6,8 @@
   #:export (home-video-service-type))
 
 (define (home-video-profile-service config)
-  (list ffmpeg
-        kdenlive
-        yt-dlp))
+  (list kdenlive
+        obs))
 
 (define home-video-service-type
   (service-type (name 'home-video)

@@ -28,7 +28,7 @@
         kdeconnect
         librewolf
         mpv
-        qt6ct
+        qt6ct-kde
         qtmultimedia
         qttools ; for qdbus.
         ; torbrowser
