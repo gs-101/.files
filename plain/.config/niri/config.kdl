@@ -11,9 +11,9 @@ screenshot-path "~/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png"
 
 // Look and feel.
 
-// Tell niri to place the wallpaper on the overview.
+// Set the regular wallpaper on the backdrop.
 layer-rule {
-        match namespace="^noctalia-overview*"
+        match namespace="^noctalia-wallpaper*"
 
         place-within-backdrop true
 }
