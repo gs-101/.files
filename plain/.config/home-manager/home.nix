@@ -22,6 +22,14 @@
 
   programs = with pkgs; {
     home-manager.enable = true;
+    password-store = {
+      enable = true;
+      package = pass.withExtensions (exts: with exts; [
+        pass-file
+        pass-otp
+        pass-update
+      ]);
+    };
   };
 
   targets.genericLinux.enable = true;
