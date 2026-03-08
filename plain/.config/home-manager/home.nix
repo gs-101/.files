@@ -14,6 +14,7 @@
 
     packages = with pkgs; [
       anki-bin
+      gh
       television
       wakatime-cli
       wasabiwallet
