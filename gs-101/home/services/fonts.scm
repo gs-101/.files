@@ -12,7 +12,9 @@
         font-google-noto
         font-google-noto-emoji
         font-google-noto-sans-cjk
+        font-google-noto-sans-hebrew
         font-google-noto-serif-cjk
+        font-google-noto-serif-hebrew
         font-microsoft-cascadia
         font-nerd-fonts-symbols))
 
@@ -60,6 +62,8 @@
                             (family "Noto Sans Mono CJK JP")
                             ;; Korean.
                             (family "Noto Sans Mono CJK KR")
+                            ;; Hebrew.
+                            (family "Noto Rashi Hebrew")
                             ;; The Lord of the Rings language font.
                             (family "Alcarin Tengwar")
                             ;; Nerd Fonts Symbols.
@@ -76,6 +80,8 @@
                             (family "Noto Serif CJK JP")
                             ;; Korean.
                             (family "Noto Serif CJK KR")
+                            ;; Hebrew.
+                            (family "Noto Serif Hebrew")
                             ;; The Lord of the Rings language font.
                             (family "Alcarin Tengwar")
                             ;; Nerd Fonts Symbols.
@@ -92,6 +98,8 @@
                             (family "Noto Sans CJK JP")
                             ;; Korean.
                             (family "Noto Sans CJK KR")
+                            ;; Hebrew.
+                            (family "Noto Sans Hebrew")
                             ;; The Lord of the Rings language font.
                             (family "Alcarin Tengwar")
                             ;; Nerd Fonts Symbols.
