@@ -60,6 +60,10 @@ gc() {
 nuke() {
   guix gc -d
   nix-collect-garbage -d
+  podman system prune -a -f
+  podman container prune -f
+  podman volume prune -f
+  podman pod prune -f
 }
 
 system() {
