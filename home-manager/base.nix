@@ -39,6 +39,7 @@
     mpv.enable = true;
     mbsync.enable = true;
     neovim.enable = true;
+    nh.enable = true;
     notmuch.enable = true;
   };
   services = {
