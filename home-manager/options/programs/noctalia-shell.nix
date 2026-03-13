@@ -173,15 +173,6 @@ in
                   unreadBadgeColor = "primary";
                 }
                 {
-                  deviceNativePath = "__default__";
-                  displayMode = "graphic";
-                  hideIfIdle = false;
-                  hideIfNotDetected = true;
-                  id = "Battery";
-                  showNoctaliaPerformance = true;
-                  showPowerProfiles = true;
-                }
-                {
                   displayMode = "onhover";
                   iconColor = "none";
                   id = "Volume";
@@ -194,6 +185,15 @@ in
                   iconColor = "none";
                   id = "Brightness";
                   textColor = "none";
+                }
+                {
+                  deviceNativePath = "__default__";
+                  displayMode = "graphic";
+                  hideIfIdle = false;
+                  hideIfNotDetected = true;
+                  id = "Battery";
+                  showNoctaliaPerformance = true;
+                  showPowerProfiles = true;
                 }
                 {
                   colorizeDistroLogo = false;
