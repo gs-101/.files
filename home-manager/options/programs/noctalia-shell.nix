@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  cliphist = "${pkgs.cliphist}";
+  cliphist = "${pkgs.cliphist}/bin/cliphist";
   wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
 in
 {
@@ -25,6 +25,10 @@ in
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         kde-connect = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        polkit-agent = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
