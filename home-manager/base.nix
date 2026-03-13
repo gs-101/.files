@@ -28,6 +28,7 @@
     ./options/programs/password-store.nix
     ./options/programs/pay-respects.nix
     ./options/programs/ripgrep.nix
+    ./options/programs/television.nix
     ./options/programs/starship.nix
     ./options/services/gpg-agent.nix
   ];

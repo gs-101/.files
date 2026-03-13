@@ -20,7 +20,6 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       quickemu
-      television
       wakatime-cli
       wasabiwallet
       wl-clipboard
