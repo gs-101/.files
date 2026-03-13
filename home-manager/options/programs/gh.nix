@@ -1,11 +1,9 @@
 { pkgs, ... }:
 {
-  programs = {
-    gh = {
-      enable = true;
-      extensions = [
-        pkgs.gh-markdown-preview
-      ];
-    };
+  programs.gh = {
+    enable = true;
+    extensions = [
+      pkgs.gh-markdown-preview
+    ];
   };
 }

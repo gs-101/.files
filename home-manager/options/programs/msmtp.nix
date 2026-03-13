@@ -1,6 +1,4 @@
 { pkgs, ... }:
 {
-  programs = {
-    msmtp.enable = true;
-  };
+  programs.msmtp.enable = true;
 }
