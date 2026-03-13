@@ -5,7 +5,6 @@ include "./noctalia.kdl"
 // Autostart.
 
 spawn-at-startup "noctalia-shell" "--no-duplicate"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 // Misc.
 

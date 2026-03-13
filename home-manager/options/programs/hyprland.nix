@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
-  hyprshot = "${pkgs.hyprshot}/bin/hyprshot";  noctalia-shell = "${pkgs.noctalia-shell}/bin/noctalia-shell";
+  hyprshot = "${pkgs.hyprshot}/bin/hyprshot";
+  noctalia-shell = "${pkgs.noctalia-shell}/bin/noctalia-shell";
 in
   {
     programs.hyprshot = {
@@ -17,7 +18,6 @@ in
         source = "${config.xdg.configHome}/hypr/noctalia/noctalia-colors.conf";
         exec-once = [
           "${noctalia-shell} --no-duplicate"
-          "${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store"
         ];
         animations = {
           enabled = true;
