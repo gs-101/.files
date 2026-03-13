@@ -8,6 +8,7 @@
     username = "gabriel";
     packages = with pkgs; [
       aporetic
+      cascadia-code
       cryptsetup
       gimp
       glib
