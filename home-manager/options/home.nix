@@ -11,9 +11,7 @@
       cascadia-code
       cryptsetup
       gimp
-      glib
       gpu-screen-recorder
-      gsettings-desktop-schemas
       inkscape
       monero-cli
       nerd-fonts.symbols-only
@@ -21,6 +19,7 @@
       noto-fonts-color-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+      quickemu
       television
       wakatime-cli
       wasabiwallet
