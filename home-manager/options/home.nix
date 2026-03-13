@@ -19,6 +19,7 @@
       noto-fonts-color-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+      kdePackages.qttools # for qdbus.
       quickemu
       wakatime-cli
       wasabiwallet
