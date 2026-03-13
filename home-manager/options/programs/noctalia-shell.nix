@@ -411,12 +411,6 @@ in
                 id = "Bluetooth";
               }
               {
-                id = "PowerProfile";
-              }
-              {
-                id = "NoctaliaPerformance";
-              }
-              {
                 id = "WallpaperSelector";
               }
             ];
