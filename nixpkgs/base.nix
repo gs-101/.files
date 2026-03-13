@@ -32,7 +32,11 @@
         "wheel"
       ];
       isNormalUser = true;
-      initialPassword = "vm";
+    };
+    guest = {
+      description = "Guest";
+      isNormalUser = true;
+      initialPassword = "guest";
     };
   };
   virtualisation.containers.enable = true;

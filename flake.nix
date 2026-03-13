@@ -31,6 +31,12 @@
           ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
         };
+        "guest" = home-manager.lib.homeManagerConfiguration {
+          modules = [
+            ./home-manager/guest.nix
+          ];
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        };
         "gabriel@nix-notebook" = home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs; };
           modules = [
