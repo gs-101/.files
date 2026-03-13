@@ -3,6 +3,7 @@
   imports = [
     ./options/i18n.nix
     ./options/boot.nix
+    ./options/networking.nix
     ./options/services/guix.nix
     ./options/services/pipewire.nix
     ./options/services/xserver.nix
