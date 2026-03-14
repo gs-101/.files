@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  emacs = pkgs.emacs-git;
+  emacs = pkgs.emacs-git-pgtk;
 in
   {
     home.sessionVariables = {
