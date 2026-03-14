@@ -4,6 +4,7 @@
     ./options/i18n.nix
     ./options/boot.nix
     ./options/networking.nix
+    ./options/nix.nix
     ./options/services/guix.nix
     ./options/services/pipewire.nix
     ./options/services/xserver.nix
@@ -11,10 +12,6 @@
   ];
   hardware.bluetooth.enable = true;
   networking.networkmanager.enable = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
   programs.dconf.enable = true;
   programs.nano.enable = false;
   security.rtkit.enable = true;
