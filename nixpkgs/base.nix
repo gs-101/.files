@@ -16,12 +16,14 @@
     "flakes"
   ];
   programs.dconf.enable = true;
+  programs.nano.enable = false;
   security.rtkit.enable = true;
   services = {
     openssh.enable = true;
     power-profiles-daemon.enable = true;
     printing.enable = true;
     upower.enable = true;
+    xserver.excludePackages = [ pkgs.xterm ];
   };
   users.users = {
     gabriel = {
