@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
+{ ... }:
 {
   imports = [
     ./options/accounts.nix
@@ -25,6 +19,7 @@
     ./options/programs/gpg.nix
     ./options/programs/msmtp.nix
     ./options/programs/noctalia-shell.nix
+    ./options/program/notmuch.nix
     ./options/programs/password-store.nix
     ./options/programs/pay-respects.nix
     ./options/programs/ripgrep.nix
@@ -41,7 +36,6 @@
     mbsync.enable = true;
     neovim.enable = true;
     nh.enable = true;
-    notmuch.enable = true;
   };
   services = {
     kdeconnect.enable = true;
