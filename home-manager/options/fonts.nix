@@ -7,7 +7,7 @@
         "Noto Color Emoji"
       ];
       monospace = [
-        "Cascadia Mono"
+        "Monocraft"
         "Noto Sans Mono"
         "Noto Sans Mono CJK SC"
         "Noto Sans Mono CJK JP"

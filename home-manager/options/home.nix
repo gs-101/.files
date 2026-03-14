@@ -8,7 +8,7 @@
     username = "gabriel";
     packages = with pkgs; [
       aporetic
-      cascadia-code
+      monocraft
       cryptsetup
       gimp
       gpu-screen-recorder
