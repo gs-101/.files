@@ -9,7 +9,7 @@ in
     };
     programs.emacs = {
       enable = true;
-      extraPackages = (epkgs: [ epkgs.treesit-grammars.with-all-grammars ]);
+      extraPackages = (p: [ p.treesit-grammars.with-all-grammars ]);
       package = emacs;
     };
   }
