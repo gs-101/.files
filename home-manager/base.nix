@@ -36,6 +36,8 @@
     mbsync.enable = true;
     neovim.enable = true;
     nh.enable = true;
+    nix-index.enable = true;
+    nix-index-database.comma.enable = true;
   };
   services = {
     kdeconnect.enable = true;

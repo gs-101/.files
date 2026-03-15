@@ -3,6 +3,7 @@
     disko.url = "github:nix-community/disko/latest";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager";
+    nix-index-database.url = "github:nix-community/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     niri.url = "github:sodiboo/niri-flake";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
@@ -17,6 +18,7 @@
       niri,
       noctalia,
       noctalia-qs,
+      nix-index-database,
       nixpkgs,
       ...
     }@inputs:
@@ -26,6 +28,7 @@
           extraSpecialArgs = { inherit inputs; };
           modules = [
             niri.homeModules.niri
+            nix-index-database.homeModules.default
             noctalia.homeModules.default
             ./home-manager/nix-pc.nix
           ];
@@ -41,6 +44,7 @@
           extraSpecialArgs = { inherit inputs; };
           modules = [
             niri.homeModules.niri
+            nix-index-database.homeModules.default
             noctalia.homeModules.default
             ./home-manager/nix-notebook.nix
           ];
