@@ -26,4 +26,8 @@ in
       enable = true;
       package = emacs;
     };
+    xdg.mimeApps.defaultApplications = {
+      "inode/directory" = [ "emacsclient.desktop" ];
+      "x-scheme-handler/mailto" = [ "emacsclient-mail.desktop" ];
+    };
   }
