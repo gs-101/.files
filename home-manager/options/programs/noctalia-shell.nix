@@ -486,7 +486,7 @@ in
           useCustomColors = false;
           warningColor = "#6a5969";
           criticalColor = "#ba1a1a";
-          externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
+          externalMonitor = "${pkgs.resources}/bin/resources";
         };
         noctaliaPerformance = {
           disableWallpaper = true;
