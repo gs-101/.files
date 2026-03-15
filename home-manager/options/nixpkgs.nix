@@ -2,10 +2,12 @@
 {
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      inputs.emacs-overlay.overlays.default
-      inputs.niri.overlays.niri
-      inputs.nur.overlays.default
+    overlays = with inputs; [
+      emacs-overlay.overlays.default
+      niri.overlays.niri
+      noctalia.overlays.default
+      noctalia-qs.overlays.default
+      nur.overlays.default
     ];
   };
 }
