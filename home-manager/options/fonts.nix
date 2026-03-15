@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   fonts.fontconfig = {
     enable = true;
@@ -35,4 +35,13 @@
       ];
     };
   };
+  home.packages = with pkgs; [
+    aporetic
+    monocraft
+    nerd-fonts.symbols-only
+    noto-fonts
+    noto-fonts-color-emoji
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
 }

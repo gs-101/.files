@@ -4,6 +4,9 @@ let
   wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
 in
 {
+  home.packages = [
+    pkgs.kdePackages.qttools
+  ];
   programs.noctalia-shell = {
     enable = true;
     plugins = {

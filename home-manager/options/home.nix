@@ -7,19 +7,12 @@
     homeDirectory = "/home/gabriel";
     username = "gabriel";
     packages = with pkgs; [
-      aporetic
-      monocraft
+
       cryptsetup
       gimp
       gpu-screen-recorder
       inkscape
       monero-cli
-      nerd-fonts.symbols-only
-      noto-fonts
-      noto-fonts-color-emoji
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      kdePackages.qttools # for qdbus.
       quickemu
       wakatime-cli
       wasabiwallet
