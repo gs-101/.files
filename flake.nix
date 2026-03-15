@@ -3,6 +3,7 @@
     disko.url = "github:nix-community/disko/latest";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     niri.url = "github:sodiboo/niri-flake";
@@ -15,11 +16,12 @@
       disko,
       emacs-overlay,
       home-manager,
+      neovim-nightly-overlay,
       niri,
-      noctalia,
-      noctalia-qs,
       nix-index-database,
       nixpkgs,
+      noctalia,
+      noctalia-qs,
       ...
     }@inputs:
     let
