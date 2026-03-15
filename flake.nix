@@ -23,6 +23,7 @@
       ...
     }@inputs:
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       homeConfigurations = {
         "gabriel@nix-pc" = home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs; };
