@@ -133,7 +133,7 @@
         min_time_to_notify = 45000;
         show_milliseconds = false;
         show_notifications = false;
-        style = "bold blue";
+        style = "bold";
       };
       conda = {
         # Disabled as I'll probaly not remember to disable the Conda prompt

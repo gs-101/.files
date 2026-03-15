@@ -237,7 +237,7 @@ in
         ];
       };
       general = {
-        avatarImage = "/home/gabriel/.face";
+        avatarImage = "${config.home.homeDirectory}/.face";
         dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
@@ -348,7 +348,7 @@ in
       wallpaper = {
         enabled = true;
         overviewEnabled = false;
-        directory = "/home/gabriel/Pictures/wallpapers";
+        directory = "${config.home.homeDirectory}/Pictures/wallpapers";
         monitorDirectories = [
 
         ];

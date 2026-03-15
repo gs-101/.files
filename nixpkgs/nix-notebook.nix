@@ -1,8 +1,14 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  host,
+  system,
+  ...
+}:
 {
   imports = [
     ./base.nix
-    ./options/disko/nix-notebook.nix
+    ./options/disko/${host}.nix
   ];
   boot = {
     initrd = {
@@ -21,8 +27,8 @@
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
   };
-  networking.hostName = "nix-notebook";
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  networking.hostName = host;
+  nixpkgs.hostPlatform = lib.mkDefault system;
   services = {
     xserver = {
       enable = true;

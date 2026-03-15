@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }:
+{
+  fullName,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 {
   imports = [
     ./options/i18n.nix
@@ -23,19 +29,15 @@
     xserver.excludePackages = [ pkgs.xterm ];
   };
   users.users = {
-    gabriel = {
-      description = "Gabriel Santos";
+    "${username}" = {
+      description = fullName;
       extraGroups = [
         "networkmanager"
         "podman"
         "wheel"
       ];
       isNormalUser = true;
-    };
-    guest = {
-      description = "Guest";
-      isNormalUser = true;
-      initialPassword = "guest";
+      initialPassword = "password";
     };
   };
   virtualisation.containers.enable = true;

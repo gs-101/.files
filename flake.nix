@@ -22,51 +22,57 @@
       nixpkgs,
       ...
     }@inputs:
+    let
+      pkgsX86Linux = nixpkgs.legacyPackages.x86_64-linux;
+      mkHomeConfiguration =
+        {
+          username ? "gabriel",
+          host,
+          module ? ./home-manager/${host}.nix,
+          pkgs ? pkgsX86Linux,
+        }:
+        home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = { inherit inputs username; };
+          modules = [
+            niri.homeModules.niri
+            nix-index-database.homeModules.default
+            noctalia.homeModules.default
+            module
+          ];
+          inherit pkgs;
+        };
+      mkSystemConfiguration =
+        {
+          username ? "gabriel",
+          fullName ? "Gabriel Santos",
+          host,
+          system ? "x86_64-linux",
+          module ? ./nixpkgs/${host}.nix,
+        }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            disko.nixosModules.disko
+            module
+          ];
+          specialArgs = {
+            inherit
+              fullName
+              host
+              system
+              username
+              ;
+          };
+        };
+    in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       homeConfigurations = {
-        "gabriel@nix-pc" = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            niri.homeModules.niri
-            nix-index-database.homeModules.default
-            noctalia.homeModules.default
-            ./home-manager/nix-pc.nix
-          ];
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        };
-        "guest" = home-manager.lib.homeManagerConfiguration {
-          modules = [
-            ./home-manager/guest.nix
-          ];
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        };
-        "gabriel@nix-notebook" = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            niri.homeModules.niri
-            nix-index-database.homeModules.default
-            noctalia.homeModules.default
-            ./home-manager/nix-notebook.nix
-          ];
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        };
+        "gabriel@nix-pc" = mkHomeConfiguration { host = "nix-pc"; };
+        "gabriel@nix-notebook" = mkHomeConfiguration { host = "nix-notebook"; };
       };
       nixosConfigurations = {
-        nix-pc = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            disko.nixosModules.disko
-            ./nixpkgs/nix-pc.nix
-          ];
-        };
-        nix-notebook = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            disko.nixosModules.disko
-            ./nixpkgs/nix-notebook.nix
-          ];
-        };
+        nix-pc = mkSystemConfiguration { host = "nix-pc"; };
+        nix-notebook = mkSystemConfiguration { host = "nix-notebook"; };
       };
     };
 }
