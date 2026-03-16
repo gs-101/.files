@@ -27,7 +27,6 @@
       ...
     }@inputs:
     let
-      dotfiles = ./.;
       pkgsX86Linux = nixpkgs.legacyPackages.x86_64-linux;
       mkHomeConfiguration =
         {
@@ -37,7 +36,7 @@
           pkgs ? pkgsX86Linux,
         }:
         home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit dotfiles inputs username; };
+          extraSpecialArgs = { inherit inputs username; };
           modules = [
             niri.homeModules.niri
             nix-index-database.homeModules.default
