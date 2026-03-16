@@ -164,7 +164,7 @@ in
               defaultSettings = {
                 activeColor = "primary";
                 enableToast = true;
-                hideInactive = false;
+                hideInactive = true;
                 iconSpacing = 4;
                 inactiveColor = "none";
                 removeMargins = false;
