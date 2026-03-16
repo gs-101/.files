@@ -1,6 +1,6 @@
 // Noctalia.
 
-include "./noctalia.kdl"
+include "noctalia.kdl"
 
 // Autostart.
 
@@ -34,10 +34,6 @@ layout {
         }
 
         gaps 5
-
-        shadow {
-                off
-        }
 
         tab-indicator {
                 hide-when-single-tab
