@@ -260,7 +260,7 @@ in
         showHibernateOnLockScreen = true;
         enableLockScreenMediaControls = true;
         enableShadows = false;
-        enableBlurBehind = true;
+        enableBlurBehind = false;
         shadowDirection = "bottom_right";
         shadowOffsetX = 2;
         shadowOffsetY = 3;
@@ -315,7 +315,7 @@ in
         scrollbarAlwaysVisible = true;
         boxBorderEnabled = false;
         panelBackgroundOpacity = 1;
-        translucentWidgets = true;
+        translucentWidgets = false;
         panelsAttachedToBar = true;
         settingsPanelMode = "attached";
         settingsPanelSideBarCardStyle = true;
