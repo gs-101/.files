@@ -76,6 +76,7 @@
         "gabriel@nix-notebook" = mkHomeConfiguration { host = "nix-notebook"; };
       };
       nixosConfigurations = {
+        iso = mkSystemConfiguration { host = "iso"; };
         nix-pc = mkSystemConfiguration { host = "nix-pc"; };
         nix-notebook = mkSystemConfiguration { host = "nix-notebook"; };
       };
