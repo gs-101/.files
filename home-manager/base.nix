@@ -19,6 +19,7 @@
     ./options/programs/msmtp.nix
     ./options/programs/noctalia-shell.nix
     ./options/programs/notmuch.nix
+    ./options/programs/nvf.nix
     ./options/programs/password-store.nix
     ./options/programs/pay-respects.nix
     ./options/programs/ripgrep.nix
@@ -33,7 +34,6 @@
     keepassxc.enable = true;
     mpv.enable = true;
     mbsync.enable = true;
-    neovim.enable = true;
     nh.enable = true;
     nix-index.enable = true;
     nix-index-database.comma.enable = true;

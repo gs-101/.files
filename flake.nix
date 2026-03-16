@@ -10,6 +10,7 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
     nur.url = "github:nix-community/NUR";
+    nvf.url = "github:NotAShelf/nvf";
   };
   outputs =
     {
@@ -22,6 +23,7 @@
       nixpkgs,
       noctalia,
       noctalia-qs,
+      nvf,
       ...
     }@inputs:
     let
@@ -39,6 +41,7 @@
             niri.homeModules.niri
             nix-index-database.homeModules.default
             noctalia.homeModules.default
+            nvf.homeManagerModules.default
             module
           ];
           inherit pkgs;
