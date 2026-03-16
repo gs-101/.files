@@ -52,6 +52,7 @@
         lsp.enable = true;
         statusline.lualine.enable = true;
         telescope.enable = true;
+        utility.direnv.enable = true;
       };
     };
   };
