@@ -1,15 +1,23 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.nvf = {
     enable = true;
     settings = {
       vim = {
-        autocomplete.nvim-cmp.enable = true;
+        autocomplete.blink-cmp = {
+          enable = true;
+          friendly-snippets.enable = true;
+        };
+        binds.cheatsheet.enable = true;
+        extraPlugins = with pkgs.vimPlugins; {
+          smear-cursor-nvim = {
+            package = smear-cursor-nvim;
+            setup = "require('smear_cursor').setup {}";
+          };
+        };
+        gestures.gesture-nvim.enable = true;
         git.enable = true;
         languages = {
-          enableDAP = true;
-          enableExtraDiagnostics = true;
-          enableFormat = true;
           enableTreesitter = true;
           arduino.enable = true;
           assembly.enable = true;
@@ -49,10 +57,42 @@
           yaml.enable = true;
           zig.enable = true;
         };
-        lsp.enable = true;
+        navigation.harpoon.enable = true;
+        projects.project-nvim.enable = true;
         statusline.lualine.enable = true;
         telescope.enable = true;
-        utility.direnv.enable = true;
+        treesitter = {
+          autotagHtml = true;
+          textobjects.enable = true;
+        };
+        ui = {
+          colorful-menu-nvim.enable = true;
+          colorizer.enable = true;
+          illuminate.enable = true;
+          modes-nvim.enable = true;
+        };
+        utility = {
+          ccc.enable = true;
+          direnv.enable = true;
+          icon-picker.enable = true;
+          leetcode-nvim.enable = true;
+          mkdir.enable = true;
+          motion = {
+            leap.enable = true;
+          };
+          multicursors.enable = true;
+          oil-nvim.enable = true;
+          outline.aerial-nvim.enable = true;
+          sleuth.enable = true;
+          surround.enable = true;
+          undotree.enable = true;
+          vim-wakatime.enable = true;
+        };
+        visuals = {
+          highlight-undo.enable = true;
+          nvim-web-devicons.enable = true;
+        };
+        withRuby = false; # Only one that's enabled by default.
       };
     };
   };
