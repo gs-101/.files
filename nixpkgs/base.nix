@@ -1,7 +1,6 @@
 {
   fullName,
   pkgs,
-  lib,
   username,
   ...
 }:
@@ -20,6 +19,7 @@
   networking.networkmanager.enable = true;
   programs.dconf.enable = true;
   programs.nano.enable = false;
+  programs.nix-ld.enable = true;
   security.rtkit.enable = true;
   services = {
     openssh.enable = true;
