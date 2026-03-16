@@ -5,6 +5,7 @@
     settings = {
       vim = {
         autocomplete.nvim-cmp.enable = true;
+        git.enable = true;
         languages = {
           enableDAP = true;
           enableExtraDiagnostics = true;
