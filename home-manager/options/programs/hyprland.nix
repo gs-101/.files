@@ -1,7 +1,12 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  hyprshot = "${pkgs.hyprshot}/bin/hyprshot";
-  noctalia-shell = "${pkgs.noctalia-shell}/bin/noctalia-shell";
+  hyprshot = "${lib.getExe pkgs.hyprshot}";
+  noctalia-shell = "${lib.getExe pkgs.noctalia-shell}";
 in
 {
   programs.hyprshot = {
@@ -54,7 +59,7 @@ in
         "SUPER, V, exec, ${noctalia-shell} ipc call launcher clipboard"
         "SUPER, ., exec, ${noctalia-shell} ipc call launcher emoji"
         "SUPER, N, exec, ${noctalia-shell} ipc call notifications toggleHistory"
-        "SUPER, C,  exec, ${pkgs.hyprpicker}/bin/hyprpicker -an"
+        "SUPER, C,  exec, ${lib.getExe pkgs.hyprpicker} -an"
         ", PRINT, exec, ${hyprshot} -m output"
         "SHIFT, PRINT, exec, ${hyprshot} -m window"
         "CTRL, PRINT, exec, ${hyprshot} -m region"

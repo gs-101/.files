@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  cliphist = "${pkgs.cliphist}/bin/cliphist";
+  cliphist = "${lib.getExe pkgs.cliphist}";
   wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
 in
 {
@@ -486,7 +491,7 @@ in
         useCustomColors = false;
         warningColor = "#6a5969";
         criticalColor = "#ba1a1a";
-        externalMonitor = "${pkgs.resources}/bin/resources";
+        externalMonitor = "${lib.getExe pkgs.resources}";
       };
       noctaliaPerformance = {
         disableWallpaper = true;

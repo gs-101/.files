@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.notmuch = {
     enable = true;
-    hooks.preNew = "${pkgs.isync}/bin/mbsync -a";
+    hooks.preNew = "${lib.getExe pkgs.isync} -a";
   };
 }

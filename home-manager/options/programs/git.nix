@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -18,7 +18,7 @@
       };
       sendemail = {
         annotate = true;
-        sendmailCmd = "${pkgs.msmtp}/bin/msmtp";
+        sendmailCmd = "${lib.getExe pkgs.msmtp}";
       };
       signing = {
         key = "1E7774E4262E0206";
