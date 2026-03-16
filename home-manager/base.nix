@@ -17,6 +17,7 @@
     ./options/programs/gh.nix
     ./options/programs/gpg.nix
     ./options/programs/msmtp.nix
+    ./options/programs/nh.nix
     ./options/programs/noctalia-shell.nix
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
@@ -34,7 +35,6 @@
     keepassxc.enable = true;
     mpv.enable = true;
     mbsync.enable = true;
-    nh.enable = true;
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
   };
