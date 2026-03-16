@@ -411,7 +411,7 @@ in
         customLaunchPrefix = "";
         viewMode = "list";
         showCategories = true;
-        iconMode = "native";
+        iconMode = "tabler";
         showIconBackground = false;
         enableSettingsSearch = true;
         enableWindowsSearch = true;
