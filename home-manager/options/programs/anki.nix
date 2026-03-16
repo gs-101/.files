@@ -1,12 +1,9 @@
 { pkgs, ... }:
 {
-  home.sessionVariables = {
-    ANKI_WAYLAND = 1;
-  };
-  programs.anki = {
-    enable = true;
-    hideTopBar = true;
-    theme = "followSystem";
-    style = "native";
+  home = {
+    packages = [ pkgs.anki-bin ];
+    sessionVariables = {
+      ANKI_WAYLAND = 1;
+    };
   };
 }
