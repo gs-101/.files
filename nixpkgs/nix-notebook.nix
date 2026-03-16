@@ -27,8 +27,6 @@
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
   };
-  networking.hostName = host;
-  nixpkgs.hostPlatform = lib.mkDefault system;
   services = {
     xserver = {
       enable = true;

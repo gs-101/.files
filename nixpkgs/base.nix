@@ -1,6 +1,8 @@
 {
   fullName,
+  lib,
   pkgs,
+  system,
   username,
   ...
 }:
@@ -16,7 +18,7 @@
     ./options/virtualisation/podman.nix
   ];
   hardware.bluetooth.enable = true;
-  networking.networkmanager.enable = true;
+  nixpkgs.hostPlatform = lib.mkDefault system;
   programs.dconf.enable = true;
   programs.nano.enable = false;
   programs.nix-ld.enable = true;

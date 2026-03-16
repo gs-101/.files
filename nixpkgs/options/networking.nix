@@ -1,4 +1,4 @@
-{ ... }:
+{ host, ... }:
 {
   networking = {
     firewall = rec {
@@ -11,6 +11,7 @@
       ];
       allowedUDPPortRanges = allowedTCPPortRanges;
     };
+    hostName = host;
     networkmanager.enable = true;
   };
 }
