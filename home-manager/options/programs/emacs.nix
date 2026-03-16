@@ -1,30 +1,40 @@
 { pkgs, ... }:
 let
-  emacs = pkgs.emacs-git-pgtk;
+  deps = with pkgs; [
+    atool
+    curl
+    direnv
+    ffmpeg
+    mpv
+    mupdf
+    perl
+    unzip
+    wakatime-cli
+    yt-dlp
+    zotero
+  ];
+  emacsPkg = pkgs.symlinkJoin {
+    name = "emacs-wrapped";
+    paths = [ pkgs.emacs-git ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/emacs \
+        --prefix PATH : "${pkgs.lib.makeBinPath deps}"
+      wrapProgram $out/bin/emacsclient \
+        --prefix PATH : "${pkgs.lib.makeBinPath deps}"
+    '';
+  };
 in
 {
   home = {
-    packages = with pkgs; [
-      atool
-      curl
-      direnv
-      ffmpeg
-      mpv
-      mupdf
-      perl
-      unzip
-      wakatime-cli
-      yt-dlp
-      zotero
-    ];
     sessionVariables = {
-      EDITOR = "${emacs}/bin/emacsclient -nw -a '${emacs}/bin/emacs'";
-      VISUAL = "${emacs}/bin/emacsclient --c -a '${emacs}/bin/emacs'";
+      EDITOR = "${emacsPkg}/bin/emacsclient -nw -a '${emacsPkg}/bin/emacs'";
+      VISUAL = "${emacsPkg}/bin/emacsclient -c -a '${emacsPkg}/bin/emacs'";
     };
   };
   programs.emacs = {
     enable = true;
-    package = emacs;
+    package = emacsPkg;
   };
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = [ "emacsclient.desktop" ];
