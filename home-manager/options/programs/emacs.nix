@@ -15,7 +15,7 @@ let
   ];
   emacsPkg = pkgs.symlinkJoin {
     name = "emacs-wrapped";
-    paths = [ pkgs.emacs-git ];
+    paths = [ pkgs.emacs-git-pgtk ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/emacs \
