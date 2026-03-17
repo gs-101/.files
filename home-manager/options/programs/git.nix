@@ -6,6 +6,7 @@
       "*-autoloads.el"
       "*-pkg.el"
       "*.elc"
+      ".direnv/"
     ];
     lfs.enable = true;
     package = pkgs.gitFull;
