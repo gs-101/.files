@@ -1,8 +1,21 @@
 { ... }:
 {
-  xdg.configFile."wakatime/.wakatime.cfg".text = ''
-    [settings]
-    exclude_unknown_project = true
-    offline                 = true
-  '';
+  home.preferXdgDirectories = true;
+  xdg = {
+    enable = true;
+    autostart = {
+      enable = true;
+      readOnly = true;
+    };
+    mimeApps.enable = true;
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+    };
+    terminal-exec.enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
 }
