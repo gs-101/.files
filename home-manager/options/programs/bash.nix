@@ -12,7 +12,6 @@
       "free" = "free -hm";
       "ls" = "ls -ahHl --author --group-directories-first --hyperlink=auto";
       "lsblk" = "lsblk -f";
-      "mount" = "mount -m";
     };
     shellOptions = [
       "globstar"
