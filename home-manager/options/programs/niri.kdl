@@ -101,7 +101,7 @@ binds {
         Mod+E hotkey-overlay-title="Spawn Editor" { spawn-sh "$VISUAL"; }
         // See https://codeberg.org/tusharhero/tinee
         Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-        Mod+Comma hotkey-overlay-title="Spawn Emoji Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+        Mod+Period hotkey-overlay-title="Spawn Emoji Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
         Mod+N hotkey-overlay-title="Spawn Notification Center" { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
         Mod+C hotkey-overlay-title="Spawn Color Picker" { spawn "dms" "color" "pick" "--autocopy"; }
         // Screenshot
