@@ -1,5 +1,6 @@
 { lib, pkgs, ... }:
 {
+  home.packages = [ pkgs.git-toolbelt ];
   programs.git = {
     enable = true;
     ignores = [
