@@ -30,6 +30,21 @@
       pkgsX86Linux = nixpkgs.legacyPackages.x86_64-linux;
       mkHomeConfiguration =
         {
+          username,
+          module ? ./home-manager/${username}.nix,
+          pkgs ? pkgsX86Linux,
+        }:
+        {
+          extraSpecialArgs = { inherit inputs username; };
+          modules = [
+            nix-index-database.homeModules.default
+            nvf.homeModules.default
+            module
+          ];
+          inherit pkgs;
+        };
+      mkPerHostHomeConfiguration =
+        {
           username ? "gabriel",
           host,
           module ? ./home-manager/${host}.nix,
@@ -72,8 +87,9 @@
     in
     {
       homeConfigurations = {
-        "gabriel@nix-pc" = mkHomeConfiguration { host = "nix-pc"; };
-        "gabriel@nix-notebook" = mkHomeConfiguration { host = "nix-notebook"; };
+        "gabriel" = mkHomeConfiguration { username = "gabriel"; };
+        "gabriel@nix-pc" = mkPerHostHomeConfiguration { host = "nix-pc"; };
+        "gabriel@nix-notebook" = mkPerHostHomeConfiguration { host = "nix-notebook"; };
       };
       nixosConfigurations = {
         iso = mkSystemConfiguration { host = "iso"; };

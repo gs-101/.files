@@ -5,8 +5,7 @@
       enable = true;
       enableSshSupport = true;
       pinentry = {
-        package = pkgs.pinentry-curses;
-        program = "pinentry-curses";
+        package = pkgs.pinentry-gnome3;
       };
     };
   };
