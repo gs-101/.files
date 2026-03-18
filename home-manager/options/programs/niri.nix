@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./noctalia-shell.nix
+  ];
   programs.niri = {
     # TODO: migrate to settings after the include statement is added.
     enable = true;

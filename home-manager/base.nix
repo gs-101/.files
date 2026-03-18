@@ -17,7 +17,6 @@
     ./options/programs/gh.nix
     ./options/programs/gpg.nix
     ./options/programs/msmtp.nix
-    ./options/programs/noctalia-shell.nix
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
     ./options/programs/password-store.nix

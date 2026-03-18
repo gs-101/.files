@@ -9,6 +9,9 @@ let
   noctalia-shell = "${lib.getExe pkgs.noctalia-shell}";
 in
 {
+  imports = [
+    ./noctalia-shell.nix
+  ];
   programs.hyprshot = {
     enable = true;
     saveLocation = "$HOME/Pictures/screenshots";
