@@ -18,7 +18,7 @@
     ./options/virtualisation/podman.nix
   ];
   hardware.bluetooth.enable = true;
-  nixpkgs.hostPlatform = lib.mkDefault system;
+  nixpkgs.hostPlatform = system;
   programs = {
     appimage.enable = true;
     dconf.enable = true;
@@ -41,8 +41,8 @@
         "podman"
         "wheel"
       ];
-      isNormalUser = true;
       initialPassword = "password";
+      isNormalUser = true;
     };
   };
   virtualisation.containers.enable = true;
