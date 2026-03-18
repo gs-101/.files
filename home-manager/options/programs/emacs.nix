@@ -7,6 +7,7 @@ let
     ffmpeg
     mpv
     mupdf
+    nixd # Can't be installed with mason.
     perl
     unzip
     wakatime-cli
