@@ -2,7 +2,6 @@
 {
   programs.television = {
     enable = true;
-    enableBashIntegration = true;
     settings = {
       preview = {
         env = {

@@ -21,7 +21,6 @@
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
     ./options/programs/password-store.nix
-    ./options/programs/pay-respects.nix
     ./options/programs/ripgrep.nix
     ./options/programs/television.nix
     ./options/programs/starship.nix
@@ -37,6 +36,7 @@
     nh.enable = true;
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
+    pay-respects.enable = true;
   };
   services = {
     kdeconnect.enable = true;

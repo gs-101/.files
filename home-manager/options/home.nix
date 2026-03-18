@@ -25,6 +25,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
     };
+    shell.enableBashIntegration = true;
     stateVersion = "25.11";
   };
 }
