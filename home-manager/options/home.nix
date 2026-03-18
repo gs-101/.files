@@ -18,6 +18,7 @@
       inkscape
       monero-cli
       quickemu
+      tor-browser
       wasabiwallet
       wl-clipboard
       zotero
