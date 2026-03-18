@@ -74,7 +74,6 @@
         utility = {
           ccc.enable = true;
           direnv.enable = true;
-          icon-picker.enable = true;
           leetcode-nvim.enable = true;
           mkdir.enable = true;
           motion = {
