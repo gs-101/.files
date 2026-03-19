@@ -1,5 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.sessionVariables = {
+    PAGER = "${pkgs.bat}/bin/bat";
+  };
   programs.bat = {
     enable = true;
     config = {
