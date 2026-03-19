@@ -13,6 +13,7 @@
         "Noto Sans Mono CJK JP"
         "Noto Sans Mono CJK KR"
         "Noto Rashi Hebrew"
+        "Alcarin Tengwar"
         "Symbols Nerd Font Mono"
       ];
       sansSerif = [
@@ -22,6 +23,7 @@
         "Noto Sans CJK JP"
         "Noto Sans CJK KR"
         "Noto Sans Hebrew"
+        "Alcarin Tengwar"
         "Symbols Nerd Font"
       ];
       serif = [
@@ -31,12 +33,14 @@
         "Noto Sans CJK JP"
         "Noto Sans CJK KR"
         "Noto Sans Hebrew"
+        "Alcarin Tengwar"
         "Symbols Nerd Font"
       ];
     };
   };
   home.packages = with pkgs; [
     aporetic
+    alcarin-tengwar
     monocraft
     nerd-fonts.symbols-only
     noto-fonts
