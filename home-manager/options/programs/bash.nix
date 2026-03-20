@@ -11,7 +11,7 @@
       ".." = "cd ..";
       "df" = "df -h";
       "free" = "free -hm";
-      "ls" = "ls -ahHl --author --group-directories-first --hyperlink=auto";
+      "ls" = "ls -ahHl --author --color=auto --group-directories-first --hyperlink=auto";
       "lsblk" = "lsblk -f";
     };
     shellOptions = [
