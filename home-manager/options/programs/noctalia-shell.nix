@@ -62,7 +62,7 @@ in
       ];
     };
     settings = {
-      settingsVersion = 58;
+      settingsVersion = 59;
       bar = {
         barType = "floating";
         position = "top";
@@ -100,6 +100,7 @@ in
               enableScrollWheel = true;
               focusedColor = "primary";
               followFocusedScreen = false;
+              fontWeight = "bold";
               groupedBorderOpacity = 1;
               hideUnoccupied = false;
               iconScale = 0.8;
@@ -108,6 +109,7 @@ in
               occupiedColor = "secondary";
               pillSize = 0.6;
               showApplications = true;
+              showApplicationsHover = false;
               showBadge = false;
               showLabelsOnlyWhenOccupied = true;
               unfocusedIconsOpacity = 1;
@@ -369,7 +371,14 @@ in
         wallpaperChangeMode = "random";
         randomIntervalSec = 900;
         transitionDuration = 1500;
-        transitionType = "random";
+        transitionType = [
+          "fade"
+          "disc"
+          "stripes"
+          "wipe"
+          "pixelate"
+          "honeycomb"
+        ];
         skipStartupTransition = true;
         transitionEdgeSmoothness = 0.05;
         panelPosition = "follow_bar";
@@ -450,23 +459,23 @@ in
           }
           {
             enabled = true;
-            id = "shortcuts-card";
-          }
-          {
-            enabled = true;
-            id = "brightness-card";
-          }
-          {
-            enabled = true;
-            id = "audio-card";
-          }
-          {
-            enabled = true;
             id = "weather-card";
           }
           {
             enabled = true;
             id = "media-sysmon-card";
+          }
+          {
+            enabled = true;
+            id = "shortcuts-card";
+          }
+          {
+            enabled = false;
+            id = "brightness-card";
+          }
+          {
+            enabled = false;
+            id = "audio-card";
           }
         ];
       };
@@ -515,6 +524,8 @@ in
         colorizeIcons = false;
         showLauncherIcon = false;
         launcherPosition = "end";
+        launcherUseDistroLogo = false;
+        launcherIcon = "";
         launcherIconColor = "none";
         pinnedStatic = false;
         inactiveIndicators = false;
@@ -840,9 +851,11 @@ in
         performanceModeDisabled = "";
         startup = "";
         session = "";
+        colorGeneration = "";
       };
       plugins = {
         autoUpdate = false;
+        notifyUpdates = true;
       };
       idle = {
         enabled = true;
