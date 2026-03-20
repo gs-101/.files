@@ -13,6 +13,7 @@
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
       cryptsetup
+      devcontainer
       gimp
       gpu-screen-recorder
       inkscape
