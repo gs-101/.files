@@ -406,7 +406,7 @@ in
 
         ];
         sortByMostUsed = false;
-        terminalCommand = "alacritty -e";
+        terminalCommand = "$TERM -e";
         customLaunchPrefixEnabled = false;
         customLaunchPrefix = "";
         viewMode = "list";

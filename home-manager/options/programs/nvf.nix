@@ -9,12 +9,6 @@
           friendly-snippets.enable = true;
         };
         binds.cheatsheet.enable = true;
-        extraPlugins = with pkgs.vimPlugins; {
-          smear-cursor-nvim = {
-            package = smear-cursor-nvim;
-            setup = "require('smear_cursor').setup {}";
-          };
-        };
         gestures.gesture-nvim.enable = true;
         git.enable = true;
         languages = {

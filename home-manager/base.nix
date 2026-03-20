@@ -7,7 +7,6 @@
     ./options/nixpkgs.nix
     ./options/qt.nix
     ./options/xdg.nix
-    ./options/programs/alacritty.nix
     ./options/programs/anki.nix
     ./options/programs/bash.nix
     ./options/programs/bat.nix
@@ -15,6 +14,7 @@
     ./options/programs/emacs.nix
     ./options/programs/fd.nix
     ./options/programs/gh.nix
+    ./options/programs/ghostty.nix
     ./options/programs/gpg.nix
     ./options/programs/msmtp.nix
     ./options/programs/notmuch.nix

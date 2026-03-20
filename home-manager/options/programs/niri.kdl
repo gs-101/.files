@@ -96,7 +96,7 @@ input {
 
 binds {
         // Programs.
-        Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn "alacritty"; }
+        Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn-sh "ghostty"; }
         Mod+X hotkey-overlay-title="Spawn Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
         Mod+E hotkey-overlay-title="Spawn Editor" { spawn-sh "$VISUAL"; }
         // See https://codeberg.org/tusharhero/tinee
