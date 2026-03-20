@@ -9,8 +9,11 @@ let
   wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
 in
 {
-  home.packages = [
-    pkgs.kdePackages.qttools
+  home.packages = with pkgs; [
+    gpu-screen-recorder
+    kdePackages.qttools
+    wl-clipboard
+    wtype
   ];
   programs.noctalia-shell = {
     enable = true;

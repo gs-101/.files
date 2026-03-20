@@ -15,13 +15,11 @@
       cryptsetup
       devcontainer
       gimp
-      gpu-screen-recorder
       inkscape
       monero-cli
       quickemu
       tor-browser
       wasabiwallet
-      wl-clipboard
       zotero
     ];
     sessionVariables = {
