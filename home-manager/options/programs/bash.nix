@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   programs.bash = {
     enable = true;
@@ -6,7 +6,6 @@
       "erasedups"
       "ignoreboth"
     ];
-    historyFile = "${config.xdg.dataHome}/bash/history";
     shellAliases = {
       ".." = "cd ..";
       "df" = "df -h";
