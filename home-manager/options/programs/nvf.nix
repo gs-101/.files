@@ -9,6 +9,12 @@
           friendly-snippets.enable = true;
         };
         binds.cheatsheet.enable = true;
+        extraPlugins = with pkgs.vimPlugins; {
+          nvim-autopairs = {
+            package = nvim-autopairs;
+            setup = "require('nvim-autopairs').setup {}";
+          };
+        };
         gestures.gesture-nvim.enable = true;
         git.enable = true;
         languages = {
