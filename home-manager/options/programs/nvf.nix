@@ -69,7 +69,6 @@
           colorful-menu-nvim.enable = true;
           colorizer.enable = true;
           illuminate.enable = true;
-          modes-nvim.enable = true;
         };
         utility = {
           ccc.enable = true;
