@@ -4,15 +4,10 @@
   pkgs,
   ...
 }:
-let
-  cliphist = "${lib.getExe pkgs.cliphist}";
-  wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
-in
 {
   home.packages = with pkgs; [
     gpu-screen-recorder
     kdePackages.qttools
-    wl-clipboard
     wtype
   ];
   programs.noctalia-shell = {
@@ -415,8 +410,8 @@ in
         clipboardWrapText = true;
         enableClipboardSmartIcons = true;
         enableClipboardChips = true;
-        clipboardWatchTextCommand = "${wl-paste} --type text --watch ${cliphist} store";
-        clipboardWatchImageCommand = "${wl-paste} --type image --watch ${cliphist} store";
+        clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
+        clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
         position = "center";
         pinnedApps = [
 
