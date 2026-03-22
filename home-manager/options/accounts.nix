@@ -11,6 +11,10 @@
       mbsync = {
         enable = true;
         create = "maildir";
+        expunge = "both";
+        extraConfig.channel = {
+          Sync = "All";
+        };
       };
       msmtp.enable = true;
       notmuch.enable = true;
