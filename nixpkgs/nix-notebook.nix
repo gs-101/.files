@@ -24,10 +24,13 @@
   };
   console.keyMap = "br-abnt";
   hardware = {
+    bluetooth.enable = true;
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
   };
   services = {
+    tuned.enable = true;
+    upower.enable = true;
     xserver = {
       enable = true;
       xkb.layout = "br";

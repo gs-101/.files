@@ -17,7 +17,6 @@
     ./options/services/xserver.nix
     ./options/virtualisation/podman.nix
   ];
-  hardware.bluetooth.enable = true;
   nixpkgs.hostPlatform = system;
   programs = {
     appimage.enable = true;
@@ -26,13 +25,7 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
-  services = {
-    openssh.enable = true;
-    power-profiles-daemon.enable = true;
-    printing.enable = true;
-    upower.enable = true;
-    xserver.excludePackages = [ pkgs.xterm ];
-  };
+  services.openssh.enable = true;
   users.users = {
     "${username}" = {
       description = fullName;
