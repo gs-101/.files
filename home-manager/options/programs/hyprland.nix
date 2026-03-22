@@ -20,7 +20,6 @@ in
     enable = true;
     plugins = [
       pkgs.hyprlandPlugins.hypr-dynamic-cursors
-      # pkgs.hyprlandPlugins.hyprspace
     ];
     settings = {
       source = "${config.xdg.configHome}/hypr/noctalia/noctalia-colors.conf";
@@ -70,7 +69,7 @@ in
         "SUPER CTRL, C, exec, bookmarks-copy"
         "SUPER CTRL, V, exec, bookmarks-paste"
         "SUPER, escape, exit"
-        # "SUPER, TAB, overview:toggle"
+        "SUPER, TAB, exec, ${noctalia-shell} ipc call plugin:workspace-overview toggle"
         "SUPER, Q, killactive"
         "SUPER, F, togglefloating"
         "SUPER, left, movefocus, l"
