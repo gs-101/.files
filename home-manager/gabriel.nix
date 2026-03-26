@@ -38,6 +38,7 @@
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
     pay-respects.enable = true;
+    vscode.enable = true;
   };
   services = {
     kdeconnect.enable = true;
