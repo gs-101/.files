@@ -25,6 +25,7 @@
     ./options/programs/ripgrep.nix
     ./options/programs/television.nix
     ./options/programs/starship.nix
+    ./options/programs/vscode.nix
     ./options/programs/wakatime.nix
     ./options/services/gpg-agent.nix
   ];
@@ -38,7 +39,6 @@
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
     pay-respects.enable = true;
-    vscode.enable = true;
   };
   services = {
     kdeconnect.enable = true;
