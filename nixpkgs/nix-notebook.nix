@@ -31,10 +31,7 @@
   services = {
     tuned.enable = true;
     upower.enable = true;
-    xserver = {
-      enable = true;
-      xkb.layout = "br";
-    };
+    xserver.xkb.layout = "br";
   };
   system.stateVersion = "25.11";
   time.timeZone = "America/Sao_Paulo";

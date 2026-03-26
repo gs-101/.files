@@ -25,12 +25,7 @@
   console.keyMap = "br-abnt2";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   networking.hostName = host;
-  services = {
-    xserver = {
-      enable = true;
-      xkb.layout = "br";
-    };
-  };
+  services.xserver.xkb.layout = "br";
   system.stateVersion = "26.05";
   time.timeZone = "America/Sao_Paulo";
 }
