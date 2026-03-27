@@ -39,6 +39,7 @@ in
     package = emacsPkg;
   };
   xdg.mimeApps.defaultApplications = {
+    "application/pdf" = [ "emacsclient.desktop" ];
     "inode/directory" = [ "emacsclient.desktop" ];
     "x-scheme-handler/mailto" = [ "emacsclient-mail.desktop" ];
   };
