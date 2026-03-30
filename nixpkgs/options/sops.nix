@@ -4,6 +4,7 @@
     ../../shared/options/sops.nix
   ];
   sops.secrets = {
+    freshrss = { };
     password = {
       neededForUsers = true;
     };

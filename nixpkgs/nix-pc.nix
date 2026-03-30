@@ -8,6 +8,7 @@
   imports = [
     ./base.nix
     ./options/disko/${host}.nix
+    ./options/services/freshrss.nix
   ];
   boot = {
     initrd = {

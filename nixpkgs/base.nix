@@ -14,8 +14,10 @@
     ./options/networking.nix
     ./options/nix.nix
     ./options/sops.nix
+    ./options/services/dnsmasq.nix
     ./options/services/guix.nix
     ./options/services/pipewire.nix
+    ./options/services/tailscale.nix
     ./options/services/xserver.nix
     ./options/virtualisation/podman.nix
   ];
@@ -27,7 +29,9 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+  };
   users = {
     mutableUsers = false;
     users = {
