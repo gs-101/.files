@@ -12,6 +12,7 @@
     noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
     nur.url = "github:nix-community/NUR";
     nvf.url = "github:NotAShelf/nvf";
+    sops-nix.url = "github:mic92/sops-nix";
   };
   outputs =
     {
@@ -26,6 +27,7 @@
       noctalia,
       noctalia-qs,
       nvf,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -41,6 +43,7 @@
           modules = [
             nix-index-database.homeModules.default
             nvf.homeModules.default
+            sops-nix.homeModules.default
             module
           ];
           inherit pkgs;
@@ -59,6 +62,7 @@
             nix-index-database.homeModules.default
             noctalia.homeModules.default
             nvf.homeManagerModules.default
+            sops-nix.homeModules.default
             module
           ];
           inherit pkgs;
@@ -75,6 +79,7 @@
           inherit system;
           modules = [
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
             module
           ];
           specialArgs = {

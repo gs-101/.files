@@ -18,17 +18,16 @@
     ./options/programs/gh.nix
     ./options/programs/ghostty.nix
     ./options/programs/git.nix
+    ./options/programs/gopass.nix
     ./options/programs/gpg.nix
     ./options/programs/msmtp.nix
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
-    ./options/programs/password-store.nix
     ./options/programs/ripgrep.nix
     ./options/programs/television.nix
     ./options/programs/starship.nix
     ./options/programs/vscode.nix
     ./options/programs/wakatime.nix
-    ./options/services/gpg-agent.nix
   ];
   programs = {
     home-manager.enable = true;
@@ -44,6 +43,7 @@
   services = {
     kdeconnect.enable = true;
     podman.enable = true;
+    ssh-agent.enable = true;
     syncthing.enable = true;
   };
 }

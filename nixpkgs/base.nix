@@ -1,4 +1,5 @@
 {
+  config,
   fullName,
   lib,
   pkgs,
@@ -12,6 +13,7 @@
     ./options/boot.nix
     ./options/networking.nix
     ./options/nix.nix
+    ./options/sops.nix
     ./options/services/guix.nix
     ./options/services/pipewire.nix
     ./options/services/xserver.nix
@@ -26,16 +28,19 @@
   };
   security.rtkit.enable = true;
   services.openssh.enable = true;
-  users.users = {
-    "${username}" = {
-      description = fullName;
-      extraGroups = [
-        "networkmanager"
-        "podman"
-        "wheel"
-      ];
-      initialPassword = "password";
-      isNormalUser = true;
+  users = {
+    mutableUsers = false;
+    users = {
+      "${username}" = {
+        description = fullName;
+        extraGroups = [
+          "networkmanager"
+          "podman"
+          "wheel"
+        ];
+        hashedPasswordFile = config.sops.secrets.password.path;
+        isNormalUser = true;
+      };
     };
   };
   virtualisation.containers.enable = true;
