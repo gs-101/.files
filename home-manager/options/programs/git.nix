@@ -30,6 +30,9 @@ in
       init = {
         defaultBranch = "main";
       };
+      merge = {
+        ff = "only";
+      };
       sendemail = {
         annotate = true;
         sendmailCmd = "${lib.getExe pkgs.msmtp}";
