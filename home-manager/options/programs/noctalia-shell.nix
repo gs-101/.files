@@ -6,6 +6,7 @@
 }:
 {
   home.packages = with pkgs; [
+    evtest
     gpu-screen-recorder
     kdePackages.qttools
     wtype
@@ -43,6 +44,10 @@
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         screen-recorder = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        slowbongo = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };

@@ -38,6 +38,7 @@
       "${username}" = {
         description = fullName;
         extraGroups = [
+          "input"
           "networkmanager"
           "podman"
           "wheel"
