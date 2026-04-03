@@ -1,8 +1,5 @@
 { config, ... }:
 {
-  imports = [
-    ./sops.nix
-  ];
   accounts.email = {
     accounts.disroot = {
       address = "gabrielsantosdesouza@disroot.org";

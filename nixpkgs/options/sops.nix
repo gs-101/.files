@@ -4,7 +4,10 @@
     ../../shared/options/sops.nix
   ];
   sops.secrets = {
-    freshrss = { };
+    freshrss = {
+      mode = "0400";
+      owner = config.services.freshrss.user;
+    };
     password = {
       neededForUsers = true;
     };

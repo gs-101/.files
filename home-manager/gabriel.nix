@@ -6,6 +6,7 @@
     ./options/gtk.nix
     ./options/home.nix
     ./options/nixpkgs.nix
+    ./options/sops.nix
     ./options/qt.nix
     ./options/xdg.nix
     ./options/programs/anki.nix
