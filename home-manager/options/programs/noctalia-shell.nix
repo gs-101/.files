@@ -235,6 +235,19 @@
               id = "ControlCenter";
               useDistroLogo = true;
             }
+            {
+              defaultSettings = {
+                catColor = "default";
+                catOffsetY = 0;
+                catSize = 1;
+                idleTimeout = 150;
+                raveMode = false;
+                tappyMode = false;
+                useMprisFilter = false;
+                waitingTimeout = 30000;
+              };
+              id = "plugin:slowbongo";
+            }
           ];
         };
         mouseWheelAction = "workspace";
@@ -390,6 +403,7 @@
         transitionEdgeSmoothness = 0.05;
         panelPosition = "follow_bar";
         hideWallpaperFilenames = false;
+        useOriginalImages = false;
         overviewBlur = 0.4;
         overviewTint = 0.6;
         useWallhaven = false;
@@ -549,7 +563,6 @@
         indicatorOpacity = 0.6;
       };
       network = {
-        wifiEnabled = true;
         airplaneModeEnabled = false;
         bluetoothRssiPollingEnabled = true;
         bluetoothRssiPollIntervalMs = 10000;
@@ -681,6 +694,7 @@
         volumeOverdrive = false;
         spectrumFrameRate = 60;
         visualizerType = "linear";
+        spectrumMirrored = true;
         mprisBlacklist = [
 
         ];
@@ -699,12 +713,12 @@
       colorSchemes = {
         useWallpaperColors = true;
         predefinedScheme = "Ayu";
-        darkMode = false;
         schedulingMode = "location";
         manualSunrise = "06:30";
         manualSunset = "18:30";
         generationMethod = "content";
         monitorForColors = "";
+        syncGsettings = true;
       };
       templates = {
         activeTemplates = [
