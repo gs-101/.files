@@ -7,8 +7,6 @@ let
     ffmpeg
     mpv
     mupdf
-    # Can't be added to mason-registry, see: <https://github.com/mason-org/mason-registry/pull/6725>
-    nixd
     perl
     unzip
     wakatime-cli

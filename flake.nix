@@ -32,6 +32,7 @@
     }@inputs:
     let
       pkgsX86Linux = nixpkgs.legacyPackages.x86_64-linux;
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       mkHomeConfiguration =
         {
           username,
@@ -93,6 +94,20 @@
         };
     in
     {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              nixd
+              nixfmt
+            ];
+          };
+        }
+      );
       homeConfigurations = {
         "gabriel" = mkHomeConfiguration { username = "gabriel"; };
         "gabriel@nix-pc" = mkPerHostHomeConfiguration { host = "nix-pc"; };
