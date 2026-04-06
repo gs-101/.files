@@ -8,6 +8,7 @@
         ms-vscode-remote.remote-containers
         tuttieee.emacs-mcx
         vscjava.vscode-java-pack
+        wakatime.vscode-wakatime
       ];
     };
   };
