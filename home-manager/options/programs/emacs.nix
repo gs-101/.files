@@ -11,6 +11,7 @@ let
     unzip
     wakatime-cli
     yt-dlp
+    zip
     zotero
   ];
   emacsPkg = pkgs.symlinkJoin {
