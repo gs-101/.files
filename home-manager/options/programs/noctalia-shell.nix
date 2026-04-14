@@ -47,6 +47,10 @@
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
+        show-keys = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
         slowbongo = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
