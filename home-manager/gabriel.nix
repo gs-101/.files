@@ -11,7 +11,6 @@
     ./options/xdg.nix
     ./options/programs/anki.nix
     ./options/programs/bash.nix
-    ./options/programs/bat.nix
     ./options/programs/direnv.nix
     ./options/programs/emacs.nix
     ./options/programs/fastfetch.nix
