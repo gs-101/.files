@@ -42,7 +42,6 @@ in
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
       cryptsetup
-      devcontainer
       gimp
       inkscape
       monero-cli
