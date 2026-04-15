@@ -14,7 +14,7 @@ in
   ];
   programs.hyprshot = {
     enable = true;
-    saveLocation = "$HOME/Pictures/screenshots";
+    saveLocation = "${config.home.homeDirectory}/Pictures/screenshots";
   };
   wayland.windowManager.hyprland = {
     enable = true;
