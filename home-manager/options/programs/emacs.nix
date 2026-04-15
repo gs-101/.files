@@ -2,7 +2,6 @@
 let
   deps = with pkgs; [
     atool
-    copilot-language-server
     curl
     direnv
     ffmpeg
