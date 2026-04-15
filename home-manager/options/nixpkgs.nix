@@ -10,6 +10,7 @@
       noctalia.overlays.default
       noctalia-qs.overlays.default
       nur.overlays.default
+      self.overlays.default
     ];
   };
 }

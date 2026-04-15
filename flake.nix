@@ -27,6 +27,7 @@
       noctalia,
       noctalia-qs,
       nvf,
+      self,
       sops-nix,
       ...
     }@inputs:
@@ -39,7 +40,7 @@
           module ? ./home-manager/${username}.nix,
           pkgs ? pkgsX86Linux,
         }:
-        {
+        home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs username; };
           modules = [
             nix-index-database.homeModules.default
@@ -108,6 +109,7 @@
           };
         }
       );
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
       homeConfigurations = {
         "gabriel" = mkHomeConfiguration { username = "gabriel"; };
         "gabriel@nix-pc" = mkPerHostHomeConfiguration { host = "nix-pc"; };
@@ -117,6 +119,9 @@
         iso = mkSystemConfiguration { host = "iso"; };
         nix-pc = mkSystemConfiguration { host = "nix-pc"; };
         nix-notebook = mkSystemConfiguration { host = "nix-notebook"; };
+      };
+      overlays.default = finalAttrs: previousAttrs: {
+        caveman = finalAttrs.callPackage ./packages/caveman/package.nix { };
       };
     };
 }
