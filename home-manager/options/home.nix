@@ -48,6 +48,7 @@ in
       ouch
       quickemu
       tor-browser
+      viu
       wasabiwallet
       zotero
     ];
@@ -56,7 +57,6 @@ in
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
-      WGETRC = "${config.xdg.dataHome}/wget/hosts";
     };
     shell.enableBashIntegration = true;
     stateVersion = "25.11";

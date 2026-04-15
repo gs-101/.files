@@ -26,6 +26,5 @@
       smtp.host = "disroot.org";
       userName = "gabrielsantosdesouza@disroot.org";
     };
-    maildirBasePath = "${config.xdg.dataHome}/mail";
   };
 }
