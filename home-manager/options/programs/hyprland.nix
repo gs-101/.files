@@ -152,6 +152,10 @@ in
           kb_layout = "br";
         }
       ];
+      extraConfig = ''
+        windowrulev2 = center, class:^(xdg-desktop-portal-(gtk))$
+        windowrulev2 = float, class:^(xdg-desktop-portal-(gtk))$
+      '';
       general = {
         gaps_out = 5;
         snap = {
