@@ -2,11 +2,13 @@
 let
   deps = with pkgs; [
     atool
+    copilot-language-server
     curl
     direnv
     ffmpeg
     mpv
     mupdf
+    nerd-fonts.symbols-only
     perl
     unzip
     wakatime-cli
