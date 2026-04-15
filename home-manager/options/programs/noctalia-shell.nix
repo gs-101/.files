@@ -91,7 +91,6 @@
         enableExclusionZoneInset = true;
         backgroundOpacity = 0;
         useSeparateOpacity = false;
-        floating = true;
         marginVertical = 5;
         marginHorizontal = 5;
         frameThickness = 8;
@@ -233,6 +232,7 @@
             {
               colorizeDistroLogo = false;
               colorizeSystemIcon = "none";
+              colorizeSystemText = "none";
               customIconPath = "";
               enableColorization = true;
               icon = "noctalia";
@@ -331,6 +331,7 @@
           ];
         };
         reverseScroll = false;
+        smoothScrollEnabled = true;
       };
       ui = {
         fontDefault = "sans-serif";
@@ -350,6 +351,7 @@
         name = "São Paulo";
         weatherEnabled = true;
         weatherShowEffects = true;
+        weatherTaliaMascotAlways = false;
         useFahrenheit = false;
         use12hourFormat = false;
         showWeekNumberInCalendar = true;
@@ -359,6 +361,7 @@
         firstDayOfWeek = -1;
         hideWeatherTimezone = false;
         hideWeatherCityName = true;
+        autoLocate = true;
       };
       calendar = {
         cards = [
@@ -387,6 +390,7 @@
         showHiddenFiles = false;
         viewMode = "recursive";
         setWallpaperOnAllMonitors = true;
+        linkLightAndDarkWallpapers = true;
         fillMode = "crop";
         fillColor = "#000000";
         useSolidColor = false;
@@ -567,7 +571,6 @@
         indicatorOpacity = 0.6;
       };
       network = {
-        airplaneModeEnabled = false;
         bluetoothRssiPollingEnabled = true;
         bluetoothRssiPollIntervalMs = 10000;
         networkPanelView = "wifi";
@@ -853,6 +856,10 @@
           {
             enabled = true;
             id = "steam";
+          }
+          {
+            enabled = true;
+            id = "starship";
           }
         ];
         enableUserTheming = true;
