@@ -1,10 +1,15 @@
-{ config, username, ... }:
+{
+  config,
+  lib,
+  username,
+  ...
+}:
 {
   imports = [
     ../../shared/options/sops.nix
   ];
   sops.secrets = {
-    freshrss = {
+    freshrss = lib.mkIf config.services.freshrss.enable {
       mode = "0400";
       owner = config.services.freshrss.user;
     };

@@ -1,7 +1,7 @@
-{ ... }:
+{ username, ... }:
 {
   imports = [
-    ./gabriel.nix
+    ./${username}.nix
     ./options/programs/niri.nix
   ];
 }

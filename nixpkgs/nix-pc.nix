@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ./base.nix
+    ./${username}.nix
     ./options/disko/${host}.nix
     ./options/services/freshrss.nix
   ];

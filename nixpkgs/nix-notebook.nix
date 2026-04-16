@@ -3,11 +3,12 @@
   lib,
   host,
   system,
+  username,
   ...
 }:
 {
   imports = [
-    ./base.nix
+    ./${username}.nix
     ./options/disko/${host}.nix
   ];
   boot = {
