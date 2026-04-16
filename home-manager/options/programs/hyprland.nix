@@ -153,8 +153,8 @@ in
         }
       ];
       extraConfig = ''
-        windowrulev2 = center, class:^(xdg-desktop-portal-(gtk))$
-        windowrulev2 = float, class:^(xdg-desktop-portal-(gtk))$
+        windowrule = center on, match:class ^(xdg-desktop-portal-(gtk))$
+        windowrule = float on, match:class ^(xdg-desktop-portal-(gtk))$
       '';
       general = {
         gaps_out = 5;
