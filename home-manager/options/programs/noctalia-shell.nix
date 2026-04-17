@@ -5,12 +5,17 @@
   ...
 }:
 {
-  home.packages = with pkgs; [
-    evtest
-    gpu-screen-recorder
-    kdePackages.qttools
-    wtype
-  ];
+  home = {
+    packages = with pkgs; [
+      evtest
+      gpu-screen-recorder
+      kdePackages.qttools
+      wtype
+    ];
+    sessionPath = [
+      "${config.xdg.configHome}/noctalia/plugins/dmenu"
+    ];
+  };
   programs.noctalia-shell = {
     enable = true;
     plugins = {
@@ -20,6 +25,10 @@
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         currency-exchange = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        dmenu = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
