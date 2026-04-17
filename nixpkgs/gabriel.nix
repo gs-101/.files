@@ -11,6 +11,7 @@
   imports = [
     ./options/i18n.nix
     ./options/boot.nix
+    ./options/hardware/graphics.nix
     ./options/networking.nix
     ./options/nix.nix
     ./options/sops.nix
