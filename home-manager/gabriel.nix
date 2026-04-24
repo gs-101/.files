@@ -17,7 +17,7 @@
     ./options/programs/fastfetch.nix
     ./options/programs/fd.nix
     ./options/programs/gh.nix
-    ./options/programs/ghostty.nix
+    ./options/programs/kitty.nix
     ./options/programs/git.nix
     ./options/programs/gopass.nix
     ./options/programs/msmtp.nix
@@ -30,7 +30,6 @@
     ./options/programs/wakatime.nix
   ];
   programs = {
-    gpg.enable = true;
     home-manager.enable = true;
     librewolf.enable = true;
     keepassxc.enable = true;
