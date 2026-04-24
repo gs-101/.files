@@ -33,9 +33,6 @@ in
       wasabiwallet
       zotero
     ];
-    sessionPath = [
-      "${config.xdg.configHome}/guix/current/bin"
-    ];
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
     };

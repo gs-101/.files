@@ -16,7 +16,6 @@
     ./options/nix.nix
     ./options/sops.nix
     ./options/services/dnsmasq.nix
-    ./options/services/guix.nix
     ./options/services/pipewire.nix
     ./options/services/tailscale.nix
     ./options/services/xserver.nix
