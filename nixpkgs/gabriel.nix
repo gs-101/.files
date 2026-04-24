@@ -30,9 +30,7 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
-  services = {
-    openssh.enable = true;
-  };
+  services.openssh.enable = true;
   users = {
     mutableUsers = false;
     users = {
