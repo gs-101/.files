@@ -11,7 +11,6 @@ let
     perl
     unzip
     wakatime-cli
-    yt-dlp
     zip
     zotero
   ];
