@@ -50,8 +50,7 @@
           rust.enable = true;
           sql.enable = true;
           svelte.enable = true;
-          tailwind.enable = true;
-          ts.enable = true;
+          typescript.enable = true;
           typst.enable = true;
           xml.enable = true;
           yaml.enable = true;
