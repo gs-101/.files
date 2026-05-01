@@ -2,6 +2,7 @@
   config,
   host,
   lib,
+  username,
   ...
 }:
 {
