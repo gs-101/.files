@@ -16,6 +16,7 @@
     ./options/nix.nix
     ./options/sops.nix
     ./options/services/dnsmasq.nix
+    ./options/services/openssh.nix
     ./options/services/pipewire.nix
     ./options/services/tailscale.nix
     ./options/services/xserver.nix
@@ -29,7 +30,6 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
-  services.openssh.enable = true;
   users = {
     mutableUsers = false;
     users = {
@@ -43,6 +43,9 @@
         ];
         hashedPasswordFile = config.sops.secrets.password.path;
         isNormalUser = true;
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDOdceujA3tBt2vYoZE5py6f+98ZIeUdIVVj4XRwoNEO ${username}"
+        ];
       };
     };
   };
