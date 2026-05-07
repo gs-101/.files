@@ -66,7 +66,6 @@
         };
         ui = {
           colorful-menu-nvim.enable = true;
-          colorizer.enable = true;
           illuminate.enable = true;
         };
         utility = {
