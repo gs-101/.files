@@ -9,12 +9,12 @@ let
   youlag = pkgs.freshrss-extensions.buildFreshRssExtension rec {
     FreshRssExtUniqueId = "Youlag";
     pname = "youlag";
-    version = "4.3.0";
+    version = "4.4.0";
     src = pkgs.fetchFromGitHub {
       owner = "civilblur";
       repo = "youlag";
       tag = "v${version}";
-      hash = "sha256-nO+RElBKHHzySqZ/xoUfHVvlQGytVebkjci3NWtl/vY=";
+      hash = "sha256-M/YCY0tWqks6ozYMmdindinldwq61ViQfa2+MOPoPZU=";
     };
   };
 in
