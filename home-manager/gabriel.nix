@@ -26,8 +26,8 @@
     ./options/programs/ripgrep.nix
     ./options/programs/television.nix
     ./options/programs/starship.nix
-    ./options/programs/vscode.nix
     ./options/programs/wakatime.nix
+    ./options/programs/zed-editor.nix
   ];
   programs = {
     home-manager.enable = true;

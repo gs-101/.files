@@ -9,5 +9,13 @@
     enable = true;
     package = pkgs.niri-unstable;
   };
-  xdg.configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
+  xdg = {
+    configFile."niri/config.kdl".text = builtins.readFile ./niri.kdl;
+    portal = {
+      enable = true;
+      configPackages = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = "gtk";
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+  };
 }
