@@ -22,6 +22,7 @@ in
     file.".agents/skills".source = skills;
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
+      ast-grep
       cryptsetup
       gimp
       inkscape
