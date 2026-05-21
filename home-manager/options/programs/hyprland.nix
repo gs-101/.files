@@ -19,7 +19,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
-      pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      # pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
     settings = {
       source = "${config.xdg.configHome}/hypr/noctalia/noctalia-colors.conf";
