@@ -32,7 +32,6 @@
   programs = {
     home-manager.enable = true;
     librewolf.enable = true;
-    keepassxc.enable = true;
     mpv.enable = true;
     mbsync.enable = true;
     nh.enable = true;
