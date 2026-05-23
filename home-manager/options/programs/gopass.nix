@@ -4,7 +4,6 @@
     packages = with pkgs; [
       age
       gopass
-      gopass-hibp
       wl-clipboard
     ];
   };
