@@ -7,7 +7,7 @@
         "Noto Color Emoji"
       ];
       monospace = [
-        "Monocraft"
+        "Cascadia Mono"
         "Noto Sans Mono"
         "Noto Sans Mono CJK SC"
         "Noto Sans Mono CJK JP"
@@ -41,7 +41,7 @@
   home.packages = with pkgs; [
     aporetic
     alcarin-tengwar
-    monocraft
+    cascadia-code
     nerd-fonts.symbols-only
     noto-fonts
     noto-fonts-color-emoji
