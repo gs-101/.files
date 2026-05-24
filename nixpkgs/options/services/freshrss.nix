@@ -22,12 +22,12 @@ in
   services.freshrss = {
     enable = true;
     api.enable = true;
-    baseUrl = "http://freshrss.home.local";
+    baseUrl = "http://nix-pc";
     defaultUser = username;
     extensions = with pkgs.freshrss-extensions; [
       youlag
     ];
     passwordFile = config.sops.secrets.freshrss.path;
-    virtualHost = "freshrss.home.local";
+    virtualHost = "nix-pc";
   };
 }

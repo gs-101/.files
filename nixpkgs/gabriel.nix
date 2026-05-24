@@ -15,7 +15,6 @@
     ./options/networking.nix
     ./options/nix.nix
     ./options/sops.nix
-    ./options/services/dnsmasq.nix
     ./options/services/openssh.nix
     ./options/services/pipewire.nix
     ./options/services/tailscale.nix
