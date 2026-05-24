@@ -23,7 +23,6 @@
   ];
   nixpkgs.hostPlatform = system;
   programs = {
-    appimage.enable = true;
     nano.enable = false;
     nix-ld.enable = true;
   };
