@@ -121,7 +121,8 @@
         nix-notebook = mkSystemConfiguration { host = "nix-notebook"; };
       };
       overlays.default = finalAttrs: previousAttrs: {
-        caveman = finalAttrs.callPackage ./packages/caveman/package.nix { };
+        caveman = finalAttrs.callPackage ./packages/caveman { };
+        gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
       };
     };
 }

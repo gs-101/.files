@@ -3,7 +3,7 @@
   home = {
     packages = with pkgs; [
       age
-      gopass
+      gopass-pass
       wl-clipboard
     ];
   };
