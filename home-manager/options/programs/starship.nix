@@ -466,7 +466,7 @@
         disabled = false;
         format = lib.concatStrings [
           "on "
-          "[$ssh_symbol]"
+          "[$ssh_symbol ]"
           "($style)"
           " on "
           "[$hostname ]"
