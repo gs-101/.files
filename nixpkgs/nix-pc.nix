@@ -9,7 +9,7 @@
   imports = [
     ./${username}.nix
     ./options/disko/${host}.nix
-    ./options/services/freshrss.nix
+    ./options/services/miniflux.nix
   ];
   boot = {
     initrd = {

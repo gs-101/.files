@@ -9,9 +9,8 @@
     ../../shared/options/sops.nix
   ];
   sops.secrets = {
-    freshrss = lib.mkIf config.services.freshrss.enable {
+    miniflux = lib.mkIf config.services.miniflux.enable {
       mode = "0400";
-      owner = config.services.freshrss.user;
     };
     password = {
       neededForUsers = true;
