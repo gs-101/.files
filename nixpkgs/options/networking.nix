@@ -18,6 +18,7 @@
         ];
         allowedUDPPorts = [ 53 ];
       };
+      trustedInterfaces = [ "tailscale0" ];
     };
     hostName = host;
     networkmanager.enable = true;
