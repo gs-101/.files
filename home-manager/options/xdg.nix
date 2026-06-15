@@ -7,7 +7,7 @@
       PYTHON_HISTORY = "${config.xdg.dataHome}/python/history";
       RUSTUP_HOME = "${config.xdg.dataHome}/rust/rustup";
       WGETRC = "${config.xdg.dataHome}/wget/hosts";
-      WAKATIME_HOME = "${config.xdg.dataHome}/wakatime";
+      WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     };
   };
   programs.gpg.homedir = "${config.xdg.dataHome}/gnupg";
