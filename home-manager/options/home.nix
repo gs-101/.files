@@ -27,6 +27,7 @@ in
       gimp
       inkscape
       monero-cli
+      pastel
       quickemu
       tor-browser
       viu
