@@ -8,8 +8,7 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     niri.url = "github:sodiboo/niri-flake";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
+    noctalia.url = "github:noctalia-dev/noctalia";
     nur.url = "github:nix-community/NUR";
     nvf.url = "github:NotAShelf/nvf";
     sops-nix.url = "github:mic92/sops-nix";
@@ -25,7 +24,6 @@
       nix-vscode-extensions,
       nixpkgs,
       noctalia,
-      noctalia-qs,
       nvf,
       self,
       sops-nix,
