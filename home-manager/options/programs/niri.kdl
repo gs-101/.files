@@ -1,18 +1,10 @@
-// Noctalia.
-
-include "noctalia.kdl"
-
 // Autostart.
 
-spawn-at-startup "noctalia-shell" "--no-duplicate"
-
-// Misc.
-
-screenshot-path "~/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png"
+spawn-at-startup "noctalia"
 
 // Look and feel.
 
-// Set the regular wallpaper on the backdrop.
+// Place the regular wallpaper on the backdrop.
 layer-rule {
         match namespace="^noctalia-wallpaper*"
 
@@ -96,34 +88,26 @@ input {
 
 binds {
         // Programs.
-        Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn-sh "kitty"; }
-        Mod+X hotkey-overlay-title="Spawn Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+        Mod+Return hotkey-overlay-title="Spawn Terminal" { spawn-sh "$TERM"; }
+        Mod+X hotkey-overlay-title="Spawn Menu" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
         Mod+E hotkey-overlay-title="Spawn Editor" { spawn-sh "$VISUAL"; }
-        // See https://codeberg.org/tusharhero/tinee
-        Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-        Mod+Period hotkey-overlay-title="Spawn Emoji Menu" { spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
-        Mod+N hotkey-overlay-title="Spawn Notification Center" { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
-        Mod+C hotkey-overlay-title="Spawn Color Picker" { spawn "dms" "color" "pick" "--autocopy"; }
-        // Screenshot
-        Print hotkey-overlay-title="Take a Screenshot of the Screen" { screenshot-screen show-pointer=false; }
-        Shift+Print hotkey-overlay-title="Take a Screenshot of the Current Window" { screenshot-window; }
-        // Bar.
-        Mod+B hotkey-overlay-title="Toggle the Bar" { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
-        // Bookmarks.
-        Mod+Ctrl+C hotkey-overlay-title="Copy entry to Bookmarks" { spawn "bookmarks-copy"; }
-        Mod+Ctrl+V hotkey-overlay-title="Paste entry from Bookmarks" { spawn "bookmarks-paste"; }
+        Mod+V hotkey-overlay-title="Spawn Clipboard Manager" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/clip"; }
+        Mod+Period hotkey-overlay-title="Spawn Emoji Menu" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }
+        // Screenshot.
+        Print hotkey-overlay-title="Take a Screenshot of the Screen" { spawn "noctalia" "msg" "screenshot-fullscreen"; }
+        Shift+Print hotkey-overlay-title="Take a Screenshot of the Current Region" { spawn "noctalia" "msg" "screenshot-region"; }
 
         // Laptop multimedia keys.
-        XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
-        XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-        XF86AudioMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-        XF86AudioMicMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
-        XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-        XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
-        XF86AudioNext { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
-        XF86AudioPause { spawn "noctalia-shell" "ipc" "call" "media" "pause"; }
-        XF86AudioPlay { spawn "noctalia-shell" "ipc" "call" "media" "play"; }
-        XF86AudioPrev { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
+        XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+        XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+        XF86AudioMute allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+        XF86AudioMicMute allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
+        XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
+        XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
+        XF86AudioNext { spawn "noctalia" "msg" "media" "next"; }
+        XF86AudioPause { spawn "noctalia" "msg" "media" "toggle"; }
+        XF86AudioPlay { spawn "noctalia" "msg" "media" "toggle"; }
+        XF86AudioPrev { spawn "noctalia" "msg" "media" "previous"; }
 
         // Actions, modes.
         Mod+Escape { quit; }
@@ -170,22 +154,11 @@ binds {
         Mod+TouchpadScrollDown { focus-workspace-down; }
 }
 
-switch-events {
-        tablet-mode-on { spawn "sh" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
-        tablet-mode-off { spawn "sh" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
-}
-
 // Window rules.
 
 window-rule {
         clip-to-geometry true
         geometry-corner-radius 24
-}
-
-window-rule {
-        match app-id=r#"org.quickshell$"#
-
-        open-floating true
 }
 
 window-rule {

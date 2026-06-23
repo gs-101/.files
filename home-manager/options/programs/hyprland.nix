@@ -5,26 +5,21 @@
   ...
 }:
 let
-  hyprshot = "${lib.getExe pkgs.hyprshot}";
-  noctalia-shell = "${lib.getExe pkgs.noctalia-shell}";
+  noctalia = "${lib.getExe pkgs.noctalia}";
 in
 {
   imports = [
-    ./noctalia-shell.nix
+    ./noctalia.nix
   ];
-  programs.hyprshot = {
-    enable = true;
-    saveLocation = "${config.home.homeDirectory}/Pictures/screenshots";
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
-      # pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
     settings = {
       source = "${config.xdg.configHome}/hypr/noctalia/noctalia-colors.conf";
       exec-once = [
-        "${noctalia-shell} --no-duplicate"
+        "${noctalia}"
       ];
       animations = {
         enabled = true;
@@ -56,20 +51,14 @@ in
       };
       bind = [
         "SUPER, Return, exec, $TERM"
-        "SUPER, X, exec, ${noctalia-shell} ipc call launcher toggle"
+        "SUPER, X, exec, ${noctalia} msg panel-toggle launcher"
         "SUPER, E, exec, $VISUAL"
-        "SUPER, V, exec, ${noctalia-shell} ipc call launcher clipboard"
-        "SUPER, ., exec, ${noctalia-shell} ipc call launcher emoji"
-        "SUPER, N, exec, ${noctalia-shell} ipc call notifications toggleHistory"
+        "SUPER, V, exec, ${noctalia} msg panel-toggle launcher /clip"
+        "SUPER, ., exec, ${noctalia} msg panel-toggle launcher /emo"
         "SUPER, C,  exec, ${lib.getExe pkgs.hyprpicker} -an"
-        ", PRINT, exec, ${hyprshot} -m output"
-        "SHIFT, PRINT, exec, ${hyprshot} -m window"
-        "CTRL, PRINT, exec, ${hyprshot} -m region"
-        "SUPER, B, exec, ${noctalia-shell} ipc call bar toggle"
-        "SUPER CTRL, C, exec, bookmarks-copy"
-        "SUPER CTRL, V, exec, bookmarks-paste"
+        ", PRINT, exec, ${noctalia} msg screenshot-fullscreen"
+        "SHIFT, PRINT, exec, ${noctalia} msg screenshot-region"
         "SUPER, escape, exit"
-        "SUPER, TAB, exec, ${noctalia-shell} ipc call plugin:workspace-overview toggle"
         "SUPER, Q, killactive"
         "SUPER, F, togglefloating"
         "SUPER, left, movefocus, l"
@@ -104,18 +93,18 @@ in
         "SUPER SHIFT, 0, movetoworkspace, 10"
       ];
       bindel = [
-        ", XF86AudioRaiseVolume, exec, ${noctalia-shell} ipc call volume increase"
-        ", XF86AudioLowerVolume, exec, ${noctalia-shell} ipc call volume decrease"
-        ", XF86AudioMute, exec, ${noctalia-shell} ipc call volume muteOutput"
-        ", XF86AudioMicMute, exec, ${noctalia-shell} ipc call volume muteInput"
-        ", XF86MonBrightnessUp, exec, ${noctalia-shell} call brightness increase"
-        ", XF86MonBrightnessDown, exec, ${noctalia-shell} call brightness decrease"
+        ", XF86AudioRaiseVolume, exec, ${noctalia} msg volume-up"
+        ", XF86AudioLowerVolume, exec, ${noctalia} msg volume-down"
+        ", XF86AudioMute, exec, ${noctalia} msg volume-mute"
+        ", XF86AudioMicMute, exec, ${noctalia} msg mic-mute"
+        ", XF86MonBrightnessUp, exec, ${noctalia} msg brightness up"
+        ", XF86MonBrightnessDown, exec, ${noctalia} msg brightness down"
       ];
       bindl = [
-        ", XF86AudioNext, exec, ${noctalia-shell} call media next"
-        ", XF86AudioPause, exec, ${noctalia-shell} call media pause"
-        ", XF86AudioPlay, exec, ${noctalia-shell} call media play"
-        ", XF86AudioPrev, exec, ${noctalia-shell} call media previous"
+        ", XF86AudioNext, exec, ${noctalia} msg media next"
+        ", XF86AudioPause, exec, ${noctalia} msg media toggle"
+        ", XF86AudioPlay, exec, ${noctalia} msg media toggle"
+        ", XF86AudioPrev, exec, ${noctalia} msg media previous"
       ];
       bindm = [
         "SUPER, mouse:272, movewindow"
@@ -172,13 +161,6 @@ in
         float_switch_override_focus = 2;
         kb_options = "ctrl:nocaps";
         numlock_by_default = true;
-      };
-      layerrule = {
-        blur = true;
-        blur_popups = true;
-        name = "noctalia";
-        ignore_alpha = 0.5;
-        "match:namespace" = "noctalia-background-.*$";
       };
       master = {
         mfact = 0.70;
