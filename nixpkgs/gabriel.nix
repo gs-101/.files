@@ -16,6 +16,7 @@
     ./options/nix.nix
     ./options/sops.nix
     ./options/services/openssh.nix
+    ./options/services/nix-serve.nix
     ./options/services/pipewire.nix
     ./options/services/tailscale.nix
     ./options/services/xserver.nix
