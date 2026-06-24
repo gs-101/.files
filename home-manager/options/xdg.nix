@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   accounts.email.maildirBasePath = "${config.xdg.dataHome}/mail";
   home = {
@@ -20,6 +20,7 @@
     mimeApps.enable = true;
     portal = {
       enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       xdgOpenUsePortal = true;
     };
     terminal-exec.enable = true;

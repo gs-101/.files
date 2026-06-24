@@ -6,7 +6,7 @@
       emacs-overlay.overlays.default
       neovim-nightly-overlay.overlays.default
       nix-vscode-extensions.overlays.default
-      niri.overlays.niri
+      niri-nix.overlays.niri-nix
       noctalia.overlays.default
       nur.overlays.default
       self.overlays.default
