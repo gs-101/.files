@@ -17,6 +17,15 @@ in
         "Mod+8".focus-workspace = 8;
         "Mod+9".focus-workspace = 9;
         "Mod+0".focus-workspace = 10;
+        "Mod+C" = {
+          _props = {
+            hotkey-overlay-title = "Colorpicker";
+          };
+          spawn = [
+            "${lib.getExe pkgs.hyprpicker}"
+            "-an"
+          ];
+        };
         "Mod+Down".focus-window-down = [ ];
         "Mod+E" = {
           _props = {
