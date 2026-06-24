@@ -159,21 +159,21 @@
               action = "shutdown";
               countdown_seconds = 0.0;
               enabled = true;
-              shortcut = "5";
+              shortcut = "2";
               variant = "destructive";
             }
             {
               action = "reboot";
               countdown_seconds = 0.0;
               enabled = true;
-              shortcut = "4";
+              shortcut = "3";
               variant = "default";
             }
             {
               action = "logout";
               countdown_seconds = 0.0;
               enabled = true;
-              shortcut = "2";
+              shortcut = "4";
               variant = "default";
             }
           ];
