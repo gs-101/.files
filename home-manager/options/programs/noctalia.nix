@@ -12,9 +12,6 @@
       kdePackages.qttools
       wtype
     ];
-    sessionPath = [
-      "${config.xdg.configHome}/noctalia/plugins/dmenu"
-    ];
   };
   programs.noctalia = {
     enable = true;
@@ -71,9 +68,6 @@
           major_interval = 4;
           visible = true;
         };
-        widget = {
-
-        };
       };
       idle = {
         behavior_order = [
@@ -103,7 +97,7 @@
         auto_locate = true;
       };
       lockscreen_widgets = {
-        enabled = true;
+        enabled = false;
         schema_version = 2;
         grid = {
           cell_size = 16;
