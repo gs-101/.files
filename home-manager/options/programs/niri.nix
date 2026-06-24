@@ -1,3 +1,7 @@
+{ lib, pkgs, ... }:
+let
+  noctalia = lib.getExe pkgs.noctalia;
+in
 {
   wayland.windowManager.niri = {
     enable = true;
@@ -28,7 +32,7 @@
             hotkey-overlay-title = "Spawn Emoji Menu";
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "panel-toggle"
             "launcher"
@@ -67,7 +71,7 @@
             hotkey-overlay-title = "Spawn Clipboard Manager";
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "panel-toggle"
             "launcher"
@@ -85,7 +89,7 @@
             hotkey-overlay-title = "Spawn Menu";
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "panel-toggle"
             "launcher"
@@ -96,7 +100,7 @@
             hotkey-overlay-title = "Take a Screenshot of the Screen";
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "screenshot-fullscreen"
           ];
@@ -106,7 +110,7 @@
             hotkey-overlay-title = "Take a Screenshot of the Current Region";
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "screenshot-region"
           ];
@@ -116,7 +120,7 @@
             allow-when-locked = true;
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "volume-down"
           ];
@@ -126,7 +130,7 @@
             allow-when-locked = true;
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "mic-mute"
           ];
@@ -136,32 +140,32 @@
             allow-when-locked = true;
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "volume-mute"
           ];
         };
 
         "XF86AudioNext".spawn = [
-          "noctalia"
+          "${noctalia}"
           "msg"
           "media"
           "next"
         ];
         "XF86AudioPause".spawn = [
-          "noctalia"
+          "${noctalia}"
           "msg"
           "media"
           "toggle"
         ];
         "XF86AudioPlay".spawn = [
-          "noctalia"
+          "${noctalia}"
           "msg"
           "media"
           "toggle"
         ];
         "XF86AudioPrev".spawn = [
-          "noctalia"
+          "${noctalia}"
           "msg"
           "media"
           "previous"
@@ -171,19 +175,19 @@
             allow-when-locked = true;
           };
           spawn = [
-            "noctalia"
+            "${noctalia}"
             "msg"
             "volume-up"
           ];
         };
 
         "XF86MonBrightnessDown".spawn = [
-          "noctalia"
+          "${noctalia}"
           "msg"
           "brightness-down"
         ];
         "XF86MonBrightnessUp".spawn = [
-          "noctalia"
+          "${noctalia}"
           "msg"
           "brightness-up"
         ];
@@ -240,7 +244,7 @@
       };
       prefer-no-csd = [ ];
       spawn-at-startup = [
-        "noctalia"
+        "${noctalia}"
       ];
       window-rule = [
         {
