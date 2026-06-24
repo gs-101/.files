@@ -5,7 +5,7 @@
   ...
 }:
 let
-  noctalia = "${lib.getExe pkgs.noctalia}";
+  noctalia = lib.getExe pkgs.noctalia;
 in
 {
   imports = [
