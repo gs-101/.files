@@ -17,7 +17,7 @@ in
       pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
     settings = {
-      source = "${config.xdg.configHome}/hypr/noctalia/noctalia-colors.conf";
+      source = "${config.xdg.configHome}/hypr/noctalia.conf";
       exec-once = [
         "${noctalia}"
       ];
