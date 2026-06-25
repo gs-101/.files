@@ -23,6 +23,8 @@
       bar = {
         widgets = {
           auto_hide = true;
+          border = "primary";
+          border_width = 1.0;
           center = [ "clock" ];
           end = [
             "recorder"
