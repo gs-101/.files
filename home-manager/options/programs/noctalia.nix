@@ -241,6 +241,9 @@
         };
       };
       widget = {
+        battery = {
+          display_mode = "graphic";
+        };
         media = {
           hide_when_no_media = true;
           title_scroll = "always";
