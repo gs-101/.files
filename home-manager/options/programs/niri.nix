@@ -3,6 +3,9 @@ let
   noctalia = lib.getExe pkgs.noctalia;
 in
 {
+  imports = [
+    ./noctalia.nix
+  ];
   wayland.windowManager.niri = {
     enable = true;
     settings = {
