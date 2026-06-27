@@ -21,7 +21,6 @@ in
       lfs.enable = true;
       package = pkgs.gitFull;
       settings = {
-        # TODO: discover if this is really necessary.
         core = {
           sshCommand = "ssh -i ${ssh-key} -o IdentitiesOnly=yes";
         };

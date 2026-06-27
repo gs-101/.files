@@ -28,28 +28,6 @@
     nano.enable = false;
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [
-        alsa-lib
-        atk
-        cairo
-        cups
-        dbus
-        expat
-        glib
-        gtk3
-        libgbm
-        libx11
-        libxcb
-        libxcomposite
-        libxdamage
-        libxext
-        libxfixes
-        libxkbcommon
-        libxrandr
-        nspr
-        nss
-        pango
-      ];
     };
   };
   security.rtkit.enable = true;
