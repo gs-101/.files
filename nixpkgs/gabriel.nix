@@ -13,7 +13,7 @@
     ./options/boot.nix
     ./options/hardware/graphics.nix
     ./options/networking.nix
-    ./options/nix.nix
+    ./options/nix/settings.nix
     ./options/sops.nix
     ./options/services/openssh.nix
     ./options/services/nix-serve.nix
