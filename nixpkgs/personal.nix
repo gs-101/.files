@@ -1,5 +1,11 @@
-{ host, ... }:
+{ pkgs, ... }:
 {
+  imports = [
+    ./general.nix
+    ./options/hardware/graphics.nix
+    ./options/services/pipewire.nix
+  ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking = {
     firewall = rec {
       allowedTCPPortRanges = [
@@ -10,17 +16,7 @@
         }
       ];
       allowedUDPPortRanges = allowedTCPPortRanges;
-      interfaces.tailscale0 = {
-        allowedTCPPorts = [
-          53
-          80
-          443
-        ];
-        allowedUDPPorts = [ 53 ];
-      };
-      trustedInterfaces = [ "tailscale0" ];
     };
-    hostName = host;
     networkmanager.enable = true;
   };
 }

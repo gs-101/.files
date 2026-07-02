@@ -9,28 +9,16 @@
 }:
 {
   imports = [
-    ./options/i18n.nix
-    ./options/boot.nix
-    ./options/hardware/graphics.nix
-    ./options/networking.nix
-    ./options/nix/settings.nix
     ./options/sops.nix
-    ./options/services/openssh.nix
-    ./options/services/nix-serve.nix
-    ./options/services/pipewire.nix
     ./options/services/tailscale.nix
     ./options/services/xserver.nix
     ./options/virtualisation/podman.nix
   ];
-  nixpkgs.hostPlatform = system;
   programs = {
     dconf.enable = true;
     nano.enable = false;
-    nix-ld = {
-      enable = true;
-    };
+    nix-ld.enable = true;
   };
-  security.rtkit.enable = true;
   users = {
     mutableUsers = false;
     users = {

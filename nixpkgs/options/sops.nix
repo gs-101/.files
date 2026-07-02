@@ -13,9 +13,6 @@
     miniflux = lib.mkIf config.services.miniflux.enable {
       mode = "0400";
     };
-    "nix_serve_${host}" = {
-      mode = "0400";
-    };
     password = {
       neededForUsers = true;
     };

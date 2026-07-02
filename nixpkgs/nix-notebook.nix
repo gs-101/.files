@@ -8,8 +8,7 @@
 }:
 {
   imports = [
-    ./${username}.nix
-    ./options/disko/${host}.nix
+    ./personal.nix
   ];
   boot = {
     initrd = {
@@ -30,6 +29,7 @@
     enableRedistributableFirmware = true;
   };
   services = {
+    fwupd.enable = true;
     tuned.enable = true;
     upower.enable = true;
     xserver.xkb.layout = "br";
