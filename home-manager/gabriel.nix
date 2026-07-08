@@ -37,6 +37,7 @@
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
     pay-respects.enable = true;
+    prismlauncher.enable = true;
   };
   services = {
     kdeconnect.enable = true;
