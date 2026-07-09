@@ -1,5 +1,8 @@
-{ ... }:
+{ lib, pkgs, ... }:
 {
+  home.shellAliases = {
+    find = lib.getExe pkgs.fd;
+  };
   programs.fd = {
     enable = true;
     extraOptions = [
