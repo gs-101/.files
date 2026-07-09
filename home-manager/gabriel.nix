@@ -27,6 +27,7 @@
     ./options/programs/starship.nix
     ./options/programs/wakatime.nix
     ./options/programs/zed-editor.nix
+    ./options/programs/zoxide.nix
   ];
   programs = {
     home-manager.enable = true;
