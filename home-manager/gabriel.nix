@@ -23,13 +23,13 @@
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
     ./options/programs/ripgrep.nix
-    ./options/programs/television.nix
     ./options/programs/starship.nix
     ./options/programs/wakatime.nix
     ./options/programs/zed-editor.nix
     ./options/programs/zoxide.nix
   ];
   programs = {
+    fzf.enable = true;
     home-manager.enable = true;
     librewolf.enable = true;
     mpv.enable = true;
