@@ -5,7 +5,6 @@
     home-manager.url = "github:nix-community/home-manager";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     niri-nix.url = "git+https://codeberg.org/BANanaD3V/niri-nix";
     noctalia.url = "github:noctalia-dev/noctalia";
@@ -21,7 +20,6 @@
       neovim-nightly-overlay,
       niri-nix,
       nix-index-database,
-      nix-vscode-extensions,
       nixpkgs,
       noctalia,
       nvf,
