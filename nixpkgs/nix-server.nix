@@ -5,13 +5,13 @@
 }:
 {
   imports = [
-    ./personal.nix
-    ./options/services/miniflux.nix
+    ./server.nix
   ];
   boot = {
     initrd = {
       availableKernelModules = [
         "ahci"
+        "nvme"
         "sd_mod"
         "usb_storage"
         "usbhid"
@@ -20,9 +20,10 @@
     };
     kernelModules = [ "kvm-intel" ];
   };
-  console.keyMap = "br-abnt2";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  services.xserver.xkb.layout = "br";
+  hardware = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    enableRedistributableFirmware = true;
+  };
   system.stateVersion = "26.05";
   time.timeZone = "America/Sao_Paulo";
 }

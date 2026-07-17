@@ -1,9 +1,11 @@
 keys:
   - &nix-pc age13a9yzmqcz0funa9wyhjplgmyc794yuunfj9xyh4zan73e762q5ysnzc8nv
   - &nix-notebook age1rszpvtfja85clj6euhnvfsemr3ua5was20qly3dsggdys2d94gws8t9ypx
+  - &nix-server age13mtwdd5y3qd9dtsykxfx0rrqd96tesawdm4l2zqxstlw3ec0d9us5eerdl
 creation_rules:
     - path_regex: secrets.yaml
       key_groups:
       - age:
         - *nix-pc
         - *nix-notebook
+        - *nix-server

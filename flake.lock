@@ -240,6 +240,22 @@
         "type": "github"
       }
     },
+    "nixos": {
+      "locked": {
+        "lastModified": 1784160687,
+        "narHash": "sha256-iYL/bixrb6FlHFu/gIuBYzq6c6lM5AAXsXNSWXtIgQc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4382ed2b7a6839d4280a9b386db49cbc5907414d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768661221,
@@ -496,6 +512,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "niri-nix": "niri-nix",
         "nix-index-database": "nix-index-database",
+        "nixos": "nixos",
         "nixpkgs": "nixpkgs_7",
         "noctalia": "noctalia",
         "nur": "nur",

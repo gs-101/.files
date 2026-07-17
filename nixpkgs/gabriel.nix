@@ -1,17 +1,12 @@
 {
   config,
   fullName,
-  lib,
-  pkgs,
-  system,
-  username,
   ...
 }:
 {
   imports = [
     ./options/sops.nix
     ./options/services/tailscale.nix
-    ./options/services/xserver.nix
     ./options/virtualisation/podman.nix
   ];
   programs = {
@@ -22,7 +17,7 @@
   users = {
     mutableUsers = false;
     users = {
-      "${username}" = {
+      gabriel = {
         description = fullName;
         extraGroups = [
           "input"

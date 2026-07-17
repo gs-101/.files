@@ -5,6 +5,7 @@
     home-manager.url = "github:nix-community/home-manager";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-index-database.url = "github:nix-community/nix-index-database";
+    nixos.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     niri-nix.url = "git+https://codeberg.org/BANanaD3V/niri-nix";
     noctalia.url = "github:noctalia-dev/noctalia";
@@ -20,6 +21,7 @@
       neovim-nightly-overlay,
       niri-nix,
       nix-index-database,
+      nixos,
       nixpkgs,
       noctalia,
       nvf,
@@ -28,13 +30,12 @@
       ...
     }@inputs:
     let
-      pkgsX86Linux = nixpkgs.legacyPackages.x86_64-linux;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       mkHomeConfiguration =
         {
           username,
           module ? ./home-manager/${username}.nix,
-          pkgs ? pkgsX86Linux,
+          pkgs,
         }:
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs username; };
@@ -51,7 +52,7 @@
           username ? "gabriel",
           host,
           module ? ./home-manager/${host}.nix,
-          pkgs ? pkgsX86Linux,
+          pkgs,
         }:
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs username; };
@@ -107,14 +108,32 @@
       );
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
       homeConfigurations = {
-        "gabriel" = mkHomeConfiguration { username = "gabriel"; };
-        "gabriel@nix-pc" = mkPerHostHomeConfiguration { host = "nix-pc"; };
-        "gabriel@nix-notebook" = mkPerHostHomeConfiguration { host = "nix-notebook"; };
+        "gabriel" = mkHomeConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          username = "gabriel";
+        };
+        "gabriel@nix-pc" = mkPerHostHomeConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          host = "nix-pc";
+        };
+        "gabriel@nix-notebook" = mkPerHostHomeConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          host = "nix-notebook";
+        };
       };
       nixosConfigurations = {
-        iso = mkSystemConfiguration { host = "iso"; };
-        nix-pc = mkSystemConfiguration { host = "nix-pc"; };
-        nix-notebook = mkSystemConfiguration { host = "nix-notebook"; };
+        iso = mkSystemConfiguration {
+          host = "iso";
+        };
+        nix-pc = mkSystemConfiguration {
+          host = "nix-pc";
+        };
+        nix-notebook = mkSystemConfiguration {
+          host = "nix-notebook";
+        };
+        nix-server = mkSystemConfiguration {
+          host = "nix-server";
+        };
       };
       overlays.default = finalAttrs: previousAttrs: {
         caveman = finalAttrs.callPackage ./packages/caveman { };
