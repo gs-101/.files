@@ -6,7 +6,6 @@
 {
   imports = [
     ./options/sops.nix
-    ./options/services/tailscale.nix
     ./options/virtualisation/podman.nix
   ];
   programs = {
