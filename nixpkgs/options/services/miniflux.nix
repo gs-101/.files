@@ -9,7 +9,7 @@
       enable = true;
       virtualHosts."${host}.tailbf3a7f.ts.net" = {
         extraConfig = ''
-          reverse_proxy /miniflux* localhost:8080
+          reverse_proxy /miniflux* ${config.services.miniflux.config.LISTEN_ADDR}
         '';
       };
     };
@@ -22,6 +22,7 @@
         CLEANUP_ARCHIVE_UNREAD_DAYS = -1;
         FETCH_ODYSEE_WATCH_TIME = 1;
         FETCH_YOUTUBE_WATCH_TIME = 1;
+        RUN_MIGRATIONS = true;
       };
     };
   };

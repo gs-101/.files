@@ -6,7 +6,6 @@
 {
   imports = [
     ./personal.nix
-    ./options/services/miniflux.nix
   ];
   boot = {
     initrd = {
