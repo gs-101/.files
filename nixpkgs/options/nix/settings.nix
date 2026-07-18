@@ -1,4 +1,4 @@
-{ ... }:
+{ username, ... }:
 {
   nix.settings = {
     experimental-features = [
@@ -17,5 +17,6 @@
       "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
+    trusted-users = [ username ];
   };
 }
