@@ -6,6 +6,7 @@
 {
   imports = [
     ./server.nix
+    ./options/services/anki-sync-server.nix
     ./options/services/adguardhome.nix
     ./options/services/fail2ban.nix
   ];

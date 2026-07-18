@@ -9,9 +9,9 @@
     ../../shared/options/sops.nix
   ];
   sops.secrets = {
-    miniflux = lib.mkIf config.services.miniflux.enable {
-      mode = "0400";
+    anki_sync_server = lib.mkIf config.services.anki-sync-server.enable {
     };
+    miniflux = lib.mkIf config.services.miniflux.enable { };
     password = {
       neededForUsers = true;
     };
