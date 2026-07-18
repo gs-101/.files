@@ -1,4 +1,7 @@
-{ host, ... }:
+{
+  host,
+  ...
+}:
 {
   services = {
     caddy = {
@@ -13,7 +16,7 @@
     };
     adguardhome = {
       enable = true;
-      mutableSettings = false;
+      mutableSettings = true;
     };
   };
 }
