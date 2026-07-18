@@ -9,9 +9,7 @@
       enable = true;
       virtualHosts."${host}.tailbf3a7f.ts.net" = {
         extraConfig = ''
-          handle_path /miniflux/* {
-            reverse_proxy localhost:8080
-          }
+          reverse_proxy /miniflux* localhost:8080
         '';
       };
     };
