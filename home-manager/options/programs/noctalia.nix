@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -124,8 +122,12 @@
       };
       plugins = {
         enabled = [
+          "avivbintangaringga/nix-monitor"
+          "nightwatch75/file-search"
           "noctalia/bongocat"
           "noctalia/screen_recorder"
+          "radimous/prism-launcher-instances"
+          "yocraft/web-launcher"
         ];
       };
       shell = {
