@@ -9,6 +9,7 @@
       enable = true;
       virtualHosts."${host}.tailbf3a7f.ts.net" = {
         extraConfig = ''
+          redir /miniflux /miniflux/
           reverse_proxy /miniflux/* ${config.services.miniflux.config.LISTEN_ADDR}
         '';
       };
