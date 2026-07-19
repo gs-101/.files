@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   networking.firewall = {
     interfaces.tailscale0 = {
@@ -13,6 +13,6 @@
   };
   services.tailscale = {
     enable = true;
-    permitCertUid = "caddy";
+    permitCertUid = config.services.caddy.user;
   };
 }
