@@ -7,7 +7,7 @@
   imports = [
     ./server.nix
     ./options/services/anki-sync-server.nix
-    ./options/services/adguardhome.nix
+    ./options/services/blocky.nix
     ./options/services/fail2ban.nix
     ./options/services/miniflux.nix
     ./options/services/syncthing.nix
