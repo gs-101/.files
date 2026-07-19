@@ -5,7 +5,7 @@
       enable = true;
       virtualHosts."${host}.tailbf3a7f.ts.net" = {
         extraConfig = ''
-          handle_path /blocky* {
+          handle_path /blocky/* {
             reverse_proxy  localhost:${toString config.services.blocky.settings.ports.http}
           }
         '';

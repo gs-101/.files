@@ -9,7 +9,7 @@
       enable = true;
       virtualHosts."${host}.tailbf3a7f.ts.net" = {
         extraConfig = ''
-          reverse_proxy /miniflux* ${config.services.miniflux.config.LISTEN_ADDR}
+          reverse_proxy /miniflux/* ${config.services.miniflux.config.LISTEN_ADDR}
         '';
       };
     };
