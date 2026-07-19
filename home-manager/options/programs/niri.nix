@@ -273,6 +273,16 @@ in
           ];
           open-floating = true;
         }
+        {
+          match = [
+            {
+              _props = {
+                app-id = "dev.noctalia.Noctalia.Settings";
+              };
+            }
+          ];
+          open-floating = true;
+        }
       ];
     };
   };
