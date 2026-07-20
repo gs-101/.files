@@ -52,11 +52,6 @@
             ];
           };
         };
-        caching = {
-          minTime = "5m";
-          maxTime = "24h";
-          prefetching = true;
-        };
         ports = {
           http = 4000;
         };
