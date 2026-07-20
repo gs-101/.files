@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./hardware/nvidia/maxwell.nix
     ./personal.nix
   ];
   boot = {
