@@ -54,7 +54,7 @@
         };
         caching = {
           minTime = "5m";
-          maxTime = "30m";
+          maxTime = "24h";
           prefetching = true;
         };
         ports = {
