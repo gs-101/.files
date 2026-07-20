@@ -44,6 +44,6 @@
     kdeconnect.enable = true;
     podman.enable = true;
     ssh-agent.enable = true;
-    syncthing.enable = true;
+    syncthing.enable = true; # TODO: Make this declarative.
   };
 }
