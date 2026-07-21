@@ -22,10 +22,14 @@
               content = {
                 type = "luks";
                 name = "crypted";
-                passwordFile = "/tmp/secret.key";
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
+                  mountpoint = "/btrfs";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
@@ -58,6 +62,16 @@
             };
           };
         };
+      };
+    };
+  };
+  services.btrbk.instances.disk.settings = {
+    snapshot_preserve = "14d";
+    snapshot_preserve_min = "2d";
+    volume."/btrfs" = {
+      subvolume = {
+        home = { };
+        root = { };
       };
     };
   };
