@@ -1,4 +1,4 @@
-# TODO: Make this declarative.
+# TODO: Replace this with a more minimal alternative.
 
 {
   config,
