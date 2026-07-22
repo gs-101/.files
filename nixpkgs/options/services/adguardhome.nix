@@ -61,6 +61,11 @@
             name = "HaGeZi's Threat Intelligence Feeds";
             id = 1784513335;
           }
+          {
+            enabled = true;
+            url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/nsfw.txt";
+            id = 1784513336;
+          }
         ];
       };
     };
