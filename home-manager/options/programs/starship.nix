@@ -5,6 +5,10 @@
     enableInteractive = true;
     settings = {
       add_newline = false;
+      custom.dumb_terminal = {
+        when = ''test "$TERM" = "dumb"'';
+        command = ''echo -n ""'';
+      };
       follow_symlinks = true;
       format = lib.concatStrings [
         "$all"
