@@ -7,7 +7,7 @@
   imports = [
     ./server.nix
     ./options/services/anki-sync-server.nix
-    ./options/services/adguardhome.nix
+    ./options/services/crab-hole.nix
     ./options/services/fail2ban.nix
     ./options/services/miniflux.nix
     ./options/services/soft-serve.nix
@@ -31,6 +31,7 @@
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
   };
+  services.collectd.enable = true;
   system.stateVersion = "26.05";
   time.timeZone = "America/Sao_Paulo";
 }
