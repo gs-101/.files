@@ -1,5 +1,3 @@
-# TODO: Replace this with a more minimal alternative.
-
 {
   config,
   host,
@@ -9,7 +7,62 @@
   services = {
     adguardhome = {
       enable = true;
-      mutableSettings = true;
+      mutableSettings = false;
+      settings = {
+        dns = {
+          bind_hosts = [
+            "100.75.42.86"
+            "192.168.0.100"
+            "127.0.0.1"
+          ];
+          bootstrap_dns = [
+            "194.242.2.2"
+            "9.9.9.9"
+          ];
+          cache_enabled = true;
+          fallback_dns = [
+            "https://dns.mullvad.net/dns-query"
+            "https://dns.quad9.net/dns-query"
+          ];
+          upstream_dns = [
+            "https://security.cloudflare-dns.com/dns-query"
+          ];
+          upstream_mode = "parallel";
+        };
+        http.address = "127.0.0.1:3000";
+        filters = [
+          {
+            enabled = true;
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_49.txt";
+            name = "HaGeZi's Ultimate Blocklist";
+            id = 1784513324;
+          }
+          {
+            enabled = true;
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_47.txt";
+            name = "HaGeZi's Gambling Blocklist";
+            id = 1784513326;
+          }
+          {
+            enabled = true;
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_55.txt";
+            name = "HaGeZi's Badware Hoster Blocklist";
+            id = 1784513332;
+          }
+          {
+            enabled = true;
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_71.txt";
+            name = "HaGeZi's DNS Rebind Protection";
+            id = 1784513333;
+          }
+          {
+            enabled = true;
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_44.txt";
+            name = "HaGeZi's Threat Intelligence Feeds";
+            id = 1784513335;
+          }
+        ];
+      };
     };
     caddy = {
       enable = true;
