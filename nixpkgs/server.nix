@@ -17,9 +17,28 @@
   networking = {
     useNetworkd = true;
   };
-  systemd.network.networks."10-lan" = {
-    matchConfig.Name = "en* eth*";
-    networkConfig.DHCP = "yes";
+  systemd = {
+    network.networks."10-lan" = {
+      matchConfig.Name = "en* eth*";
+      networkConfig.DHCP = "yes";
+    };
+    oomd = {
+      enableRootSlice = true;
+      enableSystemSlice = true;
+      enableUserSlices = true;
+      settings.OOM = {
+        DefaultMemoryPressureDurationSec = "30s";
+        DefaultMemoryPressureLimit = "70%";
+        SwapUsedLimitPercent = "95%";
+      };
+    };
+    services.sshd.serviceConfig.ManagedOOMPreference = "avoid";
   };
   services.pulseaudio.enable = false;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    priority = 100;
+  };
 }
