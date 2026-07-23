@@ -3,6 +3,7 @@
   imports = [
     ./general.nix
     ./options/nix/gc.nix
+    ./options/services/endlessh-go.nix
   ];
   boot.initrd.network = {
     enable = true;

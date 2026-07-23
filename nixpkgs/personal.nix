@@ -3,6 +3,7 @@
   imports = [
     ./general.nix
     ./options/hardware/graphics.nix
+    ./options/services/openssh.nix
     ./options/services/pipewire.nix
     ./options/services/xserver.nix
   ];

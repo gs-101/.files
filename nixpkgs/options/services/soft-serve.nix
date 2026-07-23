@@ -3,12 +3,10 @@
 { host, ... }:
 let
   httpAddr = "localhost:10000";
-  sshAddr = ":2200";
+  sshAddr = 2222;
 in
 {
-  networking.firewall = {
-    allowedTCPPorts = [ 2200 ];
-  };
+  networking.firewall.allowedTCPPorts = [ sshAddr ];
   services = {
     caddy = {
       enable = true;
@@ -34,7 +32,7 @@ in
         name = "gs-101";
         ssh = {
           listen_addr = sshAddr;
-          public_url = "ssh://${host}.tailbf3a7f.ts.net${sshAddr}";
+          public_url = "ssh://${host}.tailbf3a7f.ts.net:${toString sshAddr}";
         };
       };
     };

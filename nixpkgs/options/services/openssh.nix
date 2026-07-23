@@ -3,7 +3,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      AllowUsers = [ "${username}" ];
+      AllowUsers = [ username ];
       PasswordAuthentication = false;
       PermitRootLogin = "no";
     };

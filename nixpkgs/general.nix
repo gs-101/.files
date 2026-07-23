@@ -11,7 +11,6 @@
     ./options/boot.nix
     ./options/i18n.nix
     ./options/nix/settings.nix
-    ./options/services/openssh.nix
     ./options/services/tailscale.nix
   ];
   networking.hostName = host;
