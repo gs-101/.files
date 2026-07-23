@@ -3,14 +3,12 @@
   ...
 }:
 {
-  home = {
-    packages = with pkgs; [
-      evtest
-      gpu-screen-recorder
-      kdePackages.qttools
-      wtype
-    ];
-  };
+  home.packages = with pkgs; [
+    evtest
+    gpu-screen-recorder
+    kdePackages.qttools
+    wtype
+  ];
   programs.noctalia = {
     enable = true;
     settings = {

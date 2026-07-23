@@ -1,10 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  home = {
-    packages = with pkgs; [
-      age
-      gopass-pass
-      wl-clipboard
-    ];
-  };
+  home.packages = with pkgs; [
+    age
+    gopass-pass
+    wl-clipboard
+  ];
 }
