@@ -9,6 +9,7 @@
     ./options/services/anki-sync-server.nix
     ./options/services/adguardhome.nix
     ./options/services/fail2ban.nix
+    ./options/services/filebrowser.nix
     ./options/services/miniflux.nix
     ./options/services/soft-serve.nix
     ./options/services/syncthing.nix
