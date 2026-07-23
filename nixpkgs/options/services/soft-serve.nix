@@ -31,7 +31,7 @@ in
         ];
         name = "gs-101";
         ssh = {
-          listen_addr = sshAddr;
+          listen_addr = ":${toString sshAddr}";
           public_url = "ssh://${host}.tailbf3a7f.ts.net:${toString sshAddr}";
         };
       };
