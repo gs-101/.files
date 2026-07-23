@@ -18,5 +18,5 @@ nix-shell -p ssh-to-age --run 'cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-ag
 1. Generate an `initrd` SSH key
 
 ```shell
-ssh-keygen -t ed25519 -f /etc/ssh/initrd_host_ed25519_key
+ssh-keygen -t ed25519 -f /etc/ssh/ssh_initrd_ed25519_key
 ```
