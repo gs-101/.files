@@ -15,25 +15,10 @@
       hostKeys = [ "/etc/ssh/ssh_initrd_ed25519_key" ];
     };
   };
-  networking = {
-    useNetworkd = true;
-  };
-  systemd = {
-    network.networks."10-lan" = {
-      matchConfig.Name = "en* eth*";
-      networkConfig.DHCP = "yes";
-    };
-    oomd = {
-      enableRootSlice = true;
-      enableSystemSlice = true;
-      enableUserSlices = true;
-      settings.OOM = {
-        DefaultMemoryPressureDurationSec = "30s";
-        DefaultMemoryPressureLimit = "70%";
-        SwapUsedLimitPercent = "95%";
-      };
-    };
-    services.sshd.serviceConfig.ManagedOOMPreference = "avoid";
+  networking.useNetworkd = true;
+  systemd.network.networks."10-lan" = {
+    matchConfig.Name = "en* eth*";
+    networkConfig.DHCP = "yes";
   };
   services.pulseaudio.enable = false;
   zramSwap = {
