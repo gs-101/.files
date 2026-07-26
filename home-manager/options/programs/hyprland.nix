@@ -52,7 +52,7 @@ in
         "SUPER, E, exec, $VISUAL"
         "SUPER, V, exec, ${noctalia} msg panel-toggle launcher /clip"
         "SUPER, ., exec, ${noctalia} msg panel-toggle launcher /emo"
-        "SUPER, C,  exec, ${lib.getExe pkgs.hyprpicker} -an"
+        "SUPER, C,  exec, ${noctalia} msg panel-toggle oldirtty/color_picker:panel"
         ", PRINT, exec, ${noctalia} msg screenshot-fullscreen"
         "SHIFT, PRINT, exec, ${noctalia} msg screenshot-region"
         "SUPER, escape, exit"

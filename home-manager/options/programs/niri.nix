@@ -25,8 +25,10 @@ in
             hotkey-overlay-title = "Colorpicker";
           };
           spawn = [
-            "${lib.getExe pkgs.hyprpicker}"
-            "-an"
+            "${noctalia}"
+            "msg"
+            "pannel-toggle"
+            "oldirtty/color_picker:panel"
           ];
         };
         "Mod+Down".focus-window-down = [ ];
