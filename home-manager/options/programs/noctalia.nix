@@ -31,7 +31,6 @@
             "brightness"
             "battery"
             "cat"
-            "control-center"
           ];
           layer = "overlay";
           margin_edge = 5;
