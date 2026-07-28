@@ -10,14 +10,12 @@ in
   services = {
     caddy = {
       enable = true;
-      virtualHosts."${host}.tailbf3a7f.ts.net" = {
-        extraConfig = ''
-          redir /soft-serve /soft-serve/
-          handle_path /soft-serve/* {
-            reverse_proxy ${httpAddr}
-          }
-        '';
-      };
+      virtualHosts."${host}.tailbf3a7f.ts.net".extraConfig = ''
+        redir /soft-serve /soft-serve/
+        handle_path /soft-serve/* {
+          reverse_proxy ${httpAddr}
+        }
+      '';
     };
     soft-serve = {
       enable = true;

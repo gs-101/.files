@@ -7,12 +7,10 @@
   services = {
     caddy = {
       enable = true;
-      virtualHosts."${host}.tailbf3a7f.ts.net" = {
-        extraConfig = ''
-          redir /miniflux /miniflux/
-          reverse_proxy /miniflux/* ${config.services.miniflux.config.LISTEN_ADDR}
-        '';
-      };
+      virtualHosts."${host}.tailbf3a7f.ts.net".extraConfig = ''
+        redir /miniflux /miniflux/
+        reverse_proxy /miniflux/* ${config.services.miniflux.config.LISTEN_ADDR}
+      '';
     };
     miniflux = {
       enable = true;
