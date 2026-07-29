@@ -1,0 +1,28 @@
+{
+  config,
+  ...
+}:
+{
+  services = {
+    anki-sync-server = {
+      enable = true;
+      address = "127.0.0.1";
+      users = [
+        {
+          username = "gabriel";
+          passwordFile = config.sops.secrets.anki_sync_server.path;
+        }
+      ];
+    };
+    caddy = {
+      enable = true;
+      virtualHosts."${config.networking.hostName}.tailbf3a7f.ts.net".extraConfig = ''
+        redir /anki-sync-server /anki-sync-server/
+        handle_path /anki-sync-server/* {
+          reverse_proxy ${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}
+        }
+      '';
+    };
+  };
+  sops.secrets.anki_sync_server = { };
+}

@@ -29,63 +29,50 @@
     }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
-      mkHomeConfiguration =
+      makeHomeConfiguration =
         {
-          username,
-          module ? ./home-manager/${username}.nix,
+          user,
+          modules,
           pkgs,
         }:
         home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs username; };
-          modules = [
-            nix-index-database.homeModules.default
-            nvf.homeModules.default
-            sops-nix.homeModules.default
-            module
-          ];
+          extraSpecialArgs = { inherit inputs; };
+          modules = modules ++ [ ./home-manager/${user} ];
           inherit pkgs;
         };
-      mkPerHostHomeConfiguration =
+      makePerSystemHomeConfiguration =
         {
-          username ? "gabriel",
-          host,
-          module ? ./home-manager/${host}.nix,
+          user,
+          system,
+          modules,
           pkgs,
         }:
         home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs username; };
-          modules = [
-            nix-index-database.homeModules.default
-            noctalia.homeModules.default
-            nvf.homeManagerModules.default
-            sops-nix.homeModules.default
-            module
-          ];
+          extraSpecialArgs = { inherit inputs user; };
+          modules = modules ++ [ ./home-manager/${user}/${system}.nix ];
           inherit pkgs;
         };
-      mkSystemConfiguration =
+      makeSystemConfiguration =
         {
-          username ? "gabriel",
-          fullName ? "Gabriel Santos",
-          host,
-          system ? "x86_64-linux",
-          module ? ./nixpkgs/${host}.nix,
+          modules,
+          nixpkgs,
+          system,
         }:
         nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            disko.nixosModules.disko
-            sops-nix.nixosModules.sops
-            module
+          modules = modules ++ [ ./nixpkgs/${system} ];
+        };
+      makePerUserSystemConfiguration =
+        {
+          modules,
+          nixpkgs,
+          system,
+          user,
+        }:
+        nixpkgs.lib.nixosSystem {
+          modules = modules ++ [
+            ./nixpkgs/${system}
+            ./nixpkgs/${user}/${system}.nix
           ];
-          specialArgs = {
-            inherit
-              fullName
-              host
-              system
-              username
-              ;
-          };
         };
     in
     {
@@ -105,36 +92,77 @@
       );
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
       homeConfigurations = {
-        "gabriel" = mkHomeConfiguration {
+        "gabriel" = makeHomeConfiguration {
+          modules = [
+            nix-index-database.homeModules.default
+            noctalia.homeModules.default
+            nvf.homeManagerModules.default
+            sops-nix.homeModules.default
+          ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          username = "gabriel";
+          user = "gabriel";
         };
-        "gabriel@nix-pc" = mkPerHostHomeConfiguration {
+        "gabriel@nix-notebook" = makePerSystemHomeConfiguration {
+          system = "nix-notebook";
+          modules = [
+            nix-index-database.homeModules.default
+            noctalia.homeModules.default
+            nvf.homeManagerModules.default
+            sops-nix.homeModules.default
+          ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          host = "nix-pc";
+          user = "gabriel";
         };
-        "gabriel@nix-notebook" = mkPerHostHomeConfiguration {
+        "gabriel@nix-pc" = makePerSystemHomeConfiguration {
+          system = "nix-pc";
+          modules = [
+            nix-index-database.homeModules.default
+            noctalia.homeModules.default
+            nvf.homeManagerModules.default
+            sops-nix.homeModules.default
+          ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          host = "nix-notebook";
+          user = "gabriel";
         };
       };
       nixosConfigurations = {
-        iso = mkSystemConfiguration {
-          host = "iso";
+        iso = makeSystemConfiguration {
+          modules = [
+            disko.nixosModules.disko
+          ];
+          inherit nixpkgs;
+          system = "iso";
         };
-        nix-pc = mkSystemConfiguration {
-          host = "nix-pc";
+        nix-notebook = makePerUserSystemConfiguration {
+          modules = [
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
+          inherit nixpkgs;
+          system = "nix-notebook";
+          user = "gabriel";
         };
-        nix-notebook = mkSystemConfiguration {
-          host = "nix-notebook";
+        nix-pc = makePerUserSystemConfiguration {
+          system = "nix-pc";
+          modules = [
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
+          inherit nixpkgs;
+          user = "gabriel";
         };
-        nix-server = mkSystemConfiguration {
-          host = "nix-server";
+        nix-server = makePerSystemHomeConfiguration {
+          system = "nix-server";
+          modules = [
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
+          nixpkgs = nixos;
+          user = "gabriel";
         };
-      };
-      overlays.default = finalAttrs: previousAttrs: {
-        caveman = finalAttrs.callPackage ./packages/caveman { };
-        gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
+        overlays.default = finalAttrs: previousAttrs: {
+          gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
+        };
       };
     };
 }

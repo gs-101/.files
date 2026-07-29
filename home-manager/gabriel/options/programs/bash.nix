@@ -1,0 +1,21 @@
+{
+  home.shell.enableBashIntegration = true;
+  programs.bash = {
+    enable = true;
+    historyControl = [
+      "erasedups"
+      "ignoreboth"
+    ];
+    shellAliases = {
+      ".." = "cd ..";
+      "df" = "df -h";
+      "free" = "free -hm";
+      "ls" = "ls -ahHl --author --color=auto --group-directories-first --hyperlink=auto";
+      "lsblk" = "lsblk -f";
+    };
+    shellOptions = [
+      "globstar"
+      "histappend"
+    ];
+  };
+}
