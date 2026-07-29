@@ -13,6 +13,7 @@
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   console.keyMap = "br-abnt2";
+  programs.gpu-screen-recorder.enable = true;
   services.xserver.xkb.layout = "br";
   time.timeZone = "America/Sao_Paulo";
 }

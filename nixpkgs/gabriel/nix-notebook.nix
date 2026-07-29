@@ -12,5 +12,6 @@
     ./options/services/xserver.nix
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  programs.gpu-screen-recorder.enable = true;
   time.timeZone = "America/Sao_Paulo";
 }
