@@ -21,7 +21,7 @@
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
   };
-  networking.hostName = "nix-notebook";
+  networking.hostName = "nix-server";
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "26.05";
 }

@@ -151,7 +151,7 @@
           inherit nixpkgs;
           user = "gabriel";
         };
-        nix-server = makePerSystemHomeConfiguration {
+        nix-server = makePerUserSystemConfiguration {
           system = "nix-server";
           modules = [
             disko.nixosModules.disko
