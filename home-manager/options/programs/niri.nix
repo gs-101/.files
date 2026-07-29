@@ -6,8 +6,10 @@ in
   imports = [
     ./noctalia.nix
   ];
+  home.packages = [ pkgs.hyprpicker ];
   wayland.windowManager.niri = {
     enable = true;
+    checkConfig = false;
     settings = {
       binds = {
         "Mod+1".focus-workspace = 1;
@@ -21,30 +23,24 @@ in
         "Mod+9".focus-workspace = 9;
         "Mod+0".focus-workspace = 10;
         "Mod+C" = {
-          _props = {
-            hotkey-overlay-title = "Colorpicker";
-          };
+          _props.hotkey-overlay-title = "Spawn Color Picker";
           spawn = [
             "${noctalia}"
             "msg"
-            "pannel-toggle"
+            "panel-toggle"
             "oldirtty/color_picker:panel"
           ];
         };
-        "Mod+Down".focus-window-down = [ ];
+        "Mod+Down".focus-window-down = { };
         "Mod+E" = {
-          _props = {
-            hotkey-overlay-title = "Spawn Editor";
-          };
+          _props.hotkey-overlay-title = "Spawn Editor";
           spawn-sh = "$VISUAL";
         };
-        "Mod+Escape".quit = [ ];
-        "Mod+F".toggle-window-floating = [ ];
-        "Mod+Left".focus-column-left = [ ];
+        "Mod+Escape".quit = { };
+        "Mod+F".toggle-window-floating = { };
+        "Mod+Left".focus-column-left = { };
         "Mod+Period" = {
-          _props = {
-            hotkey-overlay-title = "Spawn Emoji Menu";
-          };
+          _props.hotkey-overlay-title = "Spawn Emoji Menu";
           spawn = [
             "${noctalia}"
             "msg"
@@ -53,14 +49,12 @@ in
             "/emo"
           ];
         };
-        "Mod+Q".close-window = [ ];
+        "Mod+Q".close-window = { };
         "Mod+Return" = {
-          _props = {
-            hotkey-overlay-title = "Spawn Terminal";
-          };
+          _props.hotkey-overlay-title = "Spawn Terminal";
           spawn-sh = "$TERM";
         };
-        "Mod+Right".focus-column-right = [ ];
+        "Mod+Right".focus-column-right = { };
         "Mod+Shift+1".move-column-to-workspace = 1;
         "Mod+Shift+2".move-column-to-workspace = 2;
         "Mod+Shift+3".move-column-to-workspace = 3;
@@ -71,37 +65,31 @@ in
         "Mod+Shift+8".move-column-to-workspace = 8;
         "Mod+Shift+9".move-column-to-workspace = 9;
         "Mod+Shift+0".move-column-to-workspace = 10;
-        "Mod+Shift+Down".move-window-down = [ ];
-        "Mod+Shift+Left".move-column-left = [ ];
-        "Mod+Shift+Right".move-column-right = [ ];
-        "Mod+Shift+Up".move-window-up = [ ];
-        "Mod+Tab".toggle-overview = [ ];
-        "Mod+TouchpadScrollDown".focus-workspace-down = [ ];
-        "Mod+TouchpadScrollLeft".focus-column-left = [ ];
-        "Mod+TouchpadScrollRight".focus-column-right = [ ];
-        "Mod+TouchpadScrollUp".focus-workspace-up = [ ];
+        "Mod+Shift+Down".move-window-down = { };
+        "Mod+Shift+Left".move-column-left = { };
+        "Mod+Shift+Right".move-column-right = { };
+        "Mod+Shift+Up".move-window-up = { };
+        "Mod+Tab".toggle-overview = { };
+        "Mod+TouchpadScrollDown".focus-workspace-down = { };
+        "Mod+TouchpadScrollLeft".focus-column-left = { };
+        "Mod+TouchpadScrollRight".focus-column-right = { };
+        "Mod+TouchpadScrollUp".focus-workspace-up = { };
         "Mod+V" = {
-          _props = {
-            hotkey-overlay-title = "Spawn Clipboard Manager";
-          };
+          _props.hotkey-overlay-title = "Spawn Clipboard Manager";
           spawn = [
             "${noctalia}"
             "msg"
             "panel-toggle"
-            "launcher"
-            "/clip"
+            "clipboard"
           ];
         };
-        "Mod+WheelScrollDown".focus-workspace-down = [ ];
-        "Mod+WheelScrollLeft".focus-column-left = [ ];
-        "Mod+WheelScrollRight".focus-column-right = [ ];
-        "Mod+WheelScrollUp".focus-workspace-up = [ ];
-        "Mod+Up".focus-window-up = [ ];
-
+        "Mod+WheelScrollDown".focus-workspace-down = { };
+        "Mod+WheelScrollLeft".focus-column-left = { };
+        "Mod+WheelScrollRight".focus-column-right = { };
+        "Mod+WheelScrollUp".focus-workspace-up = { };
+        "Mod+Up".focus-window-up = { };
         "Mod+X" = {
-          _props = {
-            hotkey-overlay-title = "Spawn Menu";
-          };
+          _props.hotkey-overlay-title = "Spawn Menu";
           spawn = [
             "${noctalia}"
             "msg"
@@ -110,9 +98,7 @@ in
           ];
         };
         "Print" = {
-          _props = {
-            hotkey-overlay-title = "Take a Screenshot of the Screen";
-          };
+          _props.hotkey-overlay-title = "Take a Screenshot of the Screen";
           spawn = [
             "${noctalia}"
             "msg"
@@ -120,9 +106,7 @@ in
           ];
         };
         "Shift+Print" = {
-          _props = {
-            hotkey-overlay-title = "Take a Screenshot of the Current Region";
-          };
+          _props.hotkey-overlay-title = "Take a Screenshot of the Current Region";
           spawn = [
             "${noctalia}"
             "msg"
@@ -130,9 +114,6 @@ in
           ];
         };
         "XF86AudioLowerVolume" = {
-          _props = {
-            allow-when-locked = true;
-          };
           spawn = [
             "${noctalia}"
             "msg"
@@ -140,9 +121,6 @@ in
           ];
         };
         "XF86AudioMicMute" = {
-          _props = {
-            allow-when-locked = true;
-          };
           spawn = [
             "${noctalia}"
             "msg"
@@ -150,16 +128,12 @@ in
           ];
         };
         "XF86AudioMute" = {
-          _props = {
-            allow-when-locked = true;
-          };
           spawn = [
             "${noctalia}"
             "msg"
             "volume-mute"
           ];
         };
-
         "XF86AudioNext".spawn = [
           "${noctalia}"
           "msg"
@@ -185,16 +159,12 @@ in
           "previous"
         ];
         "XF86AudioRaiseVolume" = {
-          _props = {
-            allow-when-locked = true;
-          };
           spawn = [
             "${noctalia}"
             "msg"
             "volume-up"
           ];
         };
-
         "XF86MonBrightnessDown".spawn = [
           "${noctalia}"
           "msg"
@@ -208,13 +178,13 @@ in
       };
       cursor = {
         hide-after-inactive-ms = 1000;
-        hide-when-typing = [ ];
+        hide-when-typing = { };
       };
-      include = [ "noctalia.kdl" ];
+      include = "noctalia.kdl";
       input = {
-        focus-follows-mouse = [ ];
+        focus-follows-mouse = { };
         keyboard = {
-          numlock = [ ];
+          numlock = { };
           repeat-delay = 600;
           repeat-rate = 25;
           xkb = {
@@ -225,68 +195,55 @@ in
         mouse.accel-profile = "flat";
         touchpad = {
           accel-profile = "flat";
-          disabled-on-external-mouse = [ ];
+          disabled-on-external-mouse = { };
           drag = true;
-          drag-lock = [ ];
-          dwt = [ ];
-          dwtp = [ ];
+          drag-lock = { };
+          dwt = { };
+          dwtp = { };
         };
         trackball.accel-profile = "flat";
         trackpoint.accel-profile = "flat";
-        workspace-auto-back-and-forth = [ ];
+        workspace-auto-back-and-forth = { };
       };
-      layer-rule = [
-        {
-          match = [
-            {
-              _props = {
-                namespace = "^noctalia-wallpaper*";
-              };
-            }
-          ];
-          place-within-backdrop = true;
-        }
-      ];
       layout = {
-        always-center-single-column = [ ];
+        always-center-single-column = { };
         background-color = "transparent";
-        border.off = [ ];
+        border.off = { };
         default-column-display = "tabbed";
         focus-ring.width = 1;
         gaps = 5;
-        tab-indicator.hide-when-single-tab = [ ];
+        tab-indicator.hide-when-single-tab = { };
       };
-      prefer-no-csd = [ ];
+      prefer-no-csd = { };
       spawn-at-startup = [
         "${noctalia}"
       ];
-      window-rule = [
+      _children = [
         {
-          clip-to-geometry = true;
-          geometry-corner-radius = 24;
+          layer-rule = {
+            match._props.namespace = "^noctalia-wallpaper*";
+            place-within-backdrop = true;
+          };
         }
         {
-          match = [
-            {
-              _props = {
-                app-id = "xdg-desktop-portal-gtk";
-              };
-            }
-          ];
-          open-floating = true;
+          window-rule = {
+            clip-to-geometry = true;
+            geometry-corner-radius = 24;
+          };
         }
         {
-          match = [
-            {
-              _props = {
-                app-id = "dev.noctalia.Noctalia.Settings";
-              };
-            }
-          ];
-          open-floating = true;
+          window-rule = {
+            match._props.app-id = "xdg-desktop-portal-gtk";
+            open-floating = true;
+          };
+        }
+        {
+          window-rule = {
+            match._props.app-id = "dev.noctalia.Noctalia.Settings";
+            open-floating = true;
+          };
         }
       ];
     };
   };
-
 }

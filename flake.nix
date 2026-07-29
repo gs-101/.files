@@ -7,7 +7,6 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixos.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
-    niri-nix.url = "git+https://codeberg.org/BANanaD3V/niri-nix";
     noctalia.url = "github:noctalia-dev/noctalia";
     nur.url = "github:nix-community/NUR";
     nvf.url = "github:NotAShelf/nvf";
@@ -19,7 +18,6 @@
       emacs-overlay,
       home-manager,
       neovim-nightly-overlay,
-      niri-nix,
       nix-index-database,
       nixos,
       nixpkgs,
@@ -57,7 +55,6 @@
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs username; };
           modules = [
-            niri-nix.homeModules.default
             nix-index-database.homeModules.default
             noctalia.homeModules.default
             nvf.homeManagerModules.default
