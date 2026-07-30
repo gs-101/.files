@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   services = {
     caddy = {
@@ -33,6 +33,7 @@
         };
         server = {
           DOMAIN = "${config.networking.hostName}.tailbf3a7f.ts.net";
+          HTTP_PORT = 3001;
           ROOT_URL = "https://${config.networking.hostName}.tailbf3a7f.ts.net/forgejo/";
         };
         # Set to 'false' temporarily to create the sole user.
