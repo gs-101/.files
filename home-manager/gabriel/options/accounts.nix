@@ -27,4 +27,5 @@
       userName = "gabrielsantosdesouza@disroot.org";
     };
   };
+  sops.secrets.disroot = { };
 }
