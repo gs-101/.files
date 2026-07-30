@@ -20,7 +20,6 @@
         CLEANUP_ARCHIVE_UNREAD_DAYS = -1;
         FETCH_ODYSEE_WATCH_TIME = 1;
         FETCH_YOUTUBE_WATCH_TIME = 1;
-        RUN_MIGRATIONS = true;
       };
     };
   };
