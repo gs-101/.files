@@ -12,6 +12,7 @@
     ./options/services/miniflux.nix
     ./options/services/rsshub.nix
     ./options/services/syncthing.nix
+    ./options/services/wakapi.nix
   ];
   boot.initrd.network = {
     enable = true;
