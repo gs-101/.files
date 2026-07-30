@@ -7,9 +7,10 @@
     ./options/services/btrbk.nix
     ./options/services/endlessh-go.nix
     ./options/services/fail2ban.nix
+    ./options/services/forgejo.nix
+    ./options/services/gitea-actions-runner.nix
     ./options/services/miniflux.nix
     ./options/services/rsshub.nix
-    ./options/services/soft-serve.nix
     ./options/services/syncthing.nix
   ];
   boot.initrd.network = {
