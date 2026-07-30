@@ -38,6 +38,7 @@
     nix-index-database.comma.enable = true;
     pay-respects.enable = true;
     prismlauncher.enable = true;
+    vesktop.enable = true;
     zed-editor.enable = true;
   };
   services = {
