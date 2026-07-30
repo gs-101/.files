@@ -160,9 +160,9 @@
           nixpkgs = nixos;
           user = "gabriel";
         };
-        overlays.default = finalAttrs: previousAttrs: {
-          gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
-        };
+      };
+      overlays.default = finalAttrs: previousAttrs: {
+        gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
       };
     };
 }
