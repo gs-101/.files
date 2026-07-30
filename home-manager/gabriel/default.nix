@@ -19,7 +19,6 @@
     ./options/programs/kitty.nix
     ./options/programs/git.nix
     ./options/programs/gopass.nix
-    ./options/programs/msmtp.nix
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
     ./options/programs/ripgrep.nix
