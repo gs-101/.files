@@ -8,6 +8,7 @@
     ./options/services/endlessh-go.nix
     ./options/services/fail2ban.nix
     ./options/services/miniflux.nix
+    ./options/services/rsshub.nix
     ./options/services/soft-serve.nix
     ./options/services/syncthing.nix
   ];
