@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     evtest
     gpu-screen-recorder
-    kdePackages.qttools
     wtype
   ];
   programs.noctalia = {
@@ -264,6 +263,7 @@
         };
       };
       wallpaper = {
+        directory = "~/Pictures/wallpapers";
         automation = {
           enabled = true;
         };
