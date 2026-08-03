@@ -3,6 +3,7 @@
     ./default.nix
     ./options/zramSwap.nix
     ./options/nix/gc.nix
+    ./options/services/adguardhome.nix
     ./options/services/anki-sync-server.nix
     ./options/services/btrbk.nix
     ./options/services/endlessh-go.nix
