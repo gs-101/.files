@@ -300,8 +300,7 @@
         workspaces = {
           hide_when_empty = true;
           labels_only_when_occupied = true;
-          minimal = true;
-          style = "minimal";
+          style = "regular";
         };
       };
     };
