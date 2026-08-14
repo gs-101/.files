@@ -200,6 +200,7 @@ in
           drag-lock = { };
           dwt = { };
           dwtp = { };
+          tap = { };
         };
         trackball.accel-profile = "flat";
         trackpoint.accel-profile = "flat";

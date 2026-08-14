@@ -1,6 +1,6 @@
 {
   imports = [
     ./default.nix
-    ./options/programs/hyprland.nix
+    ./options/programs/niri.nix
   ];
 }
