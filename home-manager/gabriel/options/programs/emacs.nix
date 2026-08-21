@@ -5,6 +5,7 @@ let
     curl
     direnv
     ffmpeg
+    grim
     mpv
     mupdf
     nerd-fonts.symbols-only

@@ -10,6 +10,7 @@
     username = "gabriel";
     homeDirectory = "/home/gabriel";
     packages = with pkgs; [
+      antigravity-cli
       ast-grep
       cryptsetup
       gimp
