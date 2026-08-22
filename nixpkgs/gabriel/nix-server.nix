@@ -27,6 +27,11 @@
   };
   networking.useNetworkd = true;
   services.pulseaudio.enable = false;
+  services.restic.backups.google-drive.pruneOpts = [
+    "--keep-daily 7"
+    "--keep-weekly 5"
+    "--keep-monthly 6"
+  ];
   systemd.network.networks."10-lan" = {
     matchConfig.Name = "en* eth*";
     networkConfig.DHCP = "yes";
