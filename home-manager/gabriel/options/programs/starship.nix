@@ -469,7 +469,6 @@
       hostname = {
         disabled = false;
         format = lib.concatStrings [
-          "on "
           "[$ssh_symbol ]"
           "($style)"
           " on "
