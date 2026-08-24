@@ -8,7 +8,7 @@
       ];
       name = config.networking.hostName;
       tokenFile = config.sops.secrets.gitea_actions_runner.path;
-      url = "https://${config.networking.hostName}.tailbf3a7f.ts.net/forgejo/";
+      url = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}/";
     };
     package = pkgs.forgejo-runner;
   };

@@ -4,15 +4,12 @@
     ./options/zramSwap.nix
     ./options/nix/gc.nix
     ./options/services/blocky.nix
+    ./options/services/cloudflared.nix
     ./options/services/anki-sync-server.nix
     ./options/services/btrbk.nix
-    ./options/services/endlessh-go.nix
-    ./options/services/fail2ban.nix
     ./options/services/forgejo.nix
     ./options/services/gitea-actions-runner.nix
     ./options/services/miniflux.nix
-    ./options/services/rsshub.nix
-    ./options/services/syncthing.nix
     ./options/services/wakapi.nix
   ];
   boot.initrd.network = {
@@ -26,12 +23,16 @@
     };
   };
   networking.useNetworkd = true;
-  services.pulseaudio.enable = false;
-  services.restic.backups.google-drive.pruneOpts = [
-    "--keep-daily 7"
-    "--keep-weekly 5"
-    "--keep-monthly 6"
-  ];
+  services = {
+    rsshub.enable = true;
+    pulseaudio.enable = false;
+    restic.backups.google-drive.pruneOpts = [
+      "--keep-daily 7"
+      "--keep-weekly 5"
+      "--keep-monthly 6"
+    ];
+    syncthing.enable = true;
+  };
   systemd.network.networks."10-lan" = {
     matchConfig.Name = "en* eth*";
     networkConfig.DHCP = "yes";

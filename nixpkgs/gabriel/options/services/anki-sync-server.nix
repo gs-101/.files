@@ -14,15 +14,6 @@
         }
       ];
     };
-    caddy = {
-      enable = true;
-      virtualHosts."${config.networking.hostName}.tailbf3a7f.ts.net".extraConfig = ''
-        redir /anki-sync-server /anki-sync-server/
-        handle_path /anki-sync-server/* {
-          reverse_proxy ${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}
-        }
-      '';
-    };
   };
   sops.secrets.anki_sync_server = { };
 }

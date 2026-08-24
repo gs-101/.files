@@ -1,19 +1,6 @@
 { config, ... }:
 {
   services = {
-    caddy = {
-      enable = true;
-      virtualHosts."${config.networking.hostName}.tailbf3a7f.ts.net".extraConfig = ''
-        redir /forgejo /forgejo/
-        route /forgejo/* {
-          uri strip_prefix /forgejo
-          reverse_proxy localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}
-        }
-        route /v2/* {
-          reverse_proxy localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}
-        }
-      '';
-    };
     forgejo = {
       enable = true;
       lfs.enable = true;
@@ -32,9 +19,10 @@
           ENABLE_PUSH_CREATE_USER = true;
         };
         server = {
-          DOMAIN = "${config.networking.hostName}.tailbf3a7f.ts.net";
+          DOMAIN = "git.gs-101.dev";
           HTTP_PORT = 3001;
-          ROOT_URL = "https://${config.networking.hostName}.tailbf3a7f.ts.net/forgejo/";
+          LANDING_PAGE = "explore";
+          ROOT_URL = "https://git.gs-101.dev/";
         };
         # Set to 'false' temporarily to create the sole user.
         service.DISABLE_REGISTRATION = true;

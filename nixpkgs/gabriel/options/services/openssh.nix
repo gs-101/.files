@@ -1,8 +1,12 @@
+{ config, ... }:
 {
   services.openssh = {
     enable = true;
     settings = {
-      AllowUsers = [ "gabriel" ];
+      AllowUsers = [
+        config.services.forgejo.user
+        "gabriel"
+      ];
       PasswordAuthentication = false;
       PermitRootLogin = "no";
     };
