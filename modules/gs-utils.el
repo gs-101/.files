@@ -197,25 +197,16 @@ using Helpful."
   ("C-;" . embark-act)
   (:map embark-collect-mode-map
         ("j" . goto-char))
-  :config
-  ;; Hide the mode line of the Embark live/completions buffers
-  (add-to-list 'display-buffer-alist
-               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
-                 nil
-                 (window-parameters (mode-line-format . none))))
-  ;; https://github.com/oantolin/embark/wiki/Additional-Configuration#automatically-resizing-auto-updating-embark-collect-buffers-to-fit-their-contents
-  (defun oantolin/embark-collect-resize-window (&rest _)
-    "Resize the `embark-collect' window to match its contents."
-    (when (memq embark-collect--kind '(:live :completions))
-      (fit-window-to-buffer (get-buffer-window)
-                            (floor (frame-height) 2) 1)))
-  :hook
-  (embark-collect-post-revert . oantolin/embark-collect-resize-window)
   :custom
+  (embark-indicators
+       '(embark-minimal-indicator
+         embark-highlight-indicator
+         embark-isearch-highlight-indicator)
+  (embark-prompter 'embark-completing-read-prompter)
   (prefix-help-command #'embark-prefix-help-command)
   ;; Disable quitting after killing a buffer in an action
   (embark-quit-after-action '((kill-buffer . nil)))
-  :ensure t)
+  :ensure t))
 
 (use-package embark
   :after embark avy
@@ -278,7 +269,12 @@ using Helpful."
                               eshell-mode
                               flutter-mode
                               geiser-repl-mode
-                              ghostel-mode
+                              (lambda (buf)
+                                (with-current-buffer buf
+                                  (and (derived-mode-p 'ghostel-mode)
+                                       (not
+                                        (string-match-p "\\*antigravity.*"
+                                                        (buffer-name buf))))))
                               vterm-mode
                               inferior-emacs-lisp-mode
                               inferior-ess-r-mode
