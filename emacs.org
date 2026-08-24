@@ -830,7 +830,7 @@ Emacs support for the Kitty Keyboard Protocol.
     (global-kkp-mode))
 #+end_src
 
-*** [[https://github.com/gs-101/nil-mode][nil-mode]]
+*** [[https://git.gs-101.dev/gs-101/nil-mode][nil-mode]]
 
 #+begin_quote
  A major mode meant for doing nothing in Emacs.
@@ -838,7 +838,7 @@ Emacs support for the Kitty Keyboard Protocol.
 
 #+begin_src emacs-lisp
   (use-package nil-mode
-    :vc (:url "https://github.com/gs-101/nil-mode")
+    :vc (:url "https://git.gs-101.dev/gs-101/nil-mode")
     :ensure t)
 #+end_src
 
@@ -2727,7 +2727,7 @@ Templating agnostic LSP snippets.
     (lsp-snippet-tempel-eglot-init))
 #+end_src
 
-*** [[https://github.com/gs-101/tempel-snippets][Snippets]]
+*** [[https://git.gs-101.dev/gs-101/tempel-snippets][Snippets]]
 
 #+begin_quote
 Effort to translate all the yasnippet snippets to Tempel, inspired on tempel-collection.
@@ -2735,7 +2735,7 @@ Effort to translate all the yasnippet snippets to Tempel, inspired on tempel-col
 
 #+begin_src emacs-lisp
   (use-package tempel-snippets
-    :vc (:url "https://github.com/gs-101/tempel-snippets")
+    :vc (:url "https://git.gs-101.dev/gs-101/tempel-snippets")
     :after tempel
     :ensure t)
 #+end_src

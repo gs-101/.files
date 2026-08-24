@@ -369,7 +369,7 @@ With a ARG prefix argument, copy the buffer to the other window."
   (global-kkp-mode))
 
 (use-package nil-mode
-  :vc (:url "https://github.com/gs-101/nil-mode")
+  :vc (:url "https://git.gs-101.dev/gs-101/nil-mode")
   :ensure t)
 
 (use-package no-littering

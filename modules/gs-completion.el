@@ -22,7 +22,7 @@
   (lsp-snippet-tempel-eglot-init))
 
 (use-package tempel-snippets
-  :vc (:url "https://github.com/gs-101/tempel-snippets")
+  :vc (:url "https://git.gs-101.dev/gs-101/tempel-snippets")
   :after tempel
   :ensure t)
 
