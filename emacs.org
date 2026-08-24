@@ -3677,21 +3677,6 @@ A fancy and fast mode-line inspired by minimalism design.
     (doom-modeline-mode))
 #+end_src
 
-** [[https://github.com/casouri/eldoc-box][ElDoc Box]]
-
-#+begin_quote
-Childframe doc for eglot and anything that uses eldoc.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package eldoc-box
-    :vc (:url "https://github.com/casouri/eldoc-box")
-    :after eldoc
-    :ensure t
-    :hook
-    (eldoc-box-buffer-setup . eldoc-box-prettify-ts-errors)
-    (eldoc-mode . eldoc-box-hover-mode))
-#+end_src
 
 ** [[https://github.com/Wilfred/helpful][Helpful]]
 

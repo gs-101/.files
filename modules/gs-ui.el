@@ -123,14 +123,6 @@ This advice replaces the rocket icon with a electric plug icon."
   :init
   (doom-modeline-mode))
 
-(use-package eldoc-box
-  :vc (:url "https://github.com/casouri/eldoc-box")
-  :after eldoc
-  :ensure t
-  :hook
-  (eldoc-box-buffer-setup . eldoc-box-prettify-ts-errors)
-  (eldoc-mode . eldoc-box-hover-mode))
-
 (use-package helpful
   :vc (:url "https://github.com/Wilfred/helpful")
   :bind
