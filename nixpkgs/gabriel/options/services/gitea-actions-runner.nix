@@ -8,14 +8,10 @@
       ];
       name = config.networking.hostName;
       tokenFile = config.sops.secrets.gitea_actions_runner.path;
-      url = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}/";
+      url = config.services.forgejo.settings.server.ROOT_URL;
     };
     package = pkgs.forgejo-runner;
   };
   sops.secrets.gitea_actions_runner = { };
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    dockerSocket.enable = true;
-  };
+  virtualisation.docker.enable = true;
 }

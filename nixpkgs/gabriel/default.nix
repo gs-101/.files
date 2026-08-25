@@ -7,7 +7,6 @@
     ./options/services/tailscale.nix
     ./options/sops.nix
     ./options/users.nix
-    ./options/virtualisation.nix
   ];
   programs = {
     dconf.enable = true;

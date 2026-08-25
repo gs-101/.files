@@ -6,7 +6,10 @@
       lfs.enable = true;
       # Removing the social aspects of Forgejo.
       settings = {
-        actions.ENABLED = true;
+        actions = {
+          ENABLED = true;
+          DEFAULT_ACTIONS_URL = "https://github.com";
+        };
         federation.ENABLED = false;
         picture = {
           DISABLE_GRAVATAR = true;
