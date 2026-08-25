@@ -4,7 +4,7 @@
     instances.default = {
       enable = true;
       labels = [
-        "ubuntu-latest:docker://node:20-bookworm"
+        "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-latest"
       ];
       name = config.networking.hostName;
       tokenFile = config.sops.secrets.gitea_actions_runner.path;
