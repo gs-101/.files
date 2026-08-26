@@ -1,11 +1,12 @@
 { pkgs, ... }:
 let
   deps = with pkgs; [
+    antigravity-acp
     atool
     curl
     direnv
     ffmpeg
-    grim
+    imagemagick
     mpv
     mupdf
     nerd-fonts.symbols-only
