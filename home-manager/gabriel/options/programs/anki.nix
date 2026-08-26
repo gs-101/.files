@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home = {
-    packages = [ pkgs.anki-bin ];
+    packages = [ pkgs.anki ];
     sessionVariables = {
       ANKI_WAYLAND = 1;
     };
