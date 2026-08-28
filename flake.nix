@@ -163,6 +163,8 @@
       };
       overlays.default = finalAttrs: previousAttrs: {
         antigravity-acp = finalAttrs.callPackage ./packages/antigravity-acp { };
+        caveman = finalAttrs.callPackage ./packages/caveman { };
+        emacs-skills = finalAttrs.callPackage ./packages/emacs-skills { };
         agy_acp_server = finalAttrs.antigravity-acp;
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
       };

@@ -1,8 +1,8 @@
-{ pkgs }:
+{ gopass, symlinkJoin }:
 
-pkgs.symlinkJoin {
+symlinkJoin {
   name = "gopass-pass";
-  paths = [ pkgs.gopass ];
+  paths = [ gopass ];
 
   postBuild = ''
     ln -s gopass "$out/bin/pass"
