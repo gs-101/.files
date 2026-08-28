@@ -22,10 +22,8 @@
           ENABLE_PUSH_CREATE_USER = true;
         };
         server = {
-          DOMAIN = "git.gs-101.dev";
           HTTP_PORT = 3001;
           LANDING_PAGE = "explore";
-          ROOT_URL = "https://git.gs-101.dev/";
         };
         # Set to 'false' temporarily to create the sole user.
         service.DISABLE_REGISTRATION = true;

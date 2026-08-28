@@ -10,6 +10,7 @@
     ./options/services/forgejo.nix
     ./options/services/gitea-actions-runner.nix
     ./options/services/miniflux.nix
+    ./options/services/navidrome.nix
     ./options/services/wakapi.nix
   ];
   boot.initrd.network = {

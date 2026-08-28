@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -25,12 +24,7 @@ in
       globalConfig = ''
         email gabrielsantosdesouza@disroot.org
         acme_ca https://acme-v02.api.letsencrypt.org/directory
-        acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
       '';
-      package = pkgs.caddy.withPlugins {
-        plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
-        hash = "sha256-7GoH8YLCoPmPExQxoga2FHB58zQDoZVf1BBwkVi0SsQ=";
-      };
       virtualHosts = lib.mkMerge [
         (lib.mkIf config.services.anki-sync-server.enable {
           "anki-sync-server.${domain}".extraConfig = ''
@@ -52,6 +46,11 @@ in
             reverse_proxy ${config.services.miniflux.config.LISTEN_ADDR}
           '';
         })
+        (lib.mkIf config.services.navidrome.enable {
+          "navidrome.${domain}".extraConfig = ''
+            reverse_proxy localhost:${toString config.services.navidrome.settings.Port}
+          '';
+        })
         (lib.mkIf config.services.rsshub.enable {
           "rsshub.${domain}".extraConfig = ''
             reverse_proxy localhost:${toString config.services.rsshub.settings.PORT}
@@ -71,15 +70,15 @@ in
         })
       ];
     };
+    forgejo.settings.server = {
+      DOMAIN = "git.${domain}";
+      ROOT_URL = "https://git.${domain}/";
+    };
+    miniflux.config.BASE_URL = "https://miniflux.${domain}/";
     tailscale = {
       enable = true;
       permitCertUid = config.services.caddy.user;
     };
-  };
-  sops.secrets.cloudflare_api_token_env = {
-    mode = "0444";
-  };
-  systemd.services.caddy.serviceConfig = {
-    EnvironmentFile = config.sops.secrets.cloudflare_api_token_env.path;
+    wakapi.settings.server.public_url = "https://wakapi.${domain}/";
   };
 }
