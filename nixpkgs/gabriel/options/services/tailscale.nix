@@ -68,6 +68,11 @@ in
             reverse_proxy localhost:${toString config.services.wakapi.settings.server.port}
           '';
         })
+        (lib.mkIf config.services.zipline.enable {
+          "zipline.${domain}".extraConfig = ''
+            reverse_proxy localhost:${toString config.services.zipline.settings.CORE_PORT}
+          '';
+        })
       ];
     };
     forgejo.settings.server = {
@@ -80,5 +85,12 @@ in
       permitCertUid = config.services.caddy.user;
     };
     wakapi.settings.server.public_url = "https://wakapi.${domain}/";
+    zipline.settings = {
+      CORE_DEFAULT_DOMAIN = "zipline.${domain}";
+      CORE_RETURN_HTTPS_URLS = "true";
+      CORE_TRUST_PROXY = "true";
+      MFA_TOTP_ENABLED = "true";
+      MFA_TOTP_ISSUER = "Zipline";
+    };
   };
 }

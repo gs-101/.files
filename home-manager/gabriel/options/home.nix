@@ -29,7 +29,10 @@ in
       wasabiwallet
       zotero
     ];
-    file.".agents/skills".source = skills;
+    file = {
+      ".agents/skills".source = skills;
+      ".gemini/skills".source = skills;
+    };
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
     };

@@ -12,6 +12,7 @@
     ./options/services/miniflux.nix
     ./options/services/navidrome.nix
     ./options/services/wakapi.nix
+    ./options/services/zipline.nix
   ];
   boot.initrd.network = {
     enable = true;

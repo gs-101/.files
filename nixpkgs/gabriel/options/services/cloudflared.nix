@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   services = {
     caddy = {
@@ -15,9 +20,14 @@
       tunnels."c21cf6f5-33ff-4c66-8c38-a8316d86e1de" = {
         credentialsFile = config.sops.secrets.cloudflared.path;
         default = "http_status:404";
-        ingress = {
-          "git.gs-101.dev" = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}";
-        };
+        ingress = lib.mkMerge [
+          (lib.optionalAttrs config.services.forgejo.enable {
+            "git.gs-101.dev" = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+          })
+          (lib.optionalAttrs config.services.zipline.enable {
+            "zipline.gs-101.dev" = "http://127.0.0.1:${toString config.services.zipline.settings.CORE_PORT}";
+          })
+        ];
       };
     };
   };
