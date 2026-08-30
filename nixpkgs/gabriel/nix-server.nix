@@ -3,6 +3,7 @@
     ./default.nix
     ./options/zramSwap.nix
     ./options/nix/gc.nix
+    ./options/services/4get.nix
     ./options/services/blocky.nix
     ./options/services/cloudflared.nix
     ./options/services/anki-sync-server.nix
