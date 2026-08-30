@@ -3,10 +3,14 @@
   ...
 }:
 let
-  skills = pkgs.linkFarm "agent-skills" {
-    caveman = pkgs.caveman;
-    # Creates nested skills. Doesn't work with all agents (Claude Code, for example)!
-    emacs-skills = pkgs.emacs-skills;
+  skills = pkgs.symlinkJoin {
+    name = "agent-skills";
+    paths = [
+      (pkgs.linkFarm "caveman-skill" {
+        caveman = pkgs.caveman;
+      })
+      pkgs.emacs-skills
+    ];
   };
 in
 {
