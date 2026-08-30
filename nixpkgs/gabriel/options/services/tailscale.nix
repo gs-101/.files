@@ -11,6 +11,19 @@ let
       FOURGET_SERVER_NAME = "4get.${domain}";
     };
   };
+  reverseProxy =
+    {
+      service,
+      subdomain ? service,
+      port ? null,
+      listenAddr ? "localhost:${toString port}",
+      extraDirectives ? "",
+    }:
+    lib.mkIf (config.services.${service}.enable or false) {
+      "${subdomain}.${domain}".extraConfig = ''
+        reverse_proxy ${listenAddr} ${extraDirectives}
+      '';
+    };
 in
 {
   options.virtualisation.oci-containers.containers = lib.mkOption {
@@ -54,52 +67,43 @@ in
               }
             '';
           })
-          (lib.mkIf config.services.anki-sync-server.enable {
-            "anki-sync-server.${domain}".extraConfig = ''
-              reverse_proxy ${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}
-            '';
+          (reverseProxy {
+            service = "anki-sync-server";
+            listenAddr = "${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}";
           })
-          (lib.mkIf config.services.blocky.enable {
-            "blocky.${domain}".extraConfig = ''
-              reverse_proxy localhost:${toString config.services.blocky.settings.ports.http}
-            '';
+          (reverseProxy {
+            service = "blocky";
+            port = config.services.blocky.settings.ports.http;
           })
-          (lib.mkIf config.services.forgejo.enable {
-            "git.${domain}".extraConfig = ''
-              reverse_proxy localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}
-            '';
+          (reverseProxy {
+            service = "forgejo";
+            subdomain = "git";
+            port = config.services.forgejo.settings.server.HTTP_PORT;
           })
-          (lib.mkIf config.services.miniflux.enable {
-            "miniflux.${domain}".extraConfig = ''
-              reverse_proxy ${config.services.miniflux.config.LISTEN_ADDR}
-            '';
+          (reverseProxy {
+            service = "miniflux";
+            listenAddr = config.services.miniflux.config.LISTEN_ADDR;
           })
-          (lib.mkIf config.services.navidrome.enable {
-            "navidrome.${domain}".extraConfig = ''
-              reverse_proxy localhost:${toString config.services.navidrome.settings.Port}
-            '';
+          (reverseProxy {
+            service = "navidrome";
+            port = config.services.navidrome.settings.Port;
           })
-          (lib.mkIf config.services.rsshub.enable {
-            "rsshub.${domain}".extraConfig = ''
-              reverse_proxy localhost:${toString config.services.rsshub.settings.PORT}
-            '';
+          (reverseProxy {
+            service = "rsshub";
+            port = config.services.rsshub.settings.PORT;
           })
-          (lib.mkIf config.services.syncthing.enable {
-            "syncthing.${domain}".extraConfig = ''
-              reverse_proxy ${config.services.syncthing.guiAddress} {
-                header_up Host localhost
-              }
-            '';
+          (reverseProxy {
+            service = "syncthing";
+            listenAddr = config.services.syncthing.guiAddress;
+            extraDirectives = "{\n                header_up Host localhost\n              }";
           })
-          (lib.mkIf config.services.wakapi.enable {
-            "wakapi.${domain}".extraConfig = ''
-              reverse_proxy localhost:${toString config.services.wakapi.settings.server.port}
-            '';
+          (reverseProxy {
+            service = "wakapi";
+            port = config.services.wakapi.settings.server.port;
           })
-          (lib.mkIf config.services.zipline.enable {
-            "zipline.${domain}".extraConfig = ''
-              reverse_proxy localhost:${toString config.services.zipline.settings.CORE_PORT}
-            '';
+          (reverseProxy {
+            service = "zipline";
+            port = config.services.zipline.settings.CORE_PORT;
           })
         ];
       };
