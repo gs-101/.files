@@ -33,6 +33,7 @@
           minTime = "5m";
           prefetching = true;
         };
+        customDNS.mapping."gs-101.dev" = "100.75.42.86";
         ports = {
           dns = 53;
           http = 4000;
