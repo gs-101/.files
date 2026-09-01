@@ -131,13 +131,7 @@
                                             "--all-scopes-completion"
                                             "--background-index"
                                             "--clang-tidy"
-                                            "--completion-style=detailed")))
-  (add-to-list 'eglot-ignored-server-capabilites
-               ':documentOnTypeFormattingProvider)
-  :custom
-  (eglot-autoshutdown t)
-  (eglot-connect-timeout nil)
-  (eglot-sync-connect nil))
+                                            "--completion-style=detailed"))))
 
 (use-package eglot-codelens
   :vc (:url "https://github.com/Gavinok/eglot-codelens")

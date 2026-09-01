@@ -88,7 +88,6 @@ ARG is used for `eval-last-sexp'."
    '(cursor-intangible t read-only t face minibuffer-prompt))
   (mouse-autoselect-window t)
   (read-buffer-completion-ignore-case t) ; 4
-  (read-process-output-max (* 512 1024 1024)) ; 3
   (redisplay-skip-fontification-on-input t)
   (scroll-conservatively 100000)
   (scroll-margin 2)

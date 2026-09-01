@@ -256,7 +256,6 @@ Generic package used to configure functions and variables not included in any Em
      '(cursor-intangible t read-only t face minibuffer-prompt))
     (mouse-autoselect-window t)
     (read-buffer-completion-ignore-case t) ; 4
-    (read-process-output-max (* 512 1024 1024)) ; 3
     (redisplay-skip-fontification-on-input t)
     (scroll-conservatively 100000)
     (scroll-margin 2)
@@ -2024,13 +2023,7 @@ Eglot ("Emacs Polyglot") is an Emacs LSP client that stays out of your way.
                                               "--all-scopes-completion"
                                               "--background-index"
                                               "--clang-tidy"
-                                              "--completion-style=detailed")))
-    (add-to-list 'eglot-ignored-server-capabilites
-                 ':documentOnTypeFormattingProvider)
-    :custom
-    (eglot-autoshutdown t)
-    (eglot-connect-timeout nil)
-    (eglot-sync-connect nil))
+                                              "--completion-style=detailed"))))
 #+end_src
 
 *** [[https://github.com/Gavinok/eglot-codelens][Code Lens]]
