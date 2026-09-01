@@ -11,7 +11,7 @@
     repository = "rclone:google-drive:Backups/restic";
     timerConfig = {
       OnCalendar = "daily";
-      RandomizeDelaySec = "1h";
+      RandomizeDelaySec = "24h";
     };
   };
   sops.secrets.rclone = { };
