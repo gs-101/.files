@@ -3564,26 +3564,6 @@ A fancy and fast mode-line inspired by minimalism design.
 #+end_src
 
 
-** [[https://github.com/Wilfred/helpful][Helpful]]
-
-#+begin_quote
-A better Emacs help buffer.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package helpful
-    :vc (:url "https://github.com/Wilfred/helpful")
-    :bind
-    ([remap describe-command] . helpful-command)
-    ([remap describe-function] . helpful-callable)
-    ([remap describe-key] . helpful-key)
-    ([remap describe-symbol] . helpful-symbol)
-    ([remap describe-variable] . helpful-variable)
-    :config
-    (custom-set-faces '(helpful-heading ((t :height 1.5))))
-    :ensure t)
-#+end_src
-
 ** Modus Themes
 
 #+begin_src emacs-lisp

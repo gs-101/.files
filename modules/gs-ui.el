@@ -123,18 +123,6 @@ This advice replaces the rocket icon with a electric plug icon."
   :init
   (doom-modeline-mode))
 
-(use-package helpful
-  :vc (:url "https://github.com/Wilfred/helpful")
-  :bind
-  ([remap describe-command] . helpful-command)
-  ([remap describe-function] . helpful-callable)
-  ([remap describe-key] . helpful-key)
-  ([remap describe-symbol] . helpful-symbol)
-  ([remap describe-variable] . helpful-variable)
-  :config
-  (custom-set-faces '(helpful-heading ((t :height 1.5))))
-  :ensure t)
-
 (use-package modus-themes
   :unless (or dw/guix-p gs-101/nixos-p)
   :custom
