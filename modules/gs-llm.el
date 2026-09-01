@@ -1,22 +1,22 @@
 ;;; -*- lexical-binding: t -*-
 
-(use-package ai-code
-  :vc (:url "https://github.com/tninja/ai-code-interface.el")
+(use-package agent-shell
+  :vc (:url "https://github.com/xenodium/agent-shell")
   :ensure t
+  :bind
+  ("C-c a " . agent-shell)
   :config
-  (ai-code-set-backend 'antigravity)
+  (setq agent-shell-antigravity-environment (agent-shell-make-environment-variables :inherit-env t))
   :custom
-  (ai-code-menu-layout 'two-columns))
+  (agent-shell-preferred-agent-config 'antigravity))
 
-(use-package ai-code
-  :after disproject
+(use-package agent-shell-permission-transient
+  :vc (:url "https://github.com/Jamie-Cui/agent-shell-permission-transient")
+  :ensure t
+  :after agent-shell
+  :bind (:map agent-shell-mode-map
+              ("C-c C-p" . agent-shell-permission-transient-menu))
   :config
-  (transient-insert-suffix 'disproject-dispatch "b"
-    '("a" "Agent" ai-code-menu)))
-
-(use-package ai-code
-  :after magit
-  :config
-  (ai-code-magit-setup-transients))
+  (agent-shell-permission-transient-mode))
 
 (provide 'gs-llm)
