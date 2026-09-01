@@ -383,6 +383,7 @@ With a ARG prefix argument, copy the buffer to the other window."
   (when (file-exists-p custom-file)
     (load-file custom-file))
   :custom
+  (agent-shell-dot-subdir-function (lambda (subdir) (no-littering-expand-var-file-name (file-name-concat "agent-shell" subdir))))
   (custom-file (no-littering-expand-etc-file-name "custom.el"))
   :init
   (no-littering-theme-backups))

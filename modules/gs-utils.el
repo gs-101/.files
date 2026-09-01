@@ -18,81 +18,6 @@
   (pomm-on-status-changed . pomm--sync-org-clock)
   (pomm-third-time-on-status-changed . pomm-third-time--sync-org-clock))
 
-(use-package avy
-  :vc (:url "https://github.com/abo-abo/avy")
-  :bind
-  ("M-g a" . avy-goto-char-timer)
-  ([remap goto-char] . avy-goto-char)
-  ([remap goto-line] . avy-goto-line)
-  ("M-g w" . avy-goto-word-0)
-  (:map isearch-mode-map
-        ("M-j" . avy-isearch))
-  :custom
-  (avy-keys '(?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9 ?0))
-  ;; More uniform style, most jumps start with the same character.
-  (avy-style 'de-bruijn)
-  :config
-  (defun karthinks/avy-action-kill-whole-line (pt)
-    "Jump to target at marker PT, killing its whole line after the jump."
-    (save-excursion
-      (goto-char pt)
-      (kill-whole-line))
-    (select-window
-     (cdr
-      (ring-ref avy-ring 0))) t)
-
-  (defun karthinks/avy-action-copy-whole-line (pt)
-    "Jumpt to target at marker PT, copying its whole line to the kill ring,
-without killing it."
-    (save-excursion
-      (goto-char pt)
-      (cl-destructuring-bind (start . end)
-          (bounds-of-thing-at-point 'line)
-        (copy-region-as-kill start end)))
-    (select-window
-     (cdr
-      (ring-ref avy-ring 0))) t)
-
-  (defun karthinks/avy-action-yank-whole-line (pt)
-    "Jump to target at marker PT, yanking its whole line to the current point."
-    (karthinks/avy-action-kill-ring-save-whole-line pt)
-    (save-excursion (yank)) t)
-
-  (defun karthinks/avy-action-teleport-whole-line (pt)
-    "Jump to target at marker PT, transposing it to the current point."
-    (karthinks/avy-action-kill-whole-line pt)
-    (save-excursion (yank)) t)
-
-  (defun karthinks/avy-action-mark-to-char (pt)
-    "Start mark at current point, then jump to target at marker PT
-with the mark active. This sets an inclusive region selection between them."
-    (activate-mark)
-    (goto-char (+ pt 1)))
-
-  (setf (alist-get ?w avy-dispatch-alist) #'avy-action-copy
-        (alist-get ?W avy-dispatch-alist) #'karthinks/avy-action-copy-whole-line
-        (alist-get ?k avy-dispatch-alist) #'avy-action-kill-stay
-        (alist-get ?K avy-dispatch-alist) #'karthinks/avy-action-kill-whole-line
-        (alist-get ?  avy-dispatch-alist) #'karthinks/avy-action-mark-to-char ; This is bound to a space!
-        (alist-get ?t avy-dispatch-alist) #'avy-action-teleport
-        (alist-get ?y avy-dispatch-alist) #'avy-action-yank
-        (alist-get ?Y avy-dispatch-alist) #'karthinks/avy-action-yank-whole-line)
-  :ensure t)
-
-(use-package avy
-  :after avy helpful
-  :config
-  (defun karthinks/avy-action-helpful (pt)
-    "Jump to target at marker PT, and view its documentation
-using Helpful."
-    (save-excursion
-      (goto-char pt)
-      (helpful-at-point))
-    (select-window
-     (cdr (ring-ref avy-ring 0))) t)
-
-  (setf (alist-get ?H avy-dispatch-alist) #'karthinks/avy-action-helpful))
-
 (use-package consult
   :vc (:url "https://github.com/minad/consult")
   :bind
@@ -207,20 +132,6 @@ using Helpful."
   ;; Disable quitting after killing a buffer in an action
   (embark-quit-after-action '((kill-buffer . nil)))
   :ensure t))
-
-(use-package embark
-  :after embark avy
-  :config
-  (defun karthinks/avy-action-embark (pt)
-    "Jump to target at marker PT, and act on it using Embark."
-    (unwind-protect
-        (save-excursion
-          (goto-char pt)
-          (embark-act))
-      (select-window
-       (cdr (ring-ref avy-ring 0)))))
-
-  (setf (alist-get ?\; avy-dispatch-alist) 'karthinks/avy-action-embark))
 
 (use-package embark-consult
   :hook
