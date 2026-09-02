@@ -48,6 +48,13 @@
   :config
   (add-to-list 'org-babel-load-languages '(dart . t)))
 
+(use-package ob-elixir
+  :vc (:url "https://github.com/zweifisch/ob-elixir")
+  :after org
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(elixir . t)))
+
 (use-package ob-http
   :vc (:url "https://github.com/ag91/ob-http")
   :after org
