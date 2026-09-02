@@ -1,20 +1,20 @@
 ;;; -*- lexical-binding: t -*-
 
-(use-package ben
-  :vc (:url "https://codeberg.org/pastor/ben.el")
+(use-package envrc
+  :vc (:url "https://github.com/purcell/envrc")
   :ensure-system-package
   direnv
   :ensure t
   :config
-  (defun elfehr/advice-org-latex-preview-restart-ben (&rest args)
-    "Restart `ben-global-mode' during Org startup."
-    (if (and org-mode-loading ben-global-mode)
-        (ben-mode 1)))
-  (advice-add 'org-latex-preview :before 'elfehr/advice-org-latex-preview-restart-ben)
+  (defun elfehr/advice-org-latex-preview-restart-envrc (&rest args)
+    "Restart `envrc-global-mode' during Org startup."
+    (if (and org-mode-loading envrc-global-mode)
+        (envrc-mode 1)))
+  (advice-add 'org-latex-preview :before 'elfehr/advice-org-latex-preview-restart-envrc)
   :custom
-  (ben-indicator nil)
+  (envrc-async t)
   :init
-  (ben-global-mode))
+  (envrc-global-mode))
 
 (use-package treesit
   :custom
