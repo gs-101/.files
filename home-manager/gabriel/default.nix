@@ -10,6 +10,7 @@
     ./options/qt.nix
     ./options/xdg.nix
     ./options/programs/anki.nix
+    ./options/programs/antigravity-cli.nix
     ./options/programs/bash.nix
     ./options/programs/bat.nix
     ./options/programs/direnv.nix
@@ -19,6 +20,7 @@
     ./options/programs/kitty.nix
     ./options/programs/git.nix
     ./options/programs/gopass.nix
+    ./options/programs/mcp.nix
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
     ./options/programs/ripgrep.nix
@@ -30,7 +32,7 @@
   programs = {
     fzf.enable = true;
     home-manager.enable = true;
-    librewolf.enable = true;
+    firefox.enable = true;
     mpv.enable = true;
     mbsync.enable = true;
     msmtp.enable = true;
@@ -40,7 +42,6 @@
     pay-respects.enable = true;
     prismlauncher.enable = true;
     vesktop.enable = true;
-    zed-editor.enable = true;
   };
   services = {
     kdeconnect.enable = true;
