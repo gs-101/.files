@@ -16,7 +16,6 @@ in
         that provides the command.
       '';
     };
-    enableMcpIntegration = true;
     settings = {
       enableTerminalSandbox = true;
       context.fileName = [
