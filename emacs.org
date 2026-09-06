@@ -2490,30 +2490,6 @@ Minor mode to resolve diff3 conflicts.
     (smerge-mode))
 #+end_src
 
-** [[https://github.com/Malabarba/aggressive-indent-mode][Aggressive Indent]]
-
-#+begin_quote
-Emacs minor mode that keeps your code always indented. More reliable than electric-indent-mode.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package aggressive-indent
-    :vc (:url "https://github.com/Malabarba/aggressive-indent-mode")
-    :config
-    (defun gs-101/aggressive-indent-mode-lisp ()
-      "Enable `aggressive-indent-mode' in Lisp modes."
-      (when (string-match-p "clojure.*-mode\\'" (symbol-name major-mode))
-        (aggressive-indent-mode))
-      (when (string-match-p "lisp.*-mode\\'" (symbol-name major-mode))
-        (aggressive-indent-mode))
-      (when (derived-mode-p 'scheme-mode)
-        (aggressive-indent-mode)))
-    :ensure t
-    :hook
-    (html-ts-mode . aggressive-indent-mode)
-    (prog-mode . gs-101/aggressive-indent-mode-lisp))
-#+end_src
-
 ** [[https://github.com/radian-software/apheleia][Apheleia]]
 
 #+begin_quote

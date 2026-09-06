@@ -365,22 +365,6 @@ Only runs if a `flutter' buffer already exits."
   :init
   (smerge-mode))
 
-(use-package aggressive-indent
-  :vc (:url "https://github.com/Malabarba/aggressive-indent-mode")
-  :config
-  (defun gs-101/aggressive-indent-mode-lisp ()
-    "Enable `aggressive-indent-mode' in Lisp modes."
-    (when (string-match-p "clojure.*-mode\\'" (symbol-name major-mode))
-      (aggressive-indent-mode))
-    (when (string-match-p "lisp.*-mode\\'" (symbol-name major-mode))
-      (aggressive-indent-mode))
-    (when (derived-mode-p 'scheme-mode)
-      (aggressive-indent-mode)))
-  :ensure t
-  :hook
-  (html-ts-mode . aggressive-indent-mode)
-  (prog-mode . gs-101/aggressive-indent-mode-lisp))
-
 (use-package apheleia
   :vc (:url "https://github.com/radian-software/apheleia")
   :ensure t
