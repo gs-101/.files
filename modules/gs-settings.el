@@ -1,9 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(use-package advice
-  :custom
-  (ad-redefinition-action 'accept))
-
 (use-package auth-source
   :config
   (add-to-list 'auth-sources "~/.config/sops-nix/secrets/authinfo"))

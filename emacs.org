@@ -104,18 +104,6 @@ Configuration of default Emacs packages.
 
 ** Default packages
 
-*** Advice
-
-#+begin_quote
-An overloading mechanism for Emacs Lisp functions.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package advice
-    :custom
-    (ad-redefinition-action 'accept))
-#+end_src
-
 *** Auth Source
 
 #+begin_src emacs-lisp
