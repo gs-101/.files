@@ -350,12 +350,6 @@ With a ARG prefix argument, copy the buffer to the other window."
   :hook
   (dired-mode . diredfl-mode))
 
-(use-package gcmh
-  :vc (:url "https://github.com/emacsmirror/gcmh")
-  :ensure t
-  :init
-  (gcmh-mode))
-
 (use-package disproject
   :vc (:url "https://github.com/aurtzy/disproject")
   :bind

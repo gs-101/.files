@@ -788,20 +788,6 @@ Extra Emacs font lock rules for a more colourful dired.
     (dired-mode . diredfl-mode))
 #+end_src
 
-*** [[https://github.com/emacsmirror/gcmh][Garbage Collector Magic Hack]]
-
-#+begin_quote
-Enforce a sneaky Garbage Collection strategy to minimize GC interference with user activity.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package gcmh
-    :vc (:url "https://github.com/emacsmirror/gcmh")
-    :ensure t
-    :init
-    (gcmh-mode))
-#+end_src
-
 *** [[https://github.com/aurtzy/disproject][Disproject]]
 
 #+begin_quote
