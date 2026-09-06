@@ -2456,18 +2456,6 @@ Completion is available for filenames, variables known from the script, the shel
     :ensure t)
 #+end_src
 
-** Smerge
-
-#+begin_quote
-Minor mode to resolve diff3 conflicts.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package smerge-mode
-    :init
-    (smerge-mode))
-#+end_src
-
 ** [[https://github.com/radian-software/apheleia][Apheleia]]
 
 #+begin_quote

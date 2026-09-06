@@ -361,10 +361,6 @@ Only runs if a `flutter' buffer already exits."
   :vc (:url "https://codeberg.org/meow_king/zig-ts-mode")
   :ensure t)
 
-(use-package smerge-mode
-  :init
-  (smerge-mode))
-
 (use-package apheleia
   :vc (:url "https://github.com/radian-software/apheleia")
   :ensure t
