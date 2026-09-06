@@ -161,9 +161,7 @@
 
 (use-package eldoc
   :custom
-  (eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
-  (eldoc-echo-area-use-multiline-p nil)
-  (eldoc-idle-delay 0))
+  (eldoc-echo-area-use-multiline-p nil))
 
 (use-package eglot-signature-eldoc-talkative
   :vc (:url "https://codeberg.org/mekeor/eglot-signature-eldoc-talkative")

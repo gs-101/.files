@@ -2066,9 +2066,7 @@ Show function arglist or variable docstring in echo area.
 #+begin_src emacs-lisp
   (use-package eldoc
     :custom
-    (eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
-    (eldoc-echo-area-use-multiline-p nil)
-    (eldoc-idle-delay 0))
+    (eldoc-echo-area-use-multiline-p nil))
 #+end_src
 
 *** [[https://codeberg.org/mekeor/eglot-signature-eldoc-talkative][Verbose LSP Documentation]]
