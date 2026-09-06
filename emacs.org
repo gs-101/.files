@@ -2547,7 +2547,6 @@ It's Magit! A Git Porcelain inside Emacs.
     (magit-diff-refine-hunk t)
     :ensure t
     :hook
-    (magit-mode . magit-wip-mode)
     (magit-process-find-password-functions . magit-process-password-auth-source))
 #+end_src
 

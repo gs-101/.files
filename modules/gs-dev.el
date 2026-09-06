@@ -401,7 +401,6 @@ Only runs if a `flutter' buffer already exits."
   (magit-diff-refine-hunk t)
   :ensure t
   :hook
-  (magit-mode . magit-wip-mode)
   (magit-process-find-password-functions . magit-process-password-auth-source))
 
 (use-package forge
