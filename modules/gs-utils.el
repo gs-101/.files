@@ -1,23 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(use-package alert
-  :vc (:url "https://github.com/jwiegley/alert")
-  :custom
-  (alert-default-style 'notifications)
-  :ensure t)
-
-(use-package pomm
-  :vc (:url "https://github.com/SqrtMinusOne/pomm.el")
-  :config
-  (pomm-mode-line-mode)
-  :custom
-  (pomm-audio-enabled t)
-  (pomm-audio-player-executable (executable-find "mpv"))
-  :ensure t
-  :hook
-  (pomm-on-status-changed . pomm--sync-org-clock)
-  (pomm-third-time-on-status-changed . pomm-third-time--sync-org-clock))
-
 (use-package consult
   :vc (:url "https://github.com/minad/consult")
   :bind

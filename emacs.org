@@ -2820,40 +2820,6 @@ Generally useful packages for productivity and other aspects.
   ;;; -*- lexical-binding: t -*-
 #+end_src
 
-** [[https://github.com/jwiegley/alert][Alert]]
-
-#+begin_quote
-A Growl-like alerts notifier for Emacs.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package alert
-    :vc (:url "https://github.com/jwiegley/alert")
-    :custom
-    (alert-default-style 'notifications)
-    :ensure t)
-#+end_src
-
-*** [[https://github.com/SqrtMinusOne/pomm.el][Pomm]]
-
-#+begin_quote
-Implementation of Pomodoro and Third Time techniques for Emacs.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package pomm
-    :vc (:url "https://github.com/SqrtMinusOne/pomm.el")
-    :config
-    (pomm-mode-line-mode)
-    :custom
-    (pomm-audio-enabled t)
-    (pomm-audio-player-executable (executable-find "mpv"))
-    :ensure t
-    :hook
-    (pomm-on-status-changed . pomm--sync-org-clock)
-    (pomm-third-time-on-status-changed . pomm-third-time--sync-org-clock))
-#+end_src
-
 ** [[https://github.com/minad/consult][Consult]]
 :PROPERTIES:
 :CREDITS:  1. [[https://github.com/jamescherti/minimal-emacs.d/blob/837e3d46acfe5a6c385b4ae253b9549d89ece1cf/early-init.el#L65][jamescherti]], 2. [[https://github.com/oantolin/emacs-config/blob/master/init.el][oantolin]]
