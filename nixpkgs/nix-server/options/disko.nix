@@ -38,13 +38,6 @@
                         "noatime"
                       ];
                     };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = [
@@ -62,6 +55,15 @@
             };
           };
         };
+      };
+    };
+    nodev = {
+      "/home" = {
+        fsType = "tmpfs";
+        mountOptions = [
+          "size=2G"
+          "mode=755"
+        ];
       };
     };
   };

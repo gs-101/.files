@@ -27,13 +27,19 @@
   };
   networking.useNetworkd = true;
   services = {
+    btrbk.instances.disk.settings.volume."/btrfs".subvolume = {
+      root = { };
+    };
     rsshub.enable = true;
     pulseaudio.enable = false;
-    restic.backups.google-drive.pruneOpts = [
-      "--keep-daily 7"
-      "--keep-weekly 5"
-      "--keep-monthly 6"
-    ];
+    restic.backups.google-drive = {
+      paths = [ "/var/lib" ];
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 5"
+        "--keep-monthly 6"
+      ];
+    };
     syncthing.enable = true;
   };
   systemd.network.networks."10-lan" = {

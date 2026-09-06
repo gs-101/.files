@@ -13,5 +13,12 @@
     ./options/virtualisation.nix
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  services = {
+    btrbk.instances.disk.settings.volume."/btrfs".subvolume = {
+      home = { };
+      root = { };
+    };
+    restic.backups.google-drive.paths = [ "/home" ];
+  };
   time.timeZone = "America/Sao_Paulo";
 }
