@@ -1139,16 +1139,6 @@ Org is a mode for keeping notes, maintaining ToDo lists, and doing project plann
     (add-to-list 'org-babel-load-languages '(http . t)))
 #+end_src
 
-*** [[https://github.com/AntonHakansson/org-nix-shell][Nix]]
-
-#+begin_src emacs-lisp
-  (use-package org-nix-shell
-    :vc (:url "https://github.com/AntonHakansson/org-nix-shell")
-    :ensure t
-    :hook
-    (org-mode . org-nix-shell-mode))
-#+end_src
-
 ** Agenda
 
 #+begin_quote

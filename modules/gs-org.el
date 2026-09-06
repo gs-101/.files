@@ -62,12 +62,6 @@
   :config
   (add-to-list 'org-babel-load-languages '(http . t)))
 
-(use-package org-nix-shell
-  :vc (:url "https://github.com/AntonHakansson/org-nix-shell")
-  :ensure t
-  :hook
-  (org-mode . org-nix-shell-mode))
-
 (use-package org-agenda
   :bind
   ("C-c o a" . org-agenda)
