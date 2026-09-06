@@ -2994,16 +2994,6 @@ Navigate the Xref stack with Consult.
     :ensure t)
 #+end_src
 
-** [[https://github.com/jacktasia/dumb-jump][dumb-jump]]
-
-#+begin_src emacs-lisp
-  (use-package dumb-jump
-    :vc (:url "https://github.com/jacktasia/dumb-jump")
-    :ensure t
-    :hook
-    (xref-backend-functions . dumb-jump-xref-activate))
-#+end_src
-
 ** [[https://codeberg.org/rstocker/emacs-bluetooth][Emacs Bluetooth Mode]]
 
 #+begin_src emacs-lisp

@@ -103,12 +103,6 @@
   ([remap xref-go-forward] . consult-xref-stack-forward)
   :ensure t)
 
-(use-package dumb-jump
-  :vc (:url "https://github.com/jacktasia/dumb-jump")
-  :ensure t
-  :hook
-  (xref-backend-functions . dumb-jump-xref-activate))
-
 (use-package bluetooth
   :vc (:url "https://codeberg.org/rstocker/emacs-bluetooth")
   :ensure t
