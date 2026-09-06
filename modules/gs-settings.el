@@ -22,6 +22,8 @@
   (dolist (command '(org-self-insert-command
                      org-delete-backward-char))
     (add-to-list 'completion-preview-commands command))
+  ;; "CP" 0_0
+  (add-to-list 'mode-line-collapse-minor-modes '(completion-preview-mode))
   :init
   (global-completion-preview-mode))
 
