@@ -16,6 +16,11 @@
   :init
   (envrc-global-mode))
 
+(use-package envrc
+  :after ob-core
+  :config
+  (advice-add 'org-babel-execute-src-block :around #'envrc-propagate-environment))
+
 (use-package treesit
   :custom
   (treesit-font-lock-level 4))

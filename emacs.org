@@ -1830,6 +1830,15 @@ Emacs package to quickly find and act on bibliographic references, and edit org,
     (envrc-global-mode))
 #+end_src
 
+*** Org Babel
+
+#+begin_src emacs-lisp
+  (use-package envrc
+    :after ob-core
+    :config
+    (advice-add 'org-babel-execute-src-block :around #'envrc-propagate-environment))
+#+end_src
+
 ** Tree-Sitter
 
 #+begin_quote
