@@ -8,19 +8,19 @@
   zlib,
 }:
 let
-  version = "20260818_01_RC01";
+  version = "1.1.1";
   sources = {
     x86_64-linux = {
       url = "https://dl.google.com/agy-extensions/releases/linux/agy-acp-server-agy_acp_server_${version}-linux-x86_64.zip";
-      sha256 = "1pmj5nl9nvaqzsf757v75lql08x3fkfl82ksr0777p97jqrh0qdz";
+      sha256 = "1mq833jg3s4nag2is6bdyp5w6hsmyhvnpkc5ynzhxni1pnmasby2";
     };
     aarch64-linux = {
       url = "https://dl.google.com/agy-extensions/releases/linux/agy-acp-server-agy_acp_server_${version}-linux-arm64.zip";
-      sha256 = "18d7b49adbvyb1j2042wvpjbifxisbh7b31sx93lmckjz20ym5ci";
+      sha256 = "1ylc1g2yapgzy2jcfi3nz5l4d0m5bix27xggbyrpgaca01mnn6f2";
     };
     aarch64-darwin = {
       url = "https://dl.google.com/agy-extensions/releases/macos/agy-acp-server-agy_acp_server_${version}-darwin-arm64.zip";
-      sha256 = "080585navmxkcfql3dgbyngsn5jwmwp5xvavkz6sgzfrs5ixyjvx";
+      sha256 = "1a3ycrkp84xaqayvh0mh74bd8db9abi116i8g6wbz152768jz7rv";
     };
   };
   source =
