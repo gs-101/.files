@@ -31,7 +31,7 @@
   programs = {
     fzf.enable = true;
     home-manager.enable = true;
-    firefox.enable = true;
+    librewolf.enable = true;
     mpv.enable = true;
     mbsync.enable = true;
     msmtp.enable = true;
