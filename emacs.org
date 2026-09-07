@@ -3223,6 +3223,27 @@ Configuration for Large Language Models.
     (agent-shell-permission-transient-mode))
 #+end_src
 
+*** [[https://github.com/mrx-xo/agent-recall][agent-recall]]
+
+#+begin_src emacs-lisp
+  (use-package agent-recall
+    :vc (:url "https://github.com/mrx-xo/agent-recall")
+    :ensure t
+    :custom
+    (agent-recall-search-paths '("~/.files" "~/Projects"))
+    :hook
+    (agent-shell-mode . agent-recall-track-sessions))
+#+end_src
+
+**** Consult
+
+#+begin_src emacs-lisp
+  (use-package agent-recall
+    :after agent-recall consult
+    :custom
+    (agent-recall-search-function 'consult-ripgrep))
+#+end_src
+
 ** [[https://github.com/copilot-emacs/copilot.el][copilot]]
 
 #+begin_src emacs-lisp
