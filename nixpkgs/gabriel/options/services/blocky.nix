@@ -1,13 +1,16 @@
 {
-  config,
-  ...
-}:
-{
   services = {
     blocky = {
       enable = true;
       settings = {
         blocking = {
+          allowlists = {
+            default = [
+              ''
+                *.supportxmr.com
+              ''
+            ];
+          };
           clientGroupsBlock = {
             default = [
               "default"
