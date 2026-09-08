@@ -26,7 +26,6 @@
     ./options/programs/ssh.nix
     ./options/programs/starship.nix
     ./options/programs/wakatime.nix
-    ./options/programs/zoxide.nix
   ];
   programs = {
     fzf.enable = true;
@@ -41,6 +40,7 @@
     pay-respects.enable = true;
     prismlauncher.enable = true;
     vesktop.enable = true;
+    zoxide.enable = true;
   };
   services = {
     kdeconnect.enable = true;
