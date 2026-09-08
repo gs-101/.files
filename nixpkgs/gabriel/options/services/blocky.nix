@@ -48,9 +48,8 @@
         upstreams = {
           groups = {
             default = [
-              "https://security.cloudflare-dns.com/dns-query"
               "https://dns.mullvad.net/dns-query"
-              "https://dns.quad9.net/dns-query"
+              "https://dns10.quad9.net/dns-query"
             ];
           };
           strategy = "parallel_best";
