@@ -13,6 +13,7 @@
     ./options/services/miniflux.nix
     ./options/services/navidrome.nix
     ./options/services/wakapi.nix
+    ./options/services/xmrig.nix
     ./options/services/zipline.nix
   ];
   boot.initrd.network = {
