@@ -15,13 +15,6 @@
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   console.keyMap = "br-abnt2";
-  services = {
-    btrbk.instances.disk.settings.volume."/btrfs".subvolume = {
-      home = { };
-      root = { };
-    };
-    restic.backups.google-drive.paths = [ "/home" ];
-    xserver.xkb.layout = "br";
-  };
+  services.xserver.xkb.layout = "br";
   time.timeZone = "America/Sao_Paulo";
 }
