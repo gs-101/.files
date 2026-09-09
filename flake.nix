@@ -59,6 +59,7 @@
           system,
         }:
         nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           modules = modules ++ [ ./nixpkgs/${system} ];
         };
       makePerUserSystemConfiguration =
@@ -69,6 +70,7 @@
           user,
         }:
         nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           modules = modules ++ [
             ./nixpkgs/${system}
             ./nixpkgs/${user}/${system}.nix
@@ -143,12 +145,12 @@
           user = "gabriel";
         };
         nix-pc = makePerUserSystemConfiguration {
-          system = "nix-pc";
           modules = [
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];
           inherit nixpkgs;
+          system = "nix-pc";
           user = "gabriel";
         };
         nix-server = makePerUserSystemConfiguration {
@@ -167,6 +169,7 @@
         emacs-skills = finalAttrs.callPackage ./packages/emacs-skills { };
         agy_acp_server = finalAttrs.antigravity-acp;
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
+        navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
       };
     };
 }
