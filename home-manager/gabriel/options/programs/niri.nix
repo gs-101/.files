@@ -31,7 +31,7 @@ in
             "oldirtty/color_picker:panel"
           ];
         };
-        "Mod+Down".focus-window-down = { };
+        "Mod+Down".focus-window-down-or-top = { };
         "Mod+E" = {
           _props.hotkey-overlay-title = "Spawn Editor";
           spawn-sh = "$VISUAL";
@@ -68,12 +68,15 @@ in
         "Mod+Shift+Down".move-window-down = { };
         "Mod+Shift+Left".move-column-left = { };
         "Mod+Shift+Right".move-column-right = { };
+        "Mod+Shift+T".expel-window-from-column = { };
         "Mod+Shift+Up".move-window-up = { };
+        "Mod+T".consume-or-expel-window-right = { };
         "Mod+Tab".toggle-overview = { };
         "Mod+TouchpadScrollDown".focus-workspace-down = { };
         "Mod+TouchpadScrollLeft".focus-column-left = { };
         "Mod+TouchpadScrollRight".focus-column-right = { };
         "Mod+TouchpadScrollUp".focus-workspace-up = { };
+        "Mod+Up".focus-window-up-or-bottom = { };
         "Mod+V" = {
           _props.hotkey-overlay-title = "Spawn Clipboard Manager";
           spawn = [
@@ -83,11 +86,11 @@ in
             "clipboard"
           ];
         };
+        "Mod+W".toggle-column-tabbed-display = { };
         "Mod+WheelScrollDown".focus-workspace-down = { };
         "Mod+WheelScrollLeft".focus-column-left = { };
         "Mod+WheelScrollRight".focus-column-right = { };
         "Mod+WheelScrollUp".focus-workspace-up = { };
-        "Mod+Up".focus-window-up = { };
         "Mod+X" = {
           _props.hotkey-overlay-title = "Spawn Menu";
           spawn = [
