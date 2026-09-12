@@ -532,7 +532,7 @@ Highlight matching paren.
 #+begin_src emacs-lisp
   (use-package replace
     :custom
-    (query-replace-show-preview t))
+    (query-replace-show-preview 'replacement-only))
 #+end_src
 
 *** Save History

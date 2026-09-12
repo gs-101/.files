@@ -221,7 +221,7 @@ ARG is used for `eval-last-sexp'."
 
 (use-package replace
   :custom
-  (query-replace-show-preview t))
+  (query-replace-show-preview 'replacement-only))
 
 (use-package savehist
   :custom
