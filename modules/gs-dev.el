@@ -159,6 +159,10 @@
   :hook
   (eglot-connect . eglot-inactive-regions-mode))
 
+(use-package eglotx
+  :vc (:url "https://github.com/cxa/eglotx")
+  :ensure t)
+
 (use-package eldoc
   :custom
   (eldoc-echo-area-use-multiline-p nil))

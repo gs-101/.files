@@ -2056,6 +2056,14 @@ Emacs Eglot support for clangd inactiveRegions LSP extension and ccls skippedReg
     (eglot-connect . eglot-inactive-regions-mode))
 #+end_src
 
+*** [[https://github.com/cxa/eglotx][Multiplexer]]
+
+#+begin_src emacs-lisp
+  (use-package eglotx
+    :vc (:url "https://github.com/cxa/eglotx")
+    :ensure t)
+#+end_src
+
 ** Eldoc
 
 #+begin_quote
