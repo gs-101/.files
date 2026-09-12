@@ -12,7 +12,7 @@
         (envrc-mode 1)))
   (advice-add 'org-latex-preview :before 'elfehr/advice-org-latex-preview-restart-envrc)
   :custom
-  (envrc-async t)
+  (envrc-async 5)
   :init
   (envrc-global-mode))
 
