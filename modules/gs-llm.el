@@ -19,19 +19,6 @@
   :config
   (agent-shell-permission-transient-mode))
 
-(use-package agent-recall
-  :vc (:url "https://github.com/mrx-xo/agent-recall")
-  :ensure t
-  :custom
-  (agent-recall-search-paths '("~/.files" "~/Projects"))
-  :hook
-  (agent-shell-mode . agent-recall-track-sessions))
-
-(use-package agent-recall
-  :after agent-recall consult
-  :custom
-  (agent-recall-search-function 'consult-ripgrep))
-
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el")
   :ensure t
