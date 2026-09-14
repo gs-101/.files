@@ -3215,20 +3215,8 @@ Configuration for Large Language Models.
     :config
     (setq agent-shell-antigravity-environment (agent-shell-make-environment-variables :inherit-env t))
     :custom
+    (agent-shell-prefer-viewport-interaction t)
     (agent-shell-preferred-agent-config 'antigravity))
-#+end_src
-
-*** [[https://github.com/Jamie-Cui/agent-shell-permission-transient][agent-shell-permission-transient]]
-
-#+begin_src emacs-lisp
-  (use-package agent-shell-permission-transient
-    :vc (:url "https://github.com/Jamie-Cui/agent-shell-permission-transient")
-    :ensure t
-    :after agent-shell
-    :bind (:map agent-shell-mode-map
-                ("C-c C-p" . agent-shell-permission-transient-menu))
-    :config
-    (agent-shell-permission-transient-mode))
 #+end_src
 
 ** [[https://github.com/copilot-emacs/copilot.el][copilot]]
