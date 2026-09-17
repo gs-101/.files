@@ -995,7 +995,7 @@ Less commonly used parts of Dired.
     :ensure t)
 #+end_src
 
-** [[https://codeberg.org/divyaranjan/emacs-reader][Reader]]
+** [[https://codeberg.org/MonadicSheep/emacs-reader][Reader]]
 
 #+begin_quote
 An all-in-one document reader for all formats in Emacs, backed by MuPDF.
@@ -1003,7 +1003,7 @@ An all-in-one document reader for all formats in Emacs, backed by MuPDF.
 
 #+begin_src emacs-lisp
   (use-package reader
-    :vc (:url "https://codeberg.org/divyaranjan/emacs-reader")
+    :vc (:url "https://codeberg.org/MonadicSheep/emacs-reader")
     :ensure-system-package
     (mupdf-gl . mupdf)
     :ensure t)

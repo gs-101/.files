@@ -43,7 +43,7 @@
   :ensure t)
 
 (use-package reader
-  :vc (:url "https://codeberg.org/divyaranjan/emacs-reader")
+  :vc (:url "https://codeberg.org/MonadicSheep/emacs-reader")
   :ensure-system-package
   (mupdf-gl . mupdf)
   :ensure t)
