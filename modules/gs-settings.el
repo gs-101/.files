@@ -4,10 +4,6 @@
   :config
   (add-to-list 'auth-sources "~/.config/sops-nix/secrets/authinfo"))
 
-(use-package bytecomp
-  :custom
-  (byte-compile-warnings '(not obsolete)))
-
 (use-package comp-run
   :custom
   (native-comp-async-query-on-exit t)

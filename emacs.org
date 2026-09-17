@@ -93,18 +93,6 @@ Configuration of default Emacs packages.
 *** Byte Compilation
 
 #+begin_quote
-The Emacs Lisp byte compiler. This crunches Lisp source into a sort of p-code (~lapcode~) which takes up less space and can be interpreted faster.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package bytecomp
-    :custom
-    (byte-compile-warnings '(not obsolete)))
-#+end_src
-
-*** Byte Compilation
-
-#+begin_quote
 This file contains all the code needed to drive async compilations and any Lisp code needed at runtime to run native code.
 #+end_quote
 
