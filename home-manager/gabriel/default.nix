@@ -37,7 +37,6 @@
     nh.enable = true;
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
-    pay-respects.enable = true;
     prismlauncher.enable = true;
     vesktop.enable = true;
     zoxide.enable = true;
