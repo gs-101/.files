@@ -5,8 +5,16 @@
   ...
 }:
 {
-  boot.kernel.sysctl = {
-    "vm.nr_hugepages" = 1280;
+  boot = {
+    kernel.sysctl = {
+      "vm.nr_hugepages" = 1280;
+    };
+    kernelModules = [ "msr" ];
+    kernelParams = [
+      "default_hugepagesz=2M"
+      "hugepagesz=1G"
+      "hugepages=3"
+    ];
   };
   services.xmrig = {
     enable = true;
