@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  domain = "gs-101.dev";
+in
 {
   services = {
     caddy = {
@@ -21,11 +24,18 @@
         credentialsFile = config.sops.secrets.cloudflared.path;
         default = "http_status:404";
         ingress = lib.mkMerge [
+          (lib.mkIf (config.virtualisation.oci-containers.containers ? "any2nix") {
+            "any2nix.${domain}" = "https://127.0.0.1:${
+              builtins.head (
+                lib.splitString ":" (builtins.head config.virtualisation.oci-containers.containers."any2nix".ports)
+              )
+            }";
+          })
           (lib.optionalAttrs config.services.forgejo.enable {
-            "git.gs-101.dev" = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+            "git.${domain}" = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}";
           })
           (lib.optionalAttrs config.services.zipline.enable {
-            "zipline.gs-101.dev" = "http://127.0.0.1:${toString config.services.zipline.settings.CORE_PORT}";
+            "zipline.${domain}" = "http://127.0.0.1:${toString config.services.zipline.settings.CORE_PORT}";
           })
         ];
       };

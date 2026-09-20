@@ -71,6 +71,15 @@ in
             service = "anki-sync-server";
             listenAddr = "${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}";
           })
+          (lib.mkIf (config.virtualisation.oci-containers.containers ? "any2nix") {
+            "any2nix.${domain}".extraConfig = ''
+              reverse_proxy localhost:${
+                builtins.head (
+                  lib.splitString ":" (builtins.head config.virtualisation.oci-containers.containers."any2nix".ports)
+                )
+              }
+            '';
+          })
           (reverseProxy {
             service = "blocky";
             port = config.services.blocky.settings.ports.http;
