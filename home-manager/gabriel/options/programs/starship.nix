@@ -17,7 +17,7 @@
         force_display = false;
         format = lib.concatStrings [
           "on "
-          "[$symbol ($profile \($region\) )]"
+          "[$symbol( $profile\( $region\)) ]"
           "$(style)"
         ];
         # Amazon logo color.
@@ -28,22 +28,20 @@
         disabled = false;
         format = lib.concatStrings [
           "on "
-          "[$symbol ($username )]"
+          "[$symbol( $username) ]"
           "($style)"
         ];
         # Azure logo color.
         style = "bold #2173b9";
         symbol = "󰠅";
       };
-      battery = {
-        # Disabled as it will display in whatever bar I'm using.
-        disabled = true;
-      };
+      # Disabled as it will display in whatever bar I'm using.
+      battery.disabled = true;
       buf = {
         disabled = false;
         format = lib.concatStrings [
           "with "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -55,7 +53,8 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]($style)"
+          "[$symbol( $version) ]"
+          "($style)"
         ];
         # Main color of the logo.
         style = "bold #fbf0df";
@@ -66,7 +65,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol (($name )$version )]"
+          "[$symbol( $name)( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -105,7 +104,9 @@
       cmake = {
         disabled = false;
         format = lib.concatStrings [
-          "via [$symbol ($version )]($style)"
+          "via "
+          "[$symbol( $version) ]"
+          "($style)"
         ];
         style = "bold #003764";
         symbol = "";
@@ -115,7 +116,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         style = "bold blue";
@@ -128,31 +129,24 @@
           "[󰞌 $duration ]"
           "($style)"
         ];
+
         min_time = 2000;
         min_time_to_notify = 45000;
         show_milliseconds = false;
         show_notifications = false;
         style = "bold";
       };
-      conda = {
-        # Disabled as I'll probaly not remember to disable the Conda prompt
-        # if I end up using it.
-        disabled = true;
-      };
-      container = {
-        disabled = false;
-        format = lib.concatStrings [
-          "[$symbol ($name )]"
-          "($style)"
-        ];
-        style = "bold red";
-        symbol = "";
-      };
+      # Disabled as I'll probaly not remember to disable the Conda prompt
+      # if I end up using it.
+      conda.disabled = true;
+      # Never seen this one working, probably because it only works inside
+      # a container.
+      container.disabled = true;
       crystal = {
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         style = "bold black";
@@ -162,7 +156,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         style = "bold #21356a";
@@ -173,7 +167,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -185,7 +179,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         symbol = "";
@@ -195,16 +189,15 @@
       directory = {
         disabled = false;
         format = lib.concatStrings [
-          "[$path ($read_only )]"
+          "[$path ]"
           "($style)"
         ];
-        read_only = "󰂽";
         repo_root_format = lib.concatStrings [
           "[$before_root_path]"
           "($before_root_path_style)"
           "[$repo_root]"
           "($repo_root_style)"
-          "[$path ($read_only_symbol )]"
+          "[$path ]"
           "($style)"
         ];
         style = "bold";
@@ -215,10 +208,8 @@
         truncation_symbol = "";
         use_os_path_sep = true;
       };
-      direnv = {
-        # Disabled because I don't like the look.
-        disabled = true;
-      };
+      # Disabled because I don't like the look.
+      direnv.disabled = true;
       docker_context = {
         disabled = false;
         format = lib.concatStrings [
@@ -235,7 +226,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version) (󰓾 $tfm )]"
+          "[$symbol( $version)( 󰓾 $tfm) ]"
           "($style)"
         ];
         heuristic = true;
@@ -248,7 +239,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -260,7 +251,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Blue color of the logo.
@@ -272,7 +263,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the logo.
@@ -284,7 +275,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Main color of the logo.
@@ -308,9 +299,9 @@
         added_style = "bold green";
         deleted_style = "bold red";
         format = lib.concatStrings [
-          "[(󰐖 $added )]"
+          "[(󰐖 $added) ]"
           "($added_style)"
-          "[(󰍵 $deleted )]"
+          "[(󰍵 $deleted) ]"
           "($deleted_style)"
         ];
         only_nonzero_diffs = true;
@@ -319,7 +310,7 @@
         disabled = false;
         format = lib.concatStrings [
           "on "
-          "[$symbol $account (@$domain )($project )]"
+          "[$symbol $account( @$domain)( $project) ]"
           "($style)"
         ];
         # Red of the Google logo.
@@ -357,9 +348,9 @@
         added_style = "bold green";
         deleted_style = "bold red";
         format = lib.concatStrings [
-          "[(󰐖 $added )]"
+          "[(󰐖 $added) ]"
           "($added_style)"
-          "[(󰍵 $deleted )]"
+          "[(󰍵 $deleted) ]"
           "($deleted_style)"
         ];
         ignore_submodules = true;
@@ -368,7 +359,7 @@
       git_state = {
         disabled = false;
         format = lib.concatStrings [
-          "[$state ($progress_current/$progress_total )]"
+          "[$state( $progress_current/$progress_total) ]"
           "($style)"
         ];
         am = "󰇮";
@@ -381,10 +372,7 @@
         # Color of the logo.
         style = "bold #f05133";
       };
-      git_status = {
-        # Didn't like the look, I prefer the git_metrics module.
-        disabled = true;
-      };
+      git_status.disabled = true;
       golang = {
         # (Guile) Scheme files compile down to .go.
         detect_extensions = [
@@ -394,7 +382,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the Gopher.
@@ -417,7 +405,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         recursive = false;
@@ -431,7 +419,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -442,7 +430,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -454,7 +442,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the logo.
@@ -480,7 +468,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the orange logo.
@@ -503,7 +491,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Purple of the logo.
@@ -515,7 +503,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         kotlin_binary = "kotlin";
@@ -524,19 +512,15 @@
         symbol = "󱈙";
         version_format = "$raw";
       };
-      kubernetes = {
-        # Requires additional configuration.
-        disabled = true;
-      };
-      localip = {
-        # Don't want to flaunt my IP address.
-        disabled = true;
-      };
+      # Requires additional configuration.
+      kubernetes.disabled = true;
+      # Don't want to flaunt my IP address.
+      localip.disabled = true;
       lua = {
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the logo.
@@ -544,11 +528,9 @@
         symbol = "󰢱";
         version_format = "$raw";
       };
-      memory_usage = {
-        # Don't want to be anxious about my system.
-        # This data can be viewed from something like btop.
-        disabled = true;
-      };
+      # Don't want to be anxious about my system.
+      # This data can be viewed from something like btop.
+      memory_usage.disabled = true;
       meson = {
         disabled = false;
         format = lib.concatStrings [
@@ -564,7 +546,7 @@
         disabled = false;
         format = lib.concatStrings [
           "on "
-          "[$symbol $branch (:$topic )]"
+          "[$symbol $branch( :$topic) ]"
           "($style)"
         ];
         # Main color of the logo.
@@ -575,7 +557,7 @@
         disabled = false;
         format = lib.concatStrings [
           "with "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         style = "bold black";
@@ -595,7 +577,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -631,7 +613,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -643,7 +625,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )(\($switch_indicator$switch_name\) )]"
+          "[$symbol( $version)( \($switch_indicator$switch_name\)) ]"
           "($style)"
         ];
         # Darkes color of the logo.
@@ -655,7 +637,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         show_commit = false;
@@ -667,7 +649,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color from the header in the homepage.
@@ -679,26 +661,22 @@
         disabled = false;
         format = lib.concatStrings [
           "on "
-          "[$symbol $cloud (\($project\) )]"
+          "[$symbol $cloud( \($project\)) ]"
           "($style)"
         ];
         # Color of the logo.
         style = "bold #f20b4b";
         symbol = "";
       };
-      os = {
-        # According to documentation, this can be inaccurate.
-        disabled = true;
-      };
-      package = {
-        # Rare.
-        disabled = true;
-      };
+      # According to documentation, this can be inaccurate.
+      os.disabled = true;
+      # Rare.
+      package.disabled = true;
       perl = {
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color from the O"Reilly book.
@@ -710,7 +688,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color from the regular logo, not the elephant.
@@ -745,7 +723,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         style = "bold white";
@@ -756,7 +734,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($pyenv_prefix )($version )(\($virtualenv\) )]"
+          "[$symbol( $pyenv_prefix)( $version)( \($virtualenv\)) ]"
           "($style)"
         ];
         pyenv_version_name = false;
@@ -770,7 +748,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color from this banner:
@@ -783,7 +761,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -795,7 +773,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
       };
@@ -803,7 +781,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Darkest color of the logo.
@@ -815,7 +793,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -827,7 +805,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -839,7 +817,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -847,16 +825,12 @@
         # Darkest color of the logo.
         style = "bold #7f0c1d";
       };
-      shell = {
-        # I don"t see the appeal of using an other shell.
-        disabled = true;
-      };
-      shlvl = {
-        # Not really necessary, shows the depth of a shell.
-        # In a shell script, for example, it would be two,
-        # as you would be running a shell from a shell.
-        disabled = true;
-      };
+      # I don"t see the appeal of using a shell other than Bash.
+      shell.disabled = true;
+      # Not really necessary, shows the depth of a shell.
+      # In a shell script, for example, it would be two,
+      # as you would be running a shell from a shell.
+      shlvl.disabled = true;
       singularity = {
         disabled = false;
         format = lib.concatStrings [
@@ -871,7 +845,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -890,19 +864,15 @@
         truncation_length = 10;
         symbol = " ";
       };
-      status = {
-        # The error_symbol is enough already.
-        disabled = true;
-      };
-      sudo = {
-        # Only shows if credentials are cached.
-        disabled = true;
-      };
+      # The error_symbol is enough already.
+      status.disabled = true;
+      # Only shows if credentials are cached.
+      sudo.disabled = true;
       swift = {
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         version_format = "$raw";
@@ -922,14 +892,12 @@
         style = "bold #7b42bc";
         symbol = "󱁢";
       };
-      time = {
-        # Disabled as it will display in whatever bar I"m using.
-        disabled = true;
-      };
+      # Disabled as it will display in whatever bar I"m using.
+      time.disabled = true;
       typst = {
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color from the corner of the homepage.
@@ -938,15 +906,13 @@
         symbol = "";
         version_format = "$raw";
       };
-      username = {
-        # I know who I am.
-        disabled = true;
-      };
+      # I know who I am.
+      username.disabled = true;
       vagrant = {
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the logo.
@@ -974,7 +940,7 @@
         disabled = false;
         format = lib.concatStrings [
           "via "
-          "[$symbol ($version )]"
+          "[$symbol( $version) ]"
           "($style)"
         ];
         # Color of the logo.
