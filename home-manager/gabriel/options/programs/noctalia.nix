@@ -19,13 +19,16 @@
         widgets = {
           auto_hide = true;
           border = "primary";
-          border_width = 1.0;
-          center = [ "clock" ];
+          border_width = 1;
+          center = [
+            "clock"
+          ];
           concave_edge_corners = false;
           end = [
             "recorder"
             "notifications"
             "clipboard"
+            "bar"
             "volume"
             "brightness"
             "battery"
@@ -61,56 +64,116 @@
       };
       desktop_widgets = {
         enabled = false;
-        schema_version = 2;
-        widget_order = [ ];
         grid = {
           cell_size = 16;
           major_interval = 4;
           visible = true;
         };
+        schema_version = 2;
+        widget_order = [
+        ];
       };
       idle = {
+        behavior = {
+          lock = {
+            action = "lock";
+            enabled = true;
+            timeout = 600;
+          };
+          lock-and-suspend = {
+            action = "lock_and_suspend";
+            enabled = true;
+            timeout = 900;
+          };
+          screen-off = {
+            action = "screen_off";
+            enabled = true;
+            timeout = 660;
+          };
+        };
         behavior_order = [
           "lock"
           "screen-off"
           "lock-and-suspend"
         ];
-        behavior = {
-          lock = {
-            action = "lock";
-            enabled = true;
-            timeout = 600.0;
-          };
-          lock-and-suspend = {
-            action = "lock_and_suspend";
-            enabled = true;
-            timeout = 900.0;
-          };
-          screen-off = {
-            action = "screen_off";
-            enabled = true;
-            timeout = 660.0;
-          };
-        };
       };
       location = {
         auto_locate = true;
       };
       lockscreen_widgets = {
-        enabled = false;
-        schema_version = 2;
+        enabled = true;
         grid = {
-          cell_size = 16;
+          cell_size = 8;
           major_interval = 4;
           visible = true;
         };
+        schema_version = 2;
+        widget = {
+          "lockscreen-login-box@eDP-1" = {
+            box_height = 196;
+            box_width = 720;
+            cx = 683;
+            cy = 649;
+            output = "eDP-1";
+            placement_height = 768;
+            placement_width = 1366;
+            rotation = 0;
+            settings = {
+              background_color = "surface_variant";
+              background_opacity = 0.88;
+              background_radius = 12;
+              center_password_text = false;
+              input_opacity = 1;
+              input_radius = 6;
+              layout = "regular";
+              show_caps_lock = true;
+              show_keyboard_layout = true;
+              show_login_button = true;
+              show_media = true;
+              show_session_buttons = true;
+              show_unlock_hint = true;
+              show_weather = true;
+            };
+            type = "login_box";
+          };
+          "lockscreen-widget-0000000000000001" = {
+            box_height = 328;
+            box_width = 376;
+            cx = 683.75;
+            cy = 256.75;
+            output = "eDP-1";
+            placement_height = 768;
+            placement_width = 1366;
+            rotation = 0;
+            settings = {
+              background = false;
+              background_color = "surface";
+              background_opacity = 0.8;
+              background_padding = 10;
+              background_radius = 12;
+              center_text = true;
+              circle = false;
+              clock_style = "analog";
+              color = "surface";
+              font_family = "";
+              format = "{:%H:%M}";
+              shadow = true;
+              timezone = "";
+            };
+            type = "clock";
+          };
+        };
+        widget_order = [
+          "lockscreen-login-box@eDP-1"
+          "lockscreen-widget-0000000000000001"
+        ];
       };
       notification = {
-        background_opacity = 1.0;
+        background_opacity = 1;
         layer = "overlay";
       };
       osd = {
-        background_opacity = 1.0;
+        background_opacity = 1;
       };
       plugin_settings = {
         "nightwatch75/file-search" = {
@@ -139,17 +202,17 @@
           "noctalia/kaomoji"
           "oldirtty/color_picker"
           "nightwatch75/file-search"
+          "icefish/phone-connect"
         ];
       };
       shell = {
         avatar_path = "~/.face";
+        launcher = {
+          categories = false;
+          compact = true;
+          show_app_origin_indicator = false;
+        };
         niri_overview_type_to_launch_enabled = true;
-        password_style = "random";
-        polkit_agent = true;
-        screen_time_enabled = true;
-        settings_show_advanced = true;
-        show_location = false;
-        telemetry_enabled = true;
         panel = {
           clipboard_placement = "attached";
           control_center_placement = "centered";
@@ -159,50 +222,56 @@
           shadow = false;
           wallpaper_placement = "centered";
         };
+        password_style = "random";
+        polkit_agent = true;
+        screen_time_enabled = true;
         screenshot = {
+          annotate = true;
           directory = "~/Pictures/screenshots";
         };
         session = {
           actions = [
             {
               action = "lock";
-              countdown_seconds = 0.0;
+              countdown_seconds = 0;
               enabled = true;
               shortcut = "1";
               variant = "default";
             }
             {
               action = "shutdown";
-              countdown_seconds = 0.0;
+              countdown_seconds = 0;
               enabled = true;
               shortcut = "2";
               variant = "destructive";
             }
             {
               action = "reboot";
-              countdown_seconds = 0.0;
+              countdown_seconds = 0;
               enabled = true;
               shortcut = "3";
               variant = "default";
             }
             {
               action = "logout";
-              countdown_seconds = 0.0;
+              countdown_seconds = 0;
               enabled = true;
               shortcut = "4";
               variant = "default";
             }
           ];
         };
+        settings_show_advanced = true;
         shadow = {
-          alpha = 0.0;
+          alpha = 0;
         };
+        show_location = false;
+        telemetry_enabled = true;
       };
       theme = {
         mode = "auto";
         pure_black_dark = true;
         source = "wallpaper";
-        wallpaper_scheme = "m3-content";
         templates = {
           builtin_ids = [
             "alacritty"
@@ -222,53 +291,94 @@
             "niri"
             "qt"
             "scroll"
+            "starship"
             "sway"
+            "umbriel"
             "wezterm"
           ];
           community_ids = [
+            "antigravity"
+            "claude-code"
+            "codex"
+            "opencode"
+            "pi-agent"
             "feishin"
             "pear-desktop"
             "spicetify"
+            "supersonic"
             "tauon"
+            "ytm-player"
+            "brave"
+            "brave-origin"
             "pywalfox"
             "pywalfox-beta4"
+            "qutebrowser"
+            "ungoogled-chromium"
             "zen-browser"
+            "discord"
+            "halloy"
+            "karere"
+            "nchat"
+            "senpai"
+            "telegram"
+            "driftwm"
+            "jay"
+            "blender"
+            "darktable"
+            "gimp"
+            "inkscape"
+            "libreoffice"
+            "micro"
+            "musescore"
             "neovim"
             "obsidian"
             "vscode"
             "zed"
+            "archetype-pokemmo"
+            "heroiclauncher"
+            "prismlauncher"
+            "steam"
             "fuzzel"
             "rofi"
             "velo"
             "vicinae"
             "walker"
-            "antigravity"
-            "bat"
-            "discord"
-            "heroiclauncher"
-            "lazygit"
-            "nchat"
+            "fastfetch"
+            "mailspring"
             "obs"
-            "opencode"
-            "papirus-icons"
-            "pi-agent"
-            "prismlauncher"
-            "steam"
-            "telegram"
-            "yazi"
+            "sioyek"
+            "siyuan"
             "zathura"
+            "zellij"
+            "fcitx5"
             "hyprtoolkit"
+            "papirus-icons"
             "snappy-switcher"
+            "whitesur-icons"
+            "bat"
+            "fzf"
+            "glow"
+            "herdr"
+            "konsole"
+            "lazygit"
+            "rio"
+            "surgedm"
+            "tmux"
+            "yazi"
           ];
         };
+        wallpaper_scheme = "m3-content";
       };
       wallpaper = {
-        directory = "~/Pictures/wallpapers";
         automation = {
           enabled = true;
         };
+        directory = "~/Pictures/wallpapers";
       };
       widget = {
+        bar = {
+          type = "icefish/phone-connect:bar";
+        };
         battery = {
           display_mode = "graphic";
         };
@@ -277,6 +387,8 @@
           input_devices = [
             "/dev/input/by-id/usb-275d_USB_OPTICAL_MOUSE-event-mouse"
             "/dev/input/by-id/usb-2a7a_CASUE_USB_KB-event-kbd"
+            "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+            "/dev/input/by-path/platform-AMDI0010:00-event-mouse"
           ];
           tappy_mode = true;
           type = "noctalia/bongocat:cat";
@@ -300,6 +412,7 @@
         workspaces = {
           hide_when_empty = true;
           labels_only_when_occupied = true;
+          show_labels = false;
           style = "regular";
         };
       };
