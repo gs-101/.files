@@ -17,13 +17,11 @@ in
       '';
     };
     settings = {
-      enableTerminalSandbox = true;
       context.fileName = [
         "AGENTS.md"
         "GEMINI.md"
         "CLAUDE.md"
       ];
-      toolPermission = "proceed-in-sandbox";
       useG1Credits = true;
     };
     skills = {
