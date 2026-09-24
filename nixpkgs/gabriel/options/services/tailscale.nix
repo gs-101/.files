@@ -11,6 +11,27 @@ let
       FOURGET_SERVER_NAME = "4get.${domain}";
     };
   };
+  containerReverseProxy =
+    {
+      container,
+      subdomain ? container,
+      port ?
+        if config.virtualisation.oci-containers.containers ? ${container} then
+          builtins.head (
+            lib.splitString ":" (
+              builtins.head config.virtualisation.oci-containers.containers.${container}.ports
+            )
+          )
+        else
+          null,
+      listenAddr ? "localhost:${toString port}",
+      extraDirectives ? "",
+    }:
+    lib.mkIf (config.virtualisation.oci-containers.containers ? ${container}) {
+      "${subdomain}.${domain}".extraConfig = ''
+        reverse_proxy ${listenAddr} ${extraDirectives}
+      '';
+    };
   reverseProxy =
     {
       service,
@@ -58,27 +79,15 @@ in
           acme_ca https://acme-v02.api.letsencrypt.org/directory
         '';
         virtualHosts = lib.mkMerge [
-          (lib.mkIf (config.virtualisation.oci-containers.containers ? "4get") {
-            "4get.${domain}".extraConfig = ''
-              reverse_proxy localhost:${
-                builtins.head (
-                  lib.splitString ":" (builtins.head config.virtualisation.oci-containers.containers."4get".ports)
-                )
-              }
-            '';
+          (containerReverseProxy {
+            container = "4get";
           })
           (reverseProxy {
             service = "anki-sync-server";
             listenAddr = "${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}";
           })
-          (lib.mkIf (config.virtualisation.oci-containers.containers ? "any2nix") {
-            "any2nix.${domain}".extraConfig = ''
-              reverse_proxy localhost:${
-                builtins.head (
-                  lib.splitString ":" (builtins.head config.virtualisation.oci-containers.containers."any2nix".ports)
-                )
-              }
-            '';
+          (containerReverseProxy {
+            container = "any2nix";
           })
           (reverseProxy {
             service = "blocky";
