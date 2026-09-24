@@ -1,7 +1,7 @@
 {
   imports = [
     ./options/i18n.nix
-    ./options/nix/settings.nix
+    ./options/nix.nix
     ./options/nixpkgs.nix
     ./options/services/openssh.nix
     ./options/services/restic.nix
@@ -15,4 +15,5 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
+  services.automatic-timezoned.enable = true;
 }

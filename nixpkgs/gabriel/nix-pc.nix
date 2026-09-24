@@ -16,5 +16,4 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   console.keyMap = "br-abnt2";
   services.xserver.xkb.layout = "br";
-  time.timeZone = "America/Sao_Paulo";
 }

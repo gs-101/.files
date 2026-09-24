@@ -13,5 +13,4 @@
     ./options/virtualisation.nix
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  time.timeZone = "America/Sao_Paulo";
 }

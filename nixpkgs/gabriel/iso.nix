@@ -1,6 +1,6 @@
 {
   imports = [
-    ./options/nix/settings.nix
+    ./options/nix.nix
   ];
   programs.nano.enable = false;
   services.emacs = {
