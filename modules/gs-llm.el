@@ -5,11 +5,13 @@
   :ensure t
   :bind
   ("C-c a " . agent-shell)
-  :config
-  (setq agent-shell-antigravity-environment (agent-shell-make-environment-variables :inherit-env t))
+  :init
+  (with-eval-after-load 'envrc
+    (advice-add 'agent-shell :around #'envrc-propagate-environment))
   :custom
   (agent-shell-prefer-viewport-interaction t)
-  (agent-shell-preferred-agent-config 'antigravity))
+  (agent-shell-preferred-agent-config 'antigravity)
+  (agent-shell-show-cost-indicator 't))
 
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el")
