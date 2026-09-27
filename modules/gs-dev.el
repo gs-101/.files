@@ -50,6 +50,7 @@
                       ("swift" . swift-ts)
                       ("toml" . toml-ts)
                       ("typescript" . typescript-ts)
+                      ("verilog" . verilog-ts)
                       ("yaml" . yaml-ts)
                       ("zig" . zig-ts)))
     (add-to-list 'org-src-lang-modes language)))
