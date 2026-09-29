@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   nix = {
     channel.enable = false;
@@ -7,8 +6,6 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    nixPath = [ "nixpkgs=flake:nixpkgs" ];
-    registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       experimental-features = [
         "flakes"
