@@ -16,6 +16,7 @@
       "hugepages=3"
     ];
   };
+  powerManagement.cpuFreqGovernor = "performance";
   services.xmrig = {
     enable = true;
     settings = {
@@ -23,15 +24,15 @@
       cpu = {
         enable = true;
         "huge-pages" = true;
-        "max-threads-hint" = 75;
+        "max-threads-hint" = 50;
       };
       cuda = false;
       pools = [
         {
           keepalive = true;
           pass = config.networking.hostName;
-          tls = true;
-          url = "pool.supportxmr.com:443";
+          tls = false;
+          url = "monero.gs-101.dev:3333";
           user = "84JwhXmsFsRZpcoaQPcFjm8N7Fw9C71Av1ZHXXR4faDXZT9n4DFUxGeWxLpWKg32xFi7g2dDfQB2pC8PMw6RSjk3CbAHiiy";
         }
       ];

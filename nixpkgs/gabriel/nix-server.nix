@@ -14,6 +14,7 @@
     ./options/services/navidrome.nix
     ./options/services/wakapi.nix
     ./options/services/xmrig.nix
+    ./options/services/xmrig-proxy.nix
     ./options/services/zipline.nix
   ];
   boot.initrd.network = {
@@ -36,6 +37,32 @@
       "--keep-monthly 6"
     ];
     syncthing.enable = true;
+    xmrig-proxy = {
+      enable = true;
+      settings = {
+        bind = [
+          {
+            host = "0.0.0.0";
+            port = 3333;
+            tls = false;
+          }
+        ];
+        custom-diff = 5000;
+        custom-diff-stats = true;
+        donate-level = 0;
+        mode = "nicehash";
+        pools = [
+          {
+            keepalive = true;
+            pass = "homelab";
+            tls = true;
+            url = "pool.supportxmr.com:443";
+            user = "84JwhXmsFsRZpcoaQPcFjm8N7Fw9C71Av1ZHXXR4faDXZT9n4DFUxGeWxLpWKg32xFi7g2dDfQB2pC8PMw6RSjk3CbAHiiy";
+          }
+        ];
+        workers = true;
+      };
+    };
   };
   systemd.network.networks."10-lan" = {
     matchConfig.Name = "en* eth*";
