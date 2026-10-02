@@ -8,19 +8,19 @@
   zlib,
 }:
 let
-  version = "1.1.1";
+  version = "1.3.0";
   sources = {
     x86_64-linux = {
-      url = "https://dl.google.com/agy-extensions/releases/linux/agy-acp-server-agy_acp_server_${version}-linux-x86_64.zip";
-      sha256 = "1mq833jg3s4nag2is6bdyp5w6hsmyhvnpkc5ynzhxni1pnmasby2";
+      url = "https://dl.google.com/agy-extensions/releases/linux/agy-acp-server-${version}-linux-x86_64.zip";
+      sha256 = "144vc9p9a2yzg3y2hpnplkz1h5k2giqiv1j8bvamm9advs6z1ns6";
     };
     aarch64-linux = {
-      url = "https://dl.google.com/agy-extensions/releases/linux/agy-acp-server-agy_acp_server_${version}-linux-arm64.zip";
-      sha256 = "1ylc1g2yapgzy2jcfi3nz5l4d0m5bix27xggbyrpgaca01mnn6f2";
+      url = "https://dl.google.com/agy-extensions/releases/linux/agy-acp-server-${version}-linux-arm64.zip";
+      sha256 = "0lr4b018l9l7dq4garmf6pwrzm4slv5cad8wxlwvpb8ki02l13rs";
     };
     aarch64-darwin = {
-      url = "https://dl.google.com/agy-extensions/releases/macos/agy-acp-server-agy_acp_server_${version}-darwin-arm64.zip";
-      sha256 = "1a3ycrkp84xaqayvh0mh74bd8db9abi116i8g6wbz152768jz7rv";
+      url = "https://dl.google.com/agy-extensions/releases/macos/agy-acp-server-${version}-darwin-arm64.zip";
+      sha256 = "0001m22qpga4bcdrfq62vh6m44l7d8w18iif278k9wbmvdam8gq4";
     };
   };
   source =
