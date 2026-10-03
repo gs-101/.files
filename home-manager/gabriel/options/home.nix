@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   ...
 }:
@@ -18,6 +19,12 @@ in
     ./home/pointerCursor.nix
   ];
   home = {
+    activation = {
+      setBackupExtension = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+        export HOME_MANAGER_BACKUP_EXT="backup"
+        export HOME_MANAGER_BACKUP_OVERWRITE="1"
+      '';
+    };
     homeDirectory = "/home/gabriel";
     packages = with pkgs; [
       ast-grep
