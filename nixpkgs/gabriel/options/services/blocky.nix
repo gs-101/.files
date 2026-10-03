@@ -3,30 +3,17 @@
     blocky = {
       enable = true;
       settings = {
-        blocking = {
-          allowlists = {
-            default = [
-              ''
-                *.supportxmr.com
-              ''
-            ];
-          };
-          clientGroupsBlock = {
-            default = [
-              "default"
-            ];
-          };
-          denylists = {
-            default = [
-              "https://adguardteam.github.io/HostlistsRegistry/assets/filter_49.txt"
-              "https://adguardteam.github.io/HostlistsRegistry/assets/filter_47.txt"
-              "https://adguardteam.github.io/HostlistsRegistry/assets/filter_55.txt"
-              "https://adguardteam.github.io/HostlistsRegistry/assets/filter_71.txt"
-              "https://adguardteam.github.io/HostlistsRegistry/assets/filter_44.txt"
-              "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/nsfw.txt"
-            ];
-          };
-        };
+        blocking.clientGroupsBlock.default = [
+          "default"
+        ];
+        blocking.denylists.default = [
+          "https://adguardteam.github.io/HostlistsRegistry/assets/filter_49.txt"
+          "https://adguardteam.github.io/HostlistsRegistry/assets/filter_47.txt"
+          "https://adguardteam.github.io/HostlistsRegistry/assets/filter_55.txt"
+          "https://adguardteam.github.io/HostlistsRegistry/assets/filter_71.txt"
+          "https://adguardteam.github.io/HostlistsRegistry/assets/filter_44.txt"
+          "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/nsfw.txt"
+        ];
         bootstrapDns = [
           "tcp+udp:194.242.2.2"
           "tcp+udp:9.9.9.9"
@@ -40,10 +27,6 @@
         ports = {
           dns = 53;
           http = 4000;
-        };
-        prometheus = {
-          enable = true;
-          path = "/metrics";
         };
         upstreams = {
           groups = {

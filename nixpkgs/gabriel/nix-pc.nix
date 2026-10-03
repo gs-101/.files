@@ -9,7 +9,6 @@
     ./options/hardware/graphics.nix
     ./options/services/btrbk.nix
     ./options/services/pipewire.nix
-    ./options/services/xmrig.nix
     ./options/services/xserver.nix
     ./options/virtualisation.nix
   ];
