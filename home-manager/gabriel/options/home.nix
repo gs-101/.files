@@ -13,15 +13,11 @@
     };
     homeDirectory = "/home/gabriel";
     packages = with pkgs; [
-      ast-grep
       cryptsetup
       gimp
       inkscape
       monero-cli
-      pastel
-      quickemu
       tor-browser
-      viu
       wasabiwallet
       zotero
     ];
