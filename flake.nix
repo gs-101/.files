@@ -6,6 +6,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixos.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     noctalia.url = "github:noctalia-dev/noctalia";
     nur.url = "github:nix-community/NUR";
@@ -20,6 +21,7 @@
       neovim-nightly-overlay,
       nix-index-database,
       nixos,
+      nixos-unstable,
       nixpkgs,
       noctalia,
       nvf,
@@ -170,6 +172,9 @@
         agy_acp_server = finalAttrs.antigravity-acp;
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
         navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
+        librewolf = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.librewolf;
+        tor-browser = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.tor-browser;
+        zotero = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.zotero;
       };
     };
 }
