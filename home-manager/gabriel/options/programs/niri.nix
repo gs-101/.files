@@ -32,8 +32,13 @@ in
           ];
         };
         "Mod+D" = {
-          _props.hotkey-overlay-title = "Spawn Launcher";
-          spawn-sh = "$LAUNCHER";
+          _props.hotkey-overlay-title = "Spawn Menu";
+          spawn = [
+            "${noctalia}"
+            "msg"
+            "panel-toggle"
+            "launcher"
+          ];
         };
         "Mod+Down".focus-window-down-or-top = { };
         "Mod+E" = {
