@@ -5,7 +5,9 @@ let
   );
 in
 {
-
+  home.packages = with pkgs; [
+    antigravity-acp
+  ];
   programs.antigravity-cli = {
     enable = true;
     context = {

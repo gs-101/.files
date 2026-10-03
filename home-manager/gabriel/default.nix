@@ -13,6 +13,7 @@
     ./options/programs/antigravity-cli.nix
     ./options/programs/bash.nix
     ./options/programs/bat.nix
+    ./options/programs/codex.nix
     ./options/programs/direnv.nix
     ./options/programs/emacs.nix
     ./options/programs/fd.nix

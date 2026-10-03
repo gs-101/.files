@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   deps = with pkgs; [
-    antigravity-acp
     atool
     copilot-language-server
     curl
