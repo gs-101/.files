@@ -1,6 +1,6 @@
 {
   imports = [
     ./default.nix
-    ./options/programs/driftwm.nix
+    ./options/programs/niri.nix
   ];
 }

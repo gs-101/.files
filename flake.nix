@@ -1,7 +1,6 @@
 {
   inputs = {
     disko.url = "github:nix-community/disko/latest";
-    driftwm.url = "github:gs-101/driftwm/feat/home-manager-module";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -16,7 +15,6 @@
   outputs =
     {
       disko,
-      driftwm,
       emacs-overlay,
       home-manager,
       neovim-nightly-overlay,
@@ -109,7 +107,6 @@
         "gabriel@nix-notebook" = makePerSystemHomeConfiguration {
           system = "nix-notebook";
           modules = [
-            driftwm.homeManagerModules.default
             nix-index-database.homeModules.default
             noctalia.homeModules.default
             nvf.homeManagerModules.default

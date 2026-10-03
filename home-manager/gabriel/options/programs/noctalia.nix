@@ -10,7 +10,6 @@
       hyprpicker
       wtype
     ];
-    sessionVariables.LAUNCHER = "noctalia msg panel-toggle launcher";
   };
   programs.noctalia = {
     enable = true;
@@ -422,9 +421,4 @@
       };
     };
   };
-  xdg.configFile."xdg-desktop-portal-wlr/config".text = ''
-    [screencast]
-    chooser_cmd = noctalia dmenu -p 'Select a source to share:'
-    chooser_type = dmenu
-  '';
 }

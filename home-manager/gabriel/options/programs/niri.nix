@@ -31,15 +31,6 @@ in
             "oldirtty/color_picker:panel"
           ];
         };
-        "Mod+D" = {
-          _props.hotkey-overlay-title = "Spawn Menu";
-          spawn = [
-            "${noctalia}"
-            "msg"
-            "panel-toggle"
-            "launcher"
-          ];
-        };
         "Mod+Down".focus-window-down-or-top = { };
         "Mod+E" = {
           _props.hotkey-overlay-title = "Spawn Editor";
@@ -100,6 +91,15 @@ in
         "Mod+WheelScrollLeft".focus-column-left = { };
         "Mod+WheelScrollRight".focus-column-right = { };
         "Mod+WheelScrollUp".focus-workspace-up = { };
+        "Mod+X" = {
+          _props.hotkey-overlay-title = "Spawn Menu";
+          spawn = [
+            "${noctalia}"
+            "msg"
+            "panel-toggle"
+            "launcher"
+          ];
+        };
         "Print" = {
           _props.hotkey-overlay-title = "Take a Screenshot of the Screen";
           spawn = [

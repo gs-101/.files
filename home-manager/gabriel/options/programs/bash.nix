@@ -6,9 +6,6 @@
       "erasedups"
       "ignoreboth"
     ];
-    sessionVariables = {
-      TERMINAL = "$TERM";
-    };
     shellAliases = {
       ".." = "cd ..";
       "df" = "df -h";
