@@ -4,6 +4,7 @@
   home = {
     preferXdgDirectories = true;
     sessionVariables = {
+      CODEX_HOME = "${config.xdg.configHome}/codex";
       PYTHON_HISTORY = "${config.xdg.dataHome}/python/history";
       RUSTUP_HOME = "${config.xdg.dataHome}/rust/rustup";
       WGETRC = "${config.xdg.dataHome}/wget/hosts";
