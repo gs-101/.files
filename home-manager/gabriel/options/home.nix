@@ -15,9 +15,6 @@ let
   };
 in
 {
-  imports = [
-    ./home/pointerCursor.nix
-  ];
   home = {
     activation = {
       setBackupExtension = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''

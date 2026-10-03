@@ -2,12 +2,9 @@
 {
   imports = [
     ./options/accounts.nix
-    ./options/fonts.nix
-    ./options/gtk.nix
     ./options/home.nix
     ./options/nixpkgs.nix
     ./options/sops.nix
-    ./options/qt.nix
     ./options/xdg.nix
     ./options/programs/anki.nix
     ./options/programs/antigravity-cli.nix
