@@ -11,4 +11,6 @@
     };
   };
   sops.secrets.zipline = { };
+  # TODO: Remove this after crashes stop happening.
+  systemd.services.zipline.environment.HOME = "/var/lib/zipline";
 }
