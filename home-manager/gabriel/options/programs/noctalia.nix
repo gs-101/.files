@@ -5,10 +5,8 @@
 {
   home = {
     packages = with pkgs; [
-      evtest
       gpu-screen-recorder
       hyprpicker
-      wtype
     ];
   };
   programs.noctalia = {
