@@ -13,6 +13,7 @@
     nur.url = "github:nix-community/NUR";
     nvf.url = "github:NotAShelf/nvf";
     sops-nix.url = "github:mic92/sops-nix";
+    umbriel.url = "github:noctalia-dev/umbriel";
   };
   outputs =
     {
@@ -29,6 +30,7 @@
       nvf,
       self,
       sops-nix,
+      umbriel,
       ...
     }@inputs:
     let
@@ -115,6 +117,7 @@
             noctalia.homeModules.default
             nvf.homeManagerModules.default
             sops-nix.homeModules.default
+            umbriel.homeModules.default
           ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           user = "gabriel";
@@ -126,6 +129,7 @@
             noctalia.homeModules.default
             nvf.homeManagerModules.default
             sops-nix.homeModules.default
+            umbriel.homeModules.default
           ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           user = "gabriel";
@@ -175,7 +179,8 @@
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
         navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
         librewolf = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.librewolf;
-        tor-browser = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.tor-browser;
+        tor-browser =
+          inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.tor-browser;
         zotero = inputs.nixpkgs-zotero.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.zotero;
       };
     };
