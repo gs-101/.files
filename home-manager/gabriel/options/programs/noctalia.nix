@@ -28,8 +28,13 @@
     };
   };
   programs = {
+    bash.initExtra = "source ~/.config/fzf/themes/noctalia.sh";
     bat.config.theme = "noctalia";
+    claude-code.settings.theme = "noctalia";
+    fuzzel.settings.main.include = "~/.config/fuzzel/themes/noctalia";
+    halloy.settings.theme = "noctalia";
     kitty.extraConfig = "include themes/noctalia.conf";
+    micro.settings.colorscheme = "noctalia";
     noctalia = {
       enable = true;
       settings = {
@@ -450,5 +455,19 @@
         };
       };
     };
+    opencode.tui.theme = "matugen";
+    pi-coding-agent.settings.theme = "noctalia";
+    rio.settings.theme = "noctalia";
+    superfile.settings.theme = "noctalia";
+    tmux.extraConfig = "source-file ~/.config/tmux/themes/noctalia.conf";
+    vicinae.settings.theme = "noctalia";
+    yazi.theme.flavor.user = "noctalia";
+    zathura.extraConfig = "include noctaliarc";
+    zed-editor.userSettings.theme = {
+      dark = "Noctalia";
+      light = "Noctalia";
+      mode = "system";
+    };
+    zellij.settings.theme = "noctalia";
   };
 }
