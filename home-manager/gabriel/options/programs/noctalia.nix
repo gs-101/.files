@@ -29,8 +29,8 @@
           end = [
             "recorder"
             "notifications"
-            "clipboard"
             "bar"
+            "clipboard"
             "volume"
             "brightness"
             "battery"
@@ -41,7 +41,7 @@
           margin_ends = 5;
           radius = 24;
           reserve_space = false;
-          shadow = false;
+          shadow = true;
           start = [
             "workspaces"
             "media"
@@ -72,6 +72,8 @@
           visible = true;
         };
         schema_version = 2;
+        widget = {
+        };
         widget_order = [
         ];
       };
@@ -204,6 +206,7 @@
           "noctalia/kaomoji"
           "oldirtty/color_picker"
           "nightwatch75/file-search"
+          "cleboost/ssh-launcher"
           "icefish/phone-connect"
         ];
       };
@@ -221,11 +224,12 @@
           launcher_app_grid = true;
           launcher_compact = true;
           session_position = "center";
-          shadow = false;
+          shadow = true;
           wallpaper_placement = "centered";
         };
         password_style = "random";
         polkit_agent = true;
+        readline_shortcuts = true;
         screen_time_enabled = true;
         screenshot = {
           annotate = true;
@@ -293,7 +297,6 @@
             "niri"
             "qt"
             "scroll"
-            "starship"
             "sway"
             "umbriel"
             "wezterm"
@@ -306,7 +309,11 @@
             "pi-agent"
             "feishin"
             "pear-desktop"
+            "sidra"
+            "sone"
+            "sonora"
             "spicetify"
+            "spotifast"
             "supersonic"
             "tauon"
             "ytm-player"
@@ -345,11 +352,13 @@
             "velo"
             "vicinae"
             "walker"
+            "yeet"
             "fastfetch"
             "mailspring"
             "obs"
             "sioyek"
             "siyuan"
+            "thunderbird"
             "zathura"
             "zellij"
             "fcitx5"
@@ -364,6 +373,7 @@
             "konsole"
             "lazygit"
             "rio"
+            "superfile"
             "surgedm"
             "tmux"
             "yazi"
