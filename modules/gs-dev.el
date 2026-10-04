@@ -408,7 +408,9 @@ Only runs if a `flutter' buffer already exits."
 
 (use-package forge
   :after magit
-  :ensure t)
+  :ensure t
+  :config
+  (remove-hook 'forge-post-mode-hook #'turn-on-flyspell))
 
 (use-package magit-git-toolbelt
   :vc (:url "https://github.com/jonathanchu/magit-git-toolbelt")

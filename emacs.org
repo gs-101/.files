@@ -2535,7 +2535,9 @@ To make use of this package a [[https://magit.vc/manual/forge/Token-Creation.htm
 #+begin_src emacs-lisp
   (use-package forge
     :after magit
-    :ensure t)
+    :ensure t
+    :config
+    (remove-hook 'forge-post-mode-hook #'turn-on-flyspell))
 #+end_src
 
 *** [[https://github.com/jonathanchu/magit-git-toolbelt][git-toolbelt]]
