@@ -15,5 +15,4 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
-  services.automatic-timezoned.enable = true;
 }

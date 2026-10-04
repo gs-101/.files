@@ -40,4 +40,5 @@
     matchConfig.Name = "en* eth*";
     networkConfig.DHCP = "yes";
   };
+  time.timeZone = "America/Sao_Paulo";
 }
