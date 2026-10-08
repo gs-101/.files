@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./noctalia.nix
@@ -185,5 +186,16 @@
         }
       ];
     };
+  };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-umbriel
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.umbriel.default = [
+      "umbriel"
+      "gtk"
+    ];
   };
 }

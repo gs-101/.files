@@ -8,6 +8,7 @@
       noctalia.overlays.default
       nur.overlays.default
       self.overlays.default
+      umbriel.overlays.default
     ];
   };
 }
