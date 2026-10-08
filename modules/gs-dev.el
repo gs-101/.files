@@ -401,10 +401,14 @@ Only runs if a `flutter' buffer already exits."
   :bind
   ("C-c v" . magit-dispatch)
   :custom
+  (magit-diff-fontify-hunk t)
   (magit-diff-refine-hunk t)
+  (magit-diff-use-indicator-faces t)
   :ensure t
   :hook
-  (magit-process-find-password-functions . magit-process-password-auth-source))
+  (magit-process-find-password-functions . magit-process-password-auth-source)
+  :preface
+  (setq magit-diff-specify-hunk-foreground nil))
 
 (use-package forge
   :after magit
