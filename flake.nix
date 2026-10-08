@@ -35,52 +35,43 @@
     }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
-      makeHomeConfiguration =
+      makeHome =
         {
-          user,
-          modules,
+          modules ? [ ],
           pkgs,
+          system ? null,
+          user,
         }:
         home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs; };
-          modules = modules ++ [ ./home-manager/${user} ];
           inherit pkgs;
+          modules = [
+            {
+              _module.args = {
+                inherit inputs user;
+              };
+            }
+            (if system == null then ./home-manager/${user} else ./home-manager/${user}/${system}.nix)
+          ]
+          ++ modules;
         };
-      makePerSystemHomeConfiguration =
+      makeSystem =
         {
-          user,
-          system,
-          modules,
-          pkgs,
-        }:
-        home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs user; };
-          modules = modules ++ [ ./home-manager/${user}/${system}.nix ];
-          inherit pkgs;
-        };
-      makeSystemConfiguration =
-        {
-          modules,
+          modules ? [ ],
           nixpkgs,
           system,
+          user ? null,
         }:
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = modules ++ [ ./nixpkgs/${system} ];
-        };
-      makePerUserSystemConfiguration =
-        {
-          modules,
-          nixpkgs,
-          system,
-          user,
-        }:
-        nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = modules ++ [
+          modules = [
+            {
+              _module.args = {
+                inherit inputs;
+              };
+            }
             ./nixpkgs/${system}
-            ./nixpkgs/${user}/${system}.nix
-          ];
+          ]
+          ++ nixpkgs.lib.optional (user != null) ./nixpkgs/${user}/${system}.nix
+          ++ modules;
         };
     in
     {
@@ -100,7 +91,7 @@
       );
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
       homeConfigurations = {
-        "gabriel" = makeHomeConfiguration {
+        "gabriel" = makeHome {
           modules = [
             nix-index-database.homeModules.default
             noctalia.homeModules.default
@@ -110,7 +101,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           user = "gabriel";
         };
-        "gabriel@nix-notebook" = makePerSystemHomeConfiguration {
+        "gabriel@nix-notebook" = makeHome {
           system = "nix-notebook";
           modules = [
             nix-index-database.homeModules.default
@@ -122,7 +113,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           user = "gabriel";
         };
-        "gabriel@nix-pc" = makePerSystemHomeConfiguration {
+        "gabriel@nix-pc" = makeHome {
           system = "nix-pc";
           modules = [
             nix-index-database.homeModules.default
@@ -136,14 +127,14 @@
         };
       };
       nixosConfigurations = {
-        iso = makeSystemConfiguration {
+        iso = makeSystem {
           modules = [
             disko.nixosModules.disko
           ];
           inherit nixpkgs;
           system = "iso";
         };
-        nix-notebook = makePerUserSystemConfiguration {
+        nix-notebook = makeSystem {
           modules = [
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
@@ -152,7 +143,7 @@
           system = "nix-notebook";
           user = "gabriel";
         };
-        nix-pc = makePerUserSystemConfiguration {
+        nix-pc = makeSystem {
           modules = [
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
@@ -161,7 +152,7 @@
           system = "nix-pc";
           user = "gabriel";
         };
-        nix-server = makePerUserSystemConfiguration {
+        nix-server = makeSystem {
           system = "nix-server";
           modules = [
             disko.nixosModules.disko
