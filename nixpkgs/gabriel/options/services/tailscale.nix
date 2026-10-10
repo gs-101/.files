@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -51,65 +50,6 @@ lib.mkMerge [
     container = "any2nix";
   })
   {
-    boot.initrd = {
-      availableKernelModules = [
-        "nft_chain_nat"
-        "tun"
-      ];
-      network = {
-        enable = true;
-        ssh = {
-          enable = true;
-          authorizedKeys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDOdceujA3tBt2vYoZE5py6f+98ZIeUdIVVj4XRwoNEO"
-          ];
-          hostKeys = [ "/etc/ssh/ssh_initrd_ed25519_key" ];
-        };
-      };
-      secrets."/var/lib/tailscale/tailscaled.state" = "/etc/tailscale/initrd.state";
-      systemd = {
-        initrdBin = with pkgs; [
-          iproute2
-          iptables
-          tailscale
-        ];
-        tmpfiles.settings."50-tailscale"."/var/run".L.argument = "/run";
-        network.networks = {
-          "10-initrd-ethernet" = {
-            matchConfig.Type = "ether";
-            networkConfig.DHCP = "yes";
-          };
-          "50-tailscale" = {
-            linkConfig = {
-              ActivationPolicy = "manual";
-              Unmanaged = true;
-            };
-            matchConfig.Name = "tailscale0";
-          };
-        };
-        packages = with pkgs; [ tailscale ];
-        services.tailscaled = {
-          after = [
-            "network.target"
-            "initrd-nixos-copy-secrets.service"
-          ];
-          wants = [ "initrd-nixos-copy-secrets.service" ];
-          description = "Tailscale in initrd";
-          unitConfig.DefaultDependencies = false;
-          serviceConfig = {
-            ExecStart = [
-              ""
-              "${pkgs.tailscale}/bin/tailscaled --state=/var/lib/tailscale/tailscaled.state --port=41641"
-            ];
-            Restart = "on-failure";
-            RestartSec = "2s";
-            Type = "simple";
-          };
-          wantedBy = [ "initrd.target" ];
-        };
-        users.root.shell = "/bin/systemd-tty-ask-password-agent";
-      };
-    };
     networking.firewall = {
       interfaces.tailscale0 = {
         allowedTCPPorts = [
