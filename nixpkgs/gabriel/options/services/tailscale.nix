@@ -73,6 +73,7 @@ lib.mkMerge [
           iptables
           tailscale
         ];
+        tmpfiles.settings."50-tailscale"."/var/run".L.argument = "/run";
         network.networks = {
           "10-initrd-ethernet" = {
             matchConfig.Type = "ether";
@@ -88,8 +89,13 @@ lib.mkMerge [
         };
         packages = with pkgs; [ tailscale ];
         services.tailscaled = {
-          after = [ "network.target" ];
+          after = [
+            "network.target"
+            "initrd-nixos-copy-secrets.service"
+          ];
+          wants = [ "initrd-nixos-copy-secrets.service" ];
           description = "Tailscale in initrd";
+          unitConfig.DefaultDependencies = false;
           serviceConfig = {
             ExecStart = "${pkgs.tailscale}/bin/tailscaled --state=/var/lib/tailscale/tailscaled.state --port=41641";
             Restart = "on-failure";
