@@ -15,6 +15,16 @@
     ./options/services/wakapi.nix
     ./options/services/zipline.nix
   ];
+  boot.initrd.network = {
+    enable = true;
+    ssh = {
+      enable = true;
+      authorizedKeys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDOdceujA3tBt2vYoZE5py6f+98ZIeUdIVVj4XRwoNEO"
+      ];
+      hostKeys = [ "/etc/ssh/ssh_initrd_ed25519_key" ];
+    };
+  };
   networking.useNetworkd = true;
   services = {
     "4get".enable = true;
