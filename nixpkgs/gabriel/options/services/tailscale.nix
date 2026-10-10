@@ -97,7 +97,10 @@ lib.mkMerge [
           description = "Tailscale in initrd";
           unitConfig.DefaultDependencies = false;
           serviceConfig = {
-            ExecStart = "${pkgs.tailscale}/bin/tailscaled --state=/var/lib/tailscale/tailscaled.state --port=41641";
+            ExecStart = [
+              ""
+              "${pkgs.tailscale}/bin/tailscaled --state=/var/lib/tailscale/tailscaled.state --port=41641"
+            ];
             Restart = "on-failure";
             RestartSec = "2s";
             Type = "simple";
