@@ -17,6 +17,8 @@
   ];
   networking.useNetworkd = true;
   services = {
+    "4get".enable = true;
+    any2nix.enable = true;
     rsshub.enable = true;
     pulseaudio.enable = false;
     restic.backups.google-drive.pruneOpts = [
