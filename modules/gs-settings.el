@@ -9,16 +9,6 @@
   (native-comp-async-query-on-exit t)
   (native-comp-async-report-warnings-errors 'silent))
 
-(use-package completion-preview
-  :config
-  (dolist (command '(org-self-insert-command
-                     org-delete-backward-char))
-    (add-to-list 'completion-preview-commands command))
-  ;; "CP" 0_0
-  (add-to-list 'mode-line-collapse-minor-modes 'completion-preview-mode)
-  :init
-  (global-completion-preview-mode))
-
 (use-package ediff-wind
   :custom
   (ediff-window-setup-function 'ediff-setup-windows-plain))

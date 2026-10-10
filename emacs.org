@@ -103,24 +103,6 @@ This file contains all the code needed to drive async compilations and any Lisp 
     (native-comp-async-report-warnings-errors 'silent))
 #+end_src
 
-*** Completion Preview
-
-#+begin_quote
-Preview completion with inline overlay
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package completion-preview
-    :config
-    (dolist (command '(org-self-insert-command
-                       org-delete-backward-char))
-      (add-to-list 'completion-preview-commands command))
-    ;; "CP" 0_0
-    (add-to-list 'mode-line-collapse-minor-modes 'completion-preview-mode)
-    :init
-    (global-completion-preview-mode))
-#+end_src
-
 *** Ediff Window
 
 #+begin_quote
