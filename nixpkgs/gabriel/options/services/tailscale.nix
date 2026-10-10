@@ -73,12 +73,18 @@ lib.mkMerge [
           iptables
           tailscale
         ];
-        network.networks."50-tailscale" = {
-          linkConfig = {
-            ActivationPolicy = "manual";
-            Unmanaged = true;
+        network.networks = {
+          "10-initrd-ethernet" = {
+            matchConfig.Type = "ether";
+            networkConfig.DHCP = "yes";
           };
-          matchConfig.Name = "tailscale0";
+          "50-tailscale" = {
+            linkConfig = {
+              ActivationPolicy = "manual";
+              Unmanaged = true;
+            };
+            matchConfig.Name = "tailscale0";
+          };
         };
         packages = with pkgs; [ tailscale ];
         services.tailscaled = {

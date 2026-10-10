@@ -8,6 +8,7 @@
       availableKernelModules = [
         "ahci"
         "nouveau"
+        "r8169"
         "sd_mod"
         "usb_storage"
         "usbhid"
