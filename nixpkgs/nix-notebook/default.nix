@@ -13,13 +13,18 @@
         "xhci_pci"
       ];
     };
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [
+      "kvm-amd"
+      "xpad"
+    ];
   };
   console.keyMap = "br-abnt";
   hardware = {
     bluetooth.enable = true;
     cpu.amd.updateMicrocode = true;
     enableRedistributableFirmware = true;
+    uinput.enable = true;
+    xpadneo.enable = true;
   };
   networking.hostName = "nix-notebook";
   nixpkgs.hostPlatform = "x86_64-linux";
