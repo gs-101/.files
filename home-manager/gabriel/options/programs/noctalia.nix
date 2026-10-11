@@ -459,6 +459,7 @@
     pi-coding-agent.settings.theme = "noctalia";
     rio.settings.theme = "noctalia";
     superfile.settings.theme = "noctalia";
+    television.settings.preview.env.BAT_THEME = "noctalia";
     tmux.extraConfig = "source-file ~/.config/tmux/themes/noctalia.conf";
     vicinae.settings.theme = "noctalia";
     yazi.theme.flavor.user = "noctalia";
