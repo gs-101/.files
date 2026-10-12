@@ -9,6 +9,7 @@
       description = "Gabriel Santos";
       extraGroups = [
         "input"
+        "kvm"
         "networkmanager"
         "wheel"
       ];
