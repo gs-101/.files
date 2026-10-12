@@ -2,6 +2,9 @@
   home.sessionVariables.TERM = "kitty";
   programs.kitty = {
     enable = true;
-    settings.cursor_trail = 1;
+    settings = {
+      cursor_trail = 1;
+      paste_actions = "no-op";
+    };
   };
 }
