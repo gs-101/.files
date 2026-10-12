@@ -4,10 +4,11 @@
     ./options/zramSwap.nix
     ./options/services/any2nix.nix
     ./options/services/4get.nix
-    ./options/services/blocky.nix
-    ./options/services/cloudflared.nix
     ./options/services/anki-sync-server.nix
+    ./options/services/atuin.nix
+    ./options/services/blocky.nix
     ./options/services/btrbk.nix
+    ./options/services/cloudflared.nix
     ./options/services/forgejo.nix
     ./options/services/gitea-actions-runner.nix
     ./options/services/miniflux.nix

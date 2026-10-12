@@ -8,6 +8,7 @@
     ./options/xdg.nix
     ./options/programs/anki.nix
     ./options/programs/antigravity-cli.nix
+    ./options/programs/atuin.nix
     ./options/programs/bash.nix
     ./options/programs/bat.nix
     ./options/programs/codex.nix

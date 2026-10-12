@@ -74,6 +74,10 @@ lib.mkMerge [
             listenAddr = "${config.services.anki-sync-server.address}:${toString config.services.anki-sync-server.port}";
           })
           (reverseProxy {
+            service = "atuin";
+            port = config.services.atuin.port;
+          })
+          (reverseProxy {
             service = "blocky";
             port = config.services.blocky.settings.ports.http;
           })
