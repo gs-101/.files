@@ -3,6 +3,7 @@
     disko.url = "github:nix-community/disko/latest";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixos.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -20,6 +21,7 @@
       disko,
       emacs-overlay,
       home-manager,
+      llm-agents,
       neovim-nightly-overlay,
       nix-index-database,
       nixos,
@@ -169,6 +171,7 @@
         agy_acp_server = finalAttrs.antigravity-acp;
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
         navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
+        semble-skill = finalAttrs.callPackage ./packages/semble-skill { };
         librewolf = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.librewolf;
         tor-browser =
           inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.tor-browser;

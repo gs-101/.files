@@ -28,6 +28,7 @@ in
     };
     skills = {
       caveman = "${pkgs.caveman}/SKILL.md";
+      semble = "${pkgs.semble-skill}/SKILL.md";
     }
     // emacsSkills;
   };
