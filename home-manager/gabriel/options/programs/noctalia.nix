@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -28,7 +29,7 @@
     };
   };
   programs = {
-    bash.initExtra = "source ~/.config/fzf/themes/noctalia.sh";
+    bash.initExtra = lib.mkIf config.programs.fzf.enable "source ~/.config/fzf/themes/noctalia.sh";
     bat.config.theme = "noctalia";
     claude-code.settings.theme = "noctalia";
     fuzzel.settings.main.include = "~/.config/fuzzel/themes/noctalia";
