@@ -25,7 +25,7 @@ in
         default = "http_status:404";
         ingress = lib.mkMerge [
           (lib.mkIf (config.virtualisation.oci-containers.containers ? "any2nix") {
-            "any2nix.${domain}" = "https://127.0.0.1:${
+            "any2nix.${domain}" = "http://127.0.0.1:${
               builtins.head (
                 lib.splitString ":" (builtins.head config.virtualisation.oci-containers.containers."any2nix".ports)
               )
