@@ -8,8 +8,10 @@
   home = {
     packages = with pkgs; [
       evtest
+      glib
       gpu-screen-recorder
       hyprpicker
+      sshfs
     ];
   };
   qt = {
