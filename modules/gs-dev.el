@@ -400,6 +400,8 @@ Only runs if a `flutter' buffer already exits."
   perl
   :bind
   ("C-c v" . magit-dispatch)
+  :config
+  (magit-add-section-hook 'magit-status-sections-hook #'magit-insert-worktrees nil t)
   :custom
   (magit-diff-fontify-hunk t)
   (magit-diff-refine-hunk t)
