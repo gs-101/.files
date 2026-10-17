@@ -5,6 +5,10 @@
   ...
 }:
 {
+  gtk.gtk3.theme = {
+    name = "adw-gtk3";
+    package = pkgs.adw-gtk3;
+  };
   home = {
     packages = with pkgs; [
       evtest
