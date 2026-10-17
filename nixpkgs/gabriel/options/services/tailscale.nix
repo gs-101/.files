@@ -49,6 +49,9 @@ lib.mkMerge [
   (containerReverseProxy {
     container = "any2nix";
   })
+  (containerReverseProxy {
+    container = "redlib";
+  })
   {
     networking.firewall = {
       interfaces.tailscale0 = {

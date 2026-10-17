@@ -13,6 +13,8 @@
     ./options/services/gitea-actions-runner.nix
     ./options/services/miniflux.nix
     ./options/services/navidrome.nix
+    ./options/services/postgresql-backup.nix
+    ./options/services/redlib.nix
     ./options/services/wakapi.nix
     ./options/services/zipline.nix
   ];
@@ -30,6 +32,7 @@
   services = {
     "4get".enable = true;
     any2nix.enable = true;
+    redlib.enable = true;
     rsshub.enable = true;
     pulseaudio.enable = false;
     restic.backups.google-drive.pruneOpts = [

@@ -1,6 +1,9 @@
 { config, ... }:
 {
   services.restic.backups.google-drive = {
+    exclude = [
+      "/var/lib/postgresql"
+    ];
     initialize = true;
     passwordFile = config.sops.secrets.rclone_google_drive.path;
     paths = [
