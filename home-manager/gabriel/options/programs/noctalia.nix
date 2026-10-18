@@ -416,6 +416,7 @@
         wallpaper = {
           automation = {
             enabled = true;
+            recursive = true;
           };
           directory = "~/Pictures/wallpapers";
         };
