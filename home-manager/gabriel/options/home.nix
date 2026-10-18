@@ -19,7 +19,6 @@
       monero-cli
       pkgs.llm-agents.semble
       tor-browser
-      wasabiwallet
       zotero
     ];
     sessionVariables = {
