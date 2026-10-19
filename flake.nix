@@ -91,7 +91,7 @@
           };
         }
       );
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       homeConfigurations = {
         "gabriel" = makeHome {
           modules = [
