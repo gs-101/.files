@@ -11,7 +11,6 @@
     ./options/services/btrbk.nix
     ./options/services/pipewire.nix
     ./options/services/xserver.nix
-    ./options/virtualisation.nix
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   nixpkgs.config.allowUnfree = true;

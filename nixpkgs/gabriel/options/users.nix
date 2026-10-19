@@ -8,6 +8,7 @@
     users.gabriel = {
       description = "Gabriel Santos";
       extraGroups = [
+        "docker"
         "input"
         "kvm"
         "networkmanager"

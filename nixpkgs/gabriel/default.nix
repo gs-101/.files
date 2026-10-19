@@ -15,4 +15,5 @@
     nix-ld.enable = true;
   };
   security.rtkit.enable = true;
+  virtualisation.docker.enable = true;
 }

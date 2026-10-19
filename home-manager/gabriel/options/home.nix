@@ -13,6 +13,7 @@
     };
     homeDirectory = "/home/gabriel";
     packages = with pkgs; [
+      act
       cryptsetup
       gimp
       inkscape
