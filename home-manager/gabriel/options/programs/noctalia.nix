@@ -12,10 +12,8 @@
   home = {
     packages = with pkgs; [
       evtest
-      glib
       gpu-screen-recorder
       hyprpicker
-      sshfs
     ];
   };
   qt = {
@@ -239,7 +237,6 @@
             "oldirtty/color_picker"
             "nightwatch75/file-search"
             "cleboost/ssh-launcher"
-            "icefish/phone-connect"
           ];
         };
         shell = {
@@ -421,9 +418,6 @@
           directory = "~/Pictures/wallpapers";
         };
         widget = {
-          bar = {
-            type = "icefish/phone-connect:bar";
-          };
           battery = {
             display_mode = "graphic";
           };
