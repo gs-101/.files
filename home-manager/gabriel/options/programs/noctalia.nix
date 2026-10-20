@@ -43,70 +43,47 @@
     noctalia = {
       enable = true;
       settings = {
-        audio = {
-          enable_overdrive = true;
-          enable_sounds = true;
-        };
-        bar = {
-          widgets = {
-            auto_hide = true;
-            border = "primary";
-            border_width = 1;
-            center = [
-              "clock"
-            ];
-            concave_edge_corners = false;
-            end = [
-              "recorder"
-              "notifications"
-              "bar"
-              "clipboard"
-              "volume"
-              "brightness"
-              "battery"
-              "cat"
-            ];
-            layer = "overlay";
-            margin_edge = 5;
-            margin_ends = 5;
-            radius = 24;
-            reserve_space = false;
-            shadow = true;
-            start = [
-              "workspaces"
-              "media"
-            ];
-          };
-        };
-        control_center = {
-          shortcuts = [
-            {
-              type = "wifi";
-            }
-            {
-              type = "bluetooth";
-            }
-            {
-              type = "caffeine";
-            }
-            {
-              type = "notification";
-            }
+        audio.enable_overdrive = true;
+        bar.widgets = {
+          auto_hide = true;
+          border = "primary";
+          border_width = 1;
+          concave_edge_corners = false;
+          end = [
+            "recorder"
+            "notifications"
+            "bar"
+            "clipboard"
+            "volume"
+            "brightness"
+            "battery"
+            "cat"
+          ];
+          layer = "overlay";
+          margin_edge = 5;
+          margin_ends = 5;
+          radius = 24;
+          reserve_space = false;
+          start = [
+            "workspaces"
+            "media"
           ];
         };
-        desktop_widgets = {
-          enabled = false;
-          grid = {
-            cell_size = 16;
-            major_interval = 4;
-            visible = true;
-          };
-          schema_version = 2;
-          widget = {
-          };
-          widget_order = [
-          ];
-        };
+        control_center.shortcuts = [
+          {
+            type = "wifi";
+          }
+          {
+            type = "bluetooth";
+          }
+          {
+            type = "caffeine";
+          }
+          {
+            type = "notification";
+          }
+        ];
+        desktop_widgets.enabled = false;
         idle = {
           behavior = {
             lock = {
@@ -131,17 +108,9 @@
             "lock-and-suspend"
           ];
         };
-        location = {
-          auto_locate = true;
-        };
+        location.auto_locate = true;
         lockscreen_widgets = {
           enabled = true;
-          grid = {
-            cell_size = 8;
-            major_interval = 4;
-            visible = true;
-          };
-          schema_version = 2;
           widget = {
             "lockscreen-login-box@eDP-1" = {
               box_height = 196;
@@ -152,22 +121,6 @@
               placement_height = 768;
               placement_width = 1366;
               rotation = 0;
-              settings = {
-                background_color = "surface_variant";
-                background_opacity = 0.88;
-                background_radius = 12;
-                center_password_text = false;
-                input_opacity = 1;
-                input_radius = 6;
-                layout = "regular";
-                show_caps_lock = true;
-                show_keyboard_layout = true;
-                show_login_button = true;
-                show_media = true;
-                show_session_buttons = true;
-                show_unlock_hint = true;
-                show_weather = true;
-              };
               type = "login_box";
             };
             "lockscreen-widget-0000000000000001" = {
@@ -180,19 +133,8 @@
               placement_width = 1366;
               rotation = 0;
               settings = {
-                background = false;
-                background_color = "surface";
-                background_opacity = 0.8;
-                background_padding = 10;
-                background_radius = 12;
-                center_text = true;
-                circle = false;
                 clock_style = "analog";
-                color = "surface";
-                font_family = "";
                 format = "{:%H:%M}";
-                shadow = true;
-                timezone = "";
               };
               type = "clock";
             };
@@ -202,13 +144,7 @@
             "lockscreen-widget-0000000000000001"
           ];
         };
-        notification = {
-          background_opacity = 1;
-          layer = "overlay";
-        };
-        osd = {
-          background_opacity = 1;
-        };
+        notification.layer = "overlay";
         plugin_settings = {
           "nightwatch75/file-search" = {
             panel_open_near_click = false;
@@ -229,16 +165,14 @@
             icon_provider = "direct";
           };
         };
-        plugins = {
-          enabled = [
-            "noctalia/bongocat"
-            "noctalia/screen_recorder"
-            "noctalia/kaomoji"
-            "oldirtty/color_picker"
-            "nightwatch75/file-search"
-            "cleboost/ssh-launcher"
-          ];
-        };
+        plugins.enabled = [
+          "noctalia/bongocat"
+          "noctalia/screen_recorder"
+          "noctalia/kaomoji"
+          "oldirtty/color_picker"
+          "nightwatch75/file-search"
+          "cleboost/ssh-launcher"
+        ];
         shell = {
           avatar_path = "~/.face";
           launcher = {
@@ -249,13 +183,10 @@
           };
           niri_overview_type_to_launch_enabled = true;
           panel = {
-            clipboard_placement = "attached";
             control_center_placement = "centered";
             launcher_app_grid = true;
             launcher_compact = true;
             session_placement = "floating";
-            session_position = "center";
-            shadow = true;
             wallpaper_placement = "centered";
           };
           password_style = "random";
@@ -266,42 +197,26 @@
             annotate = true;
             directory = "~/Pictures/screenshots";
           };
-          session = {
-            actions = [
-              {
-                action = "lock";
-                countdown_seconds = 0;
-                enabled = true;
-                shortcut = "1";
-                variant = "default";
-              }
-              {
-                action = "shutdown";
-                countdown_seconds = 0;
-                enabled = true;
-                shortcut = "2";
-                variant = "destructive";
-              }
-              {
-                action = "reboot";
-                countdown_seconds = 0;
-                enabled = true;
-                shortcut = "3";
-                variant = "default";
-              }
-              {
-                action = "logout";
-                countdown_seconds = 0;
-                enabled = true;
-                shortcut = "4";
-                variant = "default";
-              }
-            ];
-          };
-          settings_show_advanced = true;
-          shadow = {
-            alpha = 0.5;
-          };
+          session.actions = [
+            {
+              action = "lock";
+              shortcut = "1";
+            }
+            {
+              action = "shutdown";
+              shortcut = "2";
+              variant = "destructive";
+            }
+            {
+              action = "reboot";
+              shortcut = "3";
+            }
+            {
+              action = "logout";
+              shortcut = "4";
+            }
+          ];
+          shadow.alpha = 0.5;
           show_location = false;
           telemetry_enabled = true;
           umbriel_audio_provider_enabled = true;
@@ -421,7 +336,6 @@
               "yazi"
             ];
           };
-          wallpaper_scheme = "m3-content";
         };
         wallpaper = {
           automation = {
@@ -431,9 +345,7 @@
           directory = "~/Pictures/wallpapers";
         };
         widget = {
-          battery = {
-            display_mode = "graphic";
-          };
+          battery.display_mode = "graphic";
           cat = {
             audio_spectrum = true;
             input_devices = [
@@ -449,23 +361,16 @@
             hide_when_no_media = true;
             title_scroll = "always";
           };
-          notifications = {
-            hide_when_no_unread = true;
-          };
-          recorder = {
-            type = "noctalia/screen_recorder:recorder";
-          };
-          volume = {
-            actions = {
-              scroll_down = "volume-down 1%";
-              scroll_up = "volume-up 1%";
-            };
+          notifications.hide_when_no_unread = true;
+          recorder.type = "noctalia/screen_recorder:recorder";
+          volume.actions = {
+            scroll_down = "volume-down 1%";
+            scroll_up = "volume-up 1%";
           };
           workspaces = {
             hide_when_empty = true;
             labels_only_when_occupied = true;
             show_labels = false;
-            style = "regular";
           };
         };
       };
