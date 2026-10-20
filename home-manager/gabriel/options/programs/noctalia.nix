@@ -244,6 +244,7 @@
           launcher = {
             categories = false;
             compact = true;
+            layout = "simple";
             show_app_origin_indicator = false;
           };
           niri_overview_type_to_launch_enabled = true;
@@ -252,6 +253,7 @@
             control_center_placement = "centered";
             launcher_app_grid = true;
             launcher_compact = true;
+            session_placement = "floating";
             session_position = "center";
             shadow = true;
             wallpaper_placement = "centered";
@@ -298,10 +300,11 @@
           };
           settings_show_advanced = true;
           shadow = {
-            alpha = 0;
+            alpha = 0.5;
           };
           show_location = false;
           telemetry_enabled = true;
+          umbriel_audio_provider_enabled = true;
         };
         theme = {
           mode = "auto";
@@ -326,6 +329,7 @@
               "niri"
               "qt"
               "scroll"
+              "starship"
               "sway"
               "umbriel"
               "wezterm"
@@ -338,6 +342,7 @@
               "pi-agent"
               "feishin"
               "pear-desktop"
+              "ratune"
               "sidra"
               "sone"
               "sonora"
@@ -359,12 +364,14 @@
               "nchat"
               "senpai"
               "telegram"
+              "zapfast"
               "driftwm"
               "jay"
               "blender"
               "darktable"
               "gimp"
               "inkscape"
+              "lazyvim"
               "libreoffice"
               "micro"
               "musescore"
@@ -374,6 +381,7 @@
               "zed"
               "archetype-pokemmo"
               "heroiclauncher"
+              "pandora-launcher"
               "prismlauncher"
               "steam"
               "fuzzel"
@@ -387,10 +395,13 @@
               "obs"
               "sioyek"
               "siyuan"
+              "speedcrunch"
+              "strata"
               "thunderbird"
               "zathura"
               "zellij"
               "fcitx5"
+              "gruvbox-plus-icons"
               "hyprtoolkit"
               "papirus-icons"
               "snappy-switcher"
@@ -401,10 +412,12 @@
               "herdr"
               "konsole"
               "lazygit"
+              "oh-my-posh"
               "rio"
               "superfile"
               "surgedm"
               "tmux"
+              "tuios"
               "yazi"
             ];
           };
