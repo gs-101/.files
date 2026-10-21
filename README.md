@@ -1,6 +1,50 @@
 # System Configuration
 
-## After declaring a system
+## Installation with `nixos-anywhere`
+
+To provision a machine remotely over SSH using `nixos-anywhere`:
+
+### 1. Retrieve Hardware Configuration
+
+Boot the target system into a minimal Linux/NixOS environment with SSH access, then generate hardware settings without filesystem declarations:
+
+```shell
+nixos-generate-config --no-filesystems --show-hardware-config
+```
+
+Incorporate the generated hardware settings into `nixpkgs/<device>/default.nix`:
+- `boot.initrd.availableKernelModules` and `boot.kernelModules`
+- `hardware.cpu.<intel|amd>.updateMicrocode = true;`
+- `nixpkgs.hostPlatform = "x86_64-linux";` (or target architecture)
+
+### 2. Configure Disk Partitioning with Disko
+
+In `nixpkgs/<device>/options/disko.nix`:
+- Verify the target disk identifier matches the hardware (e.g., `/dev/nvme0n1` or `/dev/sda`).
+- Define the partition scheme (e.g., GPT, ESP at `/boot`, LUKS encrypted container, Btrfs subvolumes, and swap).
+
+Because each system imports Disko modules, `nixos-anywhere` automatically executes Disko during installation to partition, format, and mount the filesystems on the target machine.
+
+### 3. Deploy with `nixos-anywhere`
+
+From the deployment machine:
+
+1. If LUKS encryption is used, store the passphrase in `/tmp/secret.key`:
+   ```shell
+   echo -n "password" > /tmp/secret.key
+   ```
+
+2. Run `nixos-anywhere` to partition disks via Disko and install NixOS:
+   ```shell
+   nix run github:nix-community/nixos-anywhere -- \
+     --disk-encryption-keys /tmp/secret.key /tmp/secret.key \
+     --flake .#<device> \
+     root@<target-ip>
+   ```
+
+*(Omit `--disk-encryption-keys` if disk encryption is not configured or if passphrases are entered interactively).*
+
+## After declaring a system (Manual Installation)
 
 1. LUKS password in `/tmp/secret.key` or interactive
 2. Add live ISO's SSH key to SOPS
