@@ -2387,6 +2387,14 @@ Completion is available for filenames, variables known from the script, the shel
     :ensure t)
 #+end_src
 
+*** Svelte
+
+#+begin_src emacs-lisp
+  (use-package svelte-ts-mode
+    :vc (:url "https://github.com/leafOfTree/svelte-ts-mode")
+    :ensure t)
+#+end_src
+
 *** Verliog
 
 #+begin_src emacs-lisp

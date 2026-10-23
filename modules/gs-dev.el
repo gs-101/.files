@@ -352,6 +352,10 @@ Only runs if a `flutter' buffer already exits."
   :vc (:url "https://github.com/emacsmirror/spice-mode")
   :ensure t)
 
+(use-package svelte-ts-mode
+  :vc (:url "https://github.com/leafOfTree/svelte-ts-mode")
+  :ensure t)
+
 (use-package verilog-ts-mode
   :vc (:url "https://github.com/gmlarumbe/verilog-ts-mode")
   :ensure t)
