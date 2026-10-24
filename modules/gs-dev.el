@@ -404,6 +404,8 @@ Only runs if a `flutter' buffer already exits."
   perl
   :bind
   ("C-c v" . magit-dispatch)
+  (:map project-prefix-map
+        ("v" . magit))
   :config
   (magit-add-section-hook 'magit-status-sections-hook #'magit-insert-worktrees nil t)
   :custom

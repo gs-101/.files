@@ -2491,6 +2491,8 @@ It's Magit! A Git Porcelain inside Emacs.
     perl
     :bind
     ("C-c v" . magit-dispatch)
+    (:map project-prefix-map
+          ("v" . magit))
     :config
     (magit-add-section-hook 'magit-status-sections-hook #'magit-insert-worktrees nil t)
     :custom
