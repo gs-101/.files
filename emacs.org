@@ -724,21 +724,6 @@ Extra Emacs font lock rules for a more colourful dired.
     (dired-mode . diredfl-mode))
 #+end_src
 
-*** [[https://github.com/aurtzy/disproject][Disproject]]
-
-#+begin_quote
-Transient interface for managing and interacting with projects.
-#+end_quote
-
-#+begin_src emacs-lisp
-  (use-package disproject
-    :vc (:url "https://github.com/aurtzy/disproject")
-    :bind
-    (:map ctl-x-map
-          ("p" . disproject-dispatch))
-    :ensure t)
-#+end_src
-
 *** [[https://github.com/benotn/kkp][kkp]]
 
 #+begin_quote
@@ -2939,8 +2924,7 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
           ("c" . ghostel-compile)
           ("s" . ghostel-project))
     :custom
-    (ai-code-backends-infra-terminal-backend 'ghostel)
-    (disproject-shell-command #'ghostel-project))
+    (ai-code-backends-infra-terminal-backend 'ghostel))
 #+end_src
 
 ** [[https://github.com/karthink/popper][Popper]]

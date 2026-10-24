@@ -332,13 +332,6 @@ With a ARG prefix argument, copy the buffer to the other window."
   :hook
   (dired-mode . diredfl-mode))
 
-(use-package disproject
-  :vc (:url "https://github.com/aurtzy/disproject")
-  :bind
-  (:map ctl-x-map
-        ("p" . disproject-dispatch))
-  :ensure t)
-
 (use-package kkp
   :vc (:url "https://github.com/benotn/kkp")
   :ensure t

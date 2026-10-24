@@ -139,8 +139,7 @@
         ("c" . ghostel-compile)
         ("s" . ghostel-project))
   :custom
-  (ai-code-backends-infra-terminal-backend 'ghostel)
-  (disproject-shell-command #'ghostel-project))
+  (ai-code-backends-infra-terminal-backend 'ghostel))
 
 (use-package popper
   :vc (:url "https://github.com/karthink/popper")
