@@ -11,7 +11,6 @@
     ./options/programs/atuin.nix
     ./options/programs/bash.nix
     ./options/programs/bat.nix
-    ./options/programs/codex.nix
     ./options/programs/direnv.nix
     ./options/programs/fd.nix
     ./options/programs/gh.nix
@@ -26,6 +25,7 @@
     ./options/programs/wakatime.nix
   ];
   programs = {
+    codex.enable = true;
     librewolf.enable = true;
     mpv.enable = true;
     mbsync.enable = true;

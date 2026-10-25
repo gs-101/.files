@@ -163,10 +163,8 @@
         };
       };
       overlays.default = finalAttrs: previousAttrs: {
-        caveman = finalAttrs.callPackage ./packages/caveman { };
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
         navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
-        semble-skill = finalAttrs.callPackage ./packages/semble-skill { };
         librewolf = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.librewolf;
         tor-browser =
           inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.tor-browser;
