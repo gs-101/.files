@@ -34,6 +34,7 @@
     nh.enable = true;
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
+    pay-respects.enable = true;
     television.enable = true;
     vesktop.enable = true;
     zoxide.enable = true;
