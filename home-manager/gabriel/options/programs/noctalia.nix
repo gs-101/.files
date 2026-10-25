@@ -375,6 +375,18 @@
         };
       };
     };
+    nvf.settings.vim = {
+      additionalRuntimePaths = [ "${config.xdg.configHome}/nvim" ];
+      extraPlugins.base16-nvim = {
+        package = pkgs.vimPlugins.base16-nvim;
+        setup = ''
+          local ok, matugen = pcall(require, 'matugen')
+          if ok then
+            matugen.setup()
+          end
+        '';
+      };
+    };
     opencode.tui.theme = "matugen";
     pi-coding-agent.settings.theme = "noctalia";
     rio.settings.theme = "noctalia";

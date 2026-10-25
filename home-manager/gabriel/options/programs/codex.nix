@@ -1,13 +1,5 @@
-{ lib, pkgs, ... }:
-let
-  emacsSkills = lib.mapAttrs (name: _: "${pkgs.emacs-skills}/${name}") (
-    lib.filterAttrs (_: type: type == "directory") (builtins.readDir pkgs.emacs-skills)
-  );
-in
+{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    codex-acp
-  ];
   programs.codex = {
     enable = true;
     context = ''
@@ -18,7 +10,6 @@ in
     '';
     skills = {
       caveman = "${pkgs.caveman}/SKILL.md";
-    }
-    // emacsSkills;
+    };
   };
 }

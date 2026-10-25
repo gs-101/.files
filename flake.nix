@@ -1,7 +1,6 @@
 {
   inputs = {
     disko.url = "github:nix-community/disko/latest";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager";
     llm-agents.url = "github:numtide/llm-agents.nix";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -12,14 +11,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     noctalia.url = "github:noctalia-dev/noctalia";
     nur.url = "github:nix-community/NUR";
-    nvf.url = "github:NotAShelf/nvf";
+    nvf.url = "github:gs-101/nvf/no-pkgs";
     sops-nix.url = "github:mic92/sops-nix";
     umbriel.url = "github:noctalia-dev/umbriel";
   };
   outputs =
     {
       disko,
-      emacs-overlay,
       home-manager,
       llm-agents,
       neovim-nightly-overlay,
@@ -166,7 +164,6 @@
       };
       overlays.default = finalAttrs: previousAttrs: {
         caveman = finalAttrs.callPackage ./packages/caveman { };
-        emacs-skills = finalAttrs.callPackage ./packages/emacs-skills { };
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
         navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
         semble-skill = finalAttrs.callPackage ./packages/semble-skill { };

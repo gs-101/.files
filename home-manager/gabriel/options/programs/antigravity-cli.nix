@@ -1,13 +1,5 @@
 { lib, pkgs, ... }:
-let
-  emacsSkills = lib.mapAttrs (name: _: "${pkgs.emacs-skills}/${name}") (
-    lib.filterAttrs (_: type: type == "directory") (builtins.readDir pkgs.emacs-skills)
-  );
-in
 {
-  home.packages = with pkgs; [
-    antigravity-acp
-  ];
   programs.antigravity-cli = {
     enable = true;
     context = {
@@ -29,7 +21,6 @@ in
     skills = {
       caveman = "${pkgs.caveman}/SKILL.md";
       semble = "${pkgs.semble-skill}/SKILL.md";
-    }
-    // emacsSkills;
+    };
   };
 }

@@ -13,7 +13,6 @@
     ./options/programs/bat.nix
     ./options/programs/codex.nix
     ./options/programs/direnv.nix
-    ./options/programs/emacs.nix
     ./options/programs/fd.nix
     ./options/programs/gh.nix
     ./options/programs/kitty.nix
@@ -37,6 +36,7 @@
     pay-respects.enable = true;
     television.enable = true;
     vesktop.enable = true;
+    zathura.enable = true;
     zoxide.enable = true;
   };
   services = {
