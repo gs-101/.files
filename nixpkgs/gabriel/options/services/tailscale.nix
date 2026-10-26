@@ -110,10 +110,6 @@ lib.mkMerge [
               }'';
           })
           (reverseProxy {
-            service = "wakapi";
-            port = config.services.wakapi.settings.server.port;
-          })
-          (reverseProxy {
             service = "zipline";
             port = config.services.zipline.settings.CORE_PORT;
           })
@@ -128,7 +124,6 @@ lib.mkMerge [
         enable = true;
         permitCertUid = config.services.caddy.user;
       };
-      wakapi.settings.server.public_url = "https://wakapi.${domain}/";
       zipline.settings = {
         CORE_DEFAULT_DOMAIN = "zipline.${domain}";
         CORE_RETURN_HTTPS_URLS = "true";

@@ -15,7 +15,6 @@
     ./options/services/navidrome.nix
     ./options/services/postgresql-backup.nix
     ./options/services/redlib.nix
-    ./options/services/wakapi.nix
     ./options/services/zipline.nix
   ];
   boot.initrd.network = {
