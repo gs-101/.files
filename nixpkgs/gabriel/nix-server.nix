@@ -31,7 +31,6 @@
     "4get".enable = true;
     any2nix.enable = true;
     redlib.enable = true;
-    rsshub.enable = true;
     pulseaudio.enable = false;
     restic.backups.google-drive.pruneOpts = [
       "--keep-daily 7"

@@ -94,10 +94,6 @@ lib.mkMerge [
             listenAddr = config.services.miniflux.config.LISTEN_ADDR;
           })
           (reverseProxy {
-            service = "rsshub";
-            port = config.services.rsshub.settings.PORT;
-          })
-          (reverseProxy {
             service = "syncthing";
             listenAddr = config.services.syncthing.guiAddress;
             extraDirectives = ''
