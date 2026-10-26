@@ -164,7 +164,6 @@
       };
       overlays.default = finalAttrs: previousAttrs: {
         gopass-pass = finalAttrs.callPackage ./packages/gopass-pass { };
-        navidrome-lyrics-plugin = finalAttrs.callPackage ./packages/navidrome-lyrics-plugin { };
         librewolf = inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.librewolf;
         tor-browser =
           inputs.nixos-unstable.legacyPackages.${finalAttrs.stdenv.hostPlatform.system}.tor-browser;

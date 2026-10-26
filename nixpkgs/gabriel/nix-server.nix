@@ -12,7 +12,6 @@
     ./options/services/forgejo.nix
     ./options/services/gitea-actions-runner.nix
     ./options/services/miniflux.nix
-    ./options/services/navidrome.nix
     ./options/services/postgresql-backup.nix
     ./options/services/redlib.nix
     ./options/services/zipline.nix
