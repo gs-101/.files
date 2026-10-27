@@ -339,14 +339,6 @@ in
       enable = true;
       variables.editing-mode = "vi";
     };
-    umbriel.settings.keybinds = {
-      "Mod+Alt+H" = "column-focus-tab-previous";
-      "Mod+Alt+L" = "column-focus-tab-next";
-      "Mod+Shift+H" = "column-move-left";
-      "Mod+Shift+J" = "window-move-down";
-      "Mod+Shift+K" = "window-move-up";
-      "Mod+Shift+L" = "column-move-right";
-    };
     zathura = {
       mappings = {
         "D" = "toggle_page_mode";

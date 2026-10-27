@@ -34,6 +34,8 @@
         "Mod+7" = "workspace-switch:7";
         "Mod+8" = "workspace-switch:8";
         "Mod+9" = "workspace-switch:9";
+        "Mod+Alt+H" = "column-focus-tab-previous";
+        "Mod+Alt+L" = "column-focus-tab-next";
         "Mod+Alt+Left" = "column-focus-tab-previous";
         "Mod+Alt+Right" = "column-focus-tab-next";
         "Mod+C" = "spawn:noctalia msg panel-toggle oldirtty/color_picker:panel";
@@ -42,6 +44,8 @@
           action = "window-toggle-maximize";
           repeat = false;
         };
+        "Mod+Ctrl+H" = "window-consume-left";
+        "Mod+Ctrl+L" = "window-consume-right";
         "Mod+Ctrl+Space" = {
           action = "window-restore-from-scratchpad";
           repeat = false;
@@ -86,13 +90,17 @@
         "Mod+Shift+6" = "window-move-to-workspace:6";
         "Mod+Shift+7" = "window-move-to-workspace:7";
         "Mod+Shift+8" = "window-move-to-workspace:8";
-        "Mod+Shift+9" = "window-move-to-workspace:9";
+        "Mod+Shift+9" = "window-move-to-workspace:9"; 
+        "Mod+Shift+Down" = "window-move-down";
         "Mod+Shift+Escape" = {
           allow_when_inhibited = true;
           action = "shortcuts-inhibit-toggle";
           repeat = false;
         };
-        "Mod+Shift+Down" = "window-move-down";
+        "Mod+Shift+H" = "column-move-left";
+        "Mod+Shift+J" = "window-move-down";
+        "Mod+Shift+K" = "window-move-up";
+        "Mod+Shift+L" = "column-move-right";
         "Mod+Shift+Left" = "column-move-left";
         "Mod+Shift+R" = "window-cycle-primary-extent-back";
         "Mod+Shift+Right" = "column-move-right";
