@@ -339,9 +339,26 @@ in
       enable = true;
       variables.editing-mode = "vi";
     };
+    television.settings.keybindings = {
+      ctrl-b = "select_prev_page";
+      ctrl-d = "scroll_preview_half_page_down";
+      ctrl-f = "select_next_page";
+      ctrl-j = "select_next_entry";
+      ctrl-k = "select_prev_entry";
+      ctrl-shift-j = "scroll_preview_down";
+      ctrl-shift-k = "scroll_preview_up";
+      ctrl-u = "scroll_preview_half_page_up";
+      ctrl-w = "delete_prev_word";
+    };
     zathura = {
       mappings = {
+        "<C-d>" = "scroll half-down";
+        "<C-i>" = "jumplist forward";
+        "<C-o>" = "jumplist backward";
+        "<C-u>" = "scroll half-up";
         "D" = "toggle_page_mode";
+        "H" = "navigate previous";
+        "L" = "navigate next";
         "R" = "rotate rotate-ccw";
         "d" = "scroll half-down";
         "r" = "rotate rotate-cw";
