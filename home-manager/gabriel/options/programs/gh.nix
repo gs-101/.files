@@ -2,8 +2,9 @@
 {
   programs.gh = {
     enable = true;
-    extensions = [
-      pkgs.gh-markdown-preview
+    extensions = with pkgs; [
+      gh-dash
+      gh-markdown-preview
     ];
   };
 }
