@@ -30,7 +30,10 @@ in
             ripgrep
             sqlite
           ];
-          assistant.copilot.enable = true;
+          assistant.copilot = {
+            enable = true;
+            setupOpts.suggestion.auto_trigger = true;
+          };
           autocmds = [
             {
               desc = "Make script files executable on save (like Emacs executable-make-buffer-file-executable-if-script-p).";
