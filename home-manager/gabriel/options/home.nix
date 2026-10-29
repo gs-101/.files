@@ -18,7 +18,8 @@
       gimp
       inkscape
       monero-cli
-      pkgs.llm-agents.semble
+      llm-agents.semble
+      llm-agents.pdfvision
       tor-browser
       zotero
     ];
