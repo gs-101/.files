@@ -3,7 +3,7 @@
   programs.kitty = {
     enable = true;
     keybindings = {
-      "ctrl-shift-enter" = "launch --cwd=current";
+      "ctrl+shift+enter" = "launch --cwd=current";
     };
     settings = {
       cursor_trail = 1;
