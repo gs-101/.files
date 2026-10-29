@@ -191,7 +191,10 @@ in
             lisp.enable = true;
             lua.enable = true;
             markdown.enable = true;
-            nix.enable = true;
+            nix = {
+              enable = true;
+              lsp.servers = [ "nixd" ];
+            };
             php.enable = true;
             python.enable = true;
             qml.enable = true;
