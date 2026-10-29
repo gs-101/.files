@@ -3,7 +3,7 @@
   programs.kitty = {
     enable = true;
     keybindings = {
-      "ctrl-shift-enter" = "new_window_with_cmd";
+      "ctrl-shift-enter" = "launch --cwd=current";
     };
     settings = {
       cursor_trail = 1;
