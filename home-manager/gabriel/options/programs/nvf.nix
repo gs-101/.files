@@ -30,9 +30,7 @@ in
             ripgrep
             sqlite
           ];
-          assistant = {
-            copilot.enable = true;
-          };
+          assistant.copilot.enable = true;
           autocmds = [
             {
               desc = "Make script files executable on save (like Emacs executable-make-buffer-file-executable-if-script-p).";
@@ -76,7 +74,7 @@ in
           bell = "none";
           binds.whichKey = {
             enable = true;
-            register."<leader>o" = lib.mkForce "+Notes / Octo";
+            register."<leader>o" = lib.mkForce "+Org / Octo";
           };
           debugger.nvim-dap = {
             enable = true;
