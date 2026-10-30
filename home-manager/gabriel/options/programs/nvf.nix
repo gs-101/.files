@@ -76,7 +76,15 @@ in
           bell = "none";
           binds.whichKey = {
             enable = true;
-            register."<leader>o" = lib.mkForce "+Org / Octo";
+            register = {
+              "<leader>o" = lib.mkForce "+Org / Octo";
+              # Keybindings for Snack that are like the ones for Telescope.
+              # Should be temporary until nvf adds first-class support to snacks.picker.
+              "<leader>f" = "+Find (Snacks)";
+              "<leader>fl" = "+LSP";
+              "<leader>fv" = "+Git";
+              "<leader>fvc" = "+Commits";
+            };
           };
           debugger.nvim-dap = {
             enable = true;
@@ -158,6 +166,160 @@ in
             neogit.enable = true;
             octo-nvim.enable = true;
           };
+          # Keybindings for Snack that are like the ones for Telescope.
+          # Should be temporary until nvf adds first-class support to snacks.picker.
+          keymaps = [
+            # Find / Pick (Snacks)
+            {
+              key = "<leader>ff";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.files()<CR>";
+              desc = "Find files [Snacks]";
+            }
+            {
+              key = "<leader>fg";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.grep()<CR>";
+              desc = "Live grep [Snacks]";
+            }
+            {
+              key = "<leader>fb";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.buffers()<CR>";
+              desc = "Buffers [Snacks]";
+            }
+            {
+              key = "<leader>fh";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.help()<CR>";
+              desc = "Help tags [Snacks]";
+            }
+            {
+              key = "<leader>ft";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.pickers()<CR>";
+              desc = "Open pickers [Snacks]";
+            }
+            {
+              key = "<leader>fr";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.resume()<CR>";
+              desc = "Resume [Snacks]";
+            }
+            {
+              key = "<leader>fp";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.projects()<CR>";
+              desc = "Find projects [Snacks]";
+            }
+            {
+              key = "<leader>fs";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.treesitter()<CR>";
+              desc = "Treesitter [Snacks]";
+            }
+            # Git [Snacks]
+            {
+              key = "<leader>fvf";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.git_files()<CR>";
+              desc = "Git files [Snacks]";
+            }
+            {
+              key = "<leader>fvcw";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.git_log()<CR>";
+              desc = "Git commits [Snacks]";
+            }
+            {
+              key = "<leader>fvcb";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.git_log_file()<CR>";
+              desc = "Git buffer commits [Snacks]";
+            }
+            {
+              key = "<leader>fvb";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.git_branches()<CR>";
+              desc = "Git branches [Snacks]";
+            }
+            {
+              key = "<leader>fvs";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.git_status()<CR>";
+              desc = "Git status [Snacks]";
+            }
+            {
+              key = "<leader>fvx";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.git_stash()<CR>";
+              desc = "Git stash [Snacks]";
+            }
+            # LSP [Snacks]
+            {
+              key = "<leader>flsb";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.lsp_symbols()<CR>";
+              desc = "LSP Document Symbols [Snacks]";
+            }
+            {
+              key = "<leader>flsw";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.lsp_workspace_symbols()<CR>";
+              desc = "LSP Workspace Symbols [Snacks]";
+            }
+            {
+              key = "<leader>flr";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.lsp_references()<CR>";
+              desc = "LSP References [Snacks]";
+            }
+            {
+              key = "<leader>fli";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.lsp_implementations()<CR>";
+              desc = "LSP Implementations [Snacks]";
+            }
+            {
+              key = "<leader>flD";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.lsp_definitions()<CR>";
+              desc = "LSP Definitions [Snacks]";
+            }
+            {
+              key = "<leader>flt";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.lsp_type_definitions()<CR>";
+              desc = "LSP Type Definitions [Snacks]";
+            }
+            {
+              key = "<leader>fld";
+              mode = "n";
+              action = "<cmd>lua Snacks.picker.diagnostics()<CR>";
+              desc = "Diagnostics [Snacks]";
+            }
+            # Keybind for Snack terminal.
+            # Should be temporary until nvf adds first-class support to snacks.terminal.
+            {
+              key = "<c-/>";
+              mode = [ "n" "t" ];
+              action = "<cmd>lua Snacks.terminal.toggle()<CR>";
+              desc = "Toggle Terminal [Snacks]";
+            }
+            # Words [Snacks]
+            {
+              key = "]]";
+              mode = [ "n" "t" ];
+              action = "<cmd>lua Snacks.words.jump(vim.v.count1)<CR>";
+              desc = "Next Reference [Snacks]";
+            }
+            {
+              key = "[[";
+              mode = [ "n" "t" ];
+              action = "<cmd>lua Snacks.words.jump(-vim.v.count1)<CR>";
+              desc = "Prev Reference [Snacks]";
+            }
+          ];
           languages = {
             enableDAP = true;
             enableFormat = true;
@@ -259,12 +421,9 @@ in
             mouse = "a";
             mousefocus = true;
             mousemoveevent = true;
-            shiftwidth = 2;
-            tabstop = 2;
             wrap = true;
           };
           preventJunkFiles = true;
-          projects.project-nvim.enable = true;
           repl.conjure.enable = true;
           searchCase = "smart";
           statusline.lualine = {
@@ -287,8 +446,6 @@ in
               end)()
             '';
           };
-          telescope.enable = true;
-          terminal.toggleterm.enable = true;
           treesitter = {
             autotagHtml = true;
             grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
@@ -300,7 +457,6 @@ in
           };
           ui = {
             colorful-menu-nvim.enable = true;
-            illuminate.enable = true;
             noice.enable = true;
           };
           undoFile.enable = true;
@@ -308,12 +464,7 @@ in
             ccc.enable = true;
             diffview-nvim.enable = true;
             direnv.enable = true;
-            images.image-nvim = {
-              enable = true;
-              setupOpts.backend = "kitty";
-            };
             mkdir.enable = true;
-            motion.leap.enable = true;
             multicursors.enable = true;
             oil-nvim = {
               enable = true;
@@ -325,7 +476,15 @@ in
               };
             };
             outline.aerial-nvim.enable = true;
-            sleuth.enable = true;
+            snacks-nvim = {
+              enable = true;
+              setupOpts = {
+                image.enabled = true;
+                picker.enabled = true;
+                terminal.enabled = true;
+                words.enabled = true;
+              };
+            };
             surround.enable = true;
             vim-wakatime.enable = true;
           };
