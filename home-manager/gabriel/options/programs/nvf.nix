@@ -77,7 +77,6 @@ in
           binds.whichKey = {
             enable = true;
             register = {
-              "<leader>o" = lib.mkForce "+Org / Octo";
               # Keybindings for Snack that are like the ones for Telescope.
               # Should be temporary until nvf adds first-class support to snacks.picker.
               "<leader>f" = "+Find (Snacks)";
@@ -107,7 +106,7 @@ in
               package = nabla-nvim;
               setup = ''
                 vim.api.nvim_create_autocmd('FileType', {
-                  pattern = { 'org', 'tex', 'markdown' },
+                  pattern = { 'markdown', 'tex' },
                   callback = function()
                     require('nabla').enable_virt { autogen = true, silent = true }
                   end,
@@ -126,28 +125,6 @@ in
               package = nvim-paredit;
               setup = "require('nvim-paredit').setup {}";
             };
-            org-roam-nvim = {
-              package = org-roam-nvim;
-              setup = ''
-                require('org-roam').setup {
-                  directory = '~/Documents/org-roam',
-                  org_files = { '~/Documents/org' },
-                  templates = {
-                    d = {
-                      description = 'default',
-                      template = '* %?',
-                      target = '%<%Y-%m-%d>.org',
-                    },
-                    b = {
-                      description = 'bibliographic',
-                      template = '%?',
-                      target = '%<%Y%m%d%H%M%S>-%^{citekey}.org',
-                    },
-                  },
-                }
-              '';
-              after = [ "orgmode" ];
-            };
             overseer-nvim = {
               package = overseer-nvim;
               setup = "require('overseer').setup {}";
@@ -155,7 +132,7 @@ in
             zotcite = {
               package = zotcite;
               setup = ''
-                vim.g.zotcite_filetypes = { 'markdown', 'org', 'tex', 'rmd', 'quarto' }
+                vim.g.zotcite_filetypes = { 'markdown', 'tex', 'rmd', 'quarto' }
               '';
             };
           };
@@ -383,38 +360,6 @@ in
           navigation.harpoon.enable = true;
           notes = {
             obsidian.enable = true;
-            orgmode = {
-              enable = true;
-              setupOpts = {
-                org_agenda_files = [
-                  "~/Documents/org/**/*"
-                  "~/Documents/org-roam/**/*"
-                ];
-                org_default_notes_file = "~/Documents/org-roam/inbox.org";
-                org_todo_keywords = [
-                  "TODO(t)"
-                  "WAIT(w)"
-                  "|"
-                  "DONE(d)"
-                  "BACKLOG(b)"
-                  "CANCELLED(c)"
-                  "FIX(f)"
-                  "FEAT(F)"
-                  "DOCS(D)"
-                  "STYLE(s)"
-                  "REFACTOR(r)"
-                  "CHORE(C)"
-                  "|"
-                  "MERGED(m)"
-                  "CLOSED(x)"
-                ];
-                org_log_done = "time";
-                org_log_into_drawer = "LOGBOOK";
-                org_tags_column = 0;
-                org_agenda_skip_scheduled_if_done = true;
-                org_agenda_skip_deadline_if_done = true;
-              };
-            };
           };
           options = {
             linebreak = true;
