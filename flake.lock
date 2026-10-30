@@ -511,6 +511,27 @@
         "type": "github"
       }
     },
+    "obsidian-extensions": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix_2"
+      },
+      "locked": {
+        "lastModified": 1793272825,
+        "narHash": "sha256-XGrt0pgefi1FhcGVSXPmzMaLZdOHBC995luk+LIk5jE=",
+        "owner": "karaolidis",
+        "repo": "nix-obsidian-extensions",
+        "rev": "076f2d74e573415de40f780d5e8757a6de3a6f33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "karaolidis",
+        "repo": "nix-obsidian-extensions",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -525,6 +546,7 @@
         "noctalia": "noctalia",
         "nur": "nur",
         "nvf": "nvf",
+        "obsidian-extensions": "obsidian-extensions",
         "sops-nix": "sops-nix",
         "umbriel": "umbriel"
       }
@@ -575,6 +597,27 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "rev": "0d6d739a833ba9a9c93034862e4a7b061a062a1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "obsidian-extensions",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785360170,
+        "narHash": "sha256-XE1lKgQ3eIO3E7zWryqcRsax+mYXod/5RHBn4YaR9YE=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "d1187f8bc71fb8aab02395869ec3f5c1920f75c0",
         "type": "github"
       },
       "original": {

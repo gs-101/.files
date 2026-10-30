@@ -19,6 +19,7 @@
     ./options/programs/gopass.nix
     ./options/programs/notmuch.nix
     ./options/programs/nvf.nix
+    ./options/programs/obsidian.nix
     ./options/programs/ripgrep.nix
     ./options/programs/ssh.nix
     ./options/programs/starship.nix

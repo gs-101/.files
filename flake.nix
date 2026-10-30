@@ -12,6 +12,10 @@
     noctalia.url = "github:noctalia-dev/noctalia";
     nur.url = "github:nix-community/NUR";
     nvf.url = "github:gs-101/nvf/no-pkgs";
+    obsidian-extensions = {
+      url = "github:karaolidis/nix-obsidian-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix.url = "github:mic92/sops-nix";
     umbriel.url = "github:noctalia-dev/umbriel";
   };
@@ -28,6 +32,7 @@
       nixpkgs,
       noctalia,
       nvf,
+      obsidian-extensions,
       self,
       sops-nix,
       umbriel,

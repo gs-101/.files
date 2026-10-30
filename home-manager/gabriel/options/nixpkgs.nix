@@ -7,6 +7,7 @@
       neovim-nightly-overlay.overlays.default
       noctalia.overlays.default
       nur.overlays.default
+      obsidian-extensions.overlays.default
       self.overlays.default
       umbriel.overlays.default
     ];
