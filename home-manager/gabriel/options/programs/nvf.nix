@@ -496,6 +496,7 @@ in
         };
       };
     };
+    obsidian.defaultSettings.app.vimMode = true;
     readline = {
       enable = true;
       variables.editing-mode = "vi";
