@@ -312,10 +312,6 @@ in
               enable = true;
               setupOpts.backend = "kitty";
             };
-            leetcode-nvim = {
-              enable = true;
-              setupOpts.storage.home = mkLuaInline "vim.fn.expand('~/Projects/study/leetcode-solutions/')";
-            };
             mkdir.enable = true;
             motion.leap.enable = true;
             multicursors.enable = true;
