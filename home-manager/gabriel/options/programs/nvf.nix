@@ -1,6 +1,5 @@
 {
   lib,
-  options,
   pkgs,
   ...
 }:
@@ -220,36 +219,39 @@ in
             presets.tailwindcss-language-server.enable = true;
           };
           navigation.harpoon.enable = true;
-          notes.orgmode = {
-            enable = true;
-            setupOpts = {
-              org_agenda_files = [
-                "~/Documents/org/**/*"
-                "~/Documents/org-roam/**/*"
-              ];
-              org_default_notes_file = "~/Documents/org-roam/inbox.org";
-              org_todo_keywords = [
-                "TODO(t)"
-                "WAIT(w)"
-                "|"
-                "DONE(d)"
-                "BACKLOG(b)"
-                "CANCELLED(c)"
-                "FIX(f)"
-                "FEAT(F)"
-                "DOCS(D)"
-                "STYLE(s)"
-                "REFACTOR(r)"
-                "CHORE(C)"
-                "|"
-                "MERGED(m)"
-                "CLOSED(x)"
-              ];
-              org_log_done = "time";
-              org_log_into_drawer = "LOGBOOK";
-              org_tags_column = 0;
-              org_agenda_skip_scheduled_if_done = true;
-              org_agenda_skip_deadline_if_done = true;
+          notes = {
+            obsidian.enable = true;
+            orgmode = {
+              enable = true;
+              setupOpts = {
+                org_agenda_files = [
+                  "~/Documents/org/**/*"
+                  "~/Documents/org-roam/**/*"
+                ];
+                org_default_notes_file = "~/Documents/org-roam/inbox.org";
+                org_todo_keywords = [
+                  "TODO(t)"
+                  "WAIT(w)"
+                  "|"
+                  "DONE(d)"
+                  "BACKLOG(b)"
+                  "CANCELLED(c)"
+                  "FIX(f)"
+                  "FEAT(F)"
+                  "DOCS(D)"
+                  "STYLE(s)"
+                  "REFACTOR(r)"
+                  "CHORE(C)"
+                  "|"
+                  "MERGED(m)"
+                  "CLOSED(x)"
+                ];
+                org_log_done = "time";
+                org_log_into_drawer = "LOGBOOK";
+                org_tags_column = 0;
+                org_agenda_skip_scheduled_if_done = true;
+                org_agenda_skip_deadline_if_done = true;
+              };
             };
           };
           options = {
