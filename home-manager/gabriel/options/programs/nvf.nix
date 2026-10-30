@@ -358,9 +358,6 @@ in
             presets.tailwindcss-language-server.enable = true;
           };
           navigation.harpoon.enable = true;
-          notes = {
-            obsidian.enable = true;
-          };
           options = {
             linebreak = true;
             mouse = "a";
