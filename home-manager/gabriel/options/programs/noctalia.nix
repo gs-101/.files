@@ -387,6 +387,10 @@
         '';
       };
     };
+    obsidian.defaultSettings.appearance = {
+      baseColorScheme = "adapt";
+      enabledCssSnippets = [ "noctalia" ];
+    };
     opencode.tui.theme = "matugen";
     pi-coding-agent.settings.theme = "noctalia";
     rio.settings.theme = "noctalia";
