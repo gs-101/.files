@@ -1,5 +1,8 @@
 {
-  home.sessionVariables.TERM = "kitty";
+  home = {
+    sessionVariables.TERM = "kitty";
+    shellAliases.icat = "kitty +kitten icat";
+  };
   programs.kitty = {
     enable = true;
     keybindings = {
