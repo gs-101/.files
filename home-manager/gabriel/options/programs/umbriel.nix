@@ -25,20 +25,20 @@
         scrolling.default_extent_fraction = 0.5;
       };
       keybinds = {
-        "Mod+1" = "workspace-switch:1";
-        "Mod+2" = "workspace-switch:2";
-        "Mod+3" = "workspace-switch:3";
-        "Mod+4" = "workspace-switch:4";
-        "Mod+5" = "workspace-switch:5";
-        "Mod+6" = "workspace-switch:6";
-        "Mod+7" = "workspace-switch:7";
-        "Mod+8" = "workspace-switch:8";
-        "Mod+9" = "workspace-switch:9";
+        "Mod+1" = "workspace-switch 1";
+        "Mod+2" = "workspace-switch 2";
+        "Mod+3" = "workspace-switch 3";
+        "Mod+4" = "workspace-switch 4";
+        "Mod+5" = "workspace-switch 5";
+        "Mod+6" = "workspace-switch 6";
+        "Mod+7" = "workspace-switch 7";
+        "Mod+8" = "workspace-switch 8";
+        "Mod+9" = "workspace-switch 9";
         "Mod+Alt+H" = "column-focus-tab-previous";
         "Mod+Alt+L" = "column-focus-tab-next";
         "Mod+Alt+Left" = "column-focus-tab-previous";
         "Mod+Alt+Right" = "column-focus-tab-next";
-        "Mod+C" = "spawn:noctalia msg panel-toggle oldirtty/color_picker:panel";
+        "Mod+C" = "spawn noctalia msg panel-toggle oldirtty/color_picker:panel";
         "Mod+Comma" = "window-consume-left";
         "Mod+Ctrl+F" = {
           action = "window-toggle-maximize";
@@ -51,7 +51,7 @@
           repeat = false;
         };
         "Mod+Down" = "window-focus-down";
-        "Mod+E" = "spawn:$VISUAL";
+        "Mod+E" = "spawn $VISUAL";
         "Mod+Escape" = "session-quit";
         "Mod+F" = {
           action = "window-toggle-fullscreen";
@@ -80,17 +80,17 @@
           action = "window-close";
           repeat = false;
         };
-        "Mod+Return" = "spawn:$TERM";
+        "Mod+Return" = "spawn $TERM";
         "Mod+Right" = "window-focus-right";
-        "Mod+Shift+1" = "window-move-to-workspace:1";
-        "Mod+Shift+2" = "window-move-to-workspace:2";
-        "Mod+Shift+3" = "window-move-to-workspace:3";
-        "Mod+Shift+4" = "window-move-to-workspace:4";
-        "Mod+Shift+5" = "window-move-to-workspace:5";
-        "Mod+Shift+6" = "window-move-to-workspace:6";
-        "Mod+Shift+7" = "window-move-to-workspace:7";
-        "Mod+Shift+8" = "window-move-to-workspace:8";
-        "Mod+Shift+9" = "window-move-to-workspace:9"; 
+        "Mod+Shift+1" = "window-move-to-workspace 1";
+        "Mod+Shift+2" = "window-move-to-workspace 2";
+        "Mod+Shift+3" = "window-move-to-workspace 3";
+        "Mod+Shift+4" = "window-move-to-workspace 4";
+        "Mod+Shift+5" = "window-move-to-workspace 5";
+        "Mod+Shift+6" = "window-move-to-workspace 6";
+        "Mod+Shift+7" = "window-move-to-workspace 7";
+        "Mod+Shift+8" = "window-move-to-workspace 8";
+        "Mod+Shift+9" = "window-move-to-workspace 9"; 
         "Mod+Shift+Down" = "window-move-down";
         "Mod+Shift+Escape" = {
           allow_when_inhibited = true;
@@ -120,54 +120,55 @@
         };
         "Mod+Tab" = "scratchpad-focus-next";
         "Mod+Up" = "window-focus-up";
-        "Mod+V" = "spawn:noctalia msg panel-toggle clipboard";
+        "Mod+V" = "spawn noctalia msg panel-toggle clipboard";
         "Mod+W" = {
           action = "column-toggle-tabbed";
           repeat = false;
         };
         "Mod+WheelDown" = "window-focus-right";
         "Mod+WheelUp" = "window-focus-left";
-        "Mod+X" = "spawn:noctalia msg panel-toggle launcher";
-        "Print" = "spawn:noctalia msg screenshot-fullscreen";
-        "Shift+Print" = "spawn:noctalia msg screenshot-region";
+        "Mod+X" = "spawn noctalia msg panel-toggle launcher";
+        "Ctrl+Print" = "spawn noctalia msg screenshot-window";
+        "Print" = "spawn noctalia msg screenshot-fullscreen";
+        "Shift+Print" = "spawn noctalia msg screenshot-region";
         "XF86AudioLowerVolume" = {
-          action = "spawn:noctalia msg volume-down";
+          action = "spawn noctalia msg volume-down";
           allow_when_inhibited = true;
         };
         "XF86AudioMicMute" = {
-          action = "spawn:noctalia msg mic-mute";
+          action = "spawn noctalia msg mic-mute";
           allow_when_inhibited = true;
         };
         "XF86AudioMute" = {
-          action = "spawn:noctalia msg volume-mute";
+          action = "spawn noctalia msg volume-mute";
           allow_when_inhibited = true;
         };
         "XF86AudioNext" = {
-          action = "spawn:noctalia msg media next";
+          action = "spawn noctalia msg media next";
           allow_when_inhibited = true;
         };
         "XF86AudioPause" = {
-          action = "spawn:noctalia msg media toggle";
+          action = "spawn noctalia msg media toggle";
           allow_when_inhibited = true;
         };
         "XF86AudioPlay" = {
-          action = "spawn:noctalia msg media toggle";
+          action = "spawn noctalia msg media toggle";
           allow_when_inhibited = true;
         };
         "XF86AudioPrev" = {
-          action = "spawn:noctalia msg media previous";
+          action = "spawn noctalia msg media previous";
           allow_when_inhibited = true;
         };
         "XF86AudioRaiseVolume" = {
-          action = "spawn:noctalia msg volume-up";
+          action = "spawn noctalia msg volume-up";
           allow_when_inhibited = true;
         };
         "XF86MonBrightnessDown" = {
-          action = "spawn:noctalia msg brightness-down";
+          action = "spawn noctalia msg brightness-down";
           allow_when_inhibited = true;
         };
         "XF86MonBrightnessUp" = {
-          action = "spawn:noctalia msg brightness-up";
+          action = "spawn noctalia msg brightness-up";
           allow_when_inhibited = true;
         };
       };
