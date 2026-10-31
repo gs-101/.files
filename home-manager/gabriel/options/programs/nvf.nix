@@ -72,7 +72,6 @@ in
               };
             };
           };
-          autopairs.nvim-autopairs.enable = true;
           bell = "none";
           binds.whichKey = {
             enable = true;
@@ -357,7 +356,16 @@ in
             enable = true;
             presets.tailwindcss-language-server.enable = true;
           };
-          navigation.harpoon.enable = true;
+          mini = {
+            icons.enable = true;
+            pairs.enable = true;
+            statusline.enable = true;
+          };
+          navigation.harpoon = {
+            enable = true;
+            # Unbind <C-l> so Neovim's native multicursor clear / screen redraw works.
+            mappings.file3 = null;
+          };
           options = {
             linebreak = true;
             mouse = "a";
@@ -368,26 +376,6 @@ in
           preventJunkFiles = true;
           repl.conjure.enable = true;
           searchCase = "smart";
-          statusline.lualine = {
-            enable = true;
-            # Temporary workaround for Neovim 0.12 floating window statuslines
-            # triggered by lualine.refresh({ scope = "window" }) (e.g. via vim-wakatime).
-            setupOpts.options.ignore_focus = mkLuaInline ''
-              (function()
-                local nvim_opts = require("lualine.utils.nvim_opts")
-                local orig_set = nvim_opts.set
-                nvim_opts.set = function(name, val, opts)
-                  if name == "statusline" and opts and opts.window and vim.fn.win_gettype(opts.window) == "popup" then
-                    return
-                  end
-                  return orig_set(name, val, opts)
-                end
-                return function(win)
-                  return vim.fn.win_gettype(win) == "popup"
-                end
-              end)()
-            '';
-          };
           treesitter = {
             autotagHtml = true;
             grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
@@ -416,7 +404,9 @@ in
             snacks-nvim = {
               enable = true;
               setupOpts = {
+                git.enabled = true;
                 image.enabled = true;
+                notifier.enabled = true;
                 picker.enabled = true;
                 terminal.enabled = true;
                 words.enabled = true;
@@ -427,7 +417,6 @@ in
           };
           visuals = {
             highlight-undo.enable = true;
-            nvim-web-devicons.enable = true;
             rainbow-delimiters.enable = true;
           };
         };
