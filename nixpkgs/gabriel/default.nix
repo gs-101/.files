@@ -9,6 +9,7 @@
     ./options/sops.nix
     ./options/users.nix
   ];
+  environment.defaultPackages = [ ];
   programs = {
     dconf.enable = true;
     nano.enable = false;
