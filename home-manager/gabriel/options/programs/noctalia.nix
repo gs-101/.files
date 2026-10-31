@@ -46,8 +46,12 @@
         audio.enable_overdrive = true;
         bar.widgets = {
           auto_hide = true;
+          background_opacity = 0;
           border = "primary";
-          border_width = 1;
+          border_width = 0;
+          capsule = true;
+          capsule_border = "primary";
+          capsule_fill = "surface";
           concave_edge_corners = false;
           end = [
             "recorder"
