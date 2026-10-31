@@ -367,6 +367,7 @@ in
             mappings.file3 = null;
           };
           options = {
+            exrc = true;
             linebreak = true;
             mouse = "a";
             mousefocus = true;
