@@ -403,7 +403,6 @@ in
           };
           undoFile.enable = true;
           utility = {
-            ccc.enable = true;
             diffview-nvim.enable = true;
             direnv.enable = true;
             mkdir.enable = true;
