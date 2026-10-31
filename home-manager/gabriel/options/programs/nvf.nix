@@ -407,7 +407,6 @@ in
             diffview-nvim.enable = true;
             direnv.enable = true;
             mkdir.enable = true;
-            multicursors.enable = true;
             oil-nvim = {
               enable = true;
               gitStatus.enable = true;
