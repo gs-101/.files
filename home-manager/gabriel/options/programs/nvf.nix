@@ -397,10 +397,7 @@ in
             ];
             textobjects.enable = true;
           };
-          ui = {
-            colorful-menu-nvim.enable = true;
-            noice.enable = true;
-          };
+          ui.colorful-menu-nvim.enable = true;
           undoFile.enable = true;
           utility = {
             diffview-nvim.enable = true;
