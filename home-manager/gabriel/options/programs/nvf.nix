@@ -93,10 +93,6 @@ in
               package = compiler-explorer-nvim;
               setup = "require('compiler-explorer').setup {}";
             };
-            devdocs-nvim = {
-              package = devdocs-nvim;
-              setup = "require('devdocs').setup {}";
-            };
             helpview-nvim = {
               package = helpview-nvim;
               setup = "require('helpview').setup {}";
@@ -136,7 +132,6 @@ in
             };
           };
           formatter.conform-nvim.enable = true;
-          gestures.gesture-nvim.enable = true;
           git = {
             enable = true;
             neogit.enable = true;
