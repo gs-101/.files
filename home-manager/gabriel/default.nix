@@ -24,6 +24,7 @@
     ./options/programs/ssh.nix
     ./options/programs/starship.nix
     ./options/programs/wakatime.nix
+    ./options/programs/zoxide.nix
   ];
   programs = {
     codex.enable = true;
@@ -38,7 +39,6 @@
     television.enable = true;
     vesktop.enable = true;
     zathura.enable = true;
-    zoxide.enable = true;
   };
   services = {
     kdeconnect.enable = true;
