@@ -375,7 +375,6 @@ in
           treesitter = {
             autotagHtml = true;
             grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
-              hyprlang
               kdl
               meson
             ];
