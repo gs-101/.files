@@ -356,11 +356,6 @@ in
             pairs.enable = true;
             statusline.enable = true;
           };
-          navigation.harpoon = {
-            enable = true;
-            # Unbind <C-l> so Neovim's native multicursor clear / screen redraw works.
-            mappings.file3 = null;
-          };
           options = {
             exrc = true;
             linebreak = true;
