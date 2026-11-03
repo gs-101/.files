@@ -16,6 +16,7 @@
       act
       cryptsetup
       gimp
+      gitu
       inkscape
       monero-cli
       llm-agents.semble
