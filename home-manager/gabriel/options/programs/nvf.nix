@@ -134,7 +134,17 @@ in
           formatter.conform-nvim.enable = true;
           git = {
             enable = true;
-            neogit.enable = true;
+            neogit = {
+              enable = true;
+              setupOpts = {
+                kind = "replace";
+                commit_editor.kind = "auto";
+                log-view.kind = "replace";
+                reflog_view.kind = "replace";
+                refs_view.kind = "replace";
+                stash.kind = "replace";
+              };
+            };
             octo-nvim.enable = true;
           };
           # Keybindings for Snack that are like the ones for Telescope.
