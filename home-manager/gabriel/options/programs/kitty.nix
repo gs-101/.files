@@ -7,6 +7,7 @@
     enable = true;
     keybindings = {
       "ctrl+shift+enter" = "launch --cwd=current";
+      "ctrl+shift+t" = "launch --type=tab --cwd=current";
     };
     settings = {
       cursor_trail = 1;
