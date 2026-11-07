@@ -1,7 +1,7 @@
-#+title: Emacs Configuration --- [[./emacs.org][Literate File]] | [[./modules/][Modules]]
+#+title: Emacs Configuration --- [[./init.el][init.el]]
 #+author: Gabriel Santos
 
-#+html: <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Org-literate%20config-%2377aa99?style=flat-square&logo=org&logoColor=white"></a>
+#+html: <img src="https://img.shields.io/badge/Emacs%20Lisp-config-%2377aa99?style=flat-square&logo=gnuemacs&logoColor=white">
 
 [[./screenshot.png]]
 #+CAPTION: Screenshot of the dashboard, save the agenda and recent files items
@@ -9,12 +9,12 @@
 
 * Greetings
 
-This is my personal [[https://www.gnu.org/software/emacs/][Emacs]] configuration. It is not meant to be used by others, since I compiled Emacs from source, but you are welcome to take inspiration and bits of code from here. It may seem kinda large, when looking at the [[./emacs.org][org document]], but most of it is just useless spacing that looks nice for me.
+This is my personal [[https://www.gnu.org/software/emacs/][Emacs]] configuration. It is not meant to be used by others, since I compiled Emacs from source, but you are welcome to take inspiration and bits of code from here.
 Also, I'd like to thank [[https://github.com/sachac][Sacha Chua]] for [[https://sachachua.com/blog/2024/09/2024-09-02-emacs-news/][featuring]] my configuration in her blog!
 
 * Packages
 
-Each external package has a link to their source on the headline. Be sure to check them out if the quoted descriptions don't clarify their functionality enough.
+Each package is configured with ~use-package~ directly in [[./init.el][init.el]].
 
 * [[./emacs.png][Logo]]
 
