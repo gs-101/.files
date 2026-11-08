@@ -158,7 +158,7 @@
             copy_to_clipboard = true;
             directory = "~/Videos/recordings";
             hide_inactive = false;
-            quality = "ultra";
+            video_quality = "ultra";
           };
           "oldirtty/color_picker" = {
             hyprpicker-lowercase = true;
