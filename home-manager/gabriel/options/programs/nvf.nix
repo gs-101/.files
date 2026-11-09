@@ -73,15 +73,18 @@ in
             };
           };
           bell = "none";
-          binds.whichKey = {
-            enable = true;
-            register = {
-              # Keybindings for Snack that are like the ones for Telescope.
-              # Should be temporary until nvf adds first-class support to snacks.picker.
-              "<leader>f" = "+Find (Snacks)";
-              "<leader>fl" = "+LSP";
-              "<leader>fv" = "+Git";
-              "<leader>fvc" = "+Commits";
+          binds = {
+            hardtime-nvim.enable = true;
+            whichKey = {
+              enable = true;
+              register = {
+                # Keybindings for Snack that are like the ones for Telescope.
+                # Should be temporary until nvf adds first-class support to snacks.picker.
+                "<leader>f" = "+Find (Snacks)";
+                "<leader>fl" = "+LSP";
+                "<leader>fv" = "+Git";
+                "<leader>fvc" = "+Commits";
+              };
             };
           };
           debugger.nvim-dap = {
@@ -283,20 +286,29 @@ in
             # Should be temporary until nvf adds first-class support to snacks.terminal.
             {
               key = "<c-/>";
-              mode = [ "n" "t" ];
+              mode = [
+                "n"
+                "t"
+              ];
               action = "<cmd>lua Snacks.terminal.toggle()<CR>";
               desc = "Toggle Terminal [Snacks]";
             }
             # Words [Snacks]
             {
               key = "]]";
-              mode = [ "n" "t" ];
+              mode = [
+                "n"
+                "t"
+              ];
               action = "<cmd>lua Snacks.words.jump(vim.v.count1)<CR>";
               desc = "Next Reference [Snacks]";
             }
             {
               key = "[[";
-              mode = [ "n" "t" ];
+              mode = [
+                "n"
+                "t"
+              ];
               action = "<cmd>lua Snacks.words.jump(-vim.v.count1)<CR>";
               desc = "Prev Reference [Snacks]";
             }
