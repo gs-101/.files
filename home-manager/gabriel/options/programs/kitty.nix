@@ -1,7 +1,10 @@
 {
   home = {
     sessionVariables.TERM = "kitty";
-    shellAliases.icat = "kitty +kitten icat";
+    shellAliases = {
+      icat = "kitty +kitten icat";
+      ssh = "kitty +kitten ssh";
+    };
   };
   programs.kitty = {
     enable = true;
