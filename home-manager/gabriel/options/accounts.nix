@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   ...
 }:
 {
@@ -21,7 +22,7 @@
         notmuch.enable = true;
         primary = false;
         realName = "Gabriel Santos";
-        passwordCommand = "cat ${config.sops.secrets.disroot.path}";
+        passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets.disroot.path}";
         smtp.host = "disroot.org";
         userName = "gabrielsantosdesouza@disroot.org";
       };
@@ -53,7 +54,7 @@
         };
         smtp.host = "smtp.purelymail.com";
         userName = "gs101@purelymail.com";
-        passwordCommand = "cat ${config.sops.secrets.purelymail.path}";
+        passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets.purelymail.path}";
         realName = "Gabriel Santos";
         primary = true;
       };
