@@ -38,7 +38,7 @@ in
           sendmailCmd = "${lib.getExe pkgs.msmtp}";
         };
         user = {
-          email = "gabrielsantosdesouza@disroot.org";
+          email = "git@gs-101.dev";
           name = "Gabriel Santos";
         };
       };

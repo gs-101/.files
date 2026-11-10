@@ -1,36 +1,66 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  ...
+}:
 {
   accounts.email = {
-    accounts.disroot = {
-      address = "gabrielsantosdesouza@disroot.org";
-      imap.host = "disroot.org";
-      imapnotify = {
-        enable = true;
-        boxes = [ "Inbox" ];
-        onNotify = "${lib.getExe pkgs.notmuch} new";
-      };
-      mbsync = {
-        enable = true;
-        create = "maildir";
-        expunge = "both";
-        extraConfig.channel = {
-          Sync = "All";
+    accounts = {
+      disroot = {
+        address = "gabrielsantosdesouza@disroot.org";
+        imap.host = "disroot.org";
+        imapnotify.enable = true;
+        mbsync = {
+          enable = true;
+          create = "maildir";
+          expunge = "both";
+          extraConfig.channel = {
+            Sync = "All";
+          };
         };
+        msmtp.enable = true;
+        notmuch.enable = true;
+        primary = false;
+        realName = "Gabriel Santos";
+        passwordCommand = "cat ${config.sops.secrets.disroot.path}";
+        smtp.host = "disroot.org";
+        userName = "gabrielsantosdesouza@disroot.org";
       };
-      msmtp.enable = true;
-      notmuch.enable = true;
-      primary = true;
-      realName = "Gabriel Santos";
-      passwordCommand = "cat ${config.sops.secrets.disroot.path}";
-      signature = {
-        showSignature = "append";
-        text = ''
-          Gabriel Santos
-        '';
+      purelymail = {
+        address = "me@gs-101.dev";
+        aliases = [
+          "acme@gs-101.dev"
+          "contact@gs-101.dev"
+          "emacs-devel@gs-101.dev"
+          "git@gs-101.dev"
+        ];
+        imap.host = "imap.purelymail.com";
+        imapnotify.enable = true;
+        mbsync = {
+          enable = true;
+          create = "maildir";
+          expunge = "both";
+          extraConfig.channel = {
+            Sync = "All";
+          };
+        };
+        msmtp.enable = true;
+        notmuch.enable = true;
+        signature = {
+          showSignature = "append";
+          text = ''
+            Gabriel Santos <https://gs-101.dev>
+          '';
+        };
+        smtp.host = "smtp.purelymail.com";
+        userName = "gs101@purelymail.com";
+        passwordCommand = "cat ${config.sops.secrets.purelymail.path}";
+        realName = "Gabriel Santos";
+        primary = true;
       };
-      smtp.host = "disroot.org";
-      userName = "gabrielsantosdesouza@disroot.org";
     };
   };
-  sops.secrets.disroot = { };
+  sops.secrets = {
+    disroot = { };
+    purelymail = { };
+  };
 }

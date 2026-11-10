@@ -68,7 +68,7 @@ lib.mkMerge [
       caddy = {
         enable = true;
         globalConfig = ''
-          email gabrielsantosdesouza@disroot.org
+          email acme@gs-101.dev
           acme_ca https://acme-v02.api.letsencrypt.org/directory
         '';
         virtualHosts = lib.mkMerge [
