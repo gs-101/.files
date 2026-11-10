@@ -9,7 +9,11 @@
       disroot = {
         address = "gabrielsantosdesouza@disroot.org";
         imap.host = "disroot.org";
-        imapnotify.enable = true;
+        imapnotify = {
+          enable = true;
+          onNotify = "mbsync disroot";
+          onNotifyPost = "notmuch new";
+        };
         mbsync = {
           enable = true;
           create = "maildir";
@@ -35,7 +39,11 @@
           "git@gs-101.dev"
         ];
         imap.host = "imap.purelymail.com";
-        imapnotify.enable = true;
+        imapnotify = {
+          enable = true;
+          onNotify = "mbsync purelymail";
+          onNotifyPost = "notmuch new";
+        };
         mbsync = {
           enable = true;
           create = "maildir";

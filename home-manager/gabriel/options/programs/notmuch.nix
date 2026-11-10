@@ -63,10 +63,7 @@ in
 {
   programs.notmuch = {
     enable = true;
-    hooks = {
-      preNew = "${lib.getExe pkgs.isync} -a";
-      postNew = "${lib.getExe mailNotify}";
-    };
+    hooks.postNew = "${lib.getExe mailNotify}";
     settings.new.tags = [
       "unread"
       "inbox"
