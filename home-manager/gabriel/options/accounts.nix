@@ -1,9 +1,14 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 {
   accounts.email = {
     accounts.disroot = {
       address = "gabrielsantosdesouza@disroot.org";
       imap.host = "disroot.org";
+      imapnotify = {
+        enable = true;
+        boxes = [ "Inbox" ];
+        onNotify = "${lib.getExe pkgs.notmuch} new";
+      };
       mbsync = {
         enable = true;
         create = "maildir";

@@ -42,6 +42,7 @@
     zathura.enable = true;
   };
   services = {
+    imapnotify.enable = true;
     kdeconnect.enable = true;
     ssh-agent.enable = true;
     syncthing.enable = true; # TODO: Make this declarative.
