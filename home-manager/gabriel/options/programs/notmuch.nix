@@ -64,10 +64,16 @@ in
   programs.notmuch = {
     enable = true;
     hooks.postNew = "${lib.getExe mailNotify}";
-    settings.new.tags = [
-      "unread"
-      "inbox"
-      "new"
-    ];
+    settings = {
+      index = {
+        # Set the header to use for the original recipient of a message.
+        "header.OrigTo" = "X-Pm-Original-To";
+      };
+      new.tags = [
+        "unread"
+        "inbox"
+        "new"
+      ];
+    };
   };
 }
