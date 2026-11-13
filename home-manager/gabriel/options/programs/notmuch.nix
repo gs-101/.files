@@ -17,13 +17,10 @@ let
         import subprocess
         import notmuch2
 
-        ICON_PATH = (
-            "${pkgs.notmuch}"
-            "/share/icons/hicolor/48x48/apps/notmuch.png"
-        )
+        ICON = "mail-message-new"
 
         with notmuch2.Database(mode=notmuch2.Database.MODE.READ_WRITE) as database:
-            for message in database.messages("tag:new"):
+            for message in database.messages("tag:new and tag:unread"):
                 with open(message.path, "rb") as f:
                     email_message = email.message_from_binary_file(
                         f, policy=email.policy.default
@@ -52,11 +49,12 @@ let
                     "-a",
                     "Notmuch",
                     "-i",
-                    ICON_PATH,
+                    ICON,
                     sender,
                     notification,
                 ])
 
+            for message in database.messages("tag:new"):
                 message.tags.discard("new")
       '';
 in
